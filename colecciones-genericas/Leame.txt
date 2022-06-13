@@ -1,0 +1,14 @@
+Programación 4 - Implementación de colecciones IDictionary - ICollection
+
+La implementación está compuesta por la clase List, una lista enlazada que implementa ICollection y OrderedDictionary, un ABB que implementa IDictionary y agrega funcionalidades extra como la iteración por orden ascendente o descendente (según el orden de las claves) y permite obtener el valor máximo y mínimo de los elementos. OrderedDictionary usa claves que derivan de la clase abstracta OrderedKey que es una subclase de IKey, que define un orden (<, =, >) entre sus elementos.
+
+Se incluye implementaciones de ejemplo de claves Integer y String que derivan de OrderedKey.
+
+Contenido:
+- collections: Implementación de ICollection, IDictionary, IKey e IIterator
+               usando OrderedDictionary y List
+- interfaces: Tiene la definición de las interfaces comunes
+- Integer.cpp/.h : Clase Entero (deriva de ICollectible y OrderedKey)
+- String.cpp/.h : Clase String (deriva de ICollectible y OrderedKey)
+- test.cpp: Programa de prueba
+- ColDCD.png y DictDCD.png: Diagramas de clases de las colecciones
