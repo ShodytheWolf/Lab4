@@ -19,3 +19,11 @@ void Jugador::setNickname(char* nickname)
 {
     this->nickname = nickname;
 }
+
+char* Jugador::getDescripcionJugador() {
+    return this->descripcionJugador;
+}
+
+void Jugador::setDescripcionJugador(char* descripcionJugador) {
+    this->descripcionJugador = descripcionJugador;
+}
