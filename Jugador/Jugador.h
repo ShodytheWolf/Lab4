@@ -7,11 +7,14 @@
 class Jugador : public Usuario
 {
 public:
-    Jugador();
+    Jugador(char* nickname, char* descripcionJugador);
     ~Jugador();
+    char* getNickname(); 
+    void setNickname(char* nickname);
 
 private:
-
+    char* nickname;
+    char* descripcionJugador;
 };
 
 #endif

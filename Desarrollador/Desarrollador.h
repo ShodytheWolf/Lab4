@@ -7,11 +7,13 @@
 class Desarrollador : public Usuario
 {
 public:
-    Desarrollador();
+    Desarrollador(char*);
     ~Desarrollador();
+    char* getNombreEmpresa();
+    void setNombreEmpresa(char* nombreEmpresa);
 
 private:
-
+    char* nombreEmpresa;
 };
 
 #endif
