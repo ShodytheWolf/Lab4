@@ -3,11 +3,11 @@
 
 #pragma once
 
-typedef enum enumCategoria{
+typedef enum {
     Genero,
     Plataforma,
     Otro
-};
+}enumCategoria;
 
 
 #endif
