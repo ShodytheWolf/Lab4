@@ -6,6 +6,7 @@
 
 #pragma once
 
+
 class Registro
 {
 public:
@@ -26,7 +27,7 @@ public:
 private:
     float cantHoras;
     int puntajeJuego;  
-
+    dtVideoJuego dtJuego;
 };
 
 #endif

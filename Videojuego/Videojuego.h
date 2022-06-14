@@ -1,6 +1,7 @@
 #ifndef VIDEOJUEGO_H
 #define VIDEOJUEGO_H
 #include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/collections/List.h"
 #include "../Categoria/Categoria.h"
 #include "../Suscripcion/Suscripcion.h"
@@ -10,7 +11,7 @@
 
 #pragma once
 
-class Videojuego
+class Videojuego : public ICollectible
 {
 public:
     Videojuego();

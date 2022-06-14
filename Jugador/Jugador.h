@@ -7,6 +7,7 @@
 #include "../Datatypes/dtPartidaMultijugador.h"
 #include "../Enumeration/enumSuscripcion.h"
 #include "../Enumeration/enumPago.h"
+#include "../colecciones-genericas/interfaces/ICollection.h"
 
 #pragma once
 
@@ -36,6 +37,8 @@ public:
 private:
     char* nickname;
     char* descripcionJugador;
+    ICollection* partidasInactivas;
+    ICollection* partidasActivas;
 };
 
 #endif
