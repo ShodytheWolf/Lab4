@@ -6,20 +6,15 @@ using namespace std;
 
 
 void menuPrincipal(){
-
-	cout<<"Bienvenido a Steam barato!"<<endl;
-	cout<<"Seleccione una opcion a continuacion:"<<endl;
-	cout<<"-------------------------------------"<<endl<<endl;
-	cout<<"1)Alta de Usuario"<<endl;
-	cout<<"2)Iniciar Sesion"<<endl;
-	cout<<"3)Cargar datos de prueba"<<endl;
-	cout<<"4)Salir"<<endl;
-}
-
-int main(){
-	int opt;
+    	int opt;
 	do{
-		menuPrincipal();
+        cout<<"Bienvenido a Steam barato!"<<endl;
+	    cout<<"Seleccione una opcion a continuacion:"<<endl;
+	    cout<<"-------------------------------------"<<endl<<endl;
+	    cout<<"1)Alta de Usuario"<<endl;
+	    cout<<"2)Iniciar Sesion"<<endl;
+	    cout<<"3)Cargar datos de prueba"<<endl;
+	    cout<<"4)Salir"<<endl;
 		cin>>opt;
 	switch(opt){
 		
@@ -37,16 +32,15 @@ int main(){
 			break;
 
 			case 4:
-				return 0;
+				return;
 			break;
 
 			default:
 			cout<<"opcion invalida"<<endl;
 		}
 	}while(opt != 4);
-
-    return 0;
 }
+
 
 int menuJugador(){
 
@@ -101,3 +95,9 @@ int menuJugador(){
     
    }
 }
+
+int main(){
+    menuPrincipal();
+    return 0;
+}
+
