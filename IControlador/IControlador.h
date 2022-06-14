@@ -20,7 +20,7 @@ class IControlador{
         virtual void ingresarDescripcion(char* descripcion) = 0;                    //5
         virtual void confirmarNuevoJugador() = 0;                                   //6
         virtual void ingresoDatos(char* email, char* contrasenia) = 0;              //7
-        virtual void listarCateogriaXNombre() = 0; //SET <string>                   //8
+        virtual void listarCategoriaXNombre() = 0; //SET <string>                   //8
         virtual void confirmar(dtCategoria datosCategoria) =  0;                    //9
         virtual void listarGenero() =  0; //SET <dtCategoria>                       //10
         virtual void listarPlataforma() =  0; //SET <dtCategoria>                   //11
