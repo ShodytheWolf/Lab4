@@ -26,7 +26,7 @@ public:
 private:
     float cantHoras;
     int puntajeJuego;  
-
+    dtvideoJuego dtJuego;
 };
 
 #endif
