@@ -5,12 +5,13 @@
 
 class Anual : public Suscripcion
 {
-public:
-    Anual();
-    ~Anual();
-
-private:
-
+    public:
+        Anual();
+        ~Anual();
+        float getCostoAnual();
+        void setCostoAnual(float costoAnual);
+    private:
+        float costoAnual;
 };
 
 #endif

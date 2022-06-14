@@ -6,11 +6,15 @@
 
 class Suscripcion : public ICollectible
 {
-public:
-    Suscripcion();
-    ~Suscripcion();
+    public:
+        Suscripcion();
+        ~Suscripcion();
+        char* getDescripcion();
+        void setDescripcion(char* descripcion);
+    private:
+        char* descripcion;
 
-private:
+
 
 };
 

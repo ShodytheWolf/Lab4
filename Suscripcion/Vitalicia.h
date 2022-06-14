@@ -5,11 +5,14 @@
 
 class Vitalicia : public Suscripcion
 {
-public:
-    Vitalicia();
-    ~Vitalicia();
+    public:
+        Vitalicia();
+        ~Vitalicia();
+        float getCostoVitalicia();
+        void setCostoVitalicia(float costoVitalicia); 
 
-private:
+    private:
+        float costoVitalicia;
 
 };
 

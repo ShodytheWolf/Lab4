@@ -1,5 +1,8 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
+#include "../Datatypes/dtVideoJuego.h"
+#include "../Enumeration/enumPago.h"
+#include "../Enumeration/enumSuscripcion.h"
 
 #pragma once
 
@@ -16,9 +19,14 @@ public:
     void cancelSuscripcion();
     bool estaSuscrito();
     void eliminoContratacion();
+    float getCantHoras();
+    void setCantHoras(float cantHoras);
+    int getPuntajeJuego();
+    void setPuntajeJuego(int puntajeJuego);
 private:
     float cantHoras;
-    int puntajeJuego; 
+    int puntajeJuego;  
+
 };
 
 #endif

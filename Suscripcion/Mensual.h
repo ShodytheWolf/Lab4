@@ -5,11 +5,14 @@
 
 class Mensual : public Suscripcion
 {
-public:
-    Mensual();
-    ~Mensual();
+    public:
+        Mensual();
+        ~Mensual();
+        float getCostoMensual();
+        void setCostoMensual(float costoMensual);
+    private:
+        float costoMensual;
 
-private:
 
 };
 

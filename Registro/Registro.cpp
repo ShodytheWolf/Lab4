@@ -21,3 +21,17 @@ void Registro::eliminoContratacion(){
 bool Registro::estaSuscrito(){
     
 }
+
+float Registro::getCantHoras() {
+	return this->cantHoras;
+}
+void Registro::setCantHoras(float cantHoras) {
+	this->cantHoras = cantHoras;
+}
+
+int Registro::getPuntajeJuego() {
+ 	return this->puntajeJuego;
+ }
+ void Registro::setPuntajeJuego(int puntajeJuego) {
+ 	this->puntajeJuego = puntajeJuego;
+ }
