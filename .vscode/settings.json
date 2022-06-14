@@ -1,7 +1,12 @@
 {
     "files.associations": {
         "*.tcc": "cpp",
+<<<<<<< HEAD
         "ostream": "cpp",
         "iostream": "cpp"
+=======
+        "iostream": "cpp",
+        "ostream": "cpp"
+>>>>>>> 2529aaedbd93c6b0aa7ce644870252d063718d12
     }
 }
