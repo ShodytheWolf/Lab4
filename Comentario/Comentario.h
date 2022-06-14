@@ -17,6 +17,10 @@ public:
     void settexto(char* texto);
     time_t gettime() const;
     void settime(time_t horaEnvio);
+    
+    void enviarComentarios(char* comentario);
+    //set<dtComentario> listarComentariosExistentes();
+    void enviarComentarios(int idNumerico, char* comentario);
 private:
     int idNumerico;
     time_t horaEnvio;
