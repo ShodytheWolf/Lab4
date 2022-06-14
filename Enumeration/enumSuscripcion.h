@@ -3,11 +3,11 @@
 
 #pragma once
 
-typedef enum enumSuscripcion{
+typedef enum{
     Mensual,
     Trimestral,
     Anual,
     Vitalicia
-};
+}enumSuscripcion;
 
 #endif

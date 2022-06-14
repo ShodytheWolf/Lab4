@@ -3,9 +3,9 @@
 
 #pragma once
 
-typedef enum enumPago{
+typedef enum{
     Tarjeta,
     Paypal
-};
+}enumPago;
 
 #endif
