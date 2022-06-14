@@ -1,7 +1,7 @@
 #include "Registro.h"
 
 Registro::Registro(){}
-Registro::Registro(float cantHoras,enumPuntuacion puntajeJuego){
+Registro::Registro(float cantHoras,int puntajeJuego){
     this->cantHoras = cantHoras;
     this->puntajeJuego = puntajeJuego;
 }
