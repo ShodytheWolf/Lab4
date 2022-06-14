@@ -23,7 +23,7 @@ public:
     char* getDescripcion();
     void setDescripcion(char* desc);
     void aniadirCategoria(Categoria cat);
-    void crearSuscripciones(dtSuscripcion costo);
+    void crearSuscripciones(dtSuscripcion costos);
     void addDtJuego(dtVideoJuego datosJuego);
     List getEstadisticas(); //le tengo que pasar por parametro un set de strings, nidea como hacerlo uwu
 

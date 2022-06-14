@@ -8,6 +8,7 @@ class dtEstadistica
 public:
     dtEstadistica();
     ~dtEstadistica();
+    dtEstadistica(char* nom, float datinho);
 
     char* getNombre();
     float getDato();
