@@ -3,6 +3,7 @@
 
 #pragma once
 
+
 class Registro
 {
 public:

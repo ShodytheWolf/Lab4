@@ -1,9 +1,10 @@
 #ifndef USUARIO_H
 #define USUARIO_H
+#include "../colecciones-genericas/interfaces/ICollectible.h"
 
 #pragma once
 
-class Usuario
+class Usuario : public ICollectible
 {
 public:
     Usuario();
