@@ -11,16 +11,19 @@ public:
     Comentario(int idNumerico, time_t horaEnvio, char* texto);
     ~Comentario();
 
-    int getidNumerico() const;
-    void setidNumerico(int idNumerico);
-    char* gettexto() const;
-    void settexto(char* texto);
-    time_t gettime() const;
-    void settime(time_t horaEnvio);
-    
+    int getIdNumerico();
+    void setIdNumerico(int idNumerico);
+
+    time_t getHoraEnvio();
+    void setHoraEnvio(time_t horaEnvio);
+
+    char* getText();
+    void setText(char* text); 
+
     void enviarComentarios(char* comentario);
     //set<dtComentario> listarComentariosExistentes();
     void enviarComentarios(int idNumerico, char* comentario);
+
 private:
     int idNumerico;
     time_t horaEnvio;

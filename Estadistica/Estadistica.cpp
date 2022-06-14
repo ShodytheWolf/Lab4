@@ -30,3 +30,5 @@ dtEstadistica * Estadistica::getDtEstadistica(){
     dtEstadistica * estadistica = new dtEstadistica(this->nombre,this->dato);
     return estadistica;
 };
+
+
