@@ -9,7 +9,9 @@ class dtPartidaMultijugador : public dtPartida
 public:
     dtPartidaMultijugador();
     ~dtPartidaMultijugador();
-
+    
+    bool getEnVivo();
+    char* getnickHost();
 private:
     bool enVivo;
     char* nickHost;

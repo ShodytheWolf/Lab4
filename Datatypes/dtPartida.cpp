@@ -9,3 +9,7 @@ dtPartida::~dtPartida()
 {
 
 }
+
+char* dtPartida::getNombreVideojuego(){
+    return this->nombreVideojuego;
+};

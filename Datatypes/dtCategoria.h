@@ -10,6 +10,9 @@ public:
     dtCategoria();
     ~dtCategoria();
 
+    char* getNombre();
+    char* getDescripcion();
+    
 private:
     char* nombre;
     char* descripcion;

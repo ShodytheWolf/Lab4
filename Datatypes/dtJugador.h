@@ -9,6 +9,9 @@ public:
     dtJugador();
     ~dtJugador();
 
+    char* getNombre();
+    char* getDescripcion();
+    
 private:
     char* nombre;
     char* descripcion;
