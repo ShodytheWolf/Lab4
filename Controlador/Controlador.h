@@ -6,6 +6,8 @@
 #include "../Enumeration/enumPago.h"
 #include "../Enumeration/enumSuscripcion.h"
 #include "../IControlador/IControlador.h"
+#include "../colecciones-genericas/interfaces/ICollection.h"
+
 
 class Controlador: public IControlador{
 
@@ -21,6 +23,11 @@ class Controlador: public IControlador{
         int ultimaIdComentario;
         static Controlador* instance;
 
+        //colecciones
+        ICollection* usuarios;
+        ICollection* categorias;
+        ICollection* videojuegos;
+
     public:
         static Controlador* getInstance();
         void ingresoDatos(char* email, char* contrasenia);              //1
@@ -30,7 +37,7 @@ class Controlador: public IControlador{
         void ingresarDescripcion(char* descripcion);                    //5
         void confirmarNuevoJugador();                                   //6
         void ingresoDatos(char* email, char* contrasenia);              //7
-        void listarCateogriaXNombre(); //SET <string>                   //8
+        void listarCategoriaXNombre(); //SET <string>                   //8
         void confirmar(dtCategoria datosCategoria);                    //9
         void listarGenero(); //SET <dtCategoria>                       //10
         void listarPlataforma(); //SET <dtCategoria>                   //11

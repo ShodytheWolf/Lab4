@@ -2,10 +2,11 @@
 #define PARTIDA_H
 #include "ctime"
 #include "../Datatypes/dtPartida.h"
+#include "../colecciones-genericas/interfaces/ICollectible.h"
 
 #pragma once
 
-class Partida
+class Partida : public ICollectible
 {
 public:
     Partida();

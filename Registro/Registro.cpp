@@ -7,7 +7,6 @@ Registro::Registro(float cantHoras,int puntajeJuego){
 }
 Registro::~Registro(){}
 dtVideoJuego Registro::getDtJuego(){
-    return this->dtVideoJuego;
 }
 void Registro::activarSuscripcion(enumSuscripcion tipoSuscripcion,enumPago metodoDePago){
 

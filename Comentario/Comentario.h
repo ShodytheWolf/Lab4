@@ -3,8 +3,10 @@
 
 #pragma once
 #include <ctime>
+#include "../colecciones-genericas/interfaces/ICollectible.h"
 
-class Comentario
+
+class Comentario : public ICollectible
 {
 public:
     Comentario();
