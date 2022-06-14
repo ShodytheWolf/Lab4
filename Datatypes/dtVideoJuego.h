@@ -9,12 +9,18 @@ public:
     dtVideoJuego();
     ~dtVideoJuego();
 
+    char* getNombreVideojuego();
+    char* getNombreDesarrollador();
+    char* getDescripcionJuego();
+    dtSuscripcion getDtSuscripcion();
+    bool getEstaSuscripto();
+
 private:
     char* nombreJuego;
     char* nombreDesarrollador;
     char* descripcionJuego;
     dtSuscripcion costo;
-    bool estaSuscrito;
+    bool estaSuscripto;
     //set de Categorias, no sé si hacer con los ICollection.
 };
 

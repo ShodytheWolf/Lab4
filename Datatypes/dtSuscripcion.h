@@ -9,6 +9,10 @@ public:
     dtSuscripcion();
     ~dtSuscripcion();
 
+    float getCostoMensual();
+    float getCostoTrimestral();
+    float getCostoAnual();
+    float getCostoVitalicia();
 private:
     float costoMensual;
     float costoTrimestral;

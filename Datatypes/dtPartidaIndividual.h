@@ -10,6 +10,10 @@ public:
     dtPartidaIndividual();
     ~dtPartidaIndividual();
 
+    bool getContinuacion();
+    int getIdPartidaAnterior();
+    float getDuracion();
+    
 private:
     bool continuacion;
     int idPartidaAnterior;

@@ -10,6 +10,8 @@ public:
     dtPartida();
     ~dtPartida();
 
+    char* getNombreVideojuego();
+
 private:
     int idPartida;
    // datetime FechaInicio; ver como era lo de las fechas
