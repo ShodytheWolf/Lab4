@@ -3,11 +3,13 @@
 #include "../Datatypes/dtVideoJuego.h"
 #include "../Enumeration/enumPago.h"
 #include "../Enumeration/enumSuscripcion.h"
+#include "../colecciones-genericas/interfaces/ICollectible.h"
+#include "../colecciones-genericas/interfaces/ICollection.h"
 
 #pragma once
 
 
-class Registro
+class Registro : public ICollectible
 {
 public:
     Registro();
@@ -28,6 +30,7 @@ private:
     float cantHoras;
     int puntajeJuego;  
     dtVideoJuego dtJuego;
+    ICollection* contratacionesInactivas;
 };
 
 #endif
