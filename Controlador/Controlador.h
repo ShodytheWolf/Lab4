@@ -21,7 +21,7 @@ class Controlador: public IControlador{
         char* nombreVideojuego;
         int ultimaIdPartida;
         int ultimaIdComentario;
-        Controlador* instance;
+        static Controlador* instance;
 
         //colecciones
         ICollection* usuarios;

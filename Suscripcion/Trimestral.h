@@ -5,11 +5,15 @@
 
 class Trimestral : public Suscripcion
 {
-public:
-    Trimestral();
-    ~Trimestral();
+    public:
+        Trimestral();
+        ~Trimestral();
+        float getCostoTrimestral();
+        void setCostoTrimestral(float costoTrimestral);
 
-private:
+    private:
+        float costoTrimestral;
+
 
 };
 
