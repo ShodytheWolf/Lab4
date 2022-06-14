@@ -3,6 +3,16 @@
 
 using namespace std;
 
+int menuJugador();
+int menuPrincipal();
+int menuPublicarVideojuego();
+int menuSuscribirse()
+int menuAsignarPuntaje();
+
+int main(){
+    menuPrincipal();
+    return 0;
+}
 
 
 void menuPrincipal(){
@@ -96,8 +106,161 @@ int menuJugador(){
    }
 }
 
-int main(){
-    menuPrincipal();
-    return 0;
+int menuPublicarVideojuego(){
+	int opcion = 0;
+
+	//dtVideojuego datosjuegos;
+	//set<dtcategoria> categorias;
+
+    cout << "|======================|" << endl;
+    cout << " Publicar un videojuego." << endl;
+    cout << "|======================|" << endl;
+    
+    cout << "1- Listar generos." << endl;
+    cout << "2- Listar plataformas." << endl;
+    cout << "3- Listar Otros." << endl;
+    cout << "4- PublicarVideojuego." << endl;
+    cout << "5- Salir." << endl;
+    cin >> opcion;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
+
+	      
+   while (opcion <= 1 || opcion>= 5){
+        try{
+            switch(opcion){
+                case 1:
+                    //listarGenero()<dtCategoria>;
+					//seleccion
+					break;
+                case 2:
+                    //listarPlataforma()<dtCategoria>
+					//seleccion
+					break;
+                case 3:
+                    //listarOtro()<dtCategoria>
+					//if
+					//seleccion
+					break;
+                case 4:
+					//se insertan datos del jueguito
+                    //publicarVideojuego(dtVideojuego datosjuego, set<categorias> categorias);
+					//confirmacion if
+					break;
+                case 5:
+                    //menuprincipal(); o menuDesarrollador();
+				break;
+                default: 
+                cout << "Opción incorrecta guanaco." << endl;
+				break;
+            }
+        }
+        catch(invalid_argument& error){
+        cout << error.what();
+        }
+    
+   }
+
 }
 
+int menuSuscribirse(){
+	int opcion = 0;
+
+	
+
+    cout << "|===========================|" << endl;
+    cout << " Suscribirse a un videojuego." << endl;
+    cout << "|===========================|" << endl;
+    
+    cout << "1- ListarVideojuegos." << endl;
+    cout << "2- IngresarVideojuego." << endl;
+    cout << "3- NuevaSuscripcion." << endl;
+    cout << "4- Dar de Baja." << endl;
+    cout << "5- Salir." << endl;
+    cin >> opcion;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
+
+	      
+   while (opcion <= 1 || opcion>= 5){
+        try{
+            switch(opcion){
+                case 1:
+                    //listarVideojuegosActivos();
+                    //listarVideojuegosInActivos();
+					break;
+                case 2:
+					//char* nombreVideojuego;
+                    //ingresoVideojuego(nombreVideojuego)
+					break;
+                case 3:
+					//enumPago metodoDePago;
+					//enumSuscripcion tipoSuscripcion;
+                    //nuevaSuscripcion(metodoDePago,tipoSuscripcion);
+					break;
+                case 4:
+					//darDebaja();
+					break;
+                case 5:
+                    //menuprincipal(); o menuJugador();
+				break;
+                default: 
+                cout << "Opción incorrecta platita" << endl;
+				break;
+            }
+        }
+        catch(invalid_argument& error){
+        cout << error.what();
+        }
+    
+   }
+
+}
+
+int menuAsignarPuntaje(){
+	int opcion = 0;
+
+    cout << "|===============================|" << endl;
+    cout << " Asignar puntaje a un videjuego." << endl;
+    cout << "|===============================|" << endl;
+    
+    cout << "1- ListarVideojuegos." << endl;
+    cout << "2- Asignar puntaje." << endl;
+    cout << "3- Salir." << endl;
+    cin >> opcion;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
+
+	      
+   while (opcion <= 1 || opcion>= 3){
+        try{
+            switch(opcion){
+                case 1:
+                    //listarVideojuegos();
+					break;
+                case 2:
+					//char* nombreVideojuego;
+					//int puntuacion;
+					//asignarPuntaje(nombreVideojuego, puntuacion);
+					break;
+                case 3:
+                    //menuprincipal(); o menuJugador();
+				break;
+                default: 
+                cout << "Opción incorrecta  mastercard." << endl;
+				break;
+            }
+        }
+        catch(invalid_argument& error){
+        cout << error.what();
+        }
+    
+   }
+
+}
