@@ -9,9 +9,11 @@ class Individual : public Partida
 public:
     Individual();
     ~Individual();
+    Individual* getPartidaContinuada();
+    void setPartidaContinuada(Individual* partidaContinuada);
 
 private:
-
+    Individual* partidaContinuada;
 };
 
 #endif
