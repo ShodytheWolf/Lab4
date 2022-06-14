@@ -19,7 +19,7 @@ class Controlador: public IControlador{
         char* nombreVideojuego;
         int ultimaIdPartida;
         int ultimaIdComentario;
-        Controlador* instance;
+        static Controlador* instance;
 
     public:
         static Controlador* getInstance();
