@@ -20,7 +20,7 @@ public:
     void setNickname(char* nickname);
     char* getDescripcionJugador();
     void setDescripcionJugador(char* descripcionJugador);
-    void pasoJuego(char* nombreVideokuego);
+    void pasoJuego(char* nombreVideojuego);
     //set<dtVideoJuego> getDatosVj(); Ver con el Taque como menajar las colleciones de DT's
     void aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago);
     //set<char*> listarJuegosSuscripto(); 
