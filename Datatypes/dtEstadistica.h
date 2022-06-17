@@ -8,13 +8,13 @@ class dtEstadistica
 public:
     dtEstadistica();
     ~dtEstadistica();
-    dtEstadistica(char* nom, float datinho);
+    dtEstadistica(string nom, float datinho);
 
-    char* getNombre();
+    string getNombre();
     float getDato();
 
 private:
-    char* nombre;
+    string nombre;
     float dato;
 };
 

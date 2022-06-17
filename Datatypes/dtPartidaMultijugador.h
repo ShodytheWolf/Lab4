@@ -11,11 +11,11 @@ public:
     ~dtPartidaMultijugador();
     
     bool getEnVivo();
-    char* getnickHost();
+    string getnickHost();
 private:
     bool enVivo;
-    char* nickHost;
-    char* jugadoresUnidos[10]; //manejarlo con STL????
+    string nickHost;
+    string** jugadoresUnidos;
 };
 
 #endif

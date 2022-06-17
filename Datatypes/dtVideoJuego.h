@@ -21,7 +21,7 @@ private:
     char* descripcionJuego;
     dtSuscripcion costo;
     bool estaSuscripto;
-    //set de Categorias, no sé si hacer con los ICollection.
+    dtCategoria** dtCategorias;
 };
 
 #endif
