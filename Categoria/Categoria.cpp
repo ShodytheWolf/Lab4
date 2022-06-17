@@ -35,3 +35,7 @@ enumCategoria Categoria::getTipoCategoria() {
 void Categoria::setTipoCategoria(enumCategoria tipoCategoria) {
 	this->tipoCategoria = tipoCategoria;
 }
+
+dtCategoria Categoria::getDtGenero(){}
+dtCategoria Categoria::getDtPlataforma(){}
+dtCategoria Categoria::getDtOtro(){}

@@ -9,3 +9,5 @@ Multijugador::~Multijugador()
 {
 
 }
+
+time_t Multijugador::registrarHoraRetiro(){}

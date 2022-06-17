@@ -6,7 +6,7 @@ Registro::Registro(float cantHoras,int puntajeJuego){
     this->puntajeJuego = puntajeJuego;
 }
 Registro::~Registro(){}
-dtVideoJuego Registro::getDtJuego(){
+dtVideoJuego** Registro::getDtJuego(){
 }
 void Registro::activarSuscripcion(enumSuscripcion tipoSuscripcion,enumPago metodoDePago){
 

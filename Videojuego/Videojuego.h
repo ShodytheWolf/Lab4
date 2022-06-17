@@ -33,7 +33,7 @@ public:
     void aniadirCategoria(Categoria cat);
     void crearSuscripciones(dtSuscripcion costos);
     void addDtJuego(dtVideoJuego datosJuego);
-    dtEstadistica** getEstadisticas(); //le tengo que pasar por parametro un set de strings, nidea como hacerlo uwu
+    dtEstadistica** getEstadisticas();
 
 private:
     String nombreJuego; // atributo que sera la key

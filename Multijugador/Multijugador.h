@@ -11,7 +11,7 @@ class Multijugador : public Partida
         ~Multijugador();
         time_t registrarHoraRetiro();
     private:
-        //SET time_t horaRetiro;
+         time_t** horaRetiro;
 };
 
 #endif
