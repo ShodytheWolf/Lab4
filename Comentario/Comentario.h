@@ -5,6 +5,9 @@
 #include <ctime>
 #include <iostream>
 #include "../colecciones-genericas/interfaces/ICollectible.h"
+#include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../colecciones-genericas/collections/List.h"
+
 
 using namespace std;
 class Comentario : public ICollectible
@@ -31,5 +34,6 @@ private:
     int idNumerico; //key
     time_t horaEnvio;
     string text;
+    ICollection* respuesta = new List();
 };
 #endif

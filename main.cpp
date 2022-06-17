@@ -214,6 +214,7 @@ void menuSuscribirse(){
                     //cout << "Ingrese metodoDePago (1-Paypal o 2-Tarjeta): ";
                     //cin >> opcionPago;
                     //nuevaSuscripcion(metodoDePago,tipoSuscripcion);
+                    //suscripcion * sus = new suscripcion(metodoDePago, tipoSuscripcion);
 					break;
                 case 4:
 					//darDebaja();
