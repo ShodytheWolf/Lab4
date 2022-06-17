@@ -2,6 +2,7 @@
 #define ENVIVO_H
 #include "../Multijugador/Multijugador.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../colecciones-genericas/collections/List.h"
 
 #pragma once
 
@@ -12,7 +13,7 @@ public:
     ~EnVivo();
 
 private:
-ICollection* comentarios;
+    ICollection* comentarios = new List();
 };
 
 #endif

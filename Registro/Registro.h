@@ -3,8 +3,10 @@
 #include "../Datatypes/dtVideoJuego.h"
 #include "../Enumeration/enumPago.h"
 #include "../Enumeration/enumSuscripcion.h"
+#include "../Contratacion/Contratacion.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../colecciones-genericas/collections/List.h"
 
 #pragma once
 
@@ -17,7 +19,7 @@ public:
     ~Registro();
 
     dtVideoJuego getDtJuego();
-    //SET<dtVideoJuego> getDtVideoJuego();
+    dtVideoJuego** getDtVideoJuego();
     void activarSuscripcion(enumSuscripcion tipoSuscripcion, enumPago metodoDePago);
     void cancelSuscripcion();
     bool estaSuscrito();
@@ -29,8 +31,9 @@ public:
 private:
     float cantHoras;
     int puntajeJuego;  
-    dtVideoJuego dtJuego;
-    ICollection* contratacionesInactivas;
+    Videojuego* juego;
+    ICollection* contratacionesInactivas = new List();
+    Contratacion* contratacionActiva;
 };
 
 #endif

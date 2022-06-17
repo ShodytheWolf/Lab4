@@ -1,32 +1,30 @@
 #include "Usuario.h"
+#include <iostream>
 
-Usuario::Usuario(char* email, char* contrasenia)
-{
-    this->contrasenia = contrasenia;
-    this->email = email;
-}
+using namespace std;
+
 
 Usuario::~Usuario()
 {
 
 }
 
-char* Usuario::getContrasenia()
+string Usuario::getContrasenia()
 {
     return this->contrasenia;
 }
 
-void Usuario::setContrasenia(char* contrasenia)
+void Usuario::setContrasenia(string contrasenia)
 {
     this->contrasenia = contrasenia;
 }
 
-char* Usuario::getEmail()
+string Usuario::getEmail()
 {
     return this->email;
 }
 
-void Usuario::setEmail(char* email)
+void Usuario::setEmail(string email)
 {
     this->email = email;
 }

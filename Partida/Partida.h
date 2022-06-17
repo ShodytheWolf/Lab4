@@ -4,6 +4,8 @@
 #include "../Datatypes/dtPartida.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/String.h"
+#include "../colecciones-genericas/Integer.h"
+
 
 #pragma once
 
@@ -13,7 +15,7 @@ public:
     Partida();
     Partida(int id, time_t fechaInicio, float duracion);
     ~Partida();
-    int getId();
+    Integer getId();
     void setId(int id);
     time_t getFechaInicio();
     void setFechaInicio(time_t fechaInicio);
@@ -25,7 +27,7 @@ public:
     void eliminarComentarios();
 
 private:
-    int id; //key
+    Integer id; //key
     time_t fechaInicio;
     float duracion;
 };

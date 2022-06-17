@@ -28,7 +28,7 @@ public:
     void enviarComentarios(int idNumerico, char* comentario); 
 
 private:
-    int idNumerico; //key
+    int idNumerico; 
     time_t horaEnvio;
     string text;
 };

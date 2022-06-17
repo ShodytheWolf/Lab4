@@ -37,8 +37,10 @@ public:
 private:
     String nickname;//IKey String
     string descripcionJugador;
-    ICollection* partidasInactivas;
-    ICollection* partidasActivas;
+    IDictionary* partidasInactivas = new OrderedDictionary();
+    IDictionary* partidasActivas = new OrderedDictionary();
+    ICollection* partidasUnido = new List(); 
+    ICollection* registros = new List();
 };
 
 #endif

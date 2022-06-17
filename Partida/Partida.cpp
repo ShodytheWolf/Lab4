@@ -6,7 +6,7 @@ Partida::Partida()
 }
 
 Partida::Partida(int id, time_t fechaInicio, float duracion){
-    this->id = id;
+    setId(id);
     this->fechaInicio = fechaInicio;
     this->duracion = duracion;
 }
@@ -16,12 +16,12 @@ Partida::~Partida()
 
 }
 
-int Partida::getId() {
+Integer Partida::getId() {
     return this->id;
 }
 
 void Partida::setId(int id) {
-    this->id = id;
+    this->id = Integer(id);
 }
 
 time_t Partida::getFechaInicio() {

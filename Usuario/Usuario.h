@@ -8,16 +8,15 @@ class Usuario : public ICollectible
 {
 public:
     Usuario();
-    Usuario(char* email, char* contrasenia);
     ~Usuario();
-    char* getContrasenia();
-    void setContrasenia(char*);
-    char* getEmail();
-    void setEmail(char*);
+    virtual string getContrasenia() = 0;
+    void setContrasenia(string);
+    string getEmail();
+    void setEmail(string);
 
 private:
-    char* email;
-    char* contrasenia;
+    string email;
+    string contrasenia;
 };
 
 #endif

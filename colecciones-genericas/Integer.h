@@ -16,8 +16,9 @@
 class Integer: public ICollectible, public OrderedKey
 {
 private:
-    const int val;
+    int val;
 public:
+    Integer();
     Integer(int i);
     int getValue() const;
     ComparisonRes compare(OrderedKey *k) const;

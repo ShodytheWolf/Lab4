@@ -1,6 +1,6 @@
 #include "Contratacion.h"
 
-Contratacion::Contratacion()
+Contratacion::Contratacion(enumSuscripcion tipoSuscripcio, enumPago tipoPago, Videojuego* vj)
 {
 
 }
