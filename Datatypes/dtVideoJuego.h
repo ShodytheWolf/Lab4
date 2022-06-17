@@ -1,5 +1,5 @@
-#ifndef DTVIDEOJUEGO.H_H
-#define DTVIDEOJUEGO.H_H
+#ifndef DTVIDEOJUEGO_H
+#define DTVIDEOJUEGO_H
 #include "dtSuscripcion.h"
 using namespace std;
 #include <iostream>

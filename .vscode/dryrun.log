@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/braian/Escritorio/Lab4'
+ 
+g++ -std=c++11 -Wall -o main.o -c main.cpp
+g++ -std=c++11 -Wall -o myapp main.o 
+make: Leaving directory '/home/braian/Escritorio/Lab4'
+ 
