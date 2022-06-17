@@ -5,6 +5,7 @@
 #include "../Enumeration/enumSuscripcion.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../Videojuego/Videojuego.h"
 
 #pragma once
 
@@ -31,6 +32,7 @@ private:
     int puntajeJuego;  
     dtVideoJuego dtJuego;
     ICollection* contratacionesInactivas;
+    Videojuego* juegoSuscripto;
 };
 
 #endif
