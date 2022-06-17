@@ -2,7 +2,7 @@
 
 Desarrollador::Desarrollador(char* nombreEmpresa)
 {
-    this->nombreEmpresa = nombreEmpresa;
+    setNombreEmpresa(nombreEmpresa);
 }
 
 Desarrollador::~Desarrollador()
@@ -10,10 +10,10 @@ Desarrollador::~Desarrollador()
 
 }
 
-char* Desarrollador::getNombreEmpresa() {
+String Desarrollador::getNombreEmpresa() {
     	return this->nombreEmpresa;
 }
 
 void Desarrollador::setNombreEmpresa(char* nombreEmpresa) {
-	this->nombreEmpresa = nombreEmpresa;
+	this->nombreEmpresa = String(nombreEmpresa);
 }
