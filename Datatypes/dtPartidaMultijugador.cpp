@@ -14,6 +14,6 @@ bool dtPartidaMultijugador::getEnVivo(){
     return this->enVivo;
 };
 
-char* dtPartidaMultijugador::getnickHost(){
+string dtPartidaMultijugador::getnickHost(){
     return this->nickHost;
 };

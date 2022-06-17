@@ -1,6 +1,9 @@
 #ifndef DTPARTIDA_H
 #define DTPARTIDA_H
-//#include"time.h"
+#include "time.h"
+
+using namespace std;
+#include <iostream>
 
 #pragma once
 
@@ -10,12 +13,12 @@ public:
     dtPartida();
     ~dtPartida();
 
-    char* getNombreVideojuego();
+   string getNombreVideojuego();
 
 private:
     int idPartida;
-   // datetime FechaInicio; ver como era lo de las fechas
-   char* nombreVideojuego;
+    //t_time FechaInicio;
+    string nombreVideojuego;
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "dtEstadistica.h"
 
+
 dtEstadistica::dtEstadistica()
 {
 
@@ -10,7 +11,7 @@ dtEstadistica::~dtEstadistica()
 
 }
 
-char* dtEstadistica::getNombre(){
+string dtEstadistica::getNombre(){
     return this->nombre;
 };
 

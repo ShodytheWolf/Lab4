@@ -10,15 +10,15 @@ dtVideoJuego::~dtVideoJuego()
 
 }
 
-char* dtVideoJuego::getNombreVideojuego(){
+string dtVideoJuego::getNombreVideojuego(){
     return this->nombreJuego;
 };
 
-char* dtVideoJuego::getNombreDesarrollador(){
+string dtVideoJuego::getNombreDesarrollador(){
     return this->nombreDesarrollador;
 };
 
-char* dtVideoJuego::getDescripcionJuego(){
+string dtVideoJuego::getDescripcionJuego(){
     return this->descripcionJuego;
 };
 
