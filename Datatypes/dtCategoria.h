@@ -10,12 +10,12 @@ public:
     dtCategoria();
     ~dtCategoria();
 
-    char* getNombre();
-    char* getDescripcion();
+    string getNombre();
+    string getDescripcion();
     
 private:
-    char* nombre;
-    char* descripcion;
+    string nombre;
+    string descripcion;
 
 };
 

@@ -1,5 +1,7 @@
 #ifndef DTJUGADOR_H
 #define DTJUGADOR_H
+using namespace std;
+#include <iostream>
 
 #pragma once
 
@@ -9,12 +11,12 @@ public:
     dtJugador();
     ~dtJugador();
 
-    char* getNombre();
-    char* getDescripcion();
+    string getNombre();
+    string getDescripcion();
     
 private:
-    char* nombre;
-    char* descripcion;
+    string nombre;
+    string descripcion;
 };
 
 #endif
