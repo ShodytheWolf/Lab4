@@ -73,19 +73,19 @@ void menuJugador(){
                     //asignarpuntajeAvideojuego();
 					break;
                 case 3:
-                    //iniciarPartida
+                    //iniciarPartida();
 					break;
                 case 4:
-                    //AbandonarPartidaMultijugador
+                    //AbandonarPartidaMultijugador();
 					break;
                 case 5:
-                    //FinalizarPartida
+                    //FinalizarPartida();
 					break;
                 case 6:
-                    //verInformaciondeVideojuego
+                    //verInformaciondeVideojuego();
 					break;
                 case 7:
-                    //ModificarFechadelSistema
+                    //ModificarFechadelSistema();
 					break;
                 case 8:
                     //menuprincipal();
@@ -106,6 +106,7 @@ void menuPublicarVideojuego(){
 
 	//dtVideojuego datosjuegos;
 	//set<dtcategoria> categorias;
+    //char confirmacion;
 
     cout << "|======================|" << endl;
     cout << " Publicar un videojuego." << endl;
@@ -136,13 +137,24 @@ void menuPublicarVideojuego(){
 					break;
                 case 3:
                     //listarOtro()<dtCategoria>
-					//if
-					//seleccion
+					//cout << "¿Desea seleccionar otra categoría?" << endl;
+                    //cout << "Presione (s/S) para confirmar, o cualquier tecla para cancelar" << endl;
+                    //if (confirmacion == 's' || confirmacion == 'S'){
+                    //selecciono juego.
+                    //}
 					break;
                 case 4:
 					//se insertan datos del jueguito
                     //publicarVideojuego(dtVideojuego datosjuego, set<categorias> categorias);
-					//confirmacion if
+                    //cout << "¿Desea confirmar la publicación del videojuego?" << endl;
+                    //cout << "Presione (s/S) para confirmar, o cualquier tecla para cancelar" << endl;
+                    //if (confirmacion == 's' || confirmacion == 'S'){
+                    //videoJuego * jogo = new videoJuego(dtVideojuego, categorias);
+                    //}
+					//else {
+                    //cout << "Ha cancelado la publicacion volviendo al menu de desarrollador" << endl;
+                    //menuDesarrollador(); 
+                    //}
 					break;
                 case 5:
                     //menuDesarrollador();
@@ -192,10 +204,17 @@ void menuSuscribirse(){
 					break;
                 case 2:
 					//char* nombreVideojuego;
+                    //cout << "Ingrese nombre del videojuego: ";
+                    //cin >> nombreVideojuego;
                     //ingresoVideojuego(nombreVideojuego)
 					break;
                 case 3:
+                    //cout << "Ingrese tipo de suscripcion: (1-Mensual, 2-Trimestral, 3- Anual, 4- Vitalicia) ";
+                    //cin >> opcionSus;
+                    //cout << "Ingrese metodoDePago (1-Paypal o 2-Tarjeta): ";
+                    //cin >> opcionPago;
                     //nuevaSuscripcion(metodoDePago,tipoSuscripcion);
+                    //suscripcion * sus = new suscripcion(metodoDePago, tipoSuscripcion);
 					break;
                 case 4:
 					//darDebaja();
@@ -242,6 +261,10 @@ void menuAsignarPuntaje(){
                 case 2:
 					//char* nombreVideojuego;
 					//int puntuacion;
+                    //cout << "Ingrese nombre del videojuego: " << endl;
+                    //cin >> nombreVideojuego;
+                    //cout << "Ingrese puntuación del videojuego: " << endl;
+                    //cin >> puntuacion;
 					//asignarPuntaje(nombreVideojuego, puntuacion);
 					break;
                 case 3:
