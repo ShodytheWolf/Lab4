@@ -1,20 +1,24 @@
 #ifndef CATEGORIA_H
 #define CATEGORIA_H
+#include <iostream>
+#include "../colecciones-genericas/String.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../Datatypes/dtCategoria.h"
 #include "../Enumeration/enumCategoria.h"
+
+using namespace std;
 
 #pragma once
 
 class Categoria : public ICollectible
 {
 public:
-    Categoria(char* nombreCategoria, char* descripcionCategoria, enumCategoria tipoCategoria);
+    Categoria(char* nombreCategoria, string descripcionCategoria, enumCategoria tipoCategoria);
     ~Categoria();
-    char* getNombreCategoria();
+    String getNombreCategoria();
     void setNombreCategoria(char* nombreCategoria);
-    char* getDescripcionCategoria();
-    void setDescripcionCategoria(char* descripcionCategoria);
+    string getDescripcionCategoria();
+    void setDescripcionCategoria(string descripcionCategoria);
     enumCategoria getTipoCategoria();
     void setTipoCategoria(enumCategoria tipoCategoria);
     dtCategoria getDtGenero();
@@ -22,8 +26,8 @@ public:
     dtCategoria getDtOtro();
 
 private:
-    char* nombreCategoria;
-    char* descripcionCategoria;
+    String nombreCategoria;
+    string descripcionCategoria;
     enumCategoria tipoCategoria;
 };
 

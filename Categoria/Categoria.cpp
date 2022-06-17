@@ -1,8 +1,8 @@
 #include "Categoria.h"
 
-Categoria::Categoria(char* nombreCategoria, char* descripcionCategoria, enumCategoria tipoCategoria)
+Categoria::Categoria(char* nombreCategoria, string descripcionCategoria, enumCategoria tipoCategoria)
 {
-    this->nombreCategoria = nombreCategoria;
+    this->nombreCategoria = String(nombreCategoria);
     this->descripcionCategoria = descripcionCategoria;
     this->tipoCategoria = tipoCategoria;
 }
@@ -12,19 +12,19 @@ Categoria::~Categoria()
 
 }
 
-char* Categoria::getNombreCategoria() {
+String Categoria::getNombreCategoria() {
     return this->nombreCategoria;
 }
 
 void Categoria::setNombreCategoria(char* nombreCategoria) {
-    this->nombreCategoria = nombreCategoria;
+    this->nombreCategoria = String(nombreCategoria);
 }
 
-char* Categoria::getDescripcionCategoria() {
+string Categoria::getDescripcionCategoria() {
     return this->descripcionCategoria;
 }
 
-void Categoria::setDescripcionCategoria(char* descripcionCategoria) {
+void Categoria::setDescripcionCategoria(string descripcionCategoria) {
     this->descripcionCategoria = descripcionCategoria;
 }
 

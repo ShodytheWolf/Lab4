@@ -7,6 +7,8 @@
 #include "../Enumeration/enumSuscripcion.h"
 #include "../IControlador/IControlador.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../colecciones-genericas/collections/OrderedDictionary.h"
+#include "../colecciones-genericas/interfaces/IDictionary.h"
 
 
 class Controlador: public IControlador{
@@ -70,8 +72,8 @@ class Controlador: public IControlador{
 
         //colecciones
         ICollection* usuarios;
-        ICollection* categorias;
-        ICollection* videojuegos;
+        IDictionary* categorias = new OrderedDictionary();
+        IDictionary* videojuegos = new OrderedDictionary();
 };
     
 

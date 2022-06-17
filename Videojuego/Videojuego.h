@@ -1,39 +1,45 @@
 #ifndef VIDEOJUEGO_H
 #define VIDEOJUEGO_H
+#include <string.h>
+#include <iostream>
+#include "String.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/collections/List.h"
+#include "../colecciones-genericas/interfaces/IDictionary.h"
+#include "../colecciones-genericas/collections/OrderedDictionary.h"
 #include "../Categoria/Categoria.h"
 #include "../Suscripcion/Suscripcion.h"
 #include "../Datatypes/dtSuscripcion.h"
 #include "../Datatypes/dtVideoJuego.h"
 #include "../Estadistica/Estadistica.h"
 
+using namespace std;
+
 #pragma once
 
 class Videojuego : public ICollectible
 {
 public:
-    Videojuego();
+    Videojuego(char*, string);
     ~Videojuego();
 
+    String getNombreJuego();
+    void setNombreJuego(char* nombreJuego);
 
-
-    char* getNombreJuego();
-    void setNombreJuego(char* jueguito);
-    char* getDescripcion();
-    void setDescripcion(char* desc);
+    string getDescripcionJuego();
+    void setDescripcionJuego(string descripcionJuego);
     void aniadirCategoria(Categoria cat);
     void crearSuscripciones(dtSuscripcion costos);
     void addDtJuego(dtVideoJuego datosJuego);
-    List getEstadisticas(); //le tengo que pasar por parametro un set de strings, nidea como hacerlo uwu
+    dtEstadistica** getEstadisticas(); //le tengo que pasar por parametro un set de strings, nidea como hacerlo uwu
 
 private:
-    char* nombreJuego;
-    char* descripcionJuego;
-    ICollection* categorias;
-    ICollection* suscripciones;
-    ICollection* estadisticas;
+    String nombreJuego; // atributo que sera la key
+    string descripcionJuego; 
+    ICollection* categorias = new List();
+    ICollection* suscripciones = new List();
+    IDictionary* estadisticas = new OrderedDictionary();
 };
 
 #endif

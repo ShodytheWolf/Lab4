@@ -1,8 +1,9 @@
 #include "Videojuego.h"
 
-Videojuego::Videojuego()
+Videojuego::Videojuego(char* nombre, string descripcion)
 {
-
+    this->nombreJuego = String(nombre); //creo la key
+    this->descripcionJuego = descripcion;
 }
 
 Videojuego::~Videojuego()
@@ -10,21 +11,21 @@ Videojuego::~Videojuego()
 
 }
 
-char* Videojuego::getNombreJuego(){
+String Videojuego::getNombreJuego() {
     return this->nombreJuego;
-};
+}
+void Videojuego::setNombreJuego(char*nombreJuego) {
+    this->nombreJuego = String(nombreJuego);
+}
 
-void Videojuego::setNombreJuego(char* juegito){
-    this->nombreJuego = juegito; //fijarme si así puedo reemplazar un char*, o si tengo que reemplazarlo de a uno.
-};
-
-char* Videojuego::getDescripcion(){
+string Videojuego::getDescripcionJuego() {
     return this->descripcionJuego;
-};
+}
+void Videojuego::setDescripcionJuego(string descripcionJuego) {
+    this->descripcionJuego = descripcionJuego;
+}
 
-void Videojuego::setDescripcion(char* desc){
-    this->descripcionJuego = desc;
-};
+
 
 void Videojuego::aniadirCategoria(Categoria cat){
     //KEKW
@@ -38,6 +39,6 @@ void Videojuego::addDtJuego(dtVideoJuego datosJuego){
     //KEKW
 };
 
-List Videojuego::getEstadisticas(){
+dtEstadistica** Videojuego::getEstadisticas(){
     //KEKWWWW
 };

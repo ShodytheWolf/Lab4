@@ -8,19 +8,20 @@
 class Estadistica : public ICollectible
 {
 public:
-    Estadistica();
+    Estadistica(char*, string);
     ~Estadistica();
 
-    char* getNombre();
-    char* getDescripcion();
+    String getNombre();
+    string getDescripcion();
     void setNombre(char* nuevoNombre);
-    void setDescripcion(char* nuevaDesc);
+    void setDescripcion(string nuevaDesc);
+    float getDato();
+    void setDato(float dato);
     dtEstadistica * getDtEstadistica();
 private:
-    char* nombre;
-    char* descripcion;
+    String nombre;
+    string descripcion;
     float dato;
-    float promedioPuntaje;
 };
 
 #endif
