@@ -145,7 +145,7 @@ void menuPublicarVideojuego(){
 					//confirmacion if
 					break;
                 case 5:
-                    //menuprincipal(); o menuDesarrollador();
+                    //menuDesarrollador();
 				break;
                 default: 
                 cout << "Opción incorrecta guanaco." << endl;
@@ -163,7 +163,9 @@ void menuPublicarVideojuego(){
 void menuSuscribirse(){
 	int opcion = 0;
 
-	
+	enumPago metodoDePago; 
+    enumSuscripcion tipoSuscripcion;
+
 
     cout << "|===========================|" << endl;
     cout << " Suscribirse a un videojuego." << endl;
@@ -193,15 +195,13 @@ void menuSuscribirse(){
                     //ingresoVideojuego(nombreVideojuego)
 					break;
                 case 3:
-					//enumPago metodoDePago;
-					//enumSuscripcion tipoSuscripcion;
                     //nuevaSuscripcion(metodoDePago,tipoSuscripcion);
 					break;
                 case 4:
 					//darDebaja();
 					break;
                 case 5:
-                    //menuprincipal(); o menuJugador();
+                    //menuJugador();
 				break;
                 default: 
                 cout << "Opción incorrecta platita" << endl;
@@ -245,7 +245,7 @@ void menuAsignarPuntaje(){
 					//asignarPuntaje(nombreVideojuego, puntuacion);
 					break;
                 case 3:
-                    //menuprincipal(); o menuJugador();
+                    //menuJugador();
 				break;
                 default: 
                 cout << "Opción incorrecta  mastercard." << endl;

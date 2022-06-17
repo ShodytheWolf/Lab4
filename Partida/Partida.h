@@ -24,7 +24,7 @@ public:
     void eliminarComentarios();
 
 private:
-    int id;
+    int id; //key
     time_t fechaInicio;
     float duracion;
 };

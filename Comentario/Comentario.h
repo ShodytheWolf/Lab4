@@ -3,14 +3,15 @@
 
 #pragma once
 #include <ctime>
+#include <iostream>
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 
-
+using namespace std;
 class Comentario : public ICollectible
 {
 public:
     Comentario();
-    Comentario(int idNumerico, time_t horaEnvio, char* texto);
+    Comentario(int idNumerico, time_t horaEnvio, string texto);
     ~Comentario();
 
     int getIdNumerico();
@@ -19,16 +20,16 @@ public:
     time_t getHoraEnvio();
     void setHoraEnvio(time_t horaEnvio);
 
-    char* getText();
-    void setText(char* text); 
+    string getText();
+    void setText(string text); 
 
-    void enviarComentarios(char* comentario);
+    void enviarComentarios(string comentario);
     //set<dtComentario> listarComentariosExistentes();
-    void enviarComentarios(int idNumerico, char* comentario);
+    void enviarComentarios(int idNumerico, char* comentario); 
 
 private:
-    int idNumerico;
+    int idNumerico; //key
     time_t horaEnvio;
-    char* text;
+    string text;
 };
 #endif

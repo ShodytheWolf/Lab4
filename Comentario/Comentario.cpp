@@ -25,9 +25,10 @@ void Comentario::setHoraEnvio(time_t horaEnvio) {
 	this->horaEnvio = horaEnvio;
 }
 
-char* Comentario::getText() {
+string Comentario::getText() {
 	return this->text;
 }
-void Comentario::setText(char* text) {
+
+void Comentario::setText(string text) {
 	this->text = text;
 }

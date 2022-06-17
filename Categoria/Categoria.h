@@ -26,7 +26,7 @@ public:
     dtCategoria getDtOtro();
 
 private:
-    String nombreCategoria;
+    String nombreCategoria; //key
     string descripcionCategoria;
     enumCategoria tipoCategoria;
 };
