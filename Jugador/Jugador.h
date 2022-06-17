@@ -16,9 +16,9 @@ class Jugador : public Usuario
 public:
     Jugador(char* nickname, char* descripcionJugador);
     ~Jugador();
-    char* getNickname(); 
-    void setNickname(char* nickname);
-    char* getDescripcionJugador();
+    String getNickname(); 
+    void setNickname(char* nick);
+    string getDescripcionJugador();
     void setDescripcionJugador(char* descripcionJugador);
     void pasoJuego(char* nombreVideojuego);
     //set<dtVideoJuego> getDatosVj(); Ver con el Taque como menajar las colleciones de DT's
@@ -26,7 +26,7 @@ public:
     //set<char*> listarJuegosSuscripto(); 
     //set<dtPartidaIndividual> listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual datosPartida);
-    char* getNick(char* nombreJuego);
+    string getNick(char* nombreJuego);
     void iniciarMultijugador(dtPartidaMultijugador datosPartida);
     //set<dtPartidaIndividual> listarPartidasIndividuales();
     //set<dtPartidaMultijugador> partidaAFinalizar();
@@ -35,8 +35,8 @@ public:
     void eliminarContRegisJuego(Videojuego vj);
 
 private:
-    char* nickname;
-    char* descripcionJugador;
+    String nickname;//IKey String
+    string descripcionJugador;
     ICollection* partidasInactivas;
     ICollection* partidasActivas;
 };
