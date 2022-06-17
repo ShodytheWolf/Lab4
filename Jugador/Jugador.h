@@ -21,21 +21,21 @@ public:
     string getDescripcionJugador();
     void setDescripcionJugador(string descripcionJugador);
     void pasoJuego(String nombreVideojuego);
-    //set<dtVideoJuego> getDatosVj(); Ver con el Taque como menajar las colleciones de DT's
+    dtVideoJuego** getDatosVj(); 
     void aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago);
-    //set<char*> listarJuegosSuscripto(); 
-    //set<dtPartidaIndividual> listarPartidasFinalizadas();
-    void partidaAContinuar(dtPartidaIndividual datosPartida);
+    string** listarJuegosSuscripto(); 
+    dtPartidaIndividual** listarPartidasFinalizadas();
+    void partidaAContinuar(dtPartidaIndividual* datosPartida);
     String getNick(String nombreJuego);
-    void iniciarMultijugador(dtPartidaMultijugador datosPartida);
-    //set<dtPartidaIndividual> listarPartidasIndividuales();
-    //set<dtPartidaMultijugador> partidaAFinalizar();
+    void iniciarMultijugador(dtPartidaMultijugador* datosPartida);
+    dtPartidaIndividual** listarPartidasIndividuales();
+    dtPartidaMultijugador** partidaAFinalizar();
     void partidaAFinalizar(int idPartida);
-    //void comprobarPartidas(set<string> nombreJuegos);
-    void eliminarContRegisJuego(Videojuego vj);
+    void comprobarPartidas(string nombreJuegos[]);
+    void eliminarContRegisJuego(Videojuego* vj);
 
 private:
-    String nickname;//IKey String
+    String nickname;
     string descripcionJugador;
     IDictionary* partidasInactivas = new OrderedDictionary();
     IDictionary* partidasActivas = new OrderedDictionary();
