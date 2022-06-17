@@ -39,3 +39,8 @@ float Partida::getDuracion() {
 void Partida::setDuracion(float duracion) {
     this->duracion = duracion;
 }
+
+dtPartida Partida::getDtPartida(){}
+void Partida::calcularDuracion(){}
+bool Partida::verificarJuego(String nombreJuego){}
+void Partida::eliminarComentarios(){}
