@@ -14,19 +14,19 @@
 class Jugador : public Usuario
 {
 public:
-    Jugador(char* nickname, char* descripcionJugador);
+    Jugador(char* nickname, string descripcionJugador);
     ~Jugador();
     String getNickname(); 
     void setNickname(char* nick);
     string getDescripcionJugador();
-    void setDescripcionJugador(char* descripcionJugador);
-    void pasoJuego(char* nombreVideojuego);
+    void setDescripcionJugador(string descripcionJugador);
+    void pasoJuego(String nombreVideojuego);
     //set<dtVideoJuego> getDatosVj(); Ver con el Taque como menajar las colleciones de DT's
     void aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago);
     //set<char*> listarJuegosSuscripto(); 
     //set<dtPartidaIndividual> listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual datosPartida);
-    string getNick(char* nombreJuego);
+    String getNick(String nombreJuego);
     void iniciarMultijugador(dtPartidaMultijugador datosPartida);
     //set<dtPartidaIndividual> listarPartidasIndividuales();
     //set<dtPartidaMultijugador> partidaAFinalizar();

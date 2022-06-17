@@ -1,6 +1,6 @@
 #include "Jugador.h"
 
-Jugador::Jugador(char* nick, char* descripcionJugador)
+Jugador::Jugador(char* nick, string descripcionJugador)
 {
     setNickname(nick);
     setDescripcionJugador(descripcionJugador);
@@ -24,6 +24,6 @@ string Jugador::getDescripcionJugador() {
     return this->descripcionJugador;
 }
 
-void Jugador::setDescripcionJugador(char* descripcionJugador) {
+void Jugador::setDescripcionJugador(string descripcionJugador) {
     this->descripcionJugador = descripcionJugador;
 }

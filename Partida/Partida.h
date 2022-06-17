@@ -3,6 +3,7 @@
 #include "ctime"
 #include "../Datatypes/dtPartida.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
+#include "../colecciones-genericas/String.h"
 
 #pragma once
 
@@ -20,7 +21,7 @@ public:
     void setDuracion(float duracion);
     dtPartida getDtPartida();
     void calcularDuracion();
-    bool verificarJuego(char* nombreJuego);
+    bool verificarJuego(String nombreJuego);
     void eliminarComentarios();
 
 private:
