@@ -71,7 +71,7 @@ class Controlador: public IControlador{
         int ultimaIdComentario;
 
         //colecciones
-        ICollection* usuarios;
+        IDictionary* usuarios = new OrderedDictionary();
         IDictionary* categorias = new OrderedDictionary();
         IDictionary* videojuegos = new OrderedDictionary();
 };

@@ -13,6 +13,7 @@
 #include "../Datatypes/dtSuscripcion.h"
 #include "../Datatypes/dtVideoJuego.h"
 #include "../Estadistica/Estadistica.h"
+#include "../Desarrollador/Desarrollador.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ public:
 private:
     String nombreJuego; // atributo que sera la key
     string descripcionJuego; 
+    Desarrollador* desarrollador;
     ICollection* categorias = new List();
     ICollection* suscripciones = new List();
     IDictionary* estadisticas = new OrderedDictionary();
