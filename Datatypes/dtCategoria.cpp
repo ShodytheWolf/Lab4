@@ -8,10 +8,10 @@ dtCategoria::~dtCategoria(){
 
 };
 
-char* dtCategoria::getDescripcion(){
+string dtCategoria::getDescripcion(){
     return this->descripcion;
 };
 
-char* dtCategoria::getNombre(){
+string dtCategoria::getNombre(){
     return this->nombre;
 };

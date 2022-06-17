@@ -10,10 +10,10 @@ dtJugador::~dtJugador()
 
 }
 
-char* dtJugador::getDescripcion(){
+string dtJugador::getDescripcion(){
     return this->descripcion;
 };
 
-char* dtJugador::getNombre(){
+string dtJugador::getNombre(){
     return this->nombre;
 };

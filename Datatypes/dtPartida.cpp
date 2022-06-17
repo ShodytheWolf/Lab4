@@ -10,6 +10,6 @@ dtPartida::~dtPartida()
 
 }
 
-char* dtPartida::getNombreVideojuego(){
+string dtPartida::getNombreVideojuego(){
     return this->nombreVideojuego;
 };

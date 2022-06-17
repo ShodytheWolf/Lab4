@@ -1,6 +1,9 @@
 #ifndef DTCATEGORIA_H
 #define DTCATEGORIA_H
 
+using namespace std;
+#include <iostream>
+
 
 #pragma once
 

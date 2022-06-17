@@ -1,6 +1,9 @@
 #ifndef DTESTADISTICA_H
 #define DTESTADISTICA_H
 
+using namespace std;
+#include <iostream>
+
 #pragma once
 
 class dtEstadistica
