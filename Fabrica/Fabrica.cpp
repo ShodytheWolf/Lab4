@@ -1,5 +1,5 @@
 #include "Fabrica.h"
-#include "../Controlador/Controlador.cpp"
+#include "../Controlador/Controlador.h"
 
 Fabrica::Fabrica()
 {
