@@ -1,0 +1,662 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri Jun 17 17:52:21 2022
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 18)
+OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
+# environment
+XDG_SESSION_CLASS = user
+# makefile (from 'Makefile', line 17)
+SRC = $(wildcard $(SRCDIR)/*$(EXT))
+# environment
+SNAP_COMMON = /var/snap/code/common
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/braian/Escritorio/Lab4
+# makefile
+SHELL = /bin/sh
+# makefile (from 'Makefile', line 21)
+RM = rm
+# environment
+SNAP_DATA = /var/snap/code/99
+# environment
+VTE_VERSION = 6003
+# environment
+VSCODE_NLS_CONFIG = {"locale":"es-419","availableLanguages":{},"_languagePackSupport":true}
+# environment
+JOURNAL_STREAM = 8:32321
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+SNAP_ARCH = amd64
+# makefile (from 'main.d', line 1)
+MAKEFILE_LIST :=  Makefile main.d
+# automatic
+@F = $(notdir $@)
+# environment
+IM_CONFIG_PHASE = 1
+# environment
+USERNAME = braian
+# makefile (from 'Makefile', line 7)
+CXXFLAGS = -std=c++11 -Wall
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 24)
+DEL = del
+# environment
+MANAGERPID = 1113
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /home/braian/Escritorio/Lab4
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/99/usr/share/glib-2.0/schemas
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# makefile (from 'Makefile', line 19)
+DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
+# environment
+SESSION_MANAGER = local/braian-VirtualBox:@/tmp/.ICE-unix/1394,unix/braian-VirtualBox:/tmp/.ICE-unix/1394
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/braian/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+SNAP = /snap/code/99
+# environment
+SNAP_VERSION = 30d9c6cd
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_LOG_STACK = false
+# environment
+DISABLE_WAYLAND = 1
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+INVOCATION_ID = 0b09a40a71ca4443920490bdcef73b71
+# makefile (from 'Makefile', line 8)
+LDFLAGS = 
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/99/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# makefile (from 'Makefile', line 13)
+SRCDIR = .
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+PWD = /home/braian/Escritorio/Lab4
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1339
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/braian
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/braian/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+LOGNAME = braian
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# makefile (from 'Makefile', line 22)
+DELOBJ = $(OBJ)
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# environment
+SNAP_CONTEXT = jhT-kSYQCiJAGevdq2h2i85TJ4LyvujLO13ppdHCDL0k5fqqjySR
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+SNAP_USER_COMMON = /home/braian/snap/code/common
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# environment
+SNAP_REAL_HOME = /home/braian
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SNAP_USER_DATA = /home/braian/snap/code/99
+# environment
+SHLVL = 1
+# makefile (from 'Makefile', line 6)
+CC = g++
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2615f277-c66c-42c7-9fa7-c20d6dc71abd.sock
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = braian
+# environment
+SNAP_REVISION = 99
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /home/braian
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+LANGUAGE = es_UY:es
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-0ae747f0-1.68.1-main.sock
+# makefile (from 'Makefile', line 12)
+EXT = .cpp
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# makefile (from 'Makefile', line 11)
+APPNAME = myapp
+# environment
+QT_ACCESSIBILITY = 1
+# default
+MAKEFILES := 
+# environment
+SNAP_COOKIE = jhT-kSYQCiJAGevdq2h2i85TJ4LyvujLO13ppdHCDL0k5fqqjySR
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 14)
+OBJDIR = .
+# environment
+SNAP_NAME = code
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 26)
+WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/ecb60a8f_1c54_47ff_a484_556bf5092d67
+# automatic
+^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.86
+# default
+SUFFIXES := 
+# environment
+SNAP_REEXEC = 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+ 
+# default
+.RECIPEPREFIX := 
+# makefile (from 'Makefile', line 25)
+EXE = .exe
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 48977
+# variable set hash-table stats:
+# Load=138/1024=13%, Rehash=0, Collisions=19/194=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2053, inode 1181161): 33 files, no impossibilities.
+
+# 33 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+%.d: %.cpp
+#  recipe to execute (from 'Makefile', line 40):
+	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
+
+%.o: %.cpp
+#  recipe to execute (from 'Makefile', line 47):
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
+# 2 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+Fabrica/../Controlador/../IControlador/IControlador.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:10:30.078349657
+#  File has been updated.
+#  Successfully updated.
+
+myapp: main.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := myapp
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := main.o
+# automatic
+# | := 
+# automatic
+# < := main.o
+# automatic
+# ^ := main.o
+# automatic
+# ? := main.o
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
+#  recipe to execute (from 'Makefile', line 36):
+	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+all: myapp
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+
+.PHONY: clean cleandep cleanw cleandepw
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/IIterator.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/IKey.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.926535825
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/interfaces/IIterator.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Enumeration/enumPago.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 18:29:08.904175624
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:31:08.798283541
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/ListNode.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+ 
+Fabrica/../IControlador/IControlador.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:10:30.078349657
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/Fabrica.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 19:17:41.664284214
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Datatypes/dtPartidaIndividual.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 21:08:51.408093305
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:27:55.933969767
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/ICollectible.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Datatypes/dtJugador.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 16:30:09.985090784
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/OrderedKey.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.926535825
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/IDictionary.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/Fabrica.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 19:17:05.580159206
+#  File has been updated.
+#  Successfully updated.
+
+cleanw:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 64):
+	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/interfaces/ICollectible.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/interfaces/IDictionary.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Datatypes/dtSuscripcion.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 21:08:51.408093305
+#  File has been updated.
+#  Successfully updated.
+
+main.d: main.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-06-17 17:52:21.463404153
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 40):
+	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
+
+# Not a target:
+.DEFAULT:
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+IControlador/../Datatypes/dtPartida.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 16:54:57.628184669
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/ICollection.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+cleandep:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 58):
+	$(RM) $(DEP)
+
+cleandepw:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 69):
+	$(DEL) $(DEP)
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/interfaces/ICollection.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 53):
+	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+
+# Not a target:
+IControlador/../Datatypes/dtCategoria.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 16:54:57.624184037
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Datatypes/dtPartidaMultijugador.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 16:30:09.985090784
+#  File has been updated.
+#  Successfully updated.
+
+main.o: main.cpp main.cpp IControlador/IControlador.cpp IControlador/IControlador.h IControlador/../Datatypes/dtCategoria.h IControlador/../Datatypes/dtPartidaIndividual.h IControlador/../Datatypes/dtPartida.h IControlador/../Datatypes/dtPartidaMultijugador.h IControlador/../Enumeration/enumSuscripcion.h IControlador/../Enumeration/enumPago.h IControlador/../Datatypes/dtVideoJuego.h IControlador/../Datatypes/dtSuscripcion.h IControlador/../Datatypes/dtJugador.h Fabrica/Fabrica.cpp Fabrica/Fabrica.h Fabrica/../IControlador/IControlador.h Fabrica/../Controlador/Controlador.cpp Fabrica/../Controlador/Controlador.h Fabrica/../Controlador/../IControlador/IControlador.h Fabrica/../Controlador/../colecciones-genericas/interfaces/ICollection.h Fabrica/../Controlador/../colecciones-genericas/interfaces/IIterator.h Fabrica/../Controlador/../colecciones-genericas/interfaces/ICollectible.h Fabrica/../Controlador/../colecciones-genericas/collections/OrderedDictionary.h Fabrica/../Controlador/../colecciones-genericas/collections/OrderedDictionaryEntry.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/OrderedKey.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/IKey.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/ICollectible.h Fabrica/../Controlador/../colecciones-genericas/collections/ListNode.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/ICollection.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/IIterator.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/ICollectible.h Fabrica/../Controlador/../colecciones-genericas/collections/../interfaces/IDictionary.h Fabrica/../Controlador/../colecciones-genericas/interfaces/IDictionary.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-06-17 17:35:44.815446005
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 47):
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/OrderedDictionaryEntry.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/../colecciones-genericas/collections/OrderedDictionary.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-13 18:25:14.922536018
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/IControlador.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:10:30.078349657
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/Controlador.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:16:34.713532098
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Datatypes/dtVideoJuego.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:13:34.207136151
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/../Enumeration/enumSuscripcion.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 18:29:13.548207237
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+IControlador/IControlador.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-14 19:27:11.766331602
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Fabrica/../Controlador/Controlador.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:10:30.078349657
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=43/1024=4%, Rehash=0, Collisions=2/108=2%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 78 / storage = 2170 B / avg = 27 B
+# current buf: size = 8162 B / used = 2170 B / count = 78 / avg = 27 B
+
+# strcache performance: lookups = 115 / hit rate = 32%
+# hash-table stats:
+# Load=78/8192=1%, Rehash=0, Collisions=2/115=2%
+# Finished Make data base on Fri Jun 17 17:52:21 2022
+
+ 
