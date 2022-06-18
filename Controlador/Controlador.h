@@ -11,14 +11,14 @@
 #include "../colecciones-genericas/interfaces/IDictionary.h"
 
 
-class Controlador: public IControlador{
+class Controlador {
 
     public:
         ~Controlador();
         static Controlador* getInstance();
-        void ingresoDatos(char* email, char* contrasenia);                                //1
-        void ingresarEmpresa(char* nombreEmpresa);                                        //2
-        void confirmarNuevoDesarrollador();                                               //3
+        Usuario* ingresoDatos(string email, string contrasenia);                                //1
+        Usuario* ingresarEmpresa(string nombreEmpresa);                                        //2
+        bool confirmarNuevoDesarrollador(string email, string contrasenia, string nombreEmpresa);                                               //3
         bool ingresarNickname(char* nickname);                                            //4
         void ingresarDescripcion(char* descripcion);                                      //5
         void confirmarNuevoJugador();                                                     //6
@@ -48,26 +48,31 @@ class Controlador: public IControlador{
         dtVideoJuego** seleccionarVideojuego(char* nombreVideojuego);                     //29
         string** listarVideojuegosPublicados();                                           //30
         void confirmoEliminacion (char* nombreVideojuego);                                //31
-        string** listaNombresVideojuegos();                                               //32                                                     //32
+        string** listaNombresVideojuegos();                                               //32
         string** mostrarEstadisticas(char* nombreJuego,string** opciones) ;               //33
+        void setUsers(OrderedDictionary* usuarios);
+        OrderedDictionary* getUsers() const;
                                                                      
 
     private:
         Controlador();
         static Controlador* instance;
-        char* emailUser;
+        /*char* emailUser;
         char* passUser;
         char* descripcionJuegador;
         char* nombreEmpresa;
         char* nickJugador;
         char* nombreVideojuego;
         int ultimaIdPartida;
-        int ultimaIdComentario;
+        int ultimaIdComentario;*/
 
         //colecciones
-        IDictionary* usuarios = new OrderedDictionary();
-        IDictionary* categorias = new OrderedDictionary();
-        IDictionary* videojuegos = new OrderedDictionary();
+        OrderedDictionary* usuarios;
+        //IDictionary* usuarios = new OrderedDictionary();
+        //IDictionary* categorias = new OrderedDictionary();
+        //IDictionary* videojuegos = new OrderedDictionary();
+    
+        Usuario* u;
 };
     
 
