@@ -24,14 +24,12 @@ void AltaUsuario() {
     cout << "Ingrese nombre empresa" << endl;
     cin>>nombreEmpresa;
     u->confirmarNuevoDesarrollador(email, contrasenia, nombreEmpresa);
-    } else {
+    } else { //por implementar aun
         if(option == 'j' or option == 'J'){
-        cout << "Ingrese email" << endl;
-        cin>>email;
-        cout << "Ingrese contrasenia" << endl;
-        cin>>contrasenia;
-        cout << "Ingrese nickname" << endl;
+       	cout << "Ingrese nickname" << endl;
         cin>>nombreEmpresa;
+	cout << "Ingrese descripcion" << endl;
+        cin>>descripcion;
         u->confirmarNuevoJugador();
         }
     }
