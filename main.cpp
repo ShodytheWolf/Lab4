@@ -2,10 +2,42 @@
 #include <iostream>
 #include "IControlador/IControlador.h"
 #include "Fabrica/Fabrica.h"
+#include "Controlador/Controlador.h"
 
 using namespace std;
 
- void menuDesarrollador();
+Controlador *u = Controlador::getInstance();
+
+void AltaUsuario() {
+    cout << "Alta Usuarios" << endl;
+    cout << "==============" << endl;
+    string email, contrasenia, nombreEmpresa;
+    char option;
+    cout << "Dar de alta como desarrollador o jugador? (d=desarrollador o j=jugador)"<< endl;
+    cin>>option;
+
+    if(option == 'd' or option == 'D'){
+    cout << "Ingrese email" << endl;
+    cin>>email;
+    cout << "Ingrese contrasenia" << endl;
+    cin>>contrasenia;
+    cout << "Ingrese nombre empresa" << endl;
+    cin>>nombreEmpresa;
+    u->confirmarNuevoDesarrollador(email, contrasenia, nombreEmpresa);
+    } else {
+        if(option == 'j' or option == 'J'){
+        cout << "Ingrese email" << endl;
+        cin>>email;
+        cout << "Ingrese contrasenia" << endl;
+        cin>>contrasenia;
+        cout << "Ingrese nickname" << endl;
+        cin>>nombreEmpresa;
+        u->confirmarNuevoJugador();
+        }
+    }
+}
+
+void menuDesarrollador();
 // void menuJugador();
 // void menuPublicarVideojuego();
 // void menuSuscribirse();
