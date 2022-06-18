@@ -10,7 +10,7 @@ Controlador::~Controlador(){
 }
 
 Controlador::Controlador(){
-
+    this->usuarios = new OrderedDictionary();
 }
 
 Controlador* Controlador::getInstance(){
@@ -19,17 +19,35 @@ Controlador* Controlador::getInstance(){
     }
     return instance;
 }
-
-void Controlador::ingresoDatos(char* email, char* contrasenia){
-    
+void Controlador::setUsers(OrderedDictionary* usuarios) {
+    this->usuarios = usuarios;
 }
 
-void Controlador::ingresarEmpresa(char* nombreEmpresa){
+OrderedDictionary* Controlador::getUsers() const {
+    return usuarios;
+}
 
-}                                       
-void Controlador::confirmarNuevoDesarrollador(){
+Usuario* Controlador::ingresoDatos(string email, string contrasenia){
+    String *key = new String(email.c_str());
+    Usuario *u = (Usuario*)this->usuarios->find(key);
+    this->u = u;
+    return u;
+}
 
-}                                             
+Usuario* Controlador::ingresarEmpresa(string nombreEmpresa){
+    String *key = new String(nombreEmpresa.c_str());
+    Usuario *u = (Usuario*)this->usuarios->find(key);
+    this->u = u;
+    return u;
+}
+
+bool Controlador::confirmarNuevoDesarrollador(string email, string contrasenia, string nombreEmpresa){
+    Usuario* u = new Desarrollador(nombreEmpresa);
+    const char *nE = nombreEmpresa.c_str();
+    String *key = new String(nE);
+    usuarios->add(key, u);
+    return true;
+}              
 bool Controlador::ingresarNickname(char* nickname){
 
 }                                           
