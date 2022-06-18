@@ -4,7 +4,7 @@
 
 #pragma once
 
-class Usuario : public ICollectible
+class Usuario : public ICollectible, public OrderedDictionary
 {
 public:
     Usuario();
@@ -17,6 +17,8 @@ public:
 private:
     string email;
     string contrasenia;
+    List* jugador;
+    List* desarrollador;
 };
 
 #endif
