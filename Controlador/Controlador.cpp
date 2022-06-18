@@ -1,4 +1,5 @@
 #include "Controlador.h"
+#include "../colecciones-genericas/String.h"
 #include <iostream>
 #include <stdlib.h>
 
