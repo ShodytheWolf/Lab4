@@ -8,10 +8,10 @@
 class Desarrollador : public Usuario
 {
 public:
-    Desarrollador(char*);
+    Desarrollador(string);
     ~Desarrollador();
     String getNombreEmpresa();
-    void setNombreEmpresa(char* nombreEmpresa);
+    void setNombreEmpresa(string nombreEmpresa);
 
 private:
     String nombreEmpresa; //IKEY
