@@ -1,34 +1,5 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/braian/Escritorio/Lab4'
-g++ -c colecciones-genericas/interfaces/ICollectible.cpp
-g++ -c colecciones-genericas/interfaces/IKey.cpp
-g++ -c colecciones-genericas/interfaces/OrderedKey.cpp IKey.o
-g++ -c colecciones-genericas/String.cpp ICollectible.o OrderedKey.o
-g++ -c Usuario/Usuario.cpp ICollectible.o String.o
-g++ -c Datatypes/dtCategoria.cpp
-g++ -c Categoria/Categoria.cpp String.o ICollectible.o dtCategoria.o
-g++ -c colecciones-genericas/interfaces/IIterator.cpp ICollectible.o
-g++ -c colecciones-genericas/interfaces/ICollection.cpp IIterator.o
-g++ -c colecciones-genericas/collections/ListNode.cpp ICollection.o
-g++ -c colecciones-genericas/collections/List.cpp ListNode.o
-g++ -c colecciones-genericas/interfaces/IDictionary.cpp IKey.o ICollectible.o IIterator.o
-g++ -c colecciones-genericas/collections/OrderedDictionaryEntry.cpp OrderedKey.o ICollectible.o
-g++ -c colecciones-genericas/collections/OrderedDictionary.cpp OrderedDictionaryEntry.o ListNode.o IDictionary.o
-g++ -c Suscripcion/Suscripcion.cpp ICollectible.o
-g++ -c Datatypes/dtSuscripcion.cpp
-g++ -c Datatypes/dtVideoJuego.cpp
-g++ -c Datatypes/dtEstadistica.cpp
-g++ -c Estadistica/Estadistica.cpp ICollectible.o dtEstadistica.o String.o
-g++ -c Desarrollador/Desarrollador.cpp Usuario.o
-g++ -c Videojuego/Videojuego.cpp ICollection.o List.o IDictionary.o OrderedDictionary.o Categoria.o Suscripcion.o dtSuscripcion.o dtVideoJuego.o Estadistica.o Desarrollador.o
-g++ -c Controlador/Controlador.cpp Usuario.o Categoria.o VideoJuego.o
-g++ -c Datatypes/dtPartida.cpp
-g++ -c Datatypes/dtPartidaIndividual.cpp dtPartida.o
-g++ -c Datatypes/dtPartidaMultijugador.cpp dtPartida.o
-g++ -c Datatypes/dtJugador.cpp
-g++ -c IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
-g++ -c Fabrica/Fabrica.cpp Controlador.o IControlador.o
-g++ -c main.cpp Fabrica.o IControlador.o
-g++ -o steam main.o
+g++ -o steam main.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o 
 make: Leaving directory '/home/braian/Escritorio/Lab4'
  

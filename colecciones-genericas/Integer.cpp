@@ -7,6 +7,8 @@ Integer::Integer(int i):
 {
 }
 
+Integer::Integer(){}
+
 int Integer::getValue() const
 {
     return val;

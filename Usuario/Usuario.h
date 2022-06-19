@@ -11,7 +11,6 @@ using namespace std;
 class Usuario : public ICollectible
 {
 public:
-    Usuario();
     ~Usuario();
     virtual string getContrasenia() = 0;
     void setContrasenia(string);

@@ -28,7 +28,6 @@ void Jugador::setDescripcionJugador(string descripcionJugador) {
     this->descripcionJugador = descripcionJugador;
 }
 
-void Jugador::setDescripcionJugador(string descripcionJugador){}
 void Jugador::pasoJuego(String nombreVideojuego){}
 dtVideoJuego** Jugador::getDatosVj(){} 
 void Jugador::aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago){}
