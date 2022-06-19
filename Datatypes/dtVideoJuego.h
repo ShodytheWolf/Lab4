@@ -14,7 +14,10 @@ public:
     string getNombreVideojuego();
     string getNombreDesarrollador();
     string getDescripcionJuego();
-
+    bool dtVideoJuego::getEstaSuscripto();
+    dtSuscripcion dtVideoJuego::getDtSuscripcion();
+    string** getCategorias();
+    
 private:
     string nombreJuego;
     string nombreDesarrollador;
@@ -22,6 +25,7 @@ private:
     dtSuscripcion costo;
     bool estaSuscripto;
     string** categorias;
+
 };
 
 #endif

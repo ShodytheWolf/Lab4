@@ -29,3 +29,7 @@ bool dtVideoJuego::getEstaSuscripto(){
 dtSuscripcion dtVideoJuego::getDtSuscripcion(){
     return this->costo;
 };
+
+string** dtVideoJuego::getCategorias() {
+	return this->categorias;
+};
