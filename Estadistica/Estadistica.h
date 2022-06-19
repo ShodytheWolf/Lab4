@@ -2,6 +2,7 @@
 #define ESTADISTICA_H
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../Datatypes/dtEstadistica.h"
+#include "../colecciones-genericas/String.h"
 
 #pragma once
 

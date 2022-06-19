@@ -1,6 +1,7 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 #include "../colecciones-genericas/interfaces/ICollectible.h"
+#include "../colecciones-genericas/String.h"
 
 #pragma once
 

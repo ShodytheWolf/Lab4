@@ -1,7 +1,6 @@
 #ifndef DESARROLLADOR_H
 #define DESARROLLADOR_H
 #include "../Usuario/Usuario.h"
-#include "../colecciones-genericas/String.h"
 
 #pragma once
 

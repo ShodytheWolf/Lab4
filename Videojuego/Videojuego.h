@@ -1,10 +1,8 @@
 #ifndef VIDEOJUEGO_H
 #define VIDEOJUEGO_H
-#include <string.h>
 #include <iostream>
 #include "String.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
-#include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/collections/List.h"
 #include "../colecciones-genericas/interfaces/IDictionary.h"
 #include "../colecciones-genericas/collections/OrderedDictionary.h"

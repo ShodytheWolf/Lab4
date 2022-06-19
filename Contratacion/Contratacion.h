@@ -2,7 +2,6 @@
 #define CONTRATACION_H
 
 #include "../Enumeration/enumPago.h"
-#include "../Suscripcion/Suscripcion.h"
 #include "../Videojuego/Videojuego.h"
 #include "../Enumeration/enumSuscripcion.h"
 #include <ctime>

@@ -17,13 +17,13 @@ class IControlador{
     public:
         virtual ~IControlador();
 
-        virtual void ingresoDatos(char* email, char* contrasenia) = 0;                                //1
+        virtual void ingresoDatos(string email, string contrasenia) = 0;                                //1
         virtual void ingresarEmpresa(char* nombreEmpresa) = 0;                                        //2
         virtual void confirmarNuevoDesarrollador() = 0;                                               //3
         virtual bool ingresarNickname(char* nickname) = 0;                                            //4
-        virtual void ingresarDescripcion(char* descripcion) = 0;                                      //5
+        virtual void ingresarDescripcion(string descripcion) = 0;                                      //5
         virtual void confirmarNuevoJugador() = 0;                                                     //6
-        virtual bool ingresoData(char* email, char* contrasenia) = 0;                                 //7
+        virtual bool ingresoData(string email, string contrasenia) = 0;                                 //7
         virtual string** listarCategoriaXNombre() = 0;                                                //8
         virtual void confirmar(dtCategoria datosCategoria) = 0;                                       //9
         virtual dtCategoria** listarGenero() = 0;                                                         //10
@@ -40,7 +40,7 @@ class IControlador{
         virtual string** listarVideojuegosSuscripto() = 0;                                            //20
         virtual dtPartidaIndividual** listoPartidasInactivas() = 0;                                   //21
         virtual void confirmarIndividual(dtPartidaIndividual datosPartida) = 0;                       //22
-        virtual string** listarNicks(char* nombrejuego) = 0;                                          //23
+        virtual string** listarNicks(char* nombreVideojuego) = 0;                                          //23
         virtual void confirmarMultijugador (dtPartidaMultijugador datosPartida) = 0;                  //24
         virtual dtPartidaMultijugador** listoPartidaMultijugador() = 0;                               //25
         virtual void confirmoAbandono(int idPartidaMulti) = 0;                                        //26
@@ -50,7 +50,7 @@ class IControlador{
         virtual string** listarVideojuegosPublicados() = 0;                                           //30
         virtual void confirmoEliminacion (char* nombreVideojuego) = 0;                                //31
         virtual string** listaNombresVideojuegos() = 0;                                               //32                                                     //32
-        virtual string** mostrarEstadisticas(char* nombreJuego,string** opciones)  = 0;               //33
+        virtual string** mostrarEstadisticas(char* nombreVideojuego,string** opciones)  = 0;          //33
                                                                        
         
 };

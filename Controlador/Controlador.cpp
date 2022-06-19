@@ -20,11 +20,13 @@ Controlador* Controlador::getInstance(){
     return instance;
 }
 
-void Controlador::ingresoDatos(char* email, char* contrasenia){
-    
+void Controlador::ingresoDatos(string email, string contrasenia){
+    this->emailUser = email;
+    this->passUser = contrasenia;
 }
 
 void Controlador::ingresarEmpresa(char* nombreEmpresa){
+    this->nombreEmpresa = String(nombreEmpresa);
 
 }                                       
 void Controlador::confirmarNuevoDesarrollador(){
@@ -33,13 +35,13 @@ void Controlador::confirmarNuevoDesarrollador(){
 bool Controlador::ingresarNickname(char* nickname){
 
 }                                           
-void Controlador::ingresarDescripcion(char* descripcion){
+void Controlador::ingresarDescripcion(string descripcion){
 
 }                                     
 void Controlador::confirmarNuevoJugador(){
 
 }                                                    
-bool Controlador::ingresoData(char* email, char* contrasenia){
+bool Controlador::ingresoData(string email, string contrasenia){
 
 }                                
 string** Controlador::listarCategoriaXNombre(){
@@ -88,7 +90,7 @@ dtPartidaIndividual** Controlador::listoPartidasInactivas(){
 void Controlador::confirmarIndividual(dtPartidaIndividual datosPartida){
 
 }                      
-string** Controlador::listarNicks(char* nombrejuego){
+string** Controlador::listarNicks(char* nombreVideojuego){
 
 }                                        
 void Controlador::confirmarMultijugador (dtPartidaMultijugador datosPartida){
@@ -119,6 +121,6 @@ string** Controlador::listaNombresVideojuegos(){
 
 }
 
-string** Controlador::mostrarEstadisticas(char* nombreJuego,string** opciones){
+string** Controlador::mostrarEstadisticas(char* nombreVideojuego,string** opciones){
 
 }           

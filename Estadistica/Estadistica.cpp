@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Estadistica.h"
-#include "../colecciones-genericas/String.h"
+
 using namespace std;
 
 Estadistica::Estadistica(char* nombre, string descripcion)

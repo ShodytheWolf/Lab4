@@ -2,7 +2,6 @@
 #define JUGADOR_H
 #include "../Usuario/Usuario.h"
 #include "../Videojuego/Videojuego.h"
-#include "../Datatypes/dtVideoJuego.h"
 #include "../Datatypes/dtPartidaIndividual.h"
 #include "../Datatypes/dtPartidaMultijugador.h"
 #include "../Enumeration/enumSuscripcion.h"

@@ -1,8 +1,6 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
 #include "../Datatypes/dtVideoJuego.h"
-#include "../Enumeration/enumPago.h"
-#include "../Enumeration/enumSuscripcion.h"
 #include "../Contratacion/Contratacion.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"

@@ -1,28 +1,23 @@
 #ifndef CONTROLADOR_H
 #define CONTROLADOR_H
-#include "../Datatypes/dtCategoria.h"
-#include "../Datatypes/dtPartidaIndividual.h"
-#include "../Datatypes/dtPartidaMultijugador.h"
-#include "../Enumeration/enumPago.h"
-#include "../Enumeration/enumSuscripcion.h"
-#include "../IControlador/IControlador.h"
-#include "../colecciones-genericas/interfaces/ICollection.h"
-#include "../colecciones-genericas/collections/OrderedDictionary.h"
-#include "../colecciones-genericas/interfaces/IDictionary.h"
 
+#include "../IControlador/IControlador.h"
+#include "../Usuario/Usuario.h"
+#include "../Categoria/Categoria.h"
+#include "../Videojuego/Videojuego.h"
 
 class Controlador: public IControlador{
 
     public:
         ~Controlador();
         static Controlador* getInstance();
-        void ingresoDatos(char* email, char* contrasenia);                                //1
+        void ingresoDatos(string email, string contrasenia);                                //1
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
         bool ingresarNickname(char* nickname);                                            //4
-        void ingresarDescripcion(char* descripcion);                                      //5
+        void ingresarDescripcion(string descripcion);                                      //5
         void confirmarNuevoJugador();                                                     //6
-        bool ingresoData(char* email, char* contrasenia);                                 //7
+        bool ingresoData(string email, string contrasenia);                                 //7
         string** listarCategoriaXNombre();                                                //8
         void confirmar(dtCategoria datosCategoria);                                       //9
         dtCategoria** listarGenero();                                                     //10
@@ -39,7 +34,7 @@ class Controlador: public IControlador{
         string** listarVideojuegosSuscripto();                                            //20
         dtPartidaIndividual** listoPartidasInactivas();                                   //21
         void confirmarIndividual(dtPartidaIndividual datosPartida);                       //22
-        string** listarNicks(char* nombrejuego);                                          //23
+        string** listarNicks(char* nombreVideojuego);                                          //23
         void confirmarMultijugador (dtPartidaMultijugador datosPartida);                  //24
         dtPartidaMultijugador** listoPartidaMultijugador();                               //25
         void confirmoAbandono(int idPartidaMulti);                                        //26
@@ -49,20 +44,23 @@ class Controlador: public IControlador{
         string** listarVideojuegosPublicados();                                           //30
         void confirmoEliminacion (char* nombreVideojuego);                                //31
         string** listaNombresVideojuegos();                                               //32                                                     //32
-        string** mostrarEstadisticas(char* nombreJuego,string** opciones) ;               //33
+        string** mostrarEstadisticas(char* nombreVideojuego,string** opciones) ;               //33
                                                                      
 
     private:
         Controlador();
         static Controlador* instance;
-        char* emailUser;
-        char* passUser;
-        char* descripcionJuegador;
-        char* nombreEmpresa;
-        char* nickJugador;
-        char* nombreVideojuego;
+        string emailUser;
+        string passUser;
+        string descripcionJuegador;
+        String nombreEmpresa;
+        String nickJugador;
+        String nombreVideojuego;
         int ultimaIdPartida;
         int ultimaIdComentario;
+
+        //pesudoatributos
+        Usuario* loggedUser;
 
         //colecciones
         IDictionary* usuarios = new OrderedDictionary();
