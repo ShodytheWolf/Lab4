@@ -3,6 +3,7 @@
 #include "../Multijugador/Multijugador.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
 #include "../colecciones-genericas/collections/List.h"
+#include "../Comentario/Comentario.h"
 
 #pragma once
 

@@ -101,12 +101,12 @@ dtSuscripcion.o: Datatypes/dtSuscripcion.cpp
 
 #String key:
 
-String.o: colecciones-genericas/String.cpp ICollectible.o OrderedKey.out	
+String.o: colecciones-genericas/String.cpp ICollectible.o OrderedKey.o	
 	$(GXX) -c $^
 
 #Integer key:
 
-Integer.o: colecciones-genericas/Integer.cpp ICollectible.o OrderedKey.out	
+Integer.o: colecciones-genericas/Integer.cpp ICollectible.o OrderedKey.o
 	$(GXX) -c $^
 
 

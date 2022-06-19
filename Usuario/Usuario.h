@@ -1,7 +1,10 @@
 #ifndef USUARIO_H
 #define USUARIO_H
+#include <iostream>
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/String.h"
+
+using namespace std;
 
 #pragma once
 

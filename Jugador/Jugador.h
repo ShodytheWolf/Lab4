@@ -7,6 +7,9 @@
 #include "../Enumeration/enumSuscripcion.h"
 #include "../Enumeration/enumPago.h"
 #include "../colecciones-genericas/interfaces/ICollection.h"
+#include "../Individual/Individual.h"
+#include "../Multijugador/Multijugador.h"
+#include "../Registro/Registro.h"
 
 #pragma once
 
