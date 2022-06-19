@@ -1,43 +1,81 @@
-all: pltaforma
+all: plataforma
 
 DATAS = dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o enumSuscripcion.o enumPago.o dtVideoJuego.o dtJugador.o
 
 plataforma: main.o 
-	@$(GXX) -o $@ main.o
+	$(GXX) -o $@ main.o
 
 main.o: main.cpp Fabrica.o IControlador.o
-	@$(GXX) -c main.cpp Fabrica.o IControlador.o
+	$(GXX) -c $^
 
-Fabrica.o: Fabrica.cpp Controlador.o #seguir con el controlador.o
-	@$(GXX) -c Fabrica/Fabrica.cpp Controlador.o
+Fabrica.o: Fabrica/Fabrica.cpp Controlador.o IControlador.o
+	$(GXX) -c $^
 
-IControlador: IControlador.cpp $(DATAS)
-	@$(GXX) -c IControlador/IControlador.cpp $(DATAS)
+IControlador.o: IControlador/IControlador.cpp $(DATAS)
+	$(GXX) -c $^
 
-dtCategoria.o: dtCategoria.cpp
-	@$(GXX) -c Datatypes/dtCategoria.cpp
+#Datatypes:
 
-dtJugador.o: dtJugador.cpp	
-	@$(GXX) -c Datatypes/dtJugador.cpp
+dtCategoria.o: Datatypes/dtCategoria.cpp
+	$(GXX) -c $^
 
-dtPartidaIndividual.o: dtPartidaIndividual.cpp dtPartida.o 
-	@$(GXX) -c Datatypes/dtPartidaIndividual.cpp dtPartida.o
+dtJugador.o: Datatypes/dtJugador.cpp	
+	$(GXX) -c $^
+
+dtPartidaIndividual.o: Datatypes/dtPartidaIndividual.cpp dtPartida.o 
+	$(GXX) -c $^
 
 dtPartidaMultijugador.o: Datatypes/dtPartidaMultijugador.cpp dtPartida.o
-	@$(GXX) -c $^
+	$(GXX) -c $^
 
-dtPartida.o: dtPartida.cpp
-	@$(GXX) -c Datatypes/dtPartida.cpp
+dtPartida.o: Datatypes/dtPartida.cpp
+	$(GXX) -c $^
 
-enumSuscripcion.o: enumSuscripcion.cpp
-	@$(GXX) -c Enumeration/enumSuscripcion.cpp
+dtVideoJuego.o: Datatypes/dtVideoJuego.cpp	
+	$(GXX) -c $^
 
-enumPago.o: enumPago.cpp
-	@$(GXX) -c Enumeration/enumPago.cpp
+dtEstadistica.o: Datatypes/dtEstadistica.cpp
+	$(GXX) -c $^
 
-dtVideoJuego.o: dtVideoJuego.cpp	
-	@$(GXX) -c Datatypes/dtVideoJuego.cpp
+dtSuscripcion.o: Datatypes/dtSuscripcion.cpp
+	$(GXX) -c $^
 
+#Collecciones:
+
+OrderedDictionary.o: colecciones-genericas/collections/OrderedDictionary.cpp OrderedDictionaryEntry.o ListNode.o IDictionary.o
+	$(GXX) -c $^
+
+OrderedDictionaryEntry.o: colecciones-genericas/collections/OrderedDictionaryEntry.cpp OrderedKey.o ICollectible.o
+	$(GXX) -c $^
+
+List.o: colecciones-genericas/collections/List.cpp ListNode.o
+	$(GXX) -c $^
+
+ListIterator.o: colecciones-genericas/collections/ListIterator.cpp ListNode.o
+	$(GXX) -c $^
+
+ListNode.o: colecciones-genericas/collections/ListNode.cpp ICollection.o
+	$(GXX) -c $^
+
+#Interfaces de colleciones:
+
+IDictionary.o: colecciones-genericas/interfaces/IDictionary.cpp IKey.o ICollectible.o IIterator.o
+	$(GXX) -c $^
+
+ICollection.o: colecciones-genericas/interfaces/ICollection.cpp IIterator.o
+	$(GXX) -c $^
+
+IIterator.o: colecciones-genericas/interfaces/IIterator.cpp ICollectible.o
+	$(GXX) -c $^
+
+OrderedKey.o: colecciones-genericas/interfaces/OrderedKey.cpp IKey.o
+	$(GXX) -c $^
+
+IKey.o: colecciones-genericas/interfaces/IKey.cpp
+	$(GXX) -c $^
+
+ICollectible.o: colecciones-genericas/interfaces/ICollectible.cpp
+	$(GXX) -c $^
 
 
 clear:
