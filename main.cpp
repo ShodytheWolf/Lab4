@@ -40,71 +40,71 @@ int main(){
 //     }while(opcion < 1 || opcion > 8);
 // }
 
-void menuJugador(){
+// void menuJugador(){
 
-    int opcion = 0;
+//     int opcion = 0;
 
-    cout << "=============" << endl;
-    cout << "Menú jugador." << endl;
-    cout << "=============" << endl;
+//     cout << "=============" << endl;
+//     cout << "Menú jugador." << endl;
+//     cout << "=============" << endl;
     
-    cout << "1- Suscribirse a un videojuego." << endl;
-    cout << "2- Asignar puntaje a videojuego." << endl;
-    cout << "3- Iniciar partida." << endl;
-    cout << "4- Abandonar partida multijugador." << endl;
-    cout << "5- Finalizar partida." << endl;
-    cout << "6- Ver información de videojuego." << endl;
-    cout << "7- Modificar fecha del sistema." << endl;
-    cout << "8- Salir." << endl;
-    cin >> opcion;
-    system("clear");
+//     cout << "1- Suscribirse a un videojuego." << endl;
+//     cout << "2- Asignar puntaje a videojuego." << endl;
+//     cout << "3- Iniciar partida." << endl;
+//     cout << "4- Abandonar partida multijugador." << endl;
+//     cout << "5- Finalizar partida." << endl;
+//     cout << "6- Ver información de videojuego." << endl;
+//     cout << "7- Modificar fecha del sistema." << endl;
+//     cout << "8- Salir." << endl;
+//     cin >> opcion;
+//     system("clear");
         
-   if (opcion >= 1 || opcion<= 8){
-        try{
-            switch(opcion){
-                case 1:
-                    cout << "Entraste a suscribirse a videojuego" << endl;
-                    //menuSuscribirse();
-                    suscribirseAVideojuego();
-					break;
-                case 2:
-                    cout << "Entraste a asignar puntaje a videojogo" << endl;
-                    //asignarpuntajeAvideojuego();
-                    asignarPuntajeAVideojuego();
-					break;
-                case 3:
-                    cout << "Entraste a iniciar partida" << endl;
-                    //iniciarPartida();
-					break;
-                case 4:
-                    cout << "Entraste a abandonar partida moltijogador" << endl;
-                    //AbandonarPartidaMultijugador();
-					break;
-                case 5:
-                    cout << "Entraste a finalizar partida" << endl;
-                    //FinalizarPartida();
-					break;
-                case 6:
-                    cout << "Entraste a ver informacion de videojogo" << endl;
-                    //verInformaciondeVideojuego();
-					break;
-                case 7:
-                    cout << "Entraste a modificar fecha sistema" << endl;
-                    //ModificarFechadelSistema();
-					break;
-                case 8:
-                    cout << "entraste a menu principal" << endl;
-                    //menuprincipal();
-                default: 
-                cout << "Opción incorrecta pibe." << endl;
-				break;
-            }
-        }
-        catch(invalid_argument& error){
-        cout << error.what();
-        }
-   }
-}
+//    if (opcion >= 1 || opcion<= 8){
+//         try{
+//             switch(opcion){
+//                 case 1:
+//                     cout << "Entraste a suscribirse a videojuego" << endl;
+//                     //menuSuscribirse();
+//                     suscribirseAVideojuego();
+// 					break;
+//                 case 2:
+//                     cout << "Entraste a asignar puntaje a videojogo" << endl;
+//                     //asignarpuntajeAvideojuego();
+//                     asignarPuntajeAVideojuego();
+// 					break;
+//                 case 3:
+//                     cout << "Entraste a iniciar partida" << endl;
+//                     //iniciarPartida();
+// 					break;
+//                 case 4:
+//                     cout << "Entraste a abandonar partida moltijogador" << endl;
+//                     //AbandonarPartidaMultijugador();
+// 					break;
+//                 case 5:
+//                     cout << "Entraste a finalizar partida" << endl;
+//                     //FinalizarPartida();
+// 					break;
+//                 case 6:
+//                     cout << "Entraste a ver informacion de videojogo" << endl;
+//                     //verInformaciondeVideojuego();
+// 					break;
+//                 case 7:
+//                     cout << "Entraste a modificar fecha sistema" << endl;
+//                     //ModificarFechadelSistema();
+// 					break;
+//                 case 8:
+//                     cout << "entraste a menu principal" << endl;
+//                     //menuprincipal();
+//                 default: 
+//                 cout << "Opción incorrecta pibe." << endl;
+// 				break;
+//             }
+//         }
+//         catch(invalid_argument& error){
+//         cout << error.what();
+//         }
+//    }
+// }
 
 
 // void menuPrincipal(){

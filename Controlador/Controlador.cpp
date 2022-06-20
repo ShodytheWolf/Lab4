@@ -44,12 +44,6 @@ void Controlador::confirmarNuevoJugador(){
 bool Controlador::ingresoData(string email, string contrasenia){
 
 }                                
-string** Controlador::listarCategoriaXNombre(){
-
-}                                               
-void Controlador::confirmar(dtCategoria datosCategoria){
-
-}                                      
 dtCategoria** Controlador::listarGenero(){
 
 }                                                   
@@ -75,12 +69,7 @@ void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSu
 void Controlador::darDeBajaSuscripcion(){
 
 }                                                   
-dtVideoJuego** Controlador::listarVideojuegos(){
 
-}                                              
-void Controlador::asignarPuntaje(char* nombreVideojuego, int puntuacion){
-
-}                     
 string** Controlador::listarVideojuegosSuscripto(){
 
 }                                           
@@ -96,18 +85,18 @@ string** Controlador::listarNicks(char* nombreVideojuego){
 void Controlador::confirmarMultijugador (dtPartidaMultijugador datosPartida){
 
 }                
-dtPartidaMultijugador** Controlador::listoPartidaMultijugador(){
 
-}                              
-void Controlador::confirmoAbandono(int idPartidaMulti){
-
-}                                       
 dtPartida** Controlador::listoPartidasActivas(){
 
 }                                              
 void Controlador::seleccionarPartida(int idPartida){
 
-}                                         
+}
+
+string** Controlador::listarTodosVJ(){
+
+}
+
 dtVideoJuego** Controlador::seleccionarVideojuego(char* nombreVideojuego){
 
 }                    
@@ -117,10 +106,3 @@ string** Controlador::listarVideojuegosPublicados(){
 void Controlador::confirmoEliminacion (char* nombreVideojuego){
 
 }                               
-string** Controlador::listaNombresVideojuegos(){
-
-}
-
-string** Controlador::mostrarEstadisticas(char* nombreVideojuego,string** opciones){
-
-}           
