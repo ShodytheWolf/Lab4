@@ -10,8 +10,9 @@ class Controlador: public IControlador{
 
     public:
         ~Controlador();
+        static Controlador* getInstance(); 
+
         //Alta Usuario:
-        static Controlador* getInstance();
         void ingresoDatos(string email, string contrasenia);                                //1
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
