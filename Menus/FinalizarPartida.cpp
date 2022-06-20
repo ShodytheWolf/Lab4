@@ -19,6 +19,7 @@ void finalizarPartida(){
             //entiendo que iteramos ese SET de dtsPartidas para mostrar IDs, Fecha de Comienzo y el nick del juego, y si es Individual, también se muestra
 
             //if(dtPartida == NULL){
+                //cout<<"bo loko, no hay ninguna partida maaan"<<endl;
                 //return;
             //}else{
 
