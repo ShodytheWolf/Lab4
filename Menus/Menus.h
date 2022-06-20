@@ -4,7 +4,9 @@
 #include <stdio.h>
 
 void abandonarPartidaMultijugador();
+void iniciarPartida();
 void altaUsuario();
+void finalizarPartida();
 void eliminarVideojuego();
 void publicarVideojuego();
 void suscribirseAVideojuego();
