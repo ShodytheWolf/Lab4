@@ -37,7 +37,7 @@ Fabrica.o: Fabrica/Fabrica.cpp IControlador.o Controlador.o  #1
 IControlador.o: IControlador/IControlador.cpp $(DATAS) #2
 	@$(GXX) -c $^
 
-Controlador.o: Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o #3
+Controlador.o: Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o Jugador.o #3
 	@$(GXX) -c $^
 
 Jugador.o: Jugador/Jugador.cpp $(JGDEP) #4

@@ -3,6 +3,7 @@
 
 #include "../IControlador/IControlador.h"
 #include "../Usuario/Usuario.h"
+#include "../Jugador/Jugador.h"
 #include "../Categoria/Categoria.h"
 #include "../Videojuego/Videojuego.h"
 

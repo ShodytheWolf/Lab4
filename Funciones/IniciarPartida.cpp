@@ -1,4 +1,10 @@
 #include "Menus.h"
+#include "../IControlador/IControlador.h"
+#include "../Fabrica/Fabrica.h"
+#include "VerificarEnLista.cpp"
+
+Fabrica* fabrica = new Fabrica();
+IControlador* sistema = fabrica->getInterface();
 
  void menuIniciarPartida(){
      int optInicarPartida;
@@ -10,16 +16,30 @@
  	    cout<<"2)Salir"<<endl;
  		cin>>optInicarPartida;
 
- 		switch (optInicarPartida)
+ 		switch(optInicarPartida)
  		{
  		case 1:
- 			int juegoAIniciar;
+ 			//string juegoAIniciar;
  			int multiOIndividual;
- 			//juegosSuscriptos = listarVideojuegosSuscripto(); devuelve los juegos que el jugador está suscripto en una lista de strings.
- 			//entiendo que acá iteramos juegosSuscriptos para mostrarlos todos, basandonos en un orden númerico para luego saber cual es
- 			cout<<"Seleccione la ID del juego que desea iniciar su partida"<<endl;
- 			cin>>juegoAIniciar;
- 			//iteramos para conseguir el string del juego específico a inicializar partida, nombreJuego
+ 			string** juegosSuscriptos = sistema->listarVideojuegosSuscripto();//entro, consigo la lista de juegos, e inicializo juegosSuscriptos.
+
+			int i = 0;
+			while (juegosSuscriptos[i] != NULL)
+			{
+				cout<<*juegosSuscriptos[i]<<endl;
+			}
+
+				/*
+			do{
+ 				cout<<"Seleccione el nombre del juego que desea iniciar partida"<<endl;
+ 				cin>>juegoAIniciar;
+				bool taBienEscrito = verificarEnLista(juegosSuscriptos, juegoAIniciar);
+			}while(taBienEscrito != true);*/
+			
+
+			//string nombreJuego = *juegosSuscriptos[juegoAIniciar]; //nombre del juego a empezar.
+			//para arreglar
+
  			cout<<"Epicardo, sera una multijugador o individual my brudda?"<<endl;
  			cout<<"1)Individual"<<endl;
  			cout<<"2)Multijogador"<<endl;
@@ -27,23 +47,35 @@
 
  			switch (multiOIndividual)
  			{
- 			case 1://Individual
+ 			case 1:     //Individual
  				bool esContinuacion;
  				cout<<"Epicardo, sera una continuacion de una anterior?"<<endl;
  				cout<<"0)NO Continuacion"<<endl;
  				cout<<"1)Continuacion"<<endl;
  				cin>>esContinuacion;
 
- 				if(esContinuacion){// habra que controlar que haya al menos una partida para cada caso????
+ 				if(esContinuacion){
  					int IdPartidaAContinuar;
- 					//partidasSeleccionadas = listoPartidasInactivas(); siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
+ 					dtPartidaIndividual** partidasSeleccionadas = sistema->listoPartidasInactivas(); //siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
+					
+					if(partidasSeleccionadas == NULL){//alto control paaaaaa
+						cout<<"No hay partidas inactivas para el videojuego seleccionado"<<endl;
+						return;
+					}
+
  					cout<<"Seleccione porfa el ID de la partida a continuar"<<endl;
  					cin>>IdPartidaAContinuar;
- 					//formamos dtPartidaIndividual datosPartida con la info que ya hemos conseguido.
+
+					sistema->confirmarIndividual(*partidasSeleccionadas[IdPartidaAContinuar]);
+					cout<<"Partida Inicializada con exito!"<<endl;
+					return;
+
  				}else{
  					//aca entiendo formaremos un dtPartidaIndividual datosPartida con toda la info que hemos recolectado hasta ahora.
+					
+
  				}
- 				//confirmarIndividual(datosPartida);
+ 				
  				cout<<"Partida Iniciada con exito!"<<endl;
  				return;
  				break;

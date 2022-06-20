@@ -71,6 +71,16 @@ void Controlador::darDeBajaSuscripcion(){
 }                                                   
 
 string** Controlador::listarVideojuegosSuscripto(){
+        
+    /*
+    if(dynamic_cast<Jugador*>(this->loggedUser)){
+
+        string** lista = new string*[3];
+
+    }else{
+        throw invalid_argument("Usuario loggeado no es jugador!");
+    }*/
+    
 
 }                                           
 dtPartidaIndividual** Controlador::listoPartidasInactivas(){
