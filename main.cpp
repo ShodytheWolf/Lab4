@@ -2,14 +2,13 @@
 #include <iostream>
 #include "IControlador/IControlador.h"
 #include "Fabrica/Fabrica.h"
+#include "Menus/Menus.h"
+
 
 using namespace std;
 
 void menuDesarrollador();
 void menuJugador();
-void menuPublicarVideojuego();
-void menuSuscribirse();
-void menuAsignarPuntaje();
 
 int main(){
     Fabrica* fabrica = new Fabrica();
@@ -65,13 +64,13 @@ void menuJugador(){
             switch(opcion){
                 case 1:
                     cout << "Entraste a suscribirse a videojuego" << endl;
-                    menuSuscribirse();
-                    //suscribirseAvideojuego();
+                    //menuSuscribirse();
+                    suscribirseAVideojuego();
 					break;
                 case 2:
                     cout << "Entraste a asignar puntaje a videojogo" << endl;
                     //asignarpuntajeAvideojuego();
-                    menuAsignarPuntaje();
+                    asignarPuntajeAVideojuego();
 					break;
                 case 3:
                     cout << "Entraste a iniciar partida" << endl;
@@ -107,147 +106,6 @@ void menuJugador(){
    }
 }
 
-void menuPublicarVideojuego(){
-    int opcion = 0;
-
-    cout << "|=======================|" << endl;
-    cout << " Publicar un videojuego." << endl;
-    cout << "|=======================|" << endl;
-
-    cout << "1- Listar plataforma." << endl;
-    cout << "2- Listar género." << endl;
-    cout << "3- Listar otro." << endl;
-    cout << "4- Publicar videojuego." << endl;
-    cout << "5- Salir." << endl;
-    cin >> opcion;
-    system("clear");
-
-    if (opcion >= 1 || opcion <= 5){
-        try{
-        switch(opcion){
-            case 1:
-                //listarGenero();
-                break;
-            case 2:
-                //listarplataformas();
-                break;
-            case 3:
-                //listarOtros();
-                break;
-            case 4:
-                //publicarvideojuego();
-                break;
-            case 5:
-                menuJugador();
-            break;
-            default: 
-            cout << "Opción incorrecta platita" << endl;
-            break;
-        }
-    }
-    catch(invalid_argument& error){
-    cout << error.what();
-    }
-    }
-
-}
-
-
-void menuSuscribirse(){  //caso de uso 5
-int opcion = 0;
-
-    enumPago metodoDePago; 
-    enumSuscripcion tipoSuscripcion;
-
-
-    cout << "|===========================|" << endl;
-    cout << " Suscribirse a un videojuego." << endl;
-    cout << "|===========================|" << endl;
-
-    cout << "1- ListarVideojuegos." << endl;
-    cout << "2- IngresarVideojuego." << endl;
-    cout << "3- NuevaSuscripcion." << endl;
-    cout << "4- Dar de Baja." << endl;
-    cout << "5- Salir." << endl;
-    cin >> opcion;
-    system("clear");
-
-        
-    if (opcion >= 1 || opcion <= 5){
-    try{
-        switch(opcion){
-            case 1:
-                //listarGenero();
-                break;
-            case 2:
-                //listarplataformas();
-                break;
-            case 3:
-                //listarOtros();
-                break;
-            case 4:
-                //publicarvideojuego();
-                break;
-            case 5:
-                menuJugador();
-            break;
-            default: 
-            cout << "Opción incorrecta platita" << endl;
-            break;
-        }
-    }
-    catch(invalid_argument& error){
-    cout << error.what();
-    }
-
-    }
-
-}
-
-void menuAsignarPuntaje(){ //caso de uso 6
-    int opcion = 0;
-
-    cout << "|===============================|" << endl;
-    cout << " Asignar puntaje a un videjuego." << endl;
-    cout << "|===============================|" << endl;
-
-    cout << "1- ListarVideojuegos." << endl;
-    cout << "2- Asignar puntaje." << endl;
-    cout << "3- Salir." << endl;
-    cin >> opcion;
-    system("clear");
-
-            
-    if (opcion >=  1 || opcion <= 3){
-        try{
-            switch(opcion){
-                case 1:
-                    //listarVideojuegos();
-                    break;
-                case 2:
-                    //char* nombreVideojuego;
-                    //int puntuacion;
-                    //cout << "Ingrese nombre del videojuego: " << endl;
-                    //cin >> nombreVideojuego;
-                    //cout << "Ingrese puntuación del videojuego: " << endl;
-                    //cin >> puntuacion;
-                    //asignarPuntaje(nombreVideojuego, puntuacion);
-                    break;
-                case 3:
-                    menuJugador();
-                break;
-                default: 
-                cout << "Opción incorrecta  mastercard." << endl;
-                break;
-            }
-        }
-        catch(invalid_argument& error){
-        cout << error.what();
-        }
-
-    }
-
-}
 
 // void menuPrincipal(){
 //     int opt;
