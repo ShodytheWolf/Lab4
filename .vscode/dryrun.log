@@ -1,11 +1,18 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/braian/Escritorio/Lab4'
+make: Entering directory '/home/lucas/Documentos/GitHub/Lab4'
+ 
 g++ -c Datatypes/dtCategoria.cpp
+ 
 g++ -c Datatypes/dtPartida.cpp
+ 
 g++ -c Datatypes/dtPartidaIndividual.cpp dtPartida.o
+ 
 g++ -c Datatypes/dtPartidaMultijugador.cpp dtPartida.o
+ 
 g++ -c Datatypes/dtVideoJuego.cpp
+ 
 g++ -c Datatypes/dtJugador.cpp
+ 
 g++ -c IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 g++ -c colecciones-genericas/interfaces/ICollectible.cpp
 g++ -c colecciones-genericas/interfaces/IKey.cpp
@@ -47,5 +54,10 @@ g++ -c Comentario/Comentario.cpp ICollectible.o ICollection.o List.o
 g++ -c EnVivo/EnVivo.cpp Multijugador.o ICollection.o List.o Comentario.o
 g++ -c colecciones-genericas/collections/ListIterator.cpp ListNode.o
 g++ -o steam main.o AltaUsuario.o FinalizarPartida.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o IniciarPartida.o 
+<<<<<<< Updated upstream
 make: Leaving directory '/home/braian/Escritorio/Lab4'
+=======
+ 
+make: Leaving directory '/home/lucas/Documentos/GitHub/Lab4'
+>>>>>>> Stashed changes
  

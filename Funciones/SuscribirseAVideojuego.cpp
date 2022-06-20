@@ -1,7 +1,14 @@
-#include "../Menus/Menus.h"
+#include <iostream>
+#include <stdio.h>
+#include "../IControlador/IControlador.h"
+#include "../Fabrica/Fabrica.h"
+
+using namespace std;
 
 void suscribirseAVideojuego(){  //caso de uso 5
 
+Fabrica fab;
+IControlador* controlador = fab.getInterface();
 
 int opcion = 0;
 

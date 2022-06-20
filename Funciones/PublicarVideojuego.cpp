@@ -1,5 +1,15 @@
-#include "../Menus/Menus.h"
+#include <iostream>
+#include <stdio.h>
+#include "../IControlador/IControlador.h"
+#include "../Fabrica/Fabrica.h"
+
+
+using namespace std;
+
 void publicarVideojuego(){
+
+Fabrica fab;
+IControlador* controlador = fab.getInterface();
 
 int opcion = 0;
 char confirmar;
