@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool verificarEnLista(string**, string);
+
 void eliminarVideojuego(){
     Fabrica f;
     IControlador* sistema = f.getInterface();
@@ -19,7 +21,11 @@ void eliminarVideojuego(){
         i++; 
     }
     cin >> juego;
-    cout << "Se eliminar el Videojuego: " << juego <<"\nDesea confirmar? S/N\n" <<endl;
+    while(!verificarEnLista(listVJ, string(juego))){
+        cout << "El juego no existe. Por favor intentelo de nuevo" <<endl;
+        cin >> juego; 
+    }
+    cout << "Se eliminara el Videojuego: " << juego <<"\nDesea confirmar? S/N\n" <<endl;
     do{
         cin >> op;
         switch (op)
@@ -43,5 +49,4 @@ void eliminarVideojuego(){
             break;
         }
     }while(!verificacion);
-
 }
