@@ -30,9 +30,8 @@ g++ -c Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o
 g++ -c Fabrica/Fabrica.cpp IControlador.o Controlador.o
 g++ -c Menus/AltaUsuario.cpp
 g++ -c Menus/FinalizarPartida.cpp
-g++ -c Menus/AbandonarPartidaMultijugador.cpp
 g++ -c Menus/IniciarPartida.cpp
-g++ -c main.cpp IControlador.o Fabrica.o AltaUsuario.o FinalizarPartida.o AbandonarPartidaMultijugador.o IniciarPartida.o
+g++ -c main.cpp IControlador.o Fabrica.o AltaUsuario.o FinalizarPartida.o IniciarPartida.o
 g++ -c colecciones-genericas/Integer.cpp ICollectible.o OrderedKey.o
 g++ -c Partida/Partida.cpp dtPartida.o ICollectible.o String.o Integer.o
 g++ -c Individual/Individual.cpp Partida.o
@@ -47,6 +46,6 @@ g++ -c Suscripcion/Vitalicia.cpp Suscripcion.o
 g++ -c Comentario/Comentario.cpp ICollectible.o ICollection.o List.o
 g++ -c EnVivo/EnVivo.cpp Multijugador.o ICollection.o List.o Comentario.o
 g++ -c colecciones-genericas/collections/ListIterator.cpp ListNode.o
-g++ -o steam main.o AltaUsuario.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o IniciarPartida.o AbandonarPartidaMultijugador.o FinalizarPartida.o 
+g++ -o steam main.o AltaUsuario.o FinalizarPartida.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o IniciarPartida.o 
 make: Leaving directory '/home/braian/Escritorio/Lab4'
  

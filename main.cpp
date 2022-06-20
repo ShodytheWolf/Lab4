@@ -2,7 +2,7 @@
 #include <iostream>
 #include "IControlador/IControlador.h"
 #include "Fabrica/Fabrica.h"
-#include "Menus/Menus.h"
+#include "Funciones/Menus.h"
 
 
 using namespace std;

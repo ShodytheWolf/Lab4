@@ -101,6 +101,10 @@ dtVideoJuego** Controlador::seleccionarVideojuego(char* nombreVideojuego){
 
 }                    
 string** Controlador::listarVideojuegosPublicados(){
+    //string** lista = new string*[aca pones el maximo de vj en sistema]
+    //aca inicializas 
+    //y despues cargas la lista
+    //return lista; 
 
 }                                          
 void Controlador::confirmoEliminacion (char* nombreVideojuego){
