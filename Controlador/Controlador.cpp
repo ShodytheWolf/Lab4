@@ -20,10 +20,9 @@ Controlador* Controlador::getInstance(){
     return instance;
 }
 
-// void Controlador::ingresoDatos(string email, string contrasenia){
-//     NO USAR ESTA OPERACION 
-//     USAR INGRESO DATA PARA ALTA USUARIO E INICIO SESION
-// }
+bool Controlador::ingresoData(string email){
+
+}
 
 void Controlador::ingresarEmpresa(char* nombreEmpresa){
     this->nombreEmpresa = String(nombreEmpresa);

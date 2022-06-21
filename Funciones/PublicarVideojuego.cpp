@@ -6,6 +6,8 @@
 
 using namespace std;
 
+bool verificarEnLista(string** , string);
+
 void publicarVideojuego(){
 
     Fabrica fab;

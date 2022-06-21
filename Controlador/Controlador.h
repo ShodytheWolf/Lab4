@@ -14,7 +14,7 @@ class Controlador: public IControlador{
         static Controlador* getInstance(); 
 
         //Alta Usuario:
-        //void ingresoDatos(string email, string contrasenia);                                //1 
+        bool ingresoData(string email);                                                   //1 
         //en vez de ingresoDatos, usar ingreso data (op 7) que ya guarda el email y contrasenia y devuelve true 
         //si ya existe el usuario
         void ingresarEmpresa(char* nombreEmpresa);                                        //2

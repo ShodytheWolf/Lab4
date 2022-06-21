@@ -18,7 +18,7 @@ class IControlador{
         virtual ~IControlador();
 
         //Alta Usuario:
-        //virtual void ingresoDatos(string email, string contrasenia) = 0;                                //1
+        virtual bool ingresoData(string email) = 0;                                //1
         virtual void ingresarEmpresa(char* nombreEmpresa) = 0;                                        //2
         virtual void confirmarNuevoDesarrollador() = 0;                                               //3
         virtual bool ingresarNickname(char* nickname) = 0;                                            //4
