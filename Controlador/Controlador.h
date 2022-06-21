@@ -14,7 +14,9 @@ class Controlador: public IControlador{
         static Controlador* getInstance(); 
 
         //Alta Usuario:
-        void ingresoDatos(string email, string contrasenia);                                //1
+        //void ingresoDatos(string email, string contrasenia);                                //1 
+        //en vez de ingresoDatos, usar ingreso data (op 7) que ya guarda el email y contrasenia y devuelve true 
+        //si ya existe el usuario
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
         bool ingresarNickname(char* nickname);                                            //4
@@ -23,6 +25,7 @@ class Controlador: public IControlador{
 
         //Iniciar sesion:
         bool ingresoData(string email, string contrasenia);                                //7
+        void confirmarSesion();
 
         //Publicar Videojuego:
         dtCategoria** listarGenero();                                                     //10

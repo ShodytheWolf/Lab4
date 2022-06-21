@@ -4,10 +4,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 12:48:36 2022
+# Make data base, printed on Tue Jun 21 14:03:04 2022
 
 # Variables
 
@@ -29,6 +28,8 @@ SNAP_COMMON = /var/snap/code/common
 XDG_SESSION_TYPE = x11
 # environment
 VSCODE_LOG_NATIVE = false
+# makefile (from 'Makefile', line 7)
+FABYCONT = IControlador.o Fabrica.o
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -264,7 +265,7 @@ VSCODE_PID = 2131
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=729f129b2ed68312c0bcf01062b1d314
 # variable set hash-table stats:
-# Load=126/1024=12%, Rehash=0, Collisions=17/158=11%
+# Load=127/1024=12%, Rehash=0, Collisions=19/159=12%
 
 # Pattern-specific Variable Values
 
@@ -276,6 +277,7 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=729f129b2ed68312c0bcf01
 
 # 33 files, no impossibilities in 1 directories.
 
+ 
 # Implicit Rules
 
 # No implicit rules.
@@ -286,18 +288,14 @@ dtEstadistica.o: Datatypes/dtEstadistica.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-#  recipe to execute (from 'Makefile', line 125):
+#  recipe to execute (from 'Makefile', line 126):
 	@$(GXX) -c $^
 
 IControlador.o: IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  recipe to execute (from 'Makefile', line 44):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -310,7 +308,7 @@ Fabrica.o: Fabrica/Fabrica.cpp IControlador.o Controlador.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -341,14 +339,14 @@ ListIterator.o: colecciones-genericas/collections/ListIterator.cpp ListNode.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 153):
+#  recipe to execute (from 'Makefile', line 154):
 	@$(GXX) -c $^
 
 clear:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 180):
+#  recipe to execute (from 'Makefile', line 181):
 	rm -f steam *.o *.out
 
 # Not a target:
@@ -361,7 +359,7 @@ Trimestral.o: Suscripcion/Trimestral.cpp Suscripcion.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 77):
+#  recipe to execute (from 'Makefile', line 78):
 	@$(GXX) -c $^
 
 all: steam
@@ -375,29 +373,9 @@ all: steam
 
 dtCategoria.o: Datatypes/dtCategoria.cpp
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := dtCategoria.o
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := Datatypes/dtCategoria.cpp
-# automatic
-# | := 
-# automatic
-# < := Datatypes/dtCategoria.cpp
-# automatic
-# ^ := Datatypes/dtCategoria.cpp
-# automatic
-# ? := Datatypes/dtCategoria.cpp
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
-#  recipe to execute (from 'Makefile', line 107):
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 108):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -410,21 +388,21 @@ dtPartidaMultijugador.o: Datatypes/dtPartidaMultijugador.cpp dtPartida.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 116):
+#  recipe to execute (from 'Makefile', line 117):
 	@$(GXX) -c $^
 
 ICollectible.o: colecciones-genericas/interfaces/ICollectible.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 176):
+#  recipe to execute (from 'Makefile', line 177):
 	@$(GXX) -c $^
 
 Jugador.o: Jugador/Jugador.cpp Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 51):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -437,22 +415,21 @@ FinalizarPartida.o: Funciones/FinalizarPartida.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
+#  recipe to execute (from 'Makefile', line 31):
 	@$(GXX) -c $^
 
 IDictionary.o: colecciones-genericas/interfaces/IDictionary.cpp IKey.o ICollectible.o IIterator.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 161):
+#  recipe to execute (from 'Makefile', line 162):
 	@$(GXX) -c $^
 
 # Not a target:
 Datatypes/dtCategoria.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-17 16:54:57.624184037
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Datatypes/dtPartidaMultijugador.cpp:
@@ -464,7 +441,7 @@ Desarrollador.o: Desarrollador/Desarrollador.cpp Usuario.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 65):
+#  recipe to execute (from 'Makefile', line 66):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -483,13 +460,13 @@ IniciarPartida.o: Funciones/IniciarPartida.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 33):
+#  recipe to execute (from 'Makefile', line 34):
 	@$(GXX) -c $^
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 12:48:05.609392235
+#  Last modified 2022-06-21 14:03:03.008944838
 #  File has been updated.
 #  Successfully updated.
 
@@ -497,7 +474,7 @@ Multijugador.o: Multijugador/Multijugador.cpp Partida.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
+#  recipe to execute (from 'Makefile', line 96):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -520,7 +497,9 @@ Funciones/PublicarVideojuego.cpp:
 
 # Not a target:
 Videojuego/Videojuego.cpp:
+ 
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -534,10 +513,11 @@ OrderedDictionaryEntry.o: colecciones-genericas/collections/OrderedDictionaryEnt
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 147):
+#  recipe to execute (from 'Makefile', line 148):
 	@$(GXX) -c $^
 
 # Not a target:
+ 
 colecciones-genericas/collections/List.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -547,20 +527,21 @@ dtVideoJuego.o: Datatypes/dtVideoJuego.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 122):
+#  recipe to execute (from 'Makefile', line 123):
 	@$(GXX) -c $^
 
 # Not a target:
 Funciones/AltaUsuario.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-19 19:45:52.720024722
+#  File has been updated.
+#  Successfully updated.
 
 VerInfoVideojuego.o: Funciones/VerInfoVideojuego.cpp VerificarEnLista.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 15):
+#  recipe to execute (from 'Makefile', line 16):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -573,22 +554,22 @@ Suscripcion.o: Suscripcion/Suscripcion.cpp ICollectible.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-#  recipe to execute (from 'Makefile', line 83):
+#  recipe to execute (from 'Makefile', line 84):
 	@$(GXX) -c $^
 
 OrderedDictionary.o: colecciones-genericas/collections/OrderedDictionary.cpp OrderedDictionaryEntry.o ListNode.o IDictionary.o
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 144):
+#  recipe to execute (from 'Makefile', line 145):
 	@$(GXX) -c $^
 
 Individual.o: Individual/Individual.cpp Partida.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 89):
+#  recipe to execute (from 'Makefile', line 90):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -602,7 +583,7 @@ ICollection.o: colecciones-genericas/interfaces/ICollection.cpp IIterator.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 164):
+#  recipe to execute (from 'Makefile', line 165):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -621,14 +602,14 @@ Controlador.o: Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o Ju
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 	@$(GXX) -c $^
 
 Videojuego.o: Videojuego/Videojuego.cpp dtVideoJuego.o ICollection.o List.o IDictionary.o OrderedDictionary.o Categoria.o Suscripcion.o dtSuscripcion.o Estadistica.o Desarrollador.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 59):
+#  recipe to execute (from 'Makefile', line 60):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -641,14 +622,14 @@ Vitalicia.o: Suscripcion/Vitalicia.cpp Suscripcion.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 80):
+#  recipe to execute (from 'Makefile', line 81):
 	@$(GXX) -c $^
 
 Contratacion.o: Contratacion/Contratacion.cpp Videojuego.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 57):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -661,14 +642,14 @@ EnVivo.o: EnVivo/EnVivo.cpp Multijugador.o ICollection.o List.o Comentario.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 92):
+#  recipe to execute (from 'Makefile', line 93):
 	@$(GXX) -c $^
 
 VerificarEnLista.o: Funciones/VerificarEnLista.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 36):
+#  recipe to execute (from 'Makefile', line 37):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -681,7 +662,7 @@ Partida.o: Partida/Partida.cpp dtPartida.o ICollectible.o String.o Integer.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 101):
+#  recipe to execute (from 'Makefile', line 102):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -700,7 +681,7 @@ ListNode.o: colecciones-genericas/collections/ListNode.cpp ICollection.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 156):
+#  recipe to execute (from 'Makefile', line 157):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -719,7 +700,7 @@ List.o: colecciones-genericas/collections/List.cpp ListNode.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 150):
+#  recipe to execute (from 'Makefile', line 151):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -732,7 +713,7 @@ String.o: colecciones-genericas/String.cpp ICollectible.o OrderedKey.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 133):
+#  recipe to execute (from 'Makefile', line 134):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -745,7 +726,7 @@ Categoria.o: Categoria/Categoria.cpp String.o ICollectible.o dtCategoria.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 62):
+#  recipe to execute (from 'Makefile', line 63):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -776,21 +757,21 @@ EliminarVideojuego.o: Funciones/EliminarVideojuego VerificarEnLista.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 18):
+#  recipe to execute (from 'Makefile', line 19):
 	@$(GXX) -c $^
 
 Integer.o: colecciones-genericas/Integer.cpp ICollectible.o OrderedKey.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 138):
+#  recipe to execute (from 'Makefile', line 139):
 	@$(GXX) -c $^
 
 OrderedKey.o: colecciones-genericas/interfaces/OrderedKey.cpp IKey.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 170):
+#  recipe to execute (from 'Makefile', line 171):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -801,7 +782,6 @@ Suscripcion/Anual.cpp:
 
 # Not a target:
 Controlador/Controlador.cpp:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -810,14 +790,14 @@ dtPartidaIndividual.o: Datatypes/dtPartidaIndividual.cpp dtPartida.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 113):
+#  recipe to execute (from 'Makefile', line 114):
 	@$(GXX) -c $^
 
 Mensual.o: Suscripcion/Mensual.cpp Suscripcion.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 74):
+#  recipe to execute (from 'Makefile', line 75):
 	@$(GXX) -c $^
 
 steam: main.o EliminarVideojuego.o VerInfoVideojuego.o AltaUsuario.o FinalizarPartida.o VerificarEnLista.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o IniciarPartida.o
@@ -827,14 +807,14 @@ steam: main.o EliminarVideojuego.o VerInfoVideojuego.o AltaUsuario.o FinalizarPa
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  recipe to execute (from 'Makefile', line 8):
+#  recipe to execute (from 'Makefile', line 9):
 	@$(GXX) -o $@ $^ 
 
 dtJugador.o: Datatypes/dtJugador.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 110):
+#  recipe to execute (from 'Makefile', line 111):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -847,7 +827,7 @@ Anual.o: Suscripcion/Anual.cpp Suscripcion.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 71):
+#  recipe to execute (from 'Makefile', line 72):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -860,24 +840,25 @@ Estadistica.o: Estadistica/Estadistica.cpp ICollectible.o dtEstadistica.o String
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 86):
+#  recipe to execute (from 'Makefile', line 87):
 	@$(GXX) -c $^
 
-main.o: main.cpp IControlador.o Fabrica.o AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o
+main.o: main.cpp AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
+ 
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  recipe to execute (from 'Makefile', line 11):
+#  recipe to execute (from 'Makefile', line 12):
 	@$(GXX) -c $^
 
 SuscribirseAVideojuego.o: Funciones/SuscribirseAVideojuego.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 24):
+#  recipe to execute (from 'Makefile', line 25):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -902,7 +883,7 @@ Comentario.o: Comentario/Comentario.cpp ICollectible.o ICollection.o List.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 98):
+#  recipe to execute (from 'Makefile', line 99):
 	@$(GXX) -c $^
 	
 
@@ -910,7 +891,7 @@ dtSuscripcion.o: Datatypes/dtSuscripcion.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 128):
+#  recipe to execute (from 'Makefile', line 129):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -929,7 +910,7 @@ Registro.o: Registro/Registro.cpp dtVideoJuego.o Contratacion.o ICollectible.o I
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 54):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -946,9 +927,29 @@ Usuario/Usuario.cpp:
 
 AltaUsuario.o: Funciones/AltaUsuario.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 21):
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := AltaUsuario.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := Funciones/AltaUsuario.cpp
+# automatic
+# | := 
+# automatic
+# < := Funciones/AltaUsuario.cpp
+# automatic
+# ^ := Funciones/AltaUsuario.cpp
+# automatic
+# ? := Funciones/AltaUsuario.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  recipe to execute (from 'Makefile', line 22):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -956,27 +957,26 @@ Funciones/EliminarVideojuego:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 dtPartida.o: Datatypes/dtPartida.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 119):
+#  recipe to execute (from 'Makefile', line 120):
 	@$(GXX) -c $^
 
 IIterator.o: colecciones-genericas/interfaces/IIterator.cpp ICollectible.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 167):
+#  recipe to execute (from 'Makefile', line 168):
 	@$(GXX) -c $^
 
 PublicarVideojuego.o: Funciones/PublicarVideojuego.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
+#  recipe to execute (from 'Makefile', line 28):
 	@$(GXX) -c $^
 
 # Not a target:
@@ -984,6 +984,7 @@ Datatypes/dtSuscripcion.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 colecciones-genericas/collections/OrderedDictionaryEntry.cpp:
@@ -995,22 +996,21 @@ IKey.o: colecciones-genericas/interfaces/IKey.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 173):
+#  recipe to execute (from 'Makefile', line 174):
 	@$(GXX) -c $^
 
 Usuario.o: Usuario/Usuario.cpp ICollectible.o String.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 68):
+#  recipe to execute (from 'Makefile', line 69):
 	@$(GXX) -c $^
 
 # Not a target:
 IControlador/IControlador.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-14 19:27:11.766331602
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 colecciones-genericas/interfaces/OrderedKey.cpp:
@@ -1025,7 +1025,7 @@ colecciones-genericas/collections/OrderedDictionary.cpp:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=31/362=9%
+# Load=108/1024=11%, Rehash=0, Collisions=31/360=9%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -1035,9 +1035,9 @@ colecciones-genericas/collections/OrderedDictionary.cpp:
 # strcache buffers: 1 (0) / strings = 141 / storage = 2762 B / avg = 19 B
 # current buf: size = 8162 B / used = 2762 B / count = 141 / avg = 19 B
 
-# strcache performance: lookups = 343 / hit rate = 58%
+# strcache performance: lookups = 341 / hit rate = 58%
 # hash-table stats:
-# Load=141/8192=2%, Rehash=0, Collisions=28/343=8%
-# Finished Make data base on Tue Jun 21 12:48:36 2022
+# Load=141/8192=2%, Rehash=0, Collisions=28/341=8%
+# Finished Make data base on Tue Jun 21 14:03:04 2022
 
  
