@@ -3,7 +3,7 @@
 
 using namespace std;
 #include <iostream>
-
+#include "../Enumeration/enumCategoria.h"
 
 #pragma once
 
@@ -15,10 +15,12 @@ public:
 
     string getNombre();
     string getDescripcion();
-    
+    enumCategoria getTipo();
+
 private:
     string nombre;
     string descripcion;
+    enumCategoria tipo;
 
 };
 

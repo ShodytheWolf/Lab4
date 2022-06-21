@@ -11,6 +11,12 @@ void publicarVideojuego(){
 Fabrica fab;
 IControlador* controlador = fab.getInterface();
 
+dtCategoria** generos;
+dtCategoria** plataformas;
+dtCategoria** otros;
+
+
+
 int opcion = 0;
 char confirmar;
 do{
@@ -31,25 +37,38 @@ do{
 
             case 1:
                 cout << "Entraste a listar y seleccionar genero" << endl;
+                cout << "Ingrese el genero a seleccionar: " << endl;
+
+                dtCategoria** generos = controlador->listarGenero(); //violacion de segmento (core)
+                //
                 //listarGenero();
+                //mostrar
+                //seleccion
                 break;
 
             case 2:
                 cout << "Entraste a listar y seleccionar plataforma" << endl;
+                dtCategoria** plataformas = controlador->listarPlataforma();
                 //listarplataforma();
+                //mostrar
+                //seleccion
                 break;
 
             case 3:
+                //listar
+                //mostrar
+                //selecc
                 cout << "Entraste a listar Otros" << endl;
+                dtCategoria** otros = controlador->listarOtro();
+
                 cout << "¿Desea seleccionar otros?" << endl;
                 cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
                 cin >> confirmar;
                 if (confirmar == 's' || confirmar == 'S'){
-                cout << "listaste otros" << endl;
-                //listarOtros();
+                cout << "seleccionaste otros" << endl;
                 } 
                 else {
-                    cout << "cancleaste" << endl;
+                    //menuDesarrollador();
                 }
                 break;
 
@@ -59,7 +78,7 @@ do{
                 cin >> confirmar;
                 if (confirmar == 's' || confirmar == 'S'){
                 cout << "Publicaste un videojuego" << endl;
-                //publicarvideojuego();
+                //controlador->publicarVideojuego(); como hacer la seleccion para pasar datos
                 } 
                 else {
                     cout << "cancelaste" << endl;

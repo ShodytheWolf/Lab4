@@ -17,6 +17,7 @@ int opcion = 0;
 //string nombreVideojuego;
 bool estaSuscrito = false;
 char confirmar;
+char* nombreVideojuego;
 string tipoSus;
 do{
     cout << "|===========================|" << endl;
@@ -34,22 +35,28 @@ do{
         switch(opcion){
             case 1:
                 cout << "entraste a listarVideojuegosDieferenciada" << endl;
-                //listarVideojuegosDiferenciada();
+                controlador->listarVideojuegosDiferenciada();
                 break;
 
             case 2:
-                cout << "ingresarVideojuego" << endl;
-                //ingresarVideojuego(nombreVideojuego);
+                cout << "Ingrese el nombre del videojuego: " << endl;
+                cin >> nombreVideojuego;
+                controlador->ingresarVideojuego(nombreVideojuego);
                 break;
 
             case 3:
-                cout << "entraste a suscribirte  a un videojuego" << endl;
+            //¿?
+                cout << "Ingrese un metodo de Pago: " << endl;
+
+                cout << "Ingrese un tipo de suscripción: " << endl;
+
                 if (estaSuscrito == false){ //si no tiene una suscripcion 
                     cout << "¿Desea confirmar?" << endl;
                     cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
                     cin >> confirmar;
                     if (confirmar == 's' || confirmar == 'S'){
                     cout << "te suscribiste exitosamente" << endl;
+                    //controlador->nuevaSuscripcion()
                     //nuevaSuscripcion();
                     //return;
                     }
