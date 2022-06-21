@@ -107,7 +107,7 @@ string** Controlador::listarTodosVJ(){
 
 }
 
-dtVideoJuego** Controlador::seleccionarVideojuego(char* nombreVideojuego){
+dtVideoJuego* Controlador::seleccionarVideojuego(char* nombreVideojuego){
 
 }                    
 string** Controlador::listarVideojuegosPublicados(){

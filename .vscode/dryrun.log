@@ -1,17 +1,11 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/braian/Escritorio/Lab4'
 g++ -c Datatypes/dtCategoria.cpp
- 
 g++ -c Datatypes/dtPartida.cpp
- 
 g++ -c Datatypes/dtPartidaIndividual.cpp dtPartida.o
- 
 g++ -c Datatypes/dtPartidaMultijugador.cpp dtPartida.o
- 
 g++ -c Datatypes/dtVideoJuego.cpp
- 
 g++ -c Datatypes/dtJugador.cpp
- 
 g++ -c IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 g++ -c colecciones-genericas/interfaces/ICollectible.cpp
 g++ -c colecciones-genericas/interfaces/IKey.cpp
@@ -32,7 +26,14 @@ g++ -c Datatypes/dtEstadistica.cpp
 g++ -c Estadistica/Estadistica.cpp ICollectible.o dtEstadistica.o String.o
 g++ -c Desarrollador/Desarrollador.cpp Usuario.o
 g++ -c Videojuego/Videojuego.cpp dtVideoJuego.o ICollection.o List.o IDictionary.o OrderedDictionary.o Categoria.o Suscripcion.o dtSuscripcion.o Estadistica.o Desarrollador.o
-g++ -c Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o
+g++ -c colecciones-genericas/Integer.cpp ICollectible.o OrderedKey.o
+g++ -c Partida/Partida.cpp dtPartida.o ICollectible.o String.o Integer.o
+g++ -c Individual/Individual.cpp Partida.o
+g++ -c Multijugador/Multijugador.cpp Partida.o
+g++ -c Contratacion/Contratacion.cpp Videojuego.o
+g++ -c Registro/Registro.cpp dtVideoJuego.o Contratacion.o ICollectible.o ICollection.o List.o
+g++ -c Jugador/Jugador.cpp Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o
+g++ -c Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o Jugador.o
 g++ -c Fabrica/Fabrica.cpp IControlador.o Controlador.o
 g++ -c Funciones/AltaUsuario.cpp
 g++ -c Funciones/FinalizarPartida.cpp
@@ -41,13 +42,6 @@ g++     Funciones/EliminarVideojuego.cpp   -o Funciones/EliminarVideojuego
 g++ -c Funciones/VerificarEnLista.cpp
 g++ -c Funciones/EliminarVideojuego VerificarEnLista.o
 g++ -c main.cpp IControlador.o Fabrica.o AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o
-g++ -c colecciones-genericas/Integer.cpp ICollectible.o OrderedKey.o
-g++ -c Partida/Partida.cpp dtPartida.o ICollectible.o String.o Integer.o
-g++ -c Individual/Individual.cpp Partida.o
-g++ -c Multijugador/Multijugador.cpp Partida.o
-g++ -c Contratacion/Contratacion.cpp Videojuego.o
-g++ -c Registro/Registro.cpp dtVideoJuego.o Contratacion.o ICollectible.o ICollection.o List.o
-g++ -c Jugador/Jugador.cpp Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o
 g++ -c Suscripcion/Anual.cpp Suscripcion.o
 g++ -c Suscripcion/Mensual.cpp Suscripcion.o
 g++ -c Suscripcion/Trimestral.cpp Suscripcion.o
@@ -55,15 +49,6 @@ g++ -c Suscripcion/Vitalicia.cpp Suscripcion.o
 g++ -c Comentario/Comentario.cpp ICollectible.o ICollection.o List.o
 g++ -c EnVivo/EnVivo.cpp Multijugador.o ICollection.o List.o Comentario.o
 g++ -c colecciones-genericas/collections/ListIterator.cpp ListNode.o
-<<<<<<< HEAD
 g++ -o steam main.o EliminarVideojuego.o AltaUsuario.o FinalizarPartida.o VerificarEnLista.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o IniciarPartida.o 
-=======
-g++ -o steam main.o AltaUsuario.o FinalizarPartida.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o IniciarPartida.o 
-<<<<<<< Updated upstream
->>>>>>> 7e07be4c8443da54e9f39edac3265df90b9680c5
 make: Leaving directory '/home/braian/Escritorio/Lab4'
-=======
- 
-make: Leaving directory '/home/lucas/Documentos/GitHub/Lab4'
->>>>>>> Stashed changes
  

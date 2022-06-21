@@ -50,7 +50,7 @@ class Controlador: public IControlador{
 
         //Ver info Videojuego:
         string** listarTodosVJ();
-        dtVideoJuego** seleccionarVideojuego(char* nombreVideojuego);                     //29
+        dtVideoJuego* seleccionarVideojuego(char* nombreVideojuego);                     //29
 
         //Eliminar Videojuego
         string** listarVideojuegosPublicados();                                           //30

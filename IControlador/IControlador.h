@@ -54,7 +54,7 @@ class IControlador{
 
         //Ver info Videojuego:
         virtual string** listarTodosVJ() = 0;
-        virtual dtVideoJuego** seleccionarVideojuego(char* nombreVideojuego) = 0;                     //29
+        virtual dtVideoJuego* seleccionarVideojuego(char* nombreVideojuego) = 0;                     //29
 
         //Eliminar Videojuego
         virtual string** listarVideojuegosPublicados() = 0;                                           //30
