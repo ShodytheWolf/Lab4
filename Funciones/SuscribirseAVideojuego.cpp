@@ -15,10 +15,12 @@ int opcion = 0;
 //enumPago metodoDePago; 
 //enumSuscripcion tipoSuscripcion;
 //string nombreVideojuego;
+
 bool estaSuscrito = false;
 char confirmar;
 char* nombreVideojuego;
 string tipoSus;
+
 do{
     cout << "|===========================|" << endl;
     cout << " Suscribirse a un videojuego." << endl;

@@ -6,6 +6,8 @@
 
 using namespace std;
 
+bool verificarEnLista(string** , string);
+
 void publicarVideojuego(){
 
 Fabrica fab;
@@ -14,7 +16,10 @@ IControlador* controlador = fab.getInterface();
 dtCategoria** generos;
 dtCategoria** plataformas;
 dtCategoria** otros;
-
+int costoAnual;
+int costoMensual;
+int costoTrimestral;
+int costoVitalicia;
 
 
 int opcion = 0;
@@ -23,6 +28,13 @@ do{
     cout << "|=======================|" << endl;
     cout << " Publicar un videojuego." << endl;
     cout << "|=======================|" << endl;
+
+    cout << "Costos por tipo de suscripción. \n" << endl;
+    cout << "Costo de suscripción anual: " << endl;
+    cin >> costoAnual;
+    cout << "Ingrese costo de suscripción trimestral: " << endl;
+    cin >> costoTrimestral;
+    cout << "Ingrese costo de suscripción mensual" << endl;
 
     cout << "1- Listar plataforma." << endl;
     cout << "2- Listar género." << endl;
@@ -36,10 +48,21 @@ do{
         switch(opcion){
 
             case 1:
-                cout << "Entraste a listar y seleccionar genero" << endl;
-                cout << "Ingrese el genero a seleccionar: " << endl;
+                cout << "Lista de generos: " << endl;
 
-                dtCategoria** generos = controlador->listarGenero(); //violacion de segmento (core)
+                dtCategoria** generos = controlador->listarGenero();
+                int i = 0;
+                // while (generos[i]){
+
+                //     cout << "-" << *generos[i] <<endl;
+                //     i++; 
+
+                // while(!verificarEnLista(generos, string(genero))){
+                //     cout << "El juego no existe. Por favor intentelo de nuevo" <<endl;
+
+                // }
+                //}
+                cout << "Ingrese el genero a seleccionar: " << endl;
                 //
                 //listarGenero();
                 //mostrar

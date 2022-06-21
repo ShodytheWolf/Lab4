@@ -30,7 +30,7 @@ void altaUsuario(){
     cout << "\nIngrese una contrasenia: ";
     cin >> contrasenia;
 
-    controlador->ingresoDatos(correo, contrasenia);
+    controlador->ingresoData(correo); //verificacion si existe correo
 
     cout << "¿Desea registrar un desarrolladoro un usuario?" << endl;
     cout << "Para registrar un desarrollador presione(d/D)" << endl;
