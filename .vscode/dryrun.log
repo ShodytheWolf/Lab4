@@ -1,16 +1,9 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/braian/Escritorio/Lab4'
-g++ -c Funciones/AltaUsuario.cpp
-g++ -c Funciones/FinalizarPartida.cpp
-g++ -c Funciones/IniciarPartida.cpp
-g++     Funciones/EliminarVideojuego.cpp   -o Funciones/EliminarVideojuego
-g++ -c Funciones/VerificarEnLista.cpp
-g++ -c Funciones/EliminarVideojuego VerificarEnLista.o
-g++ -c Funciones/VerInfoVideojuego.cpp VerificarEnLista.o
-g++ -c main.cpp AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o
 g++ -c Datatypes/dtCategoria.cpp
 g++ -c Datatypes/dtPartida.cpp
 g++ -c Datatypes/dtPartidaIndividual.cpp dtPartida.o
+ 
 g++ -c Datatypes/dtPartidaMultijugador.cpp dtPartida.o
 g++ -c Datatypes/dtVideoJuego.cpp
 g++ -c Datatypes/dtJugador.cpp
@@ -21,6 +14,7 @@ g++ -c colecciones-genericas/interfaces/OrderedKey.cpp IKey.o
 g++ -c colecciones-genericas/String.cpp ICollectible.o OrderedKey.o
 g++ -c Usuario/Usuario.cpp ICollectible.o String.o
 g++ -c Categoria/Categoria.cpp String.o ICollectible.o dtCategoria.o
+ 
 g++ -c colecciones-genericas/interfaces/IIterator.cpp ICollectible.o
 g++ -c colecciones-genericas/interfaces/ICollection.cpp IIterator.o
 g++ -c colecciones-genericas/collections/ListNode.cpp ICollection.o
@@ -43,6 +37,16 @@ g++ -c Registro/Registro.cpp dtVideoJuego.o Contratacion.o ICollectible.o IColle
 g++ -c Jugador/Jugador.cpp Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o
 g++ -c Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o Jugador.o
 g++ -c Fabrica/Fabrica.cpp IControlador.o Controlador.o
+g++ -c Funciones/AltaUsuario.cpp IControlador.o Fabrica.o
+g++ -c Funciones/FinalizarPartida.cpp IControlador.o Fabrica.o
+g++ -c Funciones/IniciarPartida.cpp IControlador.o Fabrica.o
+g++     Funciones/EliminarVideojuego.cpp   -o Funciones/EliminarVideojuego
+g++ -c Funciones/VerificarEnLista.cpp IControlador.o Fabrica.o
+g++ -c Funciones/EliminarVideojuego VerificarEnLista.o IControlador.o Fabrica.o
+g++ -c Funciones/VerInfoVideojuego.cpp VerificarEnLista.o IControlador.o Fabrica.o
+g++ -c Funciones/SuscribirseAVideojuego.cpp IControlador.o Fabrica.o
+g++ -c Funciones/PublicarVideojuego.cpp IControlador.o Fabrica.o
+g++ -c main.cpp AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o
 g++ -c Suscripcion/Anual.cpp Suscripcion.o
 g++ -c Suscripcion/Mensual.cpp Suscripcion.o
 g++ -c Suscripcion/Trimestral.cpp Suscripcion.o
