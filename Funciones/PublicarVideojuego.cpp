@@ -14,9 +14,6 @@ void publicarVideojuego(){
     dtCategoria** generos;
     dtCategoria** plataformas;
     dtCategoria** otros;
-
-
-
     int opcion = 0;
     char confirmar;
     do{

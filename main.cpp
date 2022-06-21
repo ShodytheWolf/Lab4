@@ -4,7 +4,6 @@
 #include "Fabrica/Fabrica.h"
 #include "Funciones/Menus.h"
 
-
 using namespace std;
 
 void menuDesarrollador();
@@ -13,9 +12,7 @@ void menuDesarrollador();
 int main(){
     Fabrica* fabrica = new Fabrica();
     IControlador* sistema = fabrica->getInterface();
-    //menuDesarrollador();
     menuDesarrollador();
-
     return 0;
 }
 
