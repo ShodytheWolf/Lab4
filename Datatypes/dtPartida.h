@@ -14,10 +14,12 @@ public:
     ~dtPartida();
 
    string getNombreVideojuego();
+   int getIdPartida();
+   time_t getFecha();
 
-private:
+protected:
     int idPartida;
-    //t_time FechaInicio;
+    time_t fechaInicio = 0;
     string nombreVideojuego;
 };
 
