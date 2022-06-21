@@ -20,10 +20,10 @@ Controlador* Controlador::getInstance(){
     return instance;
 }
 
-void Controlador::ingresoDatos(string email, string contrasenia){
-    this->emailUser = email;
-    this->passUser = contrasenia;
-}
+// void Controlador::ingresoDatos(string email, string contrasenia){
+//     NO USAR ESTA OPERACION 
+//     USAR INGRESO DATA PARA ALTA USUARIO E INICIO SESION
+// }
 
 void Controlador::ingresarEmpresa(char* nombreEmpresa){
     this->nombreEmpresa = String(nombreEmpresa);
@@ -43,7 +43,12 @@ void Controlador::confirmarNuevoJugador(){
 }                                                    
 bool Controlador::ingresoData(string email, string contrasenia){
 
-}                                
+}
+
+void Controlador::confirmarSesion(){
+
+}
+
 dtCategoria** Controlador::listarGenero(){
 
 }                                                   
@@ -71,6 +76,16 @@ void Controlador::darDeBajaSuscripcion(){
 }                                                   
 
 string** Controlador::listarVideojuegosSuscripto(){
+        
+    /*
+    if(dynamic_cast<Jugador*>(this->loggedUser)){
+
+        string** lista = new string*[3];
+
+    }else{
+        throw invalid_argument("Usuario loggeado no es jugador!");
+    }*/
+    
 
 }                                           
 dtPartidaIndividual** Controlador::listoPartidasInactivas(){
@@ -97,7 +112,7 @@ string** Controlador::listarTodosVJ(){
 
 }
 
-dtVideoJuego** Controlador::seleccionarVideojuego(char* nombreVideojuego){
+dtVideoJuego* Controlador::seleccionarVideojuego(char* nombreVideojuego){
 
 }                    
 string** Controlador::listarVideojuegosPublicados(){

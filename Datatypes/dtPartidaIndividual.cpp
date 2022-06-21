@@ -5,6 +5,7 @@ dtPartidaIndividual::dtPartidaIndividual()
 
 }
 
+
 dtPartidaIndividual::~dtPartidaIndividual()
 {
 
