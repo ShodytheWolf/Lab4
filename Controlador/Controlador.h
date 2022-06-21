@@ -15,8 +15,6 @@ class Controlador: public IControlador{
 
         //Alta Usuario:
         bool ingresoData(string email);                                                   //1 
-        //en vez de ingresoDatos, usar ingreso data (op 7) que ya guarda el email y contrasenia y devuelve true 
-        //si ya existe el usuario
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
         bool ingresarNickname(char* nickname);                                            //4

@@ -41,11 +41,30 @@ void Controlador::confirmarNuevoJugador(){
 
 }                                                    
 bool Controlador::ingresoData(string email, string contrasenia){
-
+    this->emailUser = email;
+    this->passUser = contrasenia;
+    IIterator* it;
+    for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
+        Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
+        if(u->getEmail() == email && u->getContrasenia() == contrasenia){
+            delete it;
+            return true;
+        }
+    }
+    delete it;
+    return false;
 }
 
 void Controlador::confirmarSesion(){
-
+    IIterator* it;
+    for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
+        Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
+        if(u->getEmail() == this->emailUser && u->getContrasenia() == this->passUser){
+            this->loggedUser = u;
+            break;
+        }
+    }
+    delete it;
 }
 
 dtCategoria** Controlador::listarGenero(){
