@@ -54,10 +54,6 @@ bool Registro::confrmarJuego(Videojuego* vj){
 	return false;
 }
 
-void Registro::setPuntajeJuego(int puntajeJuego) {
- 	this->puntajeJuego = puntajeJuego;
- }
-
 Videojuego* Registro::getVideojuego(){
 	return this->juego;
 }
