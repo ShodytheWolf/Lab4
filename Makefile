@@ -3,7 +3,7 @@ GXX = g++
 
 DATAS = dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 VJDEP = ICollection.o List.o IDictionary.o OrderedDictionary.o Categoria.o Suscripcion.o dtSuscripcion.o Estadistica.o Desarrollador.o
-JGDEP = Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o
+JGDEP = Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o EnVivo.o
 FABYCONT = IControlador.o Fabrica.o
 FUNCIONES = AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o IniciarSesion.o
 

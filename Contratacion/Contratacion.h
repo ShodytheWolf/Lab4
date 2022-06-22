@@ -8,7 +8,7 @@
 
 #pragma once
 
-class Contratacion
+class Contratacion : public ICollectible
 {
     public:
         Contratacion(enumSuscripcion, enumPago, Videojuego*);

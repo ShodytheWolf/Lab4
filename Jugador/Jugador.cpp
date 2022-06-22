@@ -74,4 +74,27 @@ string** Jugador::comprobarPartidas(string** nombreJuegos, int t){
 }
 
 
-void Jugador::eliminarContRegisJuego(Videojuego* vj){}
+void Jugador::eliminarContRegisJuego(Videojuego* vj){
+    IIterator* it;
+    for(it = this->registros->getIterator(); it->hasCurrent(); it->next()){
+        Registro* r = (Registro*) it->getCurrent();
+        if(r->confrmarJuego(vj)){
+            registros->remove(r);
+            delete r;
+            for(it = this->partidasInactivas->getIterator(); it->hasCurrent(); it->next()){
+                Partida* paIna = (Partida*) it->getCurrent();
+                if(paIna->comprobarJuego(vj)){
+                    if((EnVivo*) paIna){
+                        paIna->eliminarComentarios();
+                    }
+                    partidasInactivas->remove(paIna->getId());
+                    delete paIna;
+                }
+
+            }
+        }
+        delete it;
+        return;
+    }
+}
+

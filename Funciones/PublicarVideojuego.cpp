@@ -88,3 +88,26 @@ void publicarVideojuego(){
         }
     } while(opcion >= 1 || opcion <= 5);
 }
+
+/**
+ * string** lGeneros
+ * dtCategoria** listGeneros;
+ * usuario elgie 
+ * loop(mientras el quiera poner mas){
+ * cin >> genero(string); esto lo contolas con el verificarCat()
+ * if esta bien
+ *  dtCategoria* cat = new dtCategoria(genero, NULL, Genero);
+ * 
+ * }
+ * listaGeneros[i+1] = NULL;
+ * loop() para plataforma
+ * loop() otros
+ * listaOtros[0] =NULL;
+ *
+ * dtSuscripion* costos;
+ * costos->mensual = men;
+ * dtVideojuego* datosJuego = new dtVideojuego(nombreJuego,NULL,descJuego,costos,NULL,0,0);
+ * sistema->confirmar(datosJuego,listaGeneros,listaPlatafroma,listaOtros); 
+ * 
+ * 
+ */

@@ -7,7 +7,7 @@ Contratacion::Contratacion(enumSuscripcion tipoSuscripcio, enumPago tipoPago, Vi
 
 Contratacion::~Contratacion()
 {
-
+	this->suscripcion = NULL;
 }
 
 

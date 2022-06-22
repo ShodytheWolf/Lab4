@@ -12,7 +12,7 @@ class EnVivo : public Multijugador
 public:
     EnVivo();
     ~EnVivo();
-
+    void eliminarComentarios();
 private:
     ICollection* comentarios = new List();
 };
