@@ -53,3 +53,11 @@ bool Registro::confrmarJuego(Videojuego* vj){
 	if(this->juego == vj){return true;}
 	return false;
 }
+
+void Registro::setPuntajeJuego(int puntajeJuego) {
+ 	this->puntajeJuego = puntajeJuego;
+ }
+
+Videojuego* Registro::getVideojuego(){
+	return this->juego;
+}

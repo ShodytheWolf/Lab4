@@ -26,6 +26,7 @@ public:
     void setPuntajeJuego(int puntajeJuego);
     bool confrmarJuego(Videojuego*);
 
+    Videojuego* getVideojuego();
 private:
     float cantHoras;
     int puntajeJuego;  

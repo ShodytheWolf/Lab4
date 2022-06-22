@@ -32,7 +32,21 @@ void Jugador::setDescripcionJugador(string descripcionJugador) {
 void Jugador::pasoJuego(String nombreVideojuego){}
 dtVideoJuego** Jugador::getDatosVj(){} 
 void Jugador::aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago){}
-string** Jugador::listarJuegosSuscripto(){} 
+
+string** Jugador::listarJuegosSuscripto(){
+    IIterator* it = registros->getIterator();
+    
+    string** listaADevolver = new string*[this->registros->getSize()];
+    int i = 0;
+    while(it->hasCurrent()){
+        Registro* reg = dynamic_cast<Registro*>(it->getCurrent());
+        listaADevolver[i] = new string(reg->getVideojuego()->getNombreJuego()->getValue());
+        it->next();
+    }
+    delete it;
+    return listaADevolver;
+} 
+
 dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){}
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 String Jugador::getNick(String nombreJuego){}
