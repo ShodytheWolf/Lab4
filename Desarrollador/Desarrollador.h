@@ -9,11 +9,11 @@ class Desarrollador : public Usuario
 public:
     Desarrollador(char*);
     ~Desarrollador();
-    String getNombreEmpresa();
+    String* getNombreEmpresa();
     void setNombreEmpresa(char* nombreEmpresa);
 
 private:
-    String nombreEmpresa; //IKEY
+    String* nombreEmpresa; //IKEY
 };
 
 #endif

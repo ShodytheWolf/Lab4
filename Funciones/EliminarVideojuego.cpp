@@ -12,7 +12,7 @@ void eliminarVideojuego(){
     IControlador* sistema = f.getInterface();
     char* juego;
     char op;
-    bool verificacion;
+    bool loop;
     string** listVJ = sistema->listarVideojuegosPublicados();
     cout << "Por favor elija un videojuego ingresando su nombre: " <<endl;
     int i = 0;
@@ -33,20 +33,19 @@ void eliminarVideojuego(){
         case 's':
         case 'S':
             sistema->confirmoEliminacion(juego);
-            verificacion = true;
+            loop = false;
             break;
 
         case 'n':
         case 'N':
             cout << "Cancelando eliminacion..." <<endl;
-            delete juego;
-            delete listVJ;
-            return;
+            loop = false;
 
         default:
             cout << "Opcion incorrecta. Intente nuevamente" <<endl;
-            verificacion = false; 
+            loop = true; 
             break;
         }
-    }while(!verificacion);
+    }while(loop);
+    delete juego, listVJ;
 }

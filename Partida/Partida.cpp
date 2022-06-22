@@ -42,5 +42,14 @@ void Partida::setDuracion(float duracion) {
 
 dtPartida Partida::getDtPartida(){}
 void Partida::calcularDuracion(){}
-bool Partida::verificarJuego(String nombreJuego){}
+
+/**
+ * @brief Devuelve true si la partida es del videojuego que recibe
+ */
+bool Partida::verificarJuego(const char* nombreJuego){
+    if(this->vj->getNombreJuego()->compare(new String(nombreJuego)) == EQUAL)
+        return true;
+    return false;
+}
+
 void Partida::eliminarComentarios(){}

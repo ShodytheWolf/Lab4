@@ -33,7 +33,7 @@ public:
     dtPartidaIndividual** listarPartidasIndividuales();
     dtPartidaMultijugador** partidaAFinalizar();
     void partidaAFinalizar(int idPartida);
-    void comprobarPartidas(string nombreJuegos[]);
+    string** comprobarPartidas(string** nombreJuegos, int t);
     void eliminarContRegisJuego(Videojuego* vj);
 
 private:

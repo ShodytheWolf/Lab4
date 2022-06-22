@@ -2,7 +2,7 @@
 
 Videojuego::Videojuego(char* nombre, string descripcion)
 {
-    this->nombreJuego = String(nombre); //creo la key
+    setNombreJuego(nombre); //creo la key
     this->descripcionJuego = descripcion;
 }
 
@@ -11,11 +11,18 @@ Videojuego::~Videojuego()
 
 }
 
-String Videojuego::getNombreJuego() {
+String* Videojuego::getNombreJuego() {
     return this->nombreJuego;
 }
 void Videojuego::setNombreJuego(char*nombreJuego) {
-    this->nombreJuego = String(nombreJuego);
+    this->nombreJuego = new String(nombreJuego);
+}
+
+Desarrollador* Videojuego::getDesarrollador() {
+    return this->desarrollador;
+}
+void Videojuego::setDesarrollador(Desarrollador* desarrollador) {
+    this->desarrollador = desarrollador;
 }
 
 string Videojuego::getDescripcionJuego() {
