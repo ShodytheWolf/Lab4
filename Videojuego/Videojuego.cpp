@@ -8,7 +8,16 @@ Videojuego::Videojuego(char* nombre, string descripcion)
 
 Videojuego::~Videojuego()
 {
-
+    IIterator* it;
+    for(it = this->suscripciones->getIterator(); it->hasCurrent(); it->next()){
+        Suscripcion* s = (Suscripcion*)it->getCurrent();
+        delete s;
+    }
+    for(it = this->estadisticas->getIterator(); it->hasCurrent(); it->next()){
+        Estadistica* e = (Estadistica*)it->getCurrent();
+        delete e;
+    }
+    delete it;
 }
 
 String* Videojuego::getNombreJuego() {
@@ -28,6 +37,7 @@ void Videojuego::setDesarrollador(Desarrollador* desarrollador) {
 string Videojuego::getDescripcionJuego() {
     return this->descripcionJuego;
 }
+
 void Videojuego::setDescripcionJuego(string descripcionJuego) {
     this->descripcionJuego = descripcionJuego;
 }

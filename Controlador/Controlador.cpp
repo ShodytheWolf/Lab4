@@ -166,7 +166,17 @@ string** Controlador::listarVideojuegosPublicados(){
     }
     delete it;
     return listVJ;
-}                                          
-void Controlador::confirmoEliminacion (char* nombreVideojuego){
+}    
 
+
+void Controlador::confirmoEliminacion (char* nombreVideojuego){
+    Videojuego* vj = dynamic_cast<Videojuego*>(videojuegos->find(new String(nombreVideojuego)));
+    for(IIterator* it = this->usuarios->getIterator(); it->hasCurrent(); it->next()){
+        Usuario* u = (Usuario*) it->getCurrent();
+        if((Jugador*)u){
+            Jugador* j = (Jugador*)u;
+            j->eliminarContRegisJuego(vj);
+        }
+    }
+    delete vj;
 }                               
