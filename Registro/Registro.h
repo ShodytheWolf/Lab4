@@ -25,6 +25,7 @@ public:
     void setCantHoras(float cantHoras);
     int getPuntajeJuego();
     void setPuntajeJuego(int puntajeJuego);
+    Videojuego* getVideojuego();
 private:
     float cantHoras;
     int puntajeJuego;  

@@ -37,7 +37,7 @@ public:
     void addDtJuego(dtVideoJuego datosJuego);
     dtEstadistica** getEstadisticas();
 
-private:
+protected:
     String* nombreJuego; // atributo que sera la key
     string descripcionJuego; 
     Desarrollador* desarrollador;

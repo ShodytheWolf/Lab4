@@ -34,3 +34,7 @@ int Registro::getPuntajeJuego() {
  void Registro::setPuntajeJuego(int puntajeJuego) {
  	this->puntajeJuego = puntajeJuego;
  }
+
+Videojuego* Registro::getVideojuego(){
+	return this->juego;
+}
