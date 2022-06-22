@@ -13,78 +13,112 @@ void publicarVideojuego(){
     Fabrica fab;
     IControlador* controlador = fab.getInterface();
 
+    //arr
     dtCategoria** generos;
     dtCategoria** plataformas;
     dtCategoria** otros;
-    int opcion = 0;
+    
+
+    float costoAnual;
+    float costoMensual;
+    float costoTrimestral;
+    float costoVitalicia;
+    char* nombreVideojuego;
+    string descripcion;
     char confirmar;
+
+    cout << "|=======================|" << endl;
+    cout << " Publicar un videojuego." << endl;
+    cout << "|=======================|" << endl;
+
+    cout << "Ingrese nombre del videojuego: " << endl;
+    cin >> nombreVideojuego;
+    cout << "Ingrese descripción del videojuego: " << endl;
+    cin >> descripcion;
+
+    cout << "Ingrese costos por tipo de suscripción." << endl;
+
+    cout << "Costo anual: " << endl;
+    cin >> costoAnual;
+    
+    cout << "Costo trimestral: " << endl;
+    cin >> costoTrimestral;
+
+    cout << "Costo mensual: " << endl;
+    cin >> costoMensual;
+
+    cout << "Costo Vitalicia: " << endl;
+    cin >> costoVitalicia;
+
+    //guardar costos 
+
+    cout << "Listado de generos:" << endl;
+
+    dtCategoria** listGeneros = controlador->listarGenero(); 
+    int i = 0;
+        
+    while(listGeneros[i]){
+        cout << i+1 << "ª" << listGeneros[i]  << endl;
+
+    }
+    cout << "Seleccione  un género" << endl;
     do{
-        cout << "|=======================|" << endl;
-        cout << " Publicar un videojuego." << endl;
-        cout << "|=======================|" << endl;
+        dtCategoria genero;
 
-        cout << "1- Listar plataforma." << endl;
-        cout << "2- Listar género." << endl;
-        cout << "3- Listar otro." << endl;
-        cout << "4- Publicar videojuego." << endl;
-        cout << "5- Menu principal." << endl;
-        cin >> opcion;
-        system("clear");
+        //seleccion
+    }while(confirmar == 'p');
 
-        try{
-                cout << "Entraste a listar y seleccionar genero" << endl;
-                cout << "Ingrese el genero a seleccionar: " << endl;
+    cout << "Listado de plataforma:" << endl;
+    dtCategoria** listPlataformas = controlador->listarPlataforma();
+    int i = 0;
+    while (listPlataformas[i]){
+        cout << i+1 << "ª" << listPlataformas[i] << endl; 
+    }
+    cout << "Seleccione una plataforma" << endl;
+    do{
+    //seleccion
 
-                dtCategoria** listGeneros = controlador->listarGenero(); //violacion de segmento (core)
-                //
-                //listarGenero();
-                //mostrar
-                //seleccion
+    }while(confirmar == 'p');
 
-                cout << "Entraste a listar y seleccionar plataforma" << endl;
-                dtCategoria** listPlataformas = controlador->listarPlataforma();
-                //listarplataforma();
-                //mostrar
-                //seleccion
+    cout << "Listado de otras categorias: " << endl;
+    dtCategoria** listOtros = controlador->listarOtro();
+    int i = 0;
+    while (listOtros[i]){
+        cout << i+1 << "ª" << listOtros[i] <<endl;
+    }
 
-                //listar
-                //mostrar
-                //selecc
-                cout << "Entraste a listar Otros" << endl;
-                dtCategoria** listOtros = controlador->listarOtro();
+    cout << "¿Desea seleccionar otros?" << endl;
+    cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
+    cin >> confirmar;
+    if (confirmar == 's' || confirmar == 'S'){
+    cout << "seleccionaste otros" << endl;
+    //seleccion.
 
-                cout << "¿Desea seleccionar otros?" << endl;
-                cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
-                cin >> confirmar;
-                if (confirmar == 's' || confirmar == 'S'){
-                cout << "seleccionaste otros" << endl;
-                } 
-                else {
-                    //menuDesarrollador();
-                }
+    } 
+    else {
+        cout << "No seleccionaste otros." << endl;
+    }
 
-                cout << "Confirme si desea publicar un videojuego:" << endl;
-                cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
-                cin >> confirmar;
-                if (confirmar == 's' || confirmar == 'S'){
-                cout << "Publicaste un videojuego" << endl;
-                //controlador->publicarVideojuego(); como hacer la seleccion para pasar datos
-                } 
-                else {
-                    cout << "cancelaste" << endl;
-                }
+    cout << "Confirme si desea publicar un videojuego:" << endl;
+    cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar." << endl;
+    cin >> confirmar;
+    if (confirmar == 's' || confirmar == 'S'){
+    cout << "Publicaste un videojuego." << endl;
+    dtVideoJuego** datosJuegos;
+    //controlador->publicarVideojuego(datosJuegos, categorias); como hacer la seleccion para pasar datos
+    } 
+    else {
+        cout << "cancelaste" << endl;
+    }
+ 
+}
 
-                cout << "Entraste a menuprincipal" << endl;
-                //menuPrincipal;
-
-            cout << "Opción incorrecta. Presione ENTER tecla para continuar nuevamente." << endl;
-            getchar();
-            getchar();
-            system("clear");
-        }
-
-        catch(invalid_argument& error){
-        cout << error.what();
-        }
-    } while(opcion >= 1 || opcion <= 5);
+bool verificarCat(dtCategoria** listCat, string categoria){
+    int i = 0;
+    while(listCat[i]){
+        if(listCat[i]->getNombre() == categoria)
+            return true;
+        i++;
+    }
+    return false;
 }

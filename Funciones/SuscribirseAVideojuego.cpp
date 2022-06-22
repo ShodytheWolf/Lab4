@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "../IControlador/IControlador.h"
 #include "../Fabrica/Fabrica.h"
+#include "../Enumeration/enumSuscripcion.h"
 
 using namespace std;
 
@@ -11,99 +12,158 @@ Fabrica fab;
 IControlador* controlador = fab.getInterface();
 
 int opcion = 0;
-
-//enumPago metodoDePago; 
-//enumSuscripcion tipoSuscripcion;
-//string nombreVideojuego;
-
-bool estaSuscrito = false;
 char confirmar;
 char* nombreVideojuego;
-string tipoSus;
+enumSuscripcion tipoSus;
+enumPago pago;
+char selecPago;
+char selecTipoSus;
+dtVideoJuego** listJuegosDiff = controlador->listarVideojuegosDiferenciada();
 
-do{
-    cout << "|===========================|" << endl;
-    cout << " Suscribirse a un videojuego." << endl;
-    cout << "|===========================|" << endl;
+cout << "|===========================|" << endl;
+cout << " Suscribirse a un videojuego." << endl;
+cout << "|===========================|" << endl;
 
-    cout << "1- Listar Videojuegos suscriptos y no suscriptos." << endl;
-    cout << "2- Ingrese nombre del videojuego." << endl;
-    cout << "3- NuevaSuscripcion." << endl;
-    cout << "4- Salir." << endl;
-    cin >> opcion;
-    system("clear");
+cout << "Lista de videojuegos suscriptos y no suscriptos." << endl;
 
-    try{
-        switch(opcion){
-            case 1:
-                cout << "entraste a listarVideojuegosDieferenciada" << endl;
-                controlador->listarVideojuegosDiferenciada();
+int i = 0;
+while (listJuegosDiff[i]){
+    cout << "Nº:" <<i+1 << listJuegosDiff[i] <<endl;
+}
+
+cout << "Ingrese nombre del videojuego a suscribirse:" << endl;
+cin >> nombreVideojuego;
+controlador->ingresarVideojuego(nombreVideojuego);
+system ("clear");
+
+bool suscripto = controlador->estaSuscripto(nombreVideojuego);
+
+    if (!suscripto){ //si no tiene una suscripcion 
+        
+        cout << "Ingrese un metodo de Pago Paypal(p/P), Tarjeta(t/T). " << endl;
+        cin >> selecPago;
+        switch(selecPago){
+            case 'p':
+            case 'P':
+                pago = Paypal;
                 break;
-
-            case 2:
-                cout << "Ingrese el nombre del videojuego: " << endl;
-                cin >> nombreVideojuego;
-                controlador->ingresarVideojuego(nombreVideojuego);
+            case 't':
+            case 'T':
+                pago = Tarjeta;
                 break;
+            default:
+                cout << "Metodo de pago invalido. " << endl;
+                break;
+        }
+        system ("clear");
 
-            case 3:
-            //¿?
+        cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)." << endl;
+        cin >> selecTipoSus;
+        switch(selecTipoSus){
+            case 'a':
+            case 'A':
+                tipoSus = Anual;
+                break;
+            case 'm':
+            case 'M':
+                tipoSus = Mensual;
+                break;
+            case 't':
+            case 'T':
+                tipoSus = Trimestral;
+                break;
+            case 'v':
+            case 'V':
+                tipoSus = Vitalicia;
+                break;
+            default:
+                cout << "Tipo invalido." << endl;
+                break;
+        }
+        system ("clear");
+
+        cout << "¿Desea confirmar?" << endl;
+        cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
+        cin >> confirmar;
+        if (confirmar == 's' || confirmar == 'S'){
+        cout << "Compra realizada con éxito" << endl;
+        controlador->nuevaSuscripcion(pago, tipoSus);
+        delete nombreVideojuego, listJuegosDiff;
+        return;
+        }
+        else { //cancelar
+            cout << "Has cancelado la compra. " << endl;
+            cout << "Pulsa ENTER para continuar..." << endl;
+            getchar();
+            getchar();
+            delete nombreVideojuego, listJuegosDiff;
+            return;
+        } 
+    }
+    else { //tiene una suscripcion temporal 
+        if(suscripto && tipoSus != Vitalicia){
+
+            cout << "¿Desea dar de baja la suscripcion activa y crear una nueva?" << endl;
+            cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
+            cin >> confirmar;
+            if (confirmar == 's' || confirmar == 'S'){
+                cout << "diste de baja una suscripcion" << endl;
+                controlador->darDeBajaSuscripcion();
                 cout << "Ingrese un metodo de Pago: " << endl;
-
-                cout << "Ingrese un tipo de suscripción: " << endl;
-
-                if (estaSuscrito == false){ //si no tiene una suscripcion 
-                    cout << "¿Desea confirmar?" << endl;
-                    cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
-                    cin >> confirmar;
-                    if (confirmar == 's' || confirmar == 'S'){
-                    cout << "te suscribiste exitosamente" << endl;
-                    //controlador->nuevaSuscripcion()
-                    //nuevaSuscripcion();
-                    //return;
-                    }
-                    else { //cancelar
-                        cout << "decidiste canclelar volviendo al menu...." << endl;
-                        return;
-                        //menuJugador();
-                    } 
+                cin >> selecPago;
+                switch(selecPago){
+                    case 'p':
+                    case 'P':
+                        pago = Paypal;
+                        break;
+                    case 't':
+                    case 'T':
+                        pago = Tarjeta;
+                        break;
+                    default:
+                        cout << "Metodo de pago invalido. " << endl;
+                        break;
                 }
-                else { //tiene una suscripcion temporal 
-                    if(estaSuscrito == true && tipoSus != "vitalicia"){
-                        cout << "¿Desea dar de baja la suscripcion activa y crear una nueva?" << endl;
-                        cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
-                        cin >> confirmar;
-                        if (confirmar == 's' || confirmar == 'S'){
-                            cout << "diste de baja una suscripcion" << endl;
-                            //dardeBaja();
-                            cout << "Ingrese datos de la nueva suscripcion." << endl;                          
-                            //nuevaSuscripcion();
-                        }
-                        else{
-                            cout << "decidiste no dar de baja la suscripcion" << endl;
-                            return;
-                        }
-                    }
-                }
-                break;
 
-            case 4:
-                cout << "decidiste salir" << endl;
+                cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)" << endl;
+                cin >> selecTipoSus;
+                switch(selecTipoSus){
+                    case 'a':
+                    case 'A':
+                        tipoSus = Anual;
+                        break;
+                    case 'm':
+                    case 'M':
+                        tipoSus = Mensual;
+                        break;
+                    case 't':
+                    case 'T':
+                        tipoSus = Trimestral;
+                        break;
+                    case 'v':
+                    case 'V':
+                        tipoSus = Vitalicia;
+                        break;
+                    default:
+                        cout << "Tipo invalido." << endl;
+                        break;
+                }
+
+                if (confirmar == 's' || confirmar == 'S'){
+                cout << "Compra realizada con éxito" << endl;                          
+                controlador->nuevaSuscripcion(pago, tipoSus);
+                delete nombreVideojuego, listJuegosDiff;
                 return;
-            break;
-
-            default: 
-            cout << "Opción incorrecta. Presione ENTER tecla para continuar nuevamente." << endl;
-            getchar();
-            getchar();
-            system("clear");
-            break;
+                }
+            }
+            else{
+                cout << "No diste de baja la suscripción" << endl;
+                cout << "Pulsa ENTER para continuar..." << endl;
+                getchar();
+                getchar();
+                delete nombreVideojuego, listJuegosDiff;
+                return;
+            }
         }
     }
-
-    catch(invalid_argument& error){
-    cout << error.what();
-    }
-
-}while(opcion >= 1 || opcion <= 4);
 }

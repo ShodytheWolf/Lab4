@@ -14,7 +14,8 @@ class Controlador: public IControlador{
         static Controlador* getInstance(); 
 
         //Alta Usuario:
-        bool ingresoData(string email);                                                   //1 
+        //bool ingresoData(string email);                                                   //1
+        string** jugadores(); 
         //en vez de ingresoDatos, usar ingreso data (op 7) que ya guarda el email y contrasenia y devuelve true 
         //si ya existe el usuario
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
@@ -37,6 +38,7 @@ class Controlador: public IControlador{
         //Suscribirse a Videojuego:
         dtVideoJuego** listarVideojuegosDiferenciada();                                   //14
         void ingresarVideojuego(char* nombreVideojuego);                                  //15
+        bool estaSuscripto(char* nombreVideojuego); //nueva
         void nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion);    //16
         void darDeBajaSuscripcion();                                                      //17
 
@@ -58,6 +60,7 @@ class Controlador: public IControlador{
         //Eliminar Videojuego
         string** listarVideojuegosPublicados();                                           //30
         void confirmoEliminacion (char* nombreVideojuego);                                //31
+
 
 
     private:

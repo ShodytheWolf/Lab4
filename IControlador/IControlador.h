@@ -18,7 +18,8 @@ class IControlador{
         virtual ~IControlador();
 
         //Alta Usuario:
-        virtual bool ingresoData(string email) = 0;                                //1
+        //virtual bool ingresoData(string email) = 0;                                //1
+        virtual string** jugadores() = 0;
         virtual void ingresarEmpresa(char* nombreEmpresa) = 0;                                        //2
         virtual void confirmarNuevoDesarrollador() = 0;                                               //3
         virtual bool ingresarNickname(char* nickname) = 0;                                            //4
@@ -40,6 +41,7 @@ class IControlador{
         //Suscribirse a Videojuego:
         virtual dtVideoJuego** listarVideojuegosDiferenciada() = 0;                                   //14
         virtual void ingresarVideojuego(char* nombreVideojuego) = 0;                                  //15
+        virtual bool estaSuscripto(char* nombreVideojuego) = 0;
         virtual void nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion) = 0;    //16
         virtual void darDeBajaSuscripcion() = 0;                                                      //17
 
