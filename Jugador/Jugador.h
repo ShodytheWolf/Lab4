@@ -17,9 +17,9 @@
 class Jugador : public Usuario
 {
 public:
-    Jugador(char* nickname, string descripcionJugador);
+    Jugador(string email, string contrasenia, char* nickname, string descripcionJugador);
     ~Jugador();
-    String getNickname(); 
+    String* getNickname(); 
     void setNickname(char* nick);
     string getDescripcionJugador();
     void setDescripcionJugador(string descripcionJugador);

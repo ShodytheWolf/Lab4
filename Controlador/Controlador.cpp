@@ -28,20 +28,34 @@ string** Controlador::jugadores(){
 }
 
 void Controlador::ingresarEmpresa(char* nombreEmpresa){
-    this->nombreEmpresa = String(nombreEmpresa);
+    this->nombreEmpresa = nombreEmpresa;
 
-}                                       
+}   
+
+/**
+ * Instancia un nuevo Desarrollador y lo agrega a la lista de usuarios
+ */
 void Controlador::confirmarNuevoDesarrollador(){
+    Desarrollador* d = new Desarrollador(this->emailUser, this->passUser, this->nombreEmpresa);
+    usuarios->add(d->getNombreEmpresa(), d);
+}
 
-}                                             
+
 bool Controlador::ingresarNickname(char* nickname){
+    this->nickJugador = nickname;
+}   
 
-}                                           
+
 void Controlador::ingresarDescripcion(string descripcion){
+    this->descripcionJuegador = descripcion;
+}  
 
-}                                     
+/**
+ * Instancia un nuevo Jugador y lo agrega a la lista de usuarios
+ */
 void Controlador::confirmarNuevoJugador(){
-
+    Jugador* j = new Jugador(this->emailUser, this->passUser, this->nickJugador, this->descripcionJuegador);
+    usuarios->add(j->getNickname(), j);
 }                                                    
 bool Controlador::ingresoData(string email, string contrasenia){
     if(this->usuarios->isEmpty())

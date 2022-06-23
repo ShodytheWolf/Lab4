@@ -1,11 +1,10 @@
 #include "Usuario.h"
 #include <iostream>
 
-
-Usuario::~Usuario()
-{
-
+Usuario::Usuario(){
+    
 }
+
 
 string Usuario::getContrasenia()
 {

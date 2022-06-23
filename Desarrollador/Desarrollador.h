@@ -7,7 +7,7 @@
 class Desarrollador : public Usuario
 {
 public:
-    Desarrollador(char*);
+    Desarrollador(string, string, char*);
     ~Desarrollador();
     String* getNombreEmpresa();
     void setNombreEmpresa(char* nombreEmpresa);

@@ -11,13 +11,15 @@ using namespace std;
 class Usuario : public ICollectible
 {
 public:
+    Usuario();
+    Usuario(string, string);
     ~Usuario();
-    virtual string getContrasenia() = 0;
+    virtual string getContrasenia();
     void setContrasenia(string);
     string getEmail();
     void setEmail(string);
 
-private:
+protected:
     string email;
     string contrasenia;
 };

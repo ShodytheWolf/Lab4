@@ -1,7 +1,9 @@
 #include "Desarrollador.h"
 
-Desarrollador::Desarrollador(char* nombreEmpresa)
+Desarrollador::Desarrollador(string email, string contrasenia, char* nombreEmpresa)
 {
+	this->email = email;
+	this->contrasenia = contrasenia;
     setNombreEmpresa(nombreEmpresa);
 }
 

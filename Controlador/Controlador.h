@@ -70,9 +70,9 @@ class Controlador: public IControlador{
         string emailUser;
         string passUser;
         string descripcionJuegador;
-        String nombreEmpresa;
-        String nickJugador;
-        String nombreVideojuego;
+        char* nombreEmpresa;
+        char* nickJugador;
+        char* nombreVideojuego;
         int ultimaIdPartida;
         int ultimaIdComentario;
 

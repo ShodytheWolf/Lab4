@@ -1,10 +1,12 @@
 #include "Jugador.h"
 #include "string.h"
 
-Jugador::Jugador(char* nick, string descripcionJugador)
+Jugador::Jugador(string emai, string contrasenia, char* nick, string descripcionJugador)
 {
+    this->email = email;
+    this->contrasenia = contrasenia;
     setNickname(nick) ;
-    setDescripcionJugador(descripcionJugador) ;
+    setDescripcionJugador(descripcionJugador);
 }
 
 Jugador::~Jugador()
@@ -12,8 +14,8 @@ Jugador::~Jugador()
 
 }
 
-String Jugador::getNickname() {
-    return this->nickname;
+String* Jugador::getNickname() {
+    return new String(this->nickname);
 }
 
 void Jugador::setNickname(char* nick) 

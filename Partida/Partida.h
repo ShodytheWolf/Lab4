@@ -29,7 +29,7 @@ public:
     bool verificarJuego(const char* nombreJuego);
     void eliminarComentarios();
 
-private:
+protected:
     Videojuego* vj;
     Integer* id; //key
     time_t fechaInicio;
