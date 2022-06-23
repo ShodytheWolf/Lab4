@@ -1,13 +1,13 @@
- #include "Menus.h"
- #include "../IControlador/IControlador.h"
- #include "../Fabrica/Fabrica.h"
- #include "VerificarEnLista.cpp"
+#include "Menus.h"
+#include "../IControlador/IControlador.h"
+#include "../Fabrica/Fabrica.h"
+#include "VerificarEnLista.cpp"
 
- Fabrica* fabrica = new Fabrica();
- IControlador* sistema = fabrica->getInterface();
+Fabrica* fabrica = new Fabrica();
+IControlador* sistema = fabrica->getInterface();
 
-  void menuIniciarPartida(){
-      int optInicarPartida;
+void iniciarPartida(){
+    int optInicarPartida;
       do{
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;

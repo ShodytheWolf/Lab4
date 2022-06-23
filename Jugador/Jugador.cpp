@@ -1,4 +1,5 @@
 #include "Jugador.h"
+#include "string.h"
 
 Jugador::Jugador(char* nick, string descripcionJugador)
 {
@@ -38,6 +39,39 @@ String Jugador::getNick(String nombreJuego){}
 void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida){}
 dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}
 dtPartidaMultijugador** Jugador::partidaAFinalizar(){}
+
+
 void Jugador::partidaAFinalizar(int idPartida){}
-void Jugador::comprobarPartidas(string nombreJuegos[]){}
+
+/**
+ * @brief Operacion que comprueba si tiene partidas activas para Videojuegos 
+ * concretos
+ * 
+ * @param nombreJuegos Lista de juegos concretos 
+ * @return string** Lista con la misma cantidad o menos de la que recibio 
+ */
+string** Jugador::comprobarPartidas(string** nombreJuegos, int t){
+    int i = 0;
+    while(nombreJuegos[i]){
+        for(IIterator* it = this->partidasActivas->getIterator(); it->hasCurrent(); it->next()){
+            Partida* pA = (Partida*) it->getCurrent();
+            if(pA->verificarJuego(nombreJuegos[i]->data())){
+                nombreJuegos[i] = NULL;
+                break;
+            }
+        }
+        i++;
+    }
+    string** juegosComp = new string*[t+1];
+    int c = 0;
+    for(int i=0; i<t; i++){
+        if(nombreJuegos[i]){
+            juegosComp[c] = nombreJuegos[i];
+            c++;
+        }
+    }
+    return juegosComp;
+}
+
+
 void Jugador::eliminarContRegisJuego(Videojuego* vj){}

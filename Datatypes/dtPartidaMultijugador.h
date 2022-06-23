@@ -13,6 +13,7 @@ public:
     
     bool getEnVivo();
     string getnickHost();
+    string** getjugadoresUnidos();
 private:
     bool enVivo;
     string nickHost;

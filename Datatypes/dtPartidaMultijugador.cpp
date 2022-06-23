@@ -29,3 +29,7 @@ bool dtPartidaMultijugador::getEnVivo(){
 string dtPartidaMultijugador::getnickHost(){
     return this->nickHost;
 };
+
+string** dtPartidaMultijugador::getjugadoresUnidos(){
+    return this->jugadoresUnidos;
+}

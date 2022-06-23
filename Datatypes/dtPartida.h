@@ -13,7 +13,7 @@ public:
     dtPartida();
     ~dtPartida();
 
-   string getNombreVideojuego();
+   virtual string getNombreVideojuego();
    int getIdPartida();
    time_t getFecha();
 

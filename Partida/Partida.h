@@ -1,6 +1,7 @@
 #ifndef PARTIDA_H
 #define PARTIDA_H
 #include "ctime"
+#include "../Videojuego/Videojuego.h"
 #include "../Datatypes/dtPartida.h"
 #include "../colecciones-genericas/interfaces/ICollectible.h"
 #include "../colecciones-genericas/String.h"
@@ -23,10 +24,12 @@ public:
     void setDuracion(float duracion);
     dtPartida getDtPartida();
     void calcularDuracion();
-    bool verificarJuego(String nombreJuego);
+
+    bool verificarJuego(const char* nombreJuego);
     void eliminarComentarios();
 
 private:
+    Videojuego* vj;
     Integer id; //key
     time_t fechaInicio;
     float duracion;

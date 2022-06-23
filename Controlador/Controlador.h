@@ -18,6 +18,7 @@ class Controlador: public IControlador{
         string** jugadores(); 
         //en vez de ingresoDatos, usar ingreso data (op 7) que ya guarda el email y contrasenia y devuelve true 
         //si ya existe el usuario
+        bool ingresoData(string email);                                                   //1 
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
         bool ingresarNickname(char* nickname);                                            //4

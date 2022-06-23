@@ -23,18 +23,22 @@ public:
     Videojuego(char*, string);
     ~Videojuego();
 
-    String getNombreJuego();
+    String* getNombreJuego();
     void setNombreJuego(char* nombreJuego);
 
     string getDescripcionJuego();
     void setDescripcionJuego(string descripcionJuego);
+
+    Desarrollador* getDesarrollador();
+    void setDesarrollador(Desarrollador* desarrollador);
+
     void aniadirCategoria(Categoria cat);
     void crearSuscripciones(dtSuscripcion costos);
     void addDtJuego(dtVideoJuego datosJuego);
     dtEstadistica** getEstadisticas();
 
 private:
-    String nombreJuego; // atributo que sera la key
+    String* nombreJuego; // atributo que sera la key
     string descripcionJuego; 
     Desarrollador* desarrollador;
     ICollection* categorias = new List();
