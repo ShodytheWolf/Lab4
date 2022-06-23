@@ -1,9 +1,14 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.2.1
+ 
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
+ 
 # There is NO WARRANTY, to the extent permitted by law.
 
 # Make data base, printed on Thu Jun 23 13:44:37 2022
@@ -32,6 +37,8 @@ VSCODE_LOG_NATIVE = false
 FABYCONT = IControlador.o Fabrica.o
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -41,13 +48,11 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/braian/Escritorio/Lab4
+CURDIR := /home/lucas/Documentos/GitHub/Lab4
 # makefile
 SHELL = /bin/sh
 # environment
 SNAP_DATA = /var/snap/code/99
-# environment
-VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"es-419","availableLanguages":{},"_languagePackSupport":true}
 # environment
@@ -63,13 +68,13 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-USERNAME = braian
+USERNAME = lucas
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=4967488335ac5fd762015db062b263a8
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
@@ -77,7 +82,7 @@ MANAGERPID = 1132
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/braian/Escritorio/Lab4
+VSCODE_CWD = /home/lucas
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/99/usr/share/glib-2.0/schemas
 # default
@@ -91,7 +96,7 @@ SESSION_MANAGER = local/braian-VirtualBox:@/tmp/.ICE-unix/1414,unix/braian-Virtu
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-GDK_PIXBUF_MODULE_FILE = /home/braian/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+GDK_PIXBUF_MODULE_FILE = /home/lucas/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 SNAP = /snap/code/99
 # environment
@@ -113,11 +118,21 @@ GDK_PIXBUF_MODULEDIR = /snap/code/99/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 # makefile (from 'Makefile', line 8)
 FUNCIONES = AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o IniciarSesion.o
 # environment
+<<<<<<< HEAD
+LS_COLORS = 
+=======
 LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+<<<<<<< HEAD
+ 
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+=======
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2937
 # automatic
 %F = $(notdir $%)
 # environment
@@ -127,13 +142,21 @@ VSCODE_PIPE_LOGGING = true
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-PWD = /home/braian/Escritorio/Lab4
+PWD = /home/lucas/Documentos/GitHub/Lab4
 # makefile (from 'Makefile', line 5)
 VJDEP = ICollection.o List.o IDictionary.o OrderedDictionary.o Categoria.o Suscripcion.o dtSuscripcion.o Estadistica.o Desarrollador.o
 # default
 .LOADED := 
 # environment
+<<<<<<< HEAD
 SSH_AGENT_PID = 1359
+=======
+<<<<<<< HEAD
+SSH_AGENT_PID = 1125
+=======
+SSH_AGENT_PID = 1366
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -141,25 +164,25 @@ GTK_MODULES = gail:atk-bridge
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /home/braian
+HOME = /home/lucas
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/braian/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = /home/lucas/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
-LOGNAME = braian
+LOGNAME = lucas
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
-SNAP_CONTEXT = jhT-kSYQCiJAGevdq2h2i85TJ4LyvujLO13ppdHCDL0k5fqqjySR
+SNAP_CONTEXT = qgPciXJz889BO8BrA_VLU6BjWx7PTvW5bVDmDGBeGm9tVOpZngtE
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-SNAP_USER_COMMON = /home/braian/snap/code/common
+SNAP_USER_COMMON = /home/lucas/snap/code/common
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
@@ -169,9 +192,7 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 MAKELEVEL := 0
 # environment
-SNAP_REAL_HOME = /home/braian
-# environment
-COLORTERM = truecolor
+SNAP_REAL_HOME = /home/lucas
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -179,17 +200,25 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/braian/snap/code/99
+SNAP_USER_DATA = /home/lucas/snap/code/99
 # environment
-SHLVL = 1
+SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
+<<<<<<< HEAD
 VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-591be51e-d4d7-4c9d-957a-b8afb532ca3d.sock
+=======
+<<<<<<< HEAD
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2b78d573-7ca4-40a6-86de-add6d549b4c2.sock
+=======
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-301ba45a-9d15-4a33-af8c-bad805f4a1da.sock
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 # default
 MAKE_VERSION := 4.2.1
 # environment
-USER = braian
+USER = lucas
 # environment
 SNAP_REVISION = 99
 # makefile
@@ -211,7 +240,9 @@ OLDPWD = /home/braian/Escritorio
 # environment
 LANGUAGE = es_UY:es
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-0ae747f0-1.68.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-f23a0542-1.68.1-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -231,7 +262,7 @@ MAKEFILES :=
 # makefile (from 'Makefile', line 4)
 DATAS = dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 # environment
-SNAP_COOKIE = jhT-kSYQCiJAGevdq2h2i85TJ4LyvujLO13ppdHCDL0k5fqqjySR
+SNAP_COOKIE = qgPciXJz889BO8BrA_VLU6BjWx7PTvW5bVDmDGBeGm9tVOpZngtE
 # automatic
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 2)
@@ -241,6 +272,7 @@ SNAP_NAME = code
 # environment
 LC_ALL = C
 # environment
+<<<<<<< HEAD
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/8596387c_647a_4716_8382_9f053320c63b
@@ -248,6 +280,19 @@ GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/8596387c_647a_4716_8382_9f053
 ^F = $(notdir $^)
 # environment
 GNOME_TERMINAL_SERVICE = :1.77
+=======
+<<<<<<< HEAD
+DBUS_STARTER_BUS_TYPE = session
+# automatic
+^F = $(notdir $^)
+=======
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6d47a9a4_15ba_461c_884a_4cf2a15a5be3
+# automatic
+^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.76
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 # default
 SUFFIXES := 
 # environment
@@ -265,11 +310,23 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
+VSCODE_PID = 2977
 # environment
+<<<<<<< HEAD
 VSCODE_PID = 1869
 # variable set hash-table stats:
 # Load=129/1024=13%, Rehash=0, Collisions=37/172=22%
+=======
+<<<<<<< HEAD
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=4967488335ac5fd762015db062b263a8
+# variable set hash-table stats:
+# Load=127/1024=12%, Rehash=0, Collisions=40/170=24%
+=======
+VSCODE_PID = 1892
+# variable set hash-table stats:
+# Load=127/1024=12%, Rehash=0, Collisions=37/170=22%
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 # Pattern-specific Variable Values
 
@@ -277,8 +334,16 @@ VSCODE_PID = 1869
 
 # Directories
 
+<<<<<<< HEAD
  
 # . (device 2053, inode 1181161): 86 files, no impossibilities.
+=======
+<<<<<<< HEAD
+# . (device 2053, inode 2509192): 85 files, no impossibilities.
+=======
+# . (device 2053, inode 1181161): 85 files, no impossibilities.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 # 86 files, no impossibilities in 1 directories.
 
@@ -290,17 +355,59 @@ VSCODE_PID = 1869
 
 dtEstadistica.o: Datatypes/dtEstadistica.cpp
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.089093557
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+ 
+=======
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 135):
 	@$(GXX) -c $^
 
 IControlador.o: IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:02:00.73733266
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-06-21 15:40:47.986694472
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := IControlador.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
+# automatic
+# | := 
+# automatic
+# < := IControlador/IControlador.cpp
+# automatic
+# ^ := IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
+# automatic
+# ? := dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+=======
+#  Last modified 2022-06-21 15:24:16.126538973
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 54):
 	@$(GXX) -c $^
 
@@ -335,7 +442,11 @@ Suscripcion/Mensual.cpp:
 # Not a target:
 Datatypes/dtPartida.cpp:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
+#  Last modified 2022-06-17 17:08:52.111225563
+=======
 #  Last modified 2022-06-22 09:38:51.404162173
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
 #  File has been updated.
 #  Successfully updated.
 
@@ -386,7 +497,15 @@ all: steam
 
 dtCategoria.o: Datatypes/dtCategoria.cpp
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 12:56:15.691492071
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+=======
+#  Last modified 2022-06-21 15:24:14.014457413
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 117):
@@ -400,9 +519,20 @@ Funciones/IniciarPartida.cpp:
 
 dtPartidaMultijugador.o: Datatypes/dtPartidaMultijugador.cpp dtPartida.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.097093629
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 126):
 	@$(GXX) -c $^
 
@@ -416,9 +546,21 @@ ICollectible.o: colecciones-genericas/interfaces/ICollectible.cpp
 
 Jugador.o: Jugador/Jugador.cpp Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICollection.o Individual.o Multijugador.o Registro.o EnVivo.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:02:06.525312638
 #  File has been updated.
 #  Successfully updated.
+=======
+#  Modification time never checked.
+#  File has not been updated.
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+=======
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 60):
 	@$(GXX) -c $^
 
@@ -468,16 +610,33 @@ IDictionary.o: colecciones-genericas/interfaces/IDictionary.cpp IKey.o ICollecti
 # Not a target:
 Datatypes/dtCategoria.cpp:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
+#  Last modified 2022-06-17 17:08:52.111225563
+=======
 #  Last modified 2022-06-17 16:54:57.624184037
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Datatypes/dtPartidaMultijugador.cpp:
+<<<<<<< HEAD
 #  Implicit rule search has been done.
 #  Last modified 2022-06-22 18:32:54.864515478
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:08:52.111225563
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 Desarrollador.o: Desarrollador/Desarrollador.cpp Usuario.o
 #  Implicit rule search has not been done.
@@ -509,7 +668,15 @@ IniciarPartida.o: Funciones/IniciarPartida.cpp VerificarEnLista.o IControlador.o
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.029093016
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:47.986694472
+=======
+#  Last modified 2022-06-22 19:48:09.892759039
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  File has been updated.
 #  Successfully updated.
 
@@ -573,16 +740,31 @@ colecciones-genericas/collections/List.cpp:
 
 dtVideoJuego.o: Datatypes/dtVideoJuego.cpp
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.105093702
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 132):
 	@$(GXX) -c $^
 
 # Not a target:
 Funciones/AltaUsuario.cpp:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
+#  Last modified 2022-06-21 19:25:21.891621656
+=======
 #  Last modified 2022-06-21 15:50:45.099414557
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
 #  File has been updated.
 #  Successfully updated.
 
@@ -590,6 +772,10 @@ VerInfoVideojuego.o: Funciones/VerInfoVideojuego.cpp VerificarEnLista.o IControl
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+<<<<<<< HEAD
+ 
+=======
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
 #  recipe to execute (from 'Makefile', line 20):
 	@$(GXX) -c $^
 
@@ -628,7 +814,11 @@ Individual.o: Individual/Individual.cpp Partida.o
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+=======
 #  Last modified 2022-06-21 15:55:44.135434997
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
 #  File has been updated.
 #  Successfully updated.
 
@@ -643,11 +833,24 @@ ICollection.o: colecciones-genericas/interfaces/ICollection.cpp IIterator.o
 
 # Not a target:
 Datatypes/dtVideoJuego.cpp:
+<<<<<<< HEAD
 #  Implicit rule search has been done.
  
 #  Last modified 2022-06-21 12:29:40.410352889
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Implicit rule search has been done.
+#  Last modified 2022-06-21 14:50:21.152256085
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 # Not a target:
 Fabrica/Fabrica.cpp:
@@ -658,9 +861,21 @@ Fabrica/Fabrica.cpp:
 
 Controlador.o: Controlador/Controlador.cpp Usuario.o Categoria.o Videojuego.o Jugador.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:02:06.941311069
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+=======
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 57):
 	@$(GXX) -c $^
 
@@ -746,10 +961,23 @@ Estadistica/Estadistica.cpp:
 
 # Not a target:
 Suscripcion/Suscripcion.cpp:
+<<<<<<< HEAD
 #  Implicit rule search has been done.
 #  Last modified 2022-06-14 17:05:18.072486469
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+=======
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 ListNode.o: colecciones-genericas/collections/ListNode.cpp ICollection.o
 #  Implicit rule search has not been done.
@@ -824,10 +1052,23 @@ colecciones-genericas/String.cpp:
 
 # Not a target:
 Desarrollador/Desarrollador.cpp:
+<<<<<<< HEAD
 #  Implicit rule search has been done.
 #  Last modified 2022-06-22 11:04:56.373956081
 #  File has been updated.
 #  Successfully updated.
+=======
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+=======
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
+#  File has not been updated.
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 # Not a target:
 colecciones-genericas/collections/ListIterator.cpp:
@@ -879,7 +1120,15 @@ Controlador/Controlador.cpp:
 
 dtPartidaIndividual.o: Datatypes/dtPartidaIndividual.cpp dtPartida.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.093093593
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+=======
+#  Last modified 2022-06-21 15:24:14.698483823
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 123):
@@ -894,8 +1143,17 @@ Mensual.o: Suscripcion/Mensual.cpp Suscripcion.o
 
 steam: main.o AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o IniciarSesion.o VerificarEnLista.o Fabrica.o IControlador.o Controlador.o Jugador.o Registro.o Contratacion.o Videojuego.o Categoria.o Desarrollador.o Usuario.o Anual.o Mensual.o Trimestral.o Vitalicia.o Suscripcion.o Estadistica.o Individual.o EnVivo.o Multijugador.o Partida.o Comentario.o dtCategoria.o dtJugador.o dtPartidaIndividual.o dtPartidaMultijugador.o dtPartida.o dtVideoJuego.o dtEstadistica.o dtSuscripcion.o String.o Integer.o OrderedDictionary.o OrderedDictionaryEntry.o List.o ListIterator.o ListNode.o IDictionary.o ICollection.o IIterator.o OrderedKey.o IKey.o ICollectible.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.109093738
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+=======
+#  Last modified 2022-06-21 16:40:05.427587973
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  File has been updated.
+ 
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
@@ -904,9 +1162,21 @@ steam: main.o AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojue
 
 dtJugador.o: Datatypes/dtJugador.cpp
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.093093593
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+ 
+#  Last modified 2022-06-21 15:40:48.002694695
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 120):
 	@$(GXX) -c $^
 
@@ -935,7 +1205,11 @@ IniciarSesion.o: Funciones/IniciarSesion.cpp IControlador.o Fabrica.o
  
 Datatypes/dtPartidaIndividual.cpp:
 #  Implicit rule search has been done.
+<<<<<<< HEAD
+#  Last modified 2022-06-21 14:50:21.152256085
+=======
 #  Last modified 2022-06-22 09:38:51.404162173
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
 #  File has been updated.
 #  Successfully updated.
 
@@ -949,7 +1223,15 @@ Estadistica.o: Estadistica/Estadistica.cpp ICollectible.o dtEstadistica.o String
 
 main.o: main.cpp AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o IniciarSesion.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:00:29.109093738
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+=======
+#  Last modified 2022-06-21 16:40:05.2955916
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -1012,10 +1294,23 @@ Jugador/Jugador.cpp:
 # Not a target:
  
 Datatypes/dtJugador.cpp:
+<<<<<<< HEAD
 #  Implicit rule search has been done.
 #  Last modified 2022-06-17 16:54:57.624184037
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Implicit rule search has been done.
+#  Last modified 2022-06-17 17:08:52.111225563
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
 Registro.o: Registro/Registro.cpp dtVideoJuego.o Contratacion.o ICollectible.o ICollection.o List.o
 #  Implicit rule search has not been done.
@@ -1041,7 +1336,15 @@ Usuario/Usuario.cpp:
 
 AltaUsuario.o: Funciones/AltaUsuario.cpp IControlador.o Fabrica.o
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 13:02:07.685308188
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:47.982694415
+=======
+#  Last modified 2022-06-21 16:40:02.251675586
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 26):
@@ -1049,9 +1352,40 @@ AltaUsuario.o: Funciones/AltaUsuario.cpp IControlador.o Fabrica.o
 
 dtPartida.o: Datatypes/dtPartida.cpp
 #  Implicit rule search has not been done.
+<<<<<<< HEAD
 #  Last modified 2022-06-23 12:56:16.011517018
 #  File has been updated.
 #  Successfully updated.
+=======
+<<<<<<< HEAD
+#  Last modified 2022-06-21 15:40:48.002694695
+#  File has been updated.
+#  Successfully updated.
+=======
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-06-21 15:24:14.354470541
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := dtPartida.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := Datatypes/dtPartida.cpp
+# automatic
+# | := 
+# automatic
+# < := Datatypes/dtPartida.cpp
+# automatic
+# ^ := Datatypes/dtPartida.cpp
+# automatic
+# ? := Datatypes/dtPartida.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 #  recipe to execute (from 'Makefile', line 129):
 	@$(GXX) -c $^
 
@@ -1103,7 +1437,7 @@ Usuario.o: Usuario/Usuario.cpp ICollectible.o String.o
 # Not a target:
 IControlador/IControlador.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-14 19:27:11.766331602
+#  Last modified 2022-06-14 19:51:01.844844344
 #  File has been updated.
 #  Successfully updated.
 
@@ -1134,7 +1468,22 @@ colecciones-genericas/collections/OrderedDictionary.cpp:
 
 # strcache performance: lookups = 423 / hit rate = 66%
 # hash-table stats:
+<<<<<<< HEAD
 # Load=143/8192=2%, Rehash=0, Collisions=26/423=6%
 # Finished Make data base on Thu Jun 23 13:44:37 2022
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+# Load=142/8192=2%, Rehash=0, Collisions=21/421=5%
+# Finished Make data base on Tue Jun 21 22:02:56 2022
+=======
+# Load=142/8192=2%, Rehash=0, Collisions=25/421=6%
+# Finished Make data base on Wed Jun 22 14:55:39 2022
+>>>>>>> 05c133adcf4aaaa62f0282f0ac6b965676bb8b09
+=======
+# Load=142/8192=2%, Rehash=0, Collisions=26/422=6%
+# Finished Make data base on Wed Jun 22 19:48:14 2022
+>>>>>>> d4f2872a191e1550b066b029f7aafc14dc40deed
+>>>>>>> 54e211f4de60b95712ff9c7992451c03f42eda16
 
  

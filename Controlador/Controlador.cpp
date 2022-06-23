@@ -20,7 +20,10 @@ Controlador* Controlador::getInstance(){
     return instance;
 }
 
-bool Controlador::ingresoData(string email){
+// bool Controlador::ingresoData(string email){
+
+// }
+string** Controlador::jugadores(){
 
 }
 
@@ -87,6 +90,9 @@ dtVideoJuego** Controlador::listarVideojuegosDiferenciada(){
 }                                 
 void Controlador::ingresarVideojuego(char* nombreVideojuego){
 
+}
+bool Controlador::estaSuscripto(char* nombreVideojuego){
+    
 }                                 
 void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion){
 
