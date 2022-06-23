@@ -123,6 +123,15 @@ void publicarVideojuego(){
     cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
     cin >> confirmar;
     if (confirmar == 's' || confirmar == 'S'){
+        //while(true)
+        /**
+         * agrega otros;
+         * dtCategoria* addCat = new dtCategoria(patatin y patatan)
+         * listOtros[i] = addCat;
+         * 
+         * if(no quiere agregar mas ){brek;}
+         * 
+         */
         cout << "Seleccione una categoría otros" << endl;
         cin >> inGotros;
         while(!verificarCat(listOtros, inGotros)){

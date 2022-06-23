@@ -3,7 +3,9 @@
 #include <stdlib.h>
 #include "../IControlador/IControlador.h"
 #include "../Fabrica/Fabrica.h"
+
 using namespace std;
+
 bool verificarEnLista(string** , string);
 void altaUsuario(){
     Fabrica fab;
