@@ -10,7 +10,7 @@ using namespace std;
 class dtCategoria
 {
 public:
-    dtCategoria();
+    dtCategoria(string nombre, string desc, enumCategoria tipo);
     ~dtCategoria();
 
     string getNombre();
@@ -21,7 +21,6 @@ private:
     string nombre;
     string descripcion;
     enumCategoria tipo;
-
 };
 
 #endif

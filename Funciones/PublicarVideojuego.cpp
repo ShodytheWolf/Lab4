@@ -18,7 +18,9 @@ void publicarVideojuego(){
     dtCategoria** plataformas;
     dtCategoria** otros;
     
-
+    string inGgenero;
+    string inGplataforma;
+    string inGotros;
     float costoAnual;
     float costoMensual;
     float costoTrimestral;
@@ -49,70 +51,120 @@ void publicarVideojuego(){
 
     cout << "Costo Vitalicia: " << endl;
     cin >> costoVitalicia;
-
+    
     //guardar costos 
+    dtSuscripcion* costos;
+    costoAnual = costos->getCostoAnual();
+    costoTrimestral = costos->getCostoTrimestral();
+    costoMensual = costos->getCostoMensual();
+    costoVitalicia = costos->getCostoVitalicia();
+    pausa();
+
 
     cout << "Listado de generos:" << endl;
-
-    dtCategoria** listGeneros = controlador->listarGenero(); 
-    int i = 0;
-        
-    while(listGeneros[i]){
-        cout << i+1 << "ª" << listGeneros[i]  << endl;
-
+    dtCategoria** listGeneros = controlador->listarGenero();
+    muestroList(listGeneros); //muestro  
+    cout << "Seleccione  un género (sensible a mayúsculas y minúsculas): " << endl;
+    cin >> inGgenero;
+    system("clear");   
+    while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero
+        cout << "El género ingresado no existe. Intente nuevamente." << endl;
+        muestroList(listGeneros);
+        cout << "Seleccione un género, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
+        cin >> inGgenero;
+        system("clear");
     }
-    cout << "Seleccione  un género" << endl;
-    do{
-        dtCategoria genero;
+    dtCategoria* addCat = new dtCategoria(inGgenero, NULL, Genero); //paso cat al dt
+    cout << "¿Desea ingresar otro género? (s/S)" << endl;
+    cin >> confirmar;
+    switch(confirmar){
+        case 'S':
+        case 's':
+            cout << "Seleccione otro género (sensible a mayúsculas y minúsculas): " << endl;
+            muestroList(listGeneros); 
+            cin >> inGgenero;
+            dtCategoria* addCat = new dtCategoria(inGgenero, NULL, Genero); //agrego el otro genero
+            break;     
+    }
+    pausa();
 
-        //seleccion
-    }while(confirmar == 'p');
 
     cout << "Listado de plataforma:" << endl;
-    dtCategoria** listPlataformas = controlador->listarPlataforma();
-    int i = 0;
-    while (listPlataformas[i]){
-        cout << i+1 << "ª" << listPlataformas[i] << endl; 
+    dtCategoria** listPlataformas = controlador->listarPlataforma(); //listo y muestro
+    muestroList(listPlataformas);
+    cout << "Seleccione  una plataforma (sensible a mayúsculas y minúsculas): " << endl;
+    cin >> inGplataforma;
+    system("clear");  
+    while(!verificarCat(listPlataformas, inGplataforma)){   //si no existe plataforma 
+        cout << "La plataforma ingresada no existe. Intente nuevamente." << endl;
+        cout << "Seleccione una plataforma, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
+        muestroList(listPlataformas);
+        cin >> inGplataforma;
+        system("clear");
     }
-    cout << "Seleccione una plataforma" << endl;
-    do{
-    //seleccion
+    dtCategoria* addCat = new dtCategoria(inGplataforma, NULL, Plataforma); //paso cat al dt
+    cout << "¿Desea ingresar otra plataforma? (s/S)" << endl;
+    cin >> confirmar; 
+    switch(confirmar){
+        case 'S':
+        case 's':
+            muestroList(listPlataformas);
+            cin >> inGplataforma;
+            dtCategoria* addCat = new dtCategoria(inGplataforma, NULL, Genero); //agrego otra plataforma
+            break;         
+    }
+    pausa();
 
-    }while(confirmar == 'p');
 
     cout << "Listado de otras categorias: " << endl;
-    dtCategoria** listOtros = controlador->listarOtro();
-    int i = 0;
-    while (listOtros[i]){
-        cout << i+1 << "ª" << listOtros[i] <<endl;
-    }
-
+    dtCategoria** listOtros = controlador->listarOtro(); //listo y muestro
+    muestroList(listOtros);
     cout << "¿Desea seleccionar otros?" << endl;
     cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
     cin >> confirmar;
     if (confirmar == 's' || confirmar == 'S'){
-    cout << "seleccionaste otros" << endl;
-    //seleccion.
-
+        cout << "Seleccione una categoría otros" << endl;
+        cin >> inGotros;
+        while(!verificarCat(listOtros, inGotros)){
+            cout << "La categoría otros- ingresada no existe. Intente nuevamente." << endl;
+            cout << "Seleccione una categoria otros, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
+            muestroList(listOtros);
+            cin >> inGotros;
+            system("clear");
+        }
+        dtCategoria* addCat = new dtCategoria(inGotros, NULL, Otro);
+        cout << "¿Desea ingresar otra categoría? (s/S)" << endl;
+        cin >> confirmar; 
+        switch(confirmar){
+            case 'S':
+            case 's':
+                muestroList(listOtros);
+                cin >> inGotros;
+                dtCategoria* addCat = new dtCategoria(inGotros, NULL, Otro); //agrego otra plataforma
+                break;         
+        }
     } 
     else {
         cout << "No seleccionaste otros." << endl;
     }
+    pausa();
 
     cout << "Confirme si desea publicar un videojuego:" << endl;
     cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar." << endl;
     cin >> confirmar;
     if (confirmar == 's' || confirmar == 'S'){
     cout << "Publicaste un videojuego." << endl;
-    dtVideoJuego** datosJuegos;
-    //controlador->publicarVideojuego(datosJuegos, categorias); como hacer la seleccion para pasar datos
+    dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego, NULL, descripcion, costos, NULL,0,0);
+    //controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros);
     } 
     else {
         cout << "cancelaste" << endl;
     }
+    pausa();
  
 }
 
+//auxiliares
 bool verificarCat(dtCategoria** listCat, string categoria){
     int i = 0;
     while(listCat[i]){
@@ -121,4 +173,18 @@ bool verificarCat(dtCategoria** listCat, string categoria){
         i++;
     }
     return false;
+}
+
+void muestroList(dtCategoria** list){
+    int i = 0;
+    while (list[i]){
+        cout << "Nº " <<i+1 << "-" << list[i] << endl; 
+    }
+}
+
+void pausa(){
+    cout << "Presione ENTER para continuar.... " << endl;
+    getchar();
+    getchar();
+    system("clear");
 }
