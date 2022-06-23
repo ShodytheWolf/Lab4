@@ -10,6 +10,7 @@
 #include "../Individual/Individual.h"
 #include "../Multijugador/Multijugador.h"
 #include "../Registro/Registro.h"
+#include "../EnVivo/EnVivo.h"
 
 #pragma once
 
@@ -43,6 +44,7 @@ private:
     IDictionary* partidasActivas = new OrderedDictionary();
     ICollection* partidasUnido = new List(); 
     ICollection* registros = new List();
+
 };
 
 #endif

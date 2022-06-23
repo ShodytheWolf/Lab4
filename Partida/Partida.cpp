@@ -13,15 +13,15 @@ Partida::Partida(int id, time_t fechaInicio, float duracion){
 
 Partida::~Partida()
 {
-
+    this->vj = NULL;
 }
 
-Integer Partida::getId() {
+Integer* Partida::getId() {
     return this->id;
 }
 
 void Partida::setId(int id) {
-    this->id = Integer(id);
+    this->id = new Integer(id);
 }
 
 time_t Partida::getFechaInicio() {
@@ -42,6 +42,15 @@ void Partida::setDuracion(float duracion) {
 
 dtPartida Partida::getDtPartida(){}
 void Partida::calcularDuracion(){}
+
+/**
+ * @brief Comprueba si la partida es del videojuego que recibe,
+ * en dicho caso dvuelve true de lo contrario devuelve false
+ */
+bool Partida::comprobarJuego(Videojuego* vj){
+    if(this->vj == vj){return true;}
+    return false;
+}
 
 /**
  * @brief Devuelve true si la partida es del videojuego que recibe

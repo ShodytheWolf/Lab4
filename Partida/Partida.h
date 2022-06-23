@@ -16,7 +16,7 @@ public:
     Partida();
     Partida(int id, time_t fechaInicio, float duracion);
     ~Partida();
-    Integer getId();
+    Integer* getId();
     void setId(int id);
     time_t getFechaInicio();
     void setFechaInicio(time_t fechaInicio);
@@ -25,12 +25,13 @@ public:
     dtPartida getDtPartida();
     void calcularDuracion();
 
+    bool comprobarJuego(Videojuego*);
     bool verificarJuego(const char* nombreJuego);
     void eliminarComentarios();
 
 private:
     Videojuego* vj;
-    Integer id; //key
+    Integer* id; //key
     time_t fechaInicio;
     float duracion;
 };

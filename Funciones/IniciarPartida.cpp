@@ -23,6 +23,21 @@ void iniciarPartida(){
 			int eleccion;
  			int multiOIndividual;
  			string** juegosSuscriptos = sistema->listarVideojuegosSuscripto();//entro, consigo la lista de juegos, e inicializo juegosSuscriptos.
+			//CUIDADO, VER TRY AND CATCH
+				//CUIDADO, VER TRY AND CATCH
+					//CUIDADO, VER TRY AND CATCH
+						//CUIDADO, VER TRY AND CATCH
+							//CUIDADO, VER TRY AND CATCH
+								//CUIDADO, VER TRY AND CATCH
+									//CUIDADO, VER TRY AND CATCH
+										//CUIDADO, VER TRY AND CATCH
+											//CUIDADO, VER TRY AND CATCH
+
+
+			if(!juegosSuscriptos[0]){
+				cout<<"jugador no tiene juegos suscriptos (pobre)"<<endl;
+				return;
+			}
 
 
 			int i = 0;

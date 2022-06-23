@@ -32,7 +32,21 @@ void Jugador::setDescripcionJugador(string descripcionJugador) {
 void Jugador::pasoJuego(String nombreVideojuego){}
 dtVideoJuego** Jugador::getDatosVj(){} 
 void Jugador::aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago){}
-string** Jugador::listarJuegosSuscripto(){} 
+
+string** Jugador::listarJuegosSuscripto(){
+    IIterator* it = registros->getIterator();
+    
+    string** listaADevolver = new string*[this->registros->getSize()];
+    int i = 0;
+    while(it->hasCurrent()){
+        Registro* reg = dynamic_cast<Registro*>(it->getCurrent());
+        listaADevolver[i] = new string(reg->getVideojuego()->getNombreJuego()->getValue());
+        it->next();
+    }
+    delete it;
+    return listaADevolver;
+} 
+
 dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){}
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 String Jugador::getNick(String nombreJuego){}
@@ -74,4 +88,27 @@ string** Jugador::comprobarPartidas(string** nombreJuegos, int t){
 }
 
 
-void Jugador::eliminarContRegisJuego(Videojuego* vj){}
+void Jugador::eliminarContRegisJuego(Videojuego* vj){
+    IIterator* it;
+    for(it = this->registros->getIterator(); it->hasCurrent(); it->next()){
+        Registro* r = (Registro*) it->getCurrent();
+        if(r->confrmarJuego(vj)){
+            registros->remove(r);
+            delete r;
+            for(it = this->partidasInactivas->getIterator(); it->hasCurrent(); it->next()){
+                Partida* paIna = (Partida*) it->getCurrent();
+                if(paIna->comprobarJuego(vj)){
+                    if((EnVivo*) paIna){
+                        paIna->eliminarComentarios();
+                    }
+                    partidasInactivas->remove(paIna->getId());
+                    delete paIna;
+                }
+
+            }
+        }
+        delete it;
+        return;
+    }
+}
+
