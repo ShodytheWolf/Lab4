@@ -49,7 +49,23 @@ string** Jugador::listarJuegosSuscripto(){
     return listaADevolver;
 } 
 
-dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){}
+dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
+    IIterator* it = partidasInactivas->getIterator();
+    dtPartidaIndividual** listaADevolver = new dtPartidaIndividual*[this->partidasInactivas->getSize()];//la lista devuelta es mas grande de lo que necesita tho
+
+    int i = 0;
+    while(it->hasCurrent()){
+
+        if(dynamic_cast<dtPartidaIndividual*>(it->getCurrent())){//me aseguro que sea una partida individual lo que estoy consiguiendo
+            dtPartidaIndividual* partidaIndi = dynamic_cast<dtPartidaIndividual*>(it->getCurrent());//casteo
+            listaADevolver[i] = partidaIndi;//la guardo
+            i++;
+        };
+        it->next();
+    }
+    delete it;
+    return listaADevolver;
+}
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 String Jugador::getNick(String nombreJuego){}
 void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida){}

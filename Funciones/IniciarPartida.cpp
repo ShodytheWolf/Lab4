@@ -103,7 +103,7 @@ void iniciarPartida(){
 				};
 
 				dtPartidaIndividual* datosPartida = new dtPartidaIndividual(0,0,string(juegoAIniciar),esContinuacion,0, 0);
-				sistema->confirmarIndividual(*datosPartida);
+				sistema->confirmarIndividual(datosPartida);
 				cout<<"Partida Inicializada con exito!"<<endl;
 				return;
 				//FIN CASO DE USO
@@ -170,7 +170,7 @@ void iniciarPartida(){
 
 
 				dtPartidaMultijugador* datosPartidaMulti = new dtPartidaMultijugador(0,0,string(juegoAIniciar),esVivo,string(NULL),nicksUnidos);
-				sistema->confirmarMultijugador(*datosPartidaMulti);
+				sistema->confirmarMultijugador(datosPartidaMulti);
 				cout<<"Partida Inicializada con exito!"<<endl;
 				return;
 

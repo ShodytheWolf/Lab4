@@ -8,6 +8,7 @@
         "istream": "cpp",
         "memory": "cpp",
         "type_traits": "cpp",
-        "xlocnum": "cpp"
+        "xlocnum": "cpp",
+        "xstring": "cpp"
     }
 }
