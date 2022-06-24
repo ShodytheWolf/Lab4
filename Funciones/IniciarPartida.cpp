@@ -12,6 +12,8 @@ void iniciarPartida(){
 		bool esContinuacion = false;
 		bool esVivo = false;
 		int i = 0;
+		dtPartidaIndividual* datosPartida;
+		dtPartidaMultijugador* datosPartidaMulti;
 
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
@@ -44,7 +46,7 @@ void iniciarPartida(){
 			}
 
 
-			int i = 0;
+			i = 0;
 			while (juegosSuscriptos[i] != NULL)//HOW
 			{
 				cout<<*juegosSuscriptos[i]<<endl;
@@ -105,7 +107,7 @@ void iniciarPartida(){
 					return;
 				};
 
-				dtPartidaIndividual* datosPartida = new dtPartidaIndividual(0,0,string(juegoAIniciar),esContinuacion,0, 0);
+				datosPartida = new dtPartidaIndividual(0,0,string(juegoAIniciar),esContinuacion,0, 0);
 				sistema->confirmarIndividual(datosPartida);
 				cout<<"Partida Inicializada con exito!"<<endl;
 				return;
@@ -172,7 +174,7 @@ void iniciarPartida(){
 				};
 
 
-				dtPartidaMultijugador* datosPartidaMulti = new dtPartidaMultijugador(0,0,string(juegoAIniciar),esVivo,string(NULL),nicksUnidos);
+				datosPartidaMulti = new dtPartidaMultijugador(0,0,string(juegoAIniciar),esVivo,string(NULL),nicksUnidos);
 				sistema->confirmarMultijugador(datosPartidaMulti);
 				cout<<"Partida Inicializada con exito!"<<endl;
 				return;
