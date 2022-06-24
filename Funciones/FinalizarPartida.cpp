@@ -10,6 +10,8 @@ void finalizarPartida(){
     do{
         bool tabien = false;
         int i = 0;
+        dtPartida** partidasActivas;
+
         cout<<"Bienvenido a Finalizar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
  	    cout<<"-------------------------------------"<<endl<<endl;
@@ -20,7 +22,7 @@ void finalizarPartida(){
         switch (optFinalizarPartida)
         {
         case 1:
-            dtPartida** partidasActivas = sistema->listoPartidasActivas();
+            partidasActivas = sistema->listoPartidasActivas();
             int idPartidaAFinalizar;
 
             //entiendo que iteramos ese SET de dtsPartidas para mostrar IDs, Fecha de Comienzo y el nick del juego, y si es Individual, también se muestra
