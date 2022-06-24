@@ -14,6 +14,8 @@ void iniciarPartida(){
 		int i = 0;
 		dtPartidaIndividual* datosPartida;
 		dtPartidaMultijugador* datosPartidaMulti;
+		string** nicksJugadoresUnidos;
+		string** juegosSuscriptos;
 
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
@@ -28,7 +30,7 @@ void iniciarPartida(){
  		case 1:
 			int eleccion;
  			int multiOIndividual;
- 			string** juegosSuscriptos = sistema->listarVideojuegosSuscripto();//entro, consigo la lista de juegos, e inicializo juegosSuscriptos.
+ 			juegosSuscriptos = sistema->listarVideojuegosSuscripto();//entro, consigo la lista de juegos, e inicializo juegosSuscriptos.
 			//CUIDADO, VER TRY AND CATCH
 				//CUIDADO, VER TRY AND CATCH
 					//CUIDADO, VER TRY AND CATCH
@@ -126,7 +128,7 @@ void iniciarPartida(){
 					esVivo = true;
 				};
 				
-				string** nicksJugadoresUnidos = sistema->listarNicks(juegoAIniciar);//consigo todos los jugadores que estan suscriptos al juego en cuestion.
+				nicksJugadoresUnidos = sistema->listarNicks(juegoAIniciar);//consigo todos los jugadores que estan suscriptos al juego en cuestion.
 
 				i = 0;
 				//itero para mostrar los nicks de los ñerys que también tienen el juego comprao
