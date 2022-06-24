@@ -8,6 +8,8 @@
 void finalizarPartida(){
     int optFinalizarPartida;
     do{
+        bool tabien = false;
+        int i = 0;
         cout<<"Bienvenido a Finalizar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
  	    cout<<"-------------------------------------"<<endl<<endl;
@@ -28,7 +30,6 @@ void finalizarPartida(){
                 return;
             };
 
-            int i = 0;
             while(partidasActivas[i] != NULL){
                 cout<<"ID: "<<partidasActivas[i]->getIdPartida()<<endl
                 <<"Fecha de Inicio: "<<partidasActivas[i]->getFecha()<<endl
@@ -51,7 +52,7 @@ void finalizarPartida(){
                 };
             };
 
-            bool tabien = false;
+
             while(true){
                 cout<<"Seleccione la partida que desea finalizar :3"<<endl;
                 cin>>idPartidaAFinalizar;
