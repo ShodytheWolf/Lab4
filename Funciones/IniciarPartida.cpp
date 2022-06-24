@@ -9,6 +9,10 @@ IControlador* sistema = fabrica->getInterface();
 void iniciarPartida(){
     int optInicarPartida;
       do{
+		bool esContinuacion = false;
+		bool esVivo = false;
+		int i = 0;
+
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
  	    cout<<"-------------------------------------"<<endl<<endl;
@@ -65,14 +69,13 @@ void iniciarPartida(){
  			switch (multiOIndividual)
  			{
  			case 1:     //INDIVIDUAL
-				bool esContinuacion = false;
  				cout<<"Epicardo, sera una continuacion de una anterior?"<<endl;
  				cout<<"1)NO Continuacion"<<endl;
  				cout<<"2)Continuacion"<<endl;
  				cin>>eleccion;
 
 				if(eleccion == 2){//SI LA PARTIDA ES CONTINUADA
-					bool esContinuacion = false;
+					esContinuacion = false;
 					int IdPartidaAContinuar;
 					dtPartidaIndividual** partidasSeleccionadas = sistema->listoPartidasInactivas(); //siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
 					
@@ -110,7 +113,7 @@ void iniciarPartida(){
 
 			
  			case 2://Multijugador
- 				bool esVivo = false;
+ 				esVivo = false;
 
  				cout<<"Epicardo, sera una partida transmitida en vivo?"<<endl;
  				cout<<"1)en vivo"<<endl;
@@ -118,7 +121,7 @@ void iniciarPartida(){
  				cin>>eleccion;
 
 				if(eleccion == 1){
-					bool esVivo = true;
+					esVivo = true;
 				};
 				
 				string** nicksJugadoresUnidos = sistema->listarNicks(juegoAIniciar);//consigo todos los jugadores que estan suscriptos al juego en cuestion.
