@@ -48,9 +48,9 @@ class IControlador{
         //Iniciar Partida:
         virtual string** listarVideojuegosSuscripto() = 0;                                            //20
         virtual dtPartidaIndividual** listoPartidasInactivas() = 0;                                   //21
-        virtual void confirmarIndividual(dtPartidaIndividual datosPartida) = 0;                       //22
+        virtual void confirmarIndividual(dtPartidaIndividual *datosPartida) = 0;                       //22
         virtual string** listarNicks(char* nombreVideojuego) = 0;                                          //23
-        virtual void confirmarMultijugador (dtPartidaMultijugador datosPartida) = 0;                  //24
+        virtual void confirmarMultijugador (dtPartidaMultijugador *datosPartida) = 0;                  //24
         
         //Finalizar Partida:
         virtual dtPartida** listoPartidasActivas() = 0;                                               //27

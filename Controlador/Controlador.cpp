@@ -130,15 +130,29 @@ string** Controlador::listarVideojuegosSuscripto(){
 
 }                                           
 dtPartidaIndividual** Controlador::listoPartidasInactivas(){
+    
+    Jugador* jug = dynamic_cast<Jugador*>(this->loggedUser);
+
+    dtPartidaIndividual** listaPartidas = jug->listarPartidasFinalizadas();
+    return listaPartidas;
 
 }                                 
-void Controlador::confirmarIndividual(dtPartidaIndividual datosPartida){
+void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida){
 
-}                      
+    //PREGUNTAR AL BRAIAN ESO DE PASAR DE string A char*
+    /*
+    Jugador* jug = dynamic_cast<Jugador*>(this->loggedUser);
+
+    OrderedKey* k = new String(datosPartida->getNombreVideojuego());
+
+    jug->iniciarIndividual(videojuegos->find(k));
+    */
+}   
+
 string** Controlador::listarNicks(char* nombreVideojuego){
 
 }                                        
-void Controlador::confirmarMultijugador (dtPartidaMultijugador datosPartida){
+void Controlador::confirmarMultijugador (dtPartidaMultijugador *datosPartida){
 
 }                
 
