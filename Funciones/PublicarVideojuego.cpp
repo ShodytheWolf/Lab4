@@ -7,6 +7,7 @@
 using namespace std;
 
 bool verificarEnLista(string** , string);
+bool verificarCat(dtCategoria** listCat, string categoria);
 
 void publicarVideojuego(){
 

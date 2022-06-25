@@ -8,7 +8,6 @@ g++ -c Datatypes/dtVideoJuego.cpp
 g++ -c Datatypes/dtJugador.cpp
 g++ -c IControlador/IControlador.cpp dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 g++ -c colecciones-genericas/interfaces/ICollectible.cpp
- 
 g++ -c colecciones-genericas/interfaces/IKey.cpp
 g++ -c colecciones-genericas/interfaces/OrderedKey.cpp IKey.o
 g++ -c colecciones-genericas/String.cpp ICollectible.o OrderedKey.o
@@ -44,10 +43,8 @@ g++ -c Funciones/VerificarEnLista.cpp IControlador.o Fabrica.o
 g++ -c Funciones/IniciarPartida.cpp VerificarEnLista.o IControlador.o Fabrica.o
 g++ -c Funciones/EliminarVideojuego.cpp VerificarEnLista.o IControlador.o Fabrica.o
 g++ -c Funciones/VerInfoVideojuego.cpp VerificarEnLista.o IControlador.o Fabrica.o
- 
 g++ -c Funciones/SuscribirseAVideojuego.cpp IControlador.o Fabrica.o
 g++ -c Funciones/PublicarVideojuego.cpp IControlador.o Fabrica.o
- 
 g++ -c Funciones/IniciarSesion.cpp IControlador.o Fabrica.o
 g++ -c main.cpp AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o IniciarSesion.o
 g++ -c Suscripcion/Anual.cpp Suscripcion.o
