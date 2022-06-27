@@ -14,6 +14,22 @@ Jugador::~Jugador()
 
 }
 
+
+//Operaciones del padre:
+string Jugador::getContrasenia(){
+    return this->contrasenia;
+}
+void Jugador::setContrasenia(string pass){
+    this->contrasenia = pass;
+}
+string Jugador::getEmail(){
+    return this->email;
+}
+void Jugador::setEmail(string correo){
+    this->email = correo;
+}
+
+//Setters y getter:
 String* Jugador::getNickname() {
     return new String(this->nickname);
 }
@@ -30,6 +46,8 @@ string Jugador::getDescripcionJugador() {
 void Jugador::setDescripcionJugador(string descripcionJugador) {
     this->descripcionJugador = descripcionJugador;
 }
+
+
 
 void Jugador::pasoJuego(String nombreVideojuego){}
 dtVideoJuego** Jugador::getDatosVj(){} 

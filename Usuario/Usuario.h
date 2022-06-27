@@ -14,10 +14,10 @@ public:
     Usuario();
     Usuario(string, string);
     ~Usuario();
-    virtual string getContrasenia();
-    void setContrasenia(string);
-    string getEmail();
-    void setEmail(string);
+    virtual string getContrasenia() =0;
+    virtual void setContrasenia(string)=0;
+    virtual string getEmail()=0;
+    virtual void setEmail(string)=0;
 
 protected:
     string email;

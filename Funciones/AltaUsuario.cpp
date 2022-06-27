@@ -26,14 +26,14 @@ void altaUsuario(){
     cin >> correo;
     cout << "\nIngrese una contrasenia: ";
     cin >> contrasenia;
-    bool alta = controlador->ingresoData(correo, contrasenia); //verificacion si existe correo
-    system ("clear");
+    controlador->ingresoData(correo, contrasenia, false); //verificacion si existe correo
+    //system ("clear");
     //ALT      
     cout << "¿Desea registrar un desarrollador o un jugador?" << endl;
     cout << "Para registrar un desarrollador presione(d/D)" << endl;
     cout << "Para registrar un jugador presione (j/J)." << endl;
     cin >> tipoUsr;
-    system ("clear");   
+    //system ("clear");   
     switch(tipoUsr){
         case 'd':
         case 'D':
@@ -43,7 +43,7 @@ void altaUsuario(){
             cout << "¿Desea confirmar?" << endl;    //confirmar
             cout << "Presione (s/S) para confirmar." << endl;
             cin >> confirmacion;
-            system ("clear");
+            //system ("clear");
             if (confirmacion == 's' || confirmacion == 'S'){
                 controlador->ingresarEmpresa(nombreEmpresa);
                 controlador->confirmarNuevoDesarrollador();
@@ -51,7 +51,7 @@ void altaUsuario(){
             else { 
                 cout << "Usted cancelo el alta."<< endl;
             }
-            delete nombreEmpresa, listJugadores, Usrnickname;
+            //delete nombreEmpresa, listJugadores, Usrnickname;
         break; //breakesito
         case 'j':
         case 'J':
@@ -88,5 +88,5 @@ void altaUsuario(){
             }
         break;
     }
-    delete nombreEmpresa, listJugadores, Usrnickname;
+    //delete nombreEmpresa, listJugadores, Usrnickname;
 }

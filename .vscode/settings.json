@@ -9,6 +9,7 @@
         "memory": "cpp",
         "type_traits": "cpp",
         "xlocnum": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "string": "cpp"
     }
 }

@@ -10,9 +10,7 @@ void menuDesarrollador();
 //void menuJugador();
 
 int main(){
-    Fabrica* fabrica = new Fabrica();
-    IControlador* sistema = fabrica->getInterface();
-    menuDesarrollador();
+    altaUsuario();
     return 0;
 }
 

@@ -26,7 +26,7 @@ class Controlador: public IControlador{
         void confirmarNuevoJugador();                                                      //6
 
         //Iniciar sesion:
-        bool ingresoData(string email, string contrasenia);                                //7
+        bool ingresoData(string email, string contrasenia, bool);                                //7
         void confirmarSesion();
 
         //Publicar Videojuego:

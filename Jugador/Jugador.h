@@ -19,10 +19,20 @@ class Jugador : public Usuario
 public:
     Jugador(string email, string contrasenia, char* nickname, string descripcionJugador);
     ~Jugador();
+
+    //Operaciones del padre:
+    string getContrasenia();
+    void setContrasenia(string);
+    string getEmail();
+    void setEmail(string);
+
+    //Setters y getters:
     String* getNickname(); 
     void setNickname(char* nick);
     string getDescripcionJugador();
     void setDescripcionJugador(string descripcionJugador);
+
+
     void pasoJuego(String nombreVideojuego);
     dtVideoJuego** getDatosVj(); 
     void aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago);
