@@ -1,12 +1,12 @@
-#include "Menus.h"
+//#include "Menus.h"
 #include "../IControlador/IControlador.h"
 #include "../Fabrica/Fabrica.h"
-#include "VerificarEnLista.cpp"
 
-Fabrica* fabrica = new Fabrica();
-IControlador* sistema = fabrica->getInterface();
+bool verificarEnLista(string**, string);
 
 void iniciarPartida(){
+	Fabrica fabrica;
+	IControlador* sistema = fabrica.getInterface();
     int optInicarPartida;
       do{
 		bool esContinuacion = false;

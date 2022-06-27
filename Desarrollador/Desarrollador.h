@@ -12,6 +12,12 @@ public:
     String* getNombreEmpresa();
     void setNombreEmpresa(char* nombreEmpresa);
 
+    //Operaciones del padre:
+    string getContrasenia();
+    void setContrasenia(string);
+    string getEmail();
+    void setEmail(string);
+
 private:
     String* nombreEmpresa; //IKEY
 };

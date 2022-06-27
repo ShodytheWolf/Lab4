@@ -27,7 +27,7 @@ class IControlador{
         virtual void confirmarNuevoJugador() = 0;                                                      //6
 
         //Iniciar sesion:
-        virtual bool ingresoData(string email, string contrasenia) = 0;                                //7
+        virtual bool ingresoData(string email, string contrasenia, bool) = 0;                                //7
         virtual void confirmarSesion() = 0;
 
 

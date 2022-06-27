@@ -56,22 +56,33 @@ void Controlador::ingresarDescripcion(string descripcion){
 void Controlador::confirmarNuevoJugador(){
     Jugador* j = new Jugador(this->emailUser, this->passUser, this->nickJugador, this->descripcionJuegador);
     usuarios->add(j->getNickname(), j);
-}                                                    
-bool Controlador::ingresoData(string email, string contrasenia){
-    if(this->usuarios->isEmpty())
-        throw invalid_argument("No hay usuarios en el sistema");
+}
+
+/**
+ * @brief El sistema recuerda email y pass y si es necesario verifica si existem
+ * 
+ * @param verificacion  Recibe true si se necesita verificacion y false si no necesita
+ * @return true si existe
+ * @return false si no existe
+ */
+bool Controlador::ingresoData(string email, string contrasenia, bool verificacion){
     this->emailUser = email;
     this->passUser = contrasenia;
-    IIterator* it;
-    for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
-        Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
-        if(u->getEmail() == email && u->getContrasenia() == contrasenia){
-            delete it;
-            return true;
+    if(verificacion){
+        if(this->usuarios->isEmpty())
+            throw invalid_argument("No hay usuarios en el sistema");
+
+        IIterator* it;
+        for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
+            Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
+            if(u->getEmail() == email && u->getContrasenia() == contrasenia){
+                delete it;
+                return true;
+            }
         }
+        delete it;
+        return false;
     }
-    delete it;
-    return false;
 }
 
 void Controlador::confirmarSesion(){

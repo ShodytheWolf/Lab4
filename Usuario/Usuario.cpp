@@ -5,6 +5,12 @@ Usuario::Usuario(){
     
 }
 
+Usuario::~Usuario(){
+    
+}
+
+Usuario::Usuario(string, string){}
+
 
 string Usuario::getContrasenia()
 {

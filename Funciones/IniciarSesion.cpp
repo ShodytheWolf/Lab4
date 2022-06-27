@@ -28,7 +28,7 @@ void iniciarSesion(){
                 cin >> contrasenia; 
                 break;
             case 3:
-                existeUsuario = sistema->ingresoData(email, contrasenia);
+                existeUsuario = sistema->ingresoData(email, contrasenia, true);
                 if(!existeUsuario)
                     cout << "Email o contraseña incorrectos" <<endl;
                 else
