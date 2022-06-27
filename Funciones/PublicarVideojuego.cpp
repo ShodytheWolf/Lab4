@@ -69,13 +69,15 @@ void publicarVideojuego(){
         muestroList(listGeneros); //muestro  
         cout << "Seleccione  un género (sensible a mayúsculas y minúsculas): " << endl;
         cin >> inGgenero;
-        system("clear");   
-        while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero
-            cout << "El género ingresado no existe. Intente nuevamente." << endl;
-            muestroList(listGeneros);
-            cout << "Seleccione un género, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
-            cin >> inGgenero;
-            system("clear");
+        system("clear");
+        if (listGeneros[0] !=NULL){   
+            while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero
+                cout << "El género ingresado no existe. Intente nuevamente." << endl;
+                muestroList(listGeneros);
+                cout << "Seleccione un género, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
+                cin >> inGgenero;
+                system("clear");
+            }
         }
         int i = 0;
         dtCategoria* addCatGenero = new dtCategoria(inGgenero, NULL, Genero); //paso cat al dt
@@ -93,13 +95,15 @@ void publicarVideojuego(){
         muestroList(listPlataformas);
         cout << "Seleccione  una plataforma (sensible a mayúsculas y minúsculas): " << endl;
         cin >> inGplataforma;
-        system("clear");  
-        while(!verificarCat(listPlataformas, inGplataforma)){   //si no existe plataforma 
-            cout << "La plataforma ingresada no existe. Intente nuevamente." << endl;
-            cout << "Seleccione una plataforma, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
-            muestroList(listPlataformas);
-            cin >> inGplataforma;
-            system("clear");
+        system("clear");
+        if (listPlataformas[0] != NULL){  
+            while(!verificarCat(listPlataformas, inGplataforma)){   //si no existe plataforma 
+                cout << "La plataforma ingresada no existe. Intente nuevamente." << endl;
+                cout << "Seleccione una plataforma, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
+                muestroList(listPlataformas);
+                cin >> inGplataforma;
+                system("clear");
+            }
         }
         int i = 0;
         dtCategoria* addCatPlataforma = new dtCategoria(inGplataforma, NULL, Plataforma); //paso cat al dt esta cat pasa por el control.
@@ -121,12 +125,14 @@ void publicarVideojuego(){
             cout << "Seleccione una categoría otros" << endl;
             cin >> inGotros;
             system("clear");
-            while(!verificarCat(listOtros, inGotros)){
-                cout << "La categoría otros- ingresada no existe. Intente nuevamente." << endl;
-                cout << "Seleccione una categoria otros, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
-                muestroList(listOtros);
-                cin >> inGotros;
-                system("clear");
+            if (listOtros[0] != NULL){
+                while(!verificarCat(listOtros, inGotros)){
+                    cout << "La categoría otros- ingresada no existe. Intente nuevamente." << endl;
+                    cout << "Seleccione una categoria otros, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
+                    muestroList(listOtros);
+                    cin >> inGotros;
+                    system("clear");
+                }
             }
             int i = 0;
             dtCategoria* addCatOtro = new dtCategoria(inGotros, NULL, Otro);
