@@ -40,8 +40,8 @@ public:
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
     String getNick(String nombreJuego);
-    void iniciarMultijugador(dtPartidaMultijugador* datosPartida);
-    void iniciarIndividual(dtPartidaIndividual* datosPartida);
+    void iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj);
+    void iniciarIndividual(dtPartidaIndividual* datosPartida, Videojuego* vj);
     dtPartidaIndividual** listarPartidasIndividuales();
     dtPartidaMultijugador** partidaAFinalizar();
     void partidaAFinalizar(int idPartida);

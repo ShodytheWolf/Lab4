@@ -164,13 +164,14 @@ dtPartidaIndividual** Controlador::listoPartidasInactivas(){
 void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida){
 
     //PREGUNTAR AL BRAIAN ESO DE PASAR DE string A char*
-    /*
+
     Jugador* jug = dynamic_cast<Jugador*>(this->loggedUser);
 
     OrderedKey* k = new String(datosPartida->getNombreVideojuego());
+    
 
-    jug->iniciarIndividual(videojuegos->find(k));
-    */
+    jug->iniciarIndividual(datosPartida,(Videojuego*)videojuegos->find(k));//casteo paaaaaaaaaaaaa
+
 }   
 
 string** Controlador::listarNicks(char* nombreVideojuego){
