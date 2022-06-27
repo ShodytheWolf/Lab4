@@ -77,8 +77,9 @@ void publicarVideojuego(){
             cin >> inGgenero;
             system("clear");
         }
+        int i = 0;
         dtCategoria* addCatGenero = new dtCategoria(inGgenero, NULL, Genero); //paso cat al dt
-        //añado a la lista
+        listGeneros[i] = addCatGenero;
         cout << "¿Desea ingresar otro género? (S/N)" << endl;
         cin >> confirmar;
 
@@ -100,8 +101,9 @@ void publicarVideojuego(){
             cin >> inGplataforma;
             system("clear");
         }
+        int i = 0;
         dtCategoria* addCatPlataforma = new dtCategoria(inGplataforma, NULL, Plataforma); //paso cat al dt esta cat pasa por el control.
-        //añado a la lista
+        listPlataformas[i] = addCatPlataforma;
         cout << "¿Desea ingresar otro género? (S/N)" << endl;
         cin >> confirmar;
     }while(confirmar == 'S');
@@ -126,8 +128,9 @@ void publicarVideojuego(){
                 cin >> inGotros;
                 system("clear");
             }
+            int i = 0;
             dtCategoria* addCatOtro = new dtCategoria(inGotros, NULL, Otro);
-            //añado a la lista
+            listOtros[i] = addCatOtro;
             cout << "¿Desea ingresar otro género? (S/N)" << endl;
             if (confirmar == 'N')
                 break;   
