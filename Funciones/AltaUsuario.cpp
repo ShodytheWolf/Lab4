@@ -58,18 +58,21 @@ void altaUsuario(){
             cout << "Para registrar un jugador ingrese su nickname: ";
             cin >> Usrnickname;
             //LOOP
-            while(!verificarEnLista(listJugadores,Usrnickname)){ //mientras no este en lista
-                cout << "El nickname ingresado ya existe. ¿Desea intentar nuevamente?(S/N)"<< endl;              
-                switch(reintento){
-                    case 'S':
-                    case 's':
-                        cin >> Usrnickname;
-                        break; //breaksito
-                    case 'N':
-                    case 'n':
-                        cout << "Has cancelado el ingreso." << endl;
-                        delete nombreEmpresa, listJugadores, Usrnickname;
-                        return;
+            //mientras que la lista no este vacia
+            if (listJugadores[0] != NULL){
+                while(!verificarEnLista(listJugadores,Usrnickname)){ //mientras no este en lista
+                    cout << "El nickname ingresado ya existe. ¿Desea intentar nuevamente?(S/N)"<< endl;              
+                    switch(reintento){
+                        case 'S':
+                        case 's':
+                            cin >> Usrnickname;
+                            break; //breaksito
+                        case 'N':
+                        case 'n':
+                            cout << "Has cancelado el ingreso." << endl;
+                            delete nombreEmpresa, listJugadores, Usrnickname;
+                            return;
+                    }
                 }
             }
             controlador->ingresarNickname(Usrnickname);
