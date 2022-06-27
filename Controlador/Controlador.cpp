@@ -20,11 +20,24 @@ Controlador* Controlador::getInstance(){
     return instance;
 }
 
-// bool Controlador::ingresoData(string email){
-
-// }
+/**
+ * @brief Devuelve una lista con el nick de todos los jugadores del sistema
+ * 
+ */
 string** Controlador::jugadores(){
-
+    string** jugadores = new string*[this->usuarios->getSize() + 1];
+    if(!this->usuarios->isEmpty()){
+        int i = 0;
+        for(IIterator* it = this->usuarios->getIterator(); it->hasCurrent(); it->next()){
+            Usuario* u = (Usuario*) it->getCurrent();
+            if((Jugador*)u){
+                Jugador* j = (Jugador*) u;
+                jugadores[i] = new string(j->getNickname()->getValue()); 
+                i++;
+            }
+        }
+    }
+    return jugadores;
 }
 
 void Controlador::ingresarEmpresa(char* nombreEmpresa){

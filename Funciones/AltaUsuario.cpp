@@ -68,7 +68,7 @@ void altaUsuario(){
                     case 'N':
                     case 'n':
                         cout << "Has cancelado el ingreso." << endl;
-                        delete nombreEmpresa, listJugadores, Usrnickname;
+                        //delete nombreEmpresa, listJugadores, Usrnickname;
                         return;
                 }
             }

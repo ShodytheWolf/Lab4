@@ -31,12 +31,12 @@ void Jugador::setEmail(string correo){
 
 //Setters y getter:
 String* Jugador::getNickname() {
-    return new String(this->nickname);
+    return nickname;
 }
 
 void Jugador::setNickname(char* nick) 
 {
-    this->nickname = String(nick) ;
+    this->nickname = new String(nick) ;
 }
 
 string Jugador::getDescripcionJugador() {

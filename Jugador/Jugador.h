@@ -49,7 +49,7 @@ public:
     void eliminarContRegisJuego(Videojuego* vj);
 
 private:
-    String nickname;
+    String* nickname;
     string descripcionJugador;
     IDictionary* partidasInactivas = new OrderedDictionary();
     IDictionary* partidasActivas = new OrderedDictionary();

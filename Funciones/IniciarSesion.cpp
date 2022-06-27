@@ -11,7 +11,7 @@ void iniciarSesion(){
     int op;
     bool existeUsuario = false;
     do{
-        cout << "Ingrese una opción numerica" 
+        cout << "Ingrese una opción numerica\n" 
         << "1-Ingresar email\n" 
         <<"2-Ingresar contraseña\n"
         <<"3-Confirmar\n"

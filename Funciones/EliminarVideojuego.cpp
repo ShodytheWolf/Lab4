@@ -14,6 +14,8 @@ void eliminarVideojuego(){
     char op;
     bool loop;
     string** listVJ = sistema->listarVideojuegosPublicados();
+    if(!listVJ[0])
+        throw invalid_argument("El desarrollador no ha publicado ningun videojuego");
     cout << "Por favor elija un videojuego ingresando su nombre: " <<endl;
     int i = 0;
     while(listVJ[i]){

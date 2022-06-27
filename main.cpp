@@ -10,7 +10,15 @@ void menuDesarrollador();
 //void menuJugador();
 
 int main(){
-    altaUsuario();
+    while(true){
+        try{
+        altaUsuario();
+        iniciarSesion();
+        }
+        catch(invalid_argument &error){
+            cout<< error.what() <<endl;
+        }
+    }
     return 0;
 }
 
