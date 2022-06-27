@@ -8,9 +8,9 @@ class dtPartidaIndividual : public dtPartida
 {
 public:
     dtPartidaIndividual();
-    dtPartidaIndividual(int IdPartidaAContinuar, string nombrejuego, bool esContinuada);
-    dtPartidaIndividual(int idPart,time_t fechaIni,string nombrejuego, bool conti, int IdPartidaAnt, float dura);
-    dtPartidaIndividual(string nombrejuego, bool noEsContinuadaxD);
+    dtPartidaIndividual(int IdPartidaAContinuar, char* nombrejuego, bool esContinuada);
+    dtPartidaIndividual(int idPart,time_t fechaIni, char* nombrejuego, bool conti, int IdPartidaAnt, float dura);
+    dtPartidaIndividual(char* nombrejuego, bool noEsContinuadaxD);
     ~dtPartidaIndividual();
 
     bool getContinuacion();

@@ -8,7 +8,7 @@ void iniciarSesion(){
     Fabrica f;
     IControlador* sistema = f.getInterface();
     string email, contrasenia;
-    int op;
+    int op =0;
     bool existeUsuario = false;
     do{
         cout << "Ingrese una opción numerica\n" 
@@ -17,7 +17,8 @@ void iniciarSesion(){
         <<"3-Confirmar\n"
         <<"4-Cancelar"
         <<endl;
-        cin >> op; 
+        cin >> op;
+        getchar();
         switch(op){
             case 1:
                 cout << "Ingrese su email: " <<endl;

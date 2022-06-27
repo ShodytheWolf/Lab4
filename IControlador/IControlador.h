@@ -22,7 +22,7 @@ class IControlador{
         virtual string** jugadores() = 0;
         virtual void ingresarEmpresa(char* nombreEmpresa) = 0;                                        //2
         virtual void confirmarNuevoDesarrollador() = 0;                                               //3
-        virtual bool ingresarNickname(char* nickname) = 0;                                            //4
+        virtual bool ingresarNickname(const char* nickname) = 0;                                            //4
         virtual void ingresarDescripcion(string descripcion) = 0;                                      //5
         virtual void confirmarNuevoJugador() = 0;                                                      //6
 

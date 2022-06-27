@@ -10,9 +10,9 @@ bool verificarEnLista(string** , string);
 void altaUsuario(){
     Fabrica fab;
     IControlador* controlador = fab.getInterface();
-    char* Usrnickname; //delete 
-    char* nombreEmpresa; //delete
-    char confirmacion;
+    string Usrnickname; //delete 
+    char* nombreEmpresa; //usen string, si necesitan el char* usen la operacion data() de la clase string WARNING data() deuelve un CONST char* 
+    char confirmacion; 
     char reintento;
     string correo;
     string contrasenia;
@@ -59,9 +59,10 @@ void altaUsuario(){
             cin >> Usrnickname;
             //LOOP
             //mientras que la lista no este vacia
-            if (listJugadores[0] != NULL){
-                while(!verificarEnLista(listJugadores,Usrnickname)){ //mientras no este en lista
-                    cout << "El nickname ingresado ya existe. ¿Desea intentar nuevamente?(S/N)"<< endl;              
+            if (listJugadores[0]){
+                while(verificarEnLista(listJugadores, Usrnickname)){ //mientras no este en lista
+                    cout << "El nickname ingresado ya existe. ¿Desea intentar nuevamente?(S/N)"<< endl;  
+                    cin >> reintento;            
                     switch(reintento){
                         case 'S':
                         case 's':
@@ -70,14 +71,15 @@ void altaUsuario(){
                         case 'N':
                         case 'n':
                             cout << "Has cancelado el ingreso." << endl;
-                            delete nombreEmpresa, listJugadores, Usrnickname;
+                            //delete nombreEmpresa, listJugadores, Usrnickname;
                             return;
                     }
                 }
             }
-            controlador->ingresarNickname(Usrnickname);
+            controlador->ingresarNickname(Usrnickname.data());
             cout << "Ingrese una descripción: ";
             cin >> desc;
+            getchar();
             controlador->ingresarDescripcion(desc);
             //OPT
             cout << "¿Desea confirmar?" << endl; //confirmar
@@ -91,5 +93,4 @@ void altaUsuario(){
             }
         break;
     }
-    //delete nombreEmpresa, listJugadores, Usrnickname;
 }

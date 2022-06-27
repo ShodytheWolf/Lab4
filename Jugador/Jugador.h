@@ -17,7 +17,7 @@
 class Jugador : public Usuario
 {
 public:
-    Jugador(string email, string contrasenia, char* nickname, string descripcionJugador);
+    Jugador(string correo, string contrasenia, const char* nickname, string descripcionJugador);
     ~Jugador();
 
     //Operaciones del padre:
@@ -28,7 +28,7 @@ public:
 
     //Setters y getters:
     String* getNickname(); 
-    void setNickname(char* nick);
+    void setNickname(const char* nick);
     string getDescripcionJugador();
     void setDescripcionJugador(string descripcionJugador);
 

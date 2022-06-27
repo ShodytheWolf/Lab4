@@ -9,6 +9,8 @@ using namespace std;
 bool verificarCat(string** , string);
 bool verificarEnLista(string** , string);
 bool verificarCat(dtCategoria** listCat, string categoria);
+void pausa();
+void muestroList(dtCategoria** list);
 
 void publicarVideojuego(){
 

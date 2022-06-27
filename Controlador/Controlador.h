@@ -21,7 +21,7 @@ class Controlador: public IControlador{
         bool ingresoData(string email);                                                   //1 
         void ingresarEmpresa(char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
-        bool ingresarNickname(char* nickname);                                            //4
+        bool ingresarNickname(const char* nickname);                                            //4
         void ingresarDescripcion(string descripcion);                                      //5
         void confirmarNuevoJugador();                                                      //6
 
@@ -71,7 +71,7 @@ class Controlador: public IControlador{
         string passUser;
         string descripcionJuegador;
         char* nombreEmpresa;
-        char* nickJugador;
+        const char* nickJugador;
         char* nombreVideojuego;
         int ultimaIdPartida;
         int ultimaIdComentario;

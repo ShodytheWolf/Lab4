@@ -5,7 +5,7 @@ dtPartidaIndividual::dtPartidaIndividual()
 
 }
 
-dtPartidaIndividual::dtPartidaIndividual(int idPart,time_t fechaIni,string nombrejuego, bool conti, int IdPartidaAnt, float dura){
+dtPartidaIndividual::dtPartidaIndividual(int idPart,time_t fechaIni, char* nombrejuego, bool conti, int IdPartidaAnt, float dura){
     this->idPartida = idPart;
     this->fechaInicio = fechaIni;
     this->nombreVideojuego = nombrejuego;

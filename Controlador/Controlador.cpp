@@ -54,7 +54,7 @@ void Controlador::confirmarNuevoDesarrollador(){
 }
 
 
-bool Controlador::ingresarNickname(char* nickname){
+bool Controlador::ingresarNickname(const char* nickname){
     this->nickJugador = nickname;
 }   
 
@@ -84,10 +84,10 @@ bool Controlador::ingresoData(string email, string contrasenia, bool verificacio
     if(verificacion){
         if(this->usuarios->isEmpty())
             throw invalid_argument("No hay usuarios en el sistema");
-
         IIterator* it;
         for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
             Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
+            // cout << "Email: " <<u->getEmail() << "Contra: " <<u->getContrasenia() <<endl;
             if(u->getEmail() == email && u->getContrasenia() == contrasenia){
                 delete it;
                 return true;

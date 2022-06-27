@@ -8,7 +8,7 @@ class dtPartidaMultijugador : public dtPartida
 {
 public:
     dtPartidaMultijugador();
-    dtPartidaMultijugador(int idParti,time_t fechaIni,string juego,bool deVivo,string papaOso,string** nicksJuego);
+    dtPartidaMultijugador(int idParti,time_t fechaIni, char* juego,bool deVivo,string papaOso,string** nicksJuego);
     ~dtPartidaMultijugador();
     
     bool getEnVivo();
