@@ -13,14 +13,14 @@ public:
     dtPartida();
     ~dtPartida();
 
-   virtual string getNombreVideojuego();
+   virtual char* getNombreVideojuego();
    int getIdPartida();
    time_t getFecha();
 
 protected:
     int idPartida;
     time_t fechaInicio = 0;
-    string nombreVideojuego;
+    char* nombreVideojuego;
 };
 
 #endif

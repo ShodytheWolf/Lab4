@@ -84,9 +84,19 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
     delete it;
     return listaADevolver;
 }
+
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 String Jugador::getNick(String nombreJuego){}
-void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida){}
+void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj){}
+
+void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj){
+
+    if(datosPartida->getContinuacion()){
+        //hay que hacer
+    }
+
+}
+
 dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}
 dtPartidaMultijugador** Jugador::partidaAFinalizar(){}
 
