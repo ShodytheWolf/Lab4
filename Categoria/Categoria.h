@@ -13,10 +13,10 @@ using namespace std;
 class Categoria : public ICollectible
 {
 public:
-    Categoria(char* nombreCategoria, string descripcionCategoria, enumCategoria tipoCategoria);
+    Categoria(const char* nombreCategoria, string descripcionCategoria, enumCategoria tipoCategoria);
     ~Categoria();
     String* getNombreCategoria();
-    void setNombreCategoria(char* nombreCategoria);
+    void setNombreCategoria(const char* nombreCategoria);
     string getDescripcionCategoria();
     void setDescripcionCategoria(string descripcionCategoria);
     enumCategoria getTipoCategoria();
