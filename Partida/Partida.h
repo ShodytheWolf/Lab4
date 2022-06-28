@@ -14,16 +14,17 @@ class Partida : public ICollectible
 {
 public:
     Partida();
-    Partida(int id, time_t fechaInicio, float duracion);
+    Partida(int id, time_t fechaInicio, double duracion);
     ~Partida();
     Integer* getId();
     void setId(int id);
     time_t getFechaInicio();
     void setFechaInicio(time_t fechaInicio);
     float getDuracion();
-    void setDuracion(float duracion);
+    virtual void setDuracion(double duracion) = 0;
     dtPartida getDtPartida();
     void calcularDuracion();
+    Videojuego* getVideojuego();
 
     bool comprobarJuego(Videojuego*);
     bool verificarJuego(const char* nombreJuego);
@@ -33,7 +34,7 @@ protected:
     Videojuego* vj;
     Integer* id; //key
     time_t fechaInicio;
-    float duracion;
+    double duracion;
 };
 
 #endif

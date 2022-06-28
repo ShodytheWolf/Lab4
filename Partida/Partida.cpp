@@ -5,7 +5,7 @@ Partida::Partida()
 
 }
 
-Partida::Partida(int id, time_t fechaInicio, float duracion){
+Partida::Partida(int id, time_t fechaInicio, double duracion){
     setId(id);
     this->fechaInicio = fechaInicio;
     this->duracion = duracion;
@@ -59,6 +59,10 @@ bool Partida::verificarJuego(const char* nombreJuego){
     if(this->vj->getNombreJuego()->compare(new String(nombreJuego)) == EQUAL)
         return true;
     return false;
+}
+
+Videojuego* Partida::getVideojuego(){
+    return this->vj;
 }
 
 void Partida::eliminarComentarios(){}

@@ -16,6 +16,7 @@ void iniciarPartida(){
 		dtPartidaMultijugador* datosPartidaMulti;
 		string** nicksJugadoresUnidos;
 		string** juegosSuscriptos;
+		int IdPartidaAContinuar = 0;
 
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
@@ -80,7 +81,6 @@ void iniciarPartida(){
 
 				if(eleccion == 2){//SI LA PARTIDA ES CONTINUADA
 					esContinuacion = false;
-					int IdPartidaAContinuar;
 					dtPartidaIndividual** partidasSeleccionadas = sistema->listoPartidasInactivas(); //siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
 					
 					//Controlo que las partidas que consegui no sean vacias.
@@ -109,7 +109,7 @@ void iniciarPartida(){
 					return;
 				};
 
-				datosPartida = new dtPartidaIndividual(0,0,juegoAIniciar,esContinuacion,0, 0);
+				datosPartida = new dtPartidaIndividual(0,string(juegoAIniciar),esContinuacion,IdPartidaAContinuar,float(0));
 				sistema->confirmarIndividual(datosPartida);
 				cout<<"Partida Inicializada con exito!"<<endl;
 				return;
