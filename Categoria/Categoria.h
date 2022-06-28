@@ -15,7 +15,7 @@ class Categoria : public ICollectible
 public:
     Categoria(char* nombreCategoria, string descripcionCategoria, enumCategoria tipoCategoria);
     ~Categoria();
-    String getNombreCategoria();
+    String* getNombreCategoria();
     void setNombreCategoria(char* nombreCategoria);
     string getDescripcionCategoria();
     void setDescripcionCategoria(string descripcionCategoria);
@@ -26,7 +26,7 @@ public:
     dtCategoria getDtOtro();
 
 private:
-    String nombreCategoria; //key
+    String* nombreCategoria; //key
     string descripcionCategoria;
     enumCategoria tipoCategoria;
 };
