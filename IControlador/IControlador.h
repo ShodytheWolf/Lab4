@@ -20,7 +20,7 @@ class IControlador{
         //Alta Usuario:
         //virtual bool ingresoData(string email) = 0;                                //1
         virtual string** jugadores() = 0;
-        virtual void ingresarEmpresa(char* nombreEmpresa) = 0;                                        //2
+        virtual void ingresarEmpresa(const char* nombreEmpresa) = 0;                                        //2
         virtual void confirmarNuevoDesarrollador() = 0;                                               //3
         virtual bool ingresarNickname(const char* nickname) = 0;                                            //4
         virtual void ingresarDescripcion(string descripcion) = 0;                                      //5
@@ -28,7 +28,7 @@ class IControlador{
 
         //Iniciar sesion:
         virtual bool ingresoData(string email, string contrasenia, bool) = 0;                                //7
-        virtual void confirmarSesion() = 0;
+        virtual char confirmarSesion() = 0;
 
 
         //Publicar Videojuego:

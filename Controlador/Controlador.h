@@ -19,7 +19,7 @@ class Controlador: public IControlador{
         //en vez de ingresoDatos, usar ingreso data (op 7) que ya guarda el email y contrasenia y devuelve true 
         //si ya existe el usuario
         bool ingresoData(string email);                                                   //1 
-        void ingresarEmpresa(char* nombreEmpresa);                                        //2
+        void ingresarEmpresa(const char* nombreEmpresa);                                        //2
         void confirmarNuevoDesarrollador();                                               //3
         bool ingresarNickname(const char* nickname);                                            //4
         void ingresarDescripcion(string descripcion);                                      //5
@@ -27,7 +27,7 @@ class Controlador: public IControlador{
 
         //Iniciar sesion:
         bool ingresoData(string email, string contrasenia, bool);                                //7
-        void confirmarSesion();
+        char confirmarSesion();
 
         //Publicar Videojuego:
         dtCategoria** listarGenero();                                                     //10
@@ -70,7 +70,7 @@ class Controlador: public IControlador{
         string emailUser;
         string passUser;
         string descripcionJuegador;
-        char* nombreEmpresa;
+        const char* nombreEmpresa;
         const char* nickJugador;
         char* nombreVideojuego;
         int ultimaIdPartida;

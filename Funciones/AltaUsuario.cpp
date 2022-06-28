@@ -11,7 +11,7 @@ void altaUsuario(){
     Fabrica fab;
     IControlador* controlador = fab.getInterface();
     string Usrnickname; //delete 
-    char* nombreEmpresa; //usen string, si necesitan el char* usen la operacion data() de la clase string WARNING data() deuelve un CONST char* 
+    string nombreEmpresa; //usen string, si necesitan el char* usen la operacion data() de la clase string WARNING data() deuelve un CONST char* 
     char confirmacion; 
     char reintento;
     string correo;
@@ -45,7 +45,7 @@ void altaUsuario(){
             cin >> confirmacion;
             //system ("clear");
             if (confirmacion == 's' || confirmacion == 'S'){
-                controlador->ingresarEmpresa(nombreEmpresa);
+                controlador->ingresarEmpresa(nombreEmpresa.data());
                 controlador->confirmarNuevoDesarrollador();
             }
             else { 

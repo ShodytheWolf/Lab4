@@ -8,19 +8,67 @@ using namespace std;
 
 void menuDesarrollador();
 //void menuJugador();
+void esperarEnter();
+void bp();
 
 int main(){
-    while(true){
-        try{
-        altaUsuario();
-        iniciarSesion();
+    char tipoUsuario = ' ';
+    char op = ' ';
+    do{
+        cout << "Bienvenido a la plataforma de videojuegos Estim\n" 
+        << "Por favor ingrese una opcion numerica:\n"
+        <<"1.Alta usuario\n"
+        <<"2.Iniciar Sesion\n"
+        <<"3.Cargar datos de pruebas (solo admins)\n" 
+        <<"4.Salir"
+        <<endl;
+        cin >>op;
+        switch (op)
+        {
+        case '1':
+            altaUsuario();
+            break;
+        case '2':
+            iniciarSesion(tipoUsuario);
+            switch (tipoUsuario)
+            {
+            case 'j':
+                cout << "Entraste al menu Jugador" <<endl; //menuJugador()
+                esperarEnter();
+                break;
+            case 'd':
+                cout << "Entraste al menu Desarrollador" <<endl; //menuDesarrollador()
+                esperarEnter();
+                break;
+            }
+            break;
+        case '3':
+            /* code */
+            break;
+        case '4':
+            cout << "Hasta luego, vuelva pronto :)" <<endl;
+            break;
+        
+        default:
+            cout << "Opcion icorrecta por favor intente de nuevo" <<endl;
+            break;
         }
-        catch(invalid_argument &error){
-            cout<< error.what() <<endl;
-        }
-    }
+    }while(op != '4');
     return 0;
 }
+
+void esperarEnter(){
+    cout << "Presione <enter> para continuar";
+    getchar();
+    getchar();
+}
+
+void bp()
+{
+    cout <<"BP" <<endl;
+    getchar();
+}
+
 
 void menuDesarrollador(){
     int opcion;
@@ -109,40 +157,4 @@ void menuDesarrollador(){
 //    }
 // }
 
-
-// void menuPrincipal(){
-//     int opt;
-// 	do{
-//         cout<<"Bienvenido a Steam barato!"<<endl;
-// 	    cout<<"Seleccione una opcion a continuacion:"<<endl;
-// 	    cout<<"-------------------------------------"<<endl<<endl;
-// 	    cout<<"1)Alta de Usuario"<<endl;
-// 	    cout<<"2)Iniciar Sesion"<<endl;
-// 	    cout<<"3)Cargar datos de prueba"<<endl;
-// 	    cout<<"4)Salir"<<endl;
-// 		cin>>opt;
-
-// 	switch(opt){
-//             case 1:
-// 				//acá se llama a AltaUsuario
-// 			break;
-
-// 			case 2:
-// 				//acá se inicia sesion
-// 				//se mostrará 2 menus, el de desarrollador o el de jogador, dependiendo quién inicié sesión jaja xd
-// 			break;
-
-// 			case 3:
-// 				//se cargaran datos de prueba
-// 			break;
-
-// 			case 4:
-// 				return;
-// 			break;
-
-// 			default:
-// 			cout<<"opcion invalida"<<endl;
-// 		}
-// 	}while(opt != 4);
-// }
 

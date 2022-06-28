@@ -1,6 +1,6 @@
 #include "Desarrollador.h"
 
-Desarrollador::Desarrollador(string email, string contrasenia, char* nombreEmpresa)
+Desarrollador::Desarrollador(string email, string contrasenia, const char* nombreEmpresa)
 {
 	this->email = email;
 	this->contrasenia = contrasenia;
@@ -16,7 +16,7 @@ String* Desarrollador::getNombreEmpresa() {
     	return this->nombreEmpresa;
 }
 
-void Desarrollador::setNombreEmpresa(char* nombreEmpresa) {
+void Desarrollador::setNombreEmpresa(const char* nombreEmpresa) {
 	this->nombreEmpresa = new String(nombreEmpresa);
 }
 

@@ -7,10 +7,10 @@
 class Desarrollador : public Usuario
 {
 public:
-    Desarrollador(string, string, char*);
+    Desarrollador(string, string,const char*);
     ~Desarrollador();
     String* getNombreEmpresa();
-    void setNombreEmpresa(char* nombreEmpresa);
+    void setNombreEmpresa(const char* nombreEmpresa);
 
     //Operaciones del padre:
     string getContrasenia();

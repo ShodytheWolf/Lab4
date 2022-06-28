@@ -30,7 +30,7 @@ string** Controlador::jugadores(){
         int i = 0;
         for(IIterator* it = this->usuarios->getIterator(); it->hasCurrent(); it->next()){
             Usuario* u = (Usuario*) it->getCurrent();
-            if((Jugador*)u){
+            if(dynamic_cast<Jugador*>(u)){
                 Jugador* j = (Jugador*) u;
                 jugadores[i] = new string(j->getNickname()->getValue()); 
                 i++;
@@ -40,7 +40,7 @@ string** Controlador::jugadores(){
     return jugadores;
 }
 
-void Controlador::ingresarEmpresa(char* nombreEmpresa){
+void Controlador::ingresarEmpresa(const char* nombreEmpresa){
     this->nombreEmpresa = nombreEmpresa;
 
 }   
@@ -83,7 +83,7 @@ bool Controlador::ingresoData(string email, string contrasenia, bool verificacio
     this->passUser = contrasenia;
     if(verificacion){
         if(this->usuarios->isEmpty())
-            throw invalid_argument("No hay usuarios en el sistema");
+            throw invalid_argument("No hay usuarios en el sistema.");
         IIterator* it;
         for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
             Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
@@ -98,16 +98,17 @@ bool Controlador::ingresoData(string email, string contrasenia, bool verificacio
     }
 }
 
-void Controlador::confirmarSesion(){
-    IIterator* it;
-    for(it = usuarios->getIterator(); it->hasCurrent(); it->next()){
-        Usuario* u = dynamic_cast<Usuario*>(it->getCurrent());
+char Controlador::confirmarSesion(){
+    for(IIterator* it = usuarios->getIterator(); it->hasCurrent(); it->next()){
+        Usuario* u = (Usuario*)it->getCurrent();
         if(u->getEmail() == this->emailUser && u->getContrasenia() == this->passUser){
             this->loggedUser = u;
-            break;
+            if(dynamic_cast<Jugador*>(u))
+                return 'j';
+            else
+                return 'd';
         }
     }
-    delete it;
 }
 
 dtCategoria** Controlador::listarGenero(){

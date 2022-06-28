@@ -6,7 +6,7 @@
 
 void iniciarPartida();
 void altaUsuario();
-void iniciarSesion();
+void iniciarSesion(char&);
 void finalizarPartida();
 void eliminarVideojuego();
 void publicarVideojuego();
