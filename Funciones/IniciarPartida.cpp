@@ -80,7 +80,7 @@ void iniciarPartida(){
  				cin>>eleccion;
 
 				if(eleccion == 2){//SI LA PARTIDA ES CONTINUADA
-					esContinuacion = false;
+					esContinuacion = true;
 					dtPartidaIndividual** partidasSeleccionadas = sistema->listoPartidasInactivas(); //siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
 					
 					//Controlo que las partidas que consegui no sean vacias.

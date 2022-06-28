@@ -169,9 +169,11 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida){
     Jugador* jug = dynamic_cast<Jugador*>(this->loggedUser);
 
     OrderedKey* k = new String(datosPartida->getNombreVideojuego());
-    
 
-    jug->iniciarIndividual(datosPartida,(Videojuego*)videojuegos->find(k));//casteo paaaaaaaaaaaaa
+    this->ultimaIdPartida =+ 1;
+    jug->iniciarIndividual(datosPartida,(Videojuego*)videojuegos->find(k),this->ultimaIdPartida);//casteo paaaaaaaaaaaaa
+
+
 
 }   
 
