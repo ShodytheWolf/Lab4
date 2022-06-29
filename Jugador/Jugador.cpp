@@ -89,25 +89,36 @@ void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 String Jugador::getNick(String nombreJuego){}
 void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj){}
 
-void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj){
+void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj,int idUltimaPartida){
 
     if(datosPartida->getContinuacion()){
         //hay que hacer
         OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
 
-        Individual* partiContinuada = dynamic_cast<Individual*>(partidasInactivas->find(k));//conseguimos la partida ya inactiva a continuar
+        Individual* partiContinuada = (Individual*)partidasInactivas->find(k);//conseguimos la partida ya inactiva a continuar
         time_t dameLaHora = time(NULL);
 
         //IIterator* it = partidasInactivas->getIterator();
 
-        //int c = partidasInactivas->getSize()+1;//arreglar
-        int c = 9;
-
         double horadiferida = difftime(datosPartida->getFecha(),dameLaHora);
        
-        Individual* partiAAnadiar = new Individual(c,dameLaHora,horadiferida,vj,partiContinuada);
-    }
+        Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,horadiferida,vj,partiContinuada);
+        delete k;
 
+        OrderedKey* k = new Integer(idUltimaPartida);
+
+        this->partidasActivas->add(k,partiAAnadiar);
+    }else{
+
+        //OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
+        time_t dameLaHora = time(NULL);
+        Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,0,vj,NULL);
+
+        OrderedKey* k = new Integer(idUltimaPartida);
+
+        this->partidasActivas->add(k,partiAAnadiar);
+    }
+    return;
 }
 
 dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}

@@ -33,7 +33,7 @@ public:
 protected:
     Videojuego* vj;
     Integer* id; //key
-    time_t fechaInicio;
+    time_t fechaInicio = 0;
     double duracion;
 };
 

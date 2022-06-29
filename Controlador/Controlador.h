@@ -76,8 +76,8 @@ class Controlador: public IControlador{
         const char* nombreEmpresa;
         const char* nickJugador;
         char* nombreVideojuego;
-        int ultimaIdPartida;
-        int ultimaIdComentario;
+        unsigned int ultimaIdPartida = 0;
+        unsigned int ultimaIdComentario = 0;
 
         //pseudoatributos
         Usuario* loggedUser;
