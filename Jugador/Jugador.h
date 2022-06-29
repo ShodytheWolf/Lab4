@@ -1,5 +1,6 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
+#include <ctime>
 #include "../Usuario/Usuario.h"
 #include "../Videojuego/Videojuego.h"
 #include "../Datatypes/dtPartidaIndividual.h"

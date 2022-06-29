@@ -95,7 +95,7 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
         //hay que hacer
         OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
 
-        Partida* partiContinuada = (Individual*)partidasInactivas->find(k);//conseguimos la partida ya inactiva a continuar
+        Individual* partiContinuada = dynamic_cast<Individual*>(partidasInactivas->find(k));//conseguimos la partida ya inactiva a continuar
         time_t dameLaHora = time(NULL);
 
         //IIterator* it = partidasInactivas->getIterator();
@@ -105,10 +105,7 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
 
         double horadiferida = difftime(datosPartida->getFecha(),dameLaHora);
        
-       //Partida* partiAAnadiar = new Individual(c,dameLaHora,horadiferida,vj,partiContinuada);
-        
-
-
+        Individual* partiAAnadiar = new Individual(c,dameLaHora,horadiferida,vj,partiContinuada);
     }
 
 }
