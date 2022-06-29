@@ -143,7 +143,6 @@ void Controlador::darDeBajaSuscripcion(){
 string** Controlador::listarVideojuegosSuscripto(){
         
   if(dynamic_cast<Jugador*>(this->loggedUser)){
-
         Jugador* jug = dynamic_cast<Jugador*>(this->loggedUser);
 
         string** lista = jug->listarJuegosSuscripto();
@@ -177,7 +176,27 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida){
 
 }   
 
-string** Controlador::listarNicks(char* nombreVideojuego){
+string** Controlador::listarNicks(string nombreVideojuego){
+
+    IIterator* it = usuarios->getIterator();
+    string** listaADevolver = new string*[usuarios->getSize()];
+
+    int c = 0;
+    while(it->hasCurrent()){
+
+        if(dynamic_cast<Jugador*>(it->getCurrent())){
+
+            Jugador* jug = dynamic_cast<Jugador*>(it->getCurrent());
+            String* str = jug->getNick(nombreVideojuego);
+
+            if(str){
+                listaADevolver[c] = new string(str->getValue()); //robadísimo del braian xDDDD
+                c++;
+            } 
+        }
+        it->next();
+    }
+    return listaADevolver;
 
 }                                        
 void Controlador::confirmarMultijugador (dtPartidaMultijugador *datosPartida){
