@@ -61,6 +61,9 @@ class Controlador: public IControlador{
         //Eliminar Videojuego
         string** listarVideojuegosPublicados();                                           //30
         void confirmoEliminacion (char* nombreVideojuego);                                //31
+        
+        //Agregar Categoria:
+        void nuevaCategoria(const char*, string, enumCategoria);
 
 
 
@@ -76,7 +79,7 @@ class Controlador: public IControlador{
         int ultimaIdPartida;
         int ultimaIdComentario;
 
-        //pesudoatributos
+        //pseudoatributos
         Usuario* loggedUser;
 
         //colecciones

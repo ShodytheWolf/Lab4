@@ -195,7 +195,8 @@ string** Controlador::listarTodosVJ(){
 
 dtVideoJuego* Controlador::seleccionarVideojuego(char* nombreVideojuego){
 
-}                    
+}   
+
 string** Controlador::listarVideojuegosPublicados(){
     if(this->videojuegos->isEmpty())
         throw invalid_argument("No hay videojuegos en el sistema");
@@ -234,10 +235,22 @@ void Controlador::confirmoEliminacion (char* nombreVideojuego){
     Videojuego* vj = dynamic_cast<Videojuego*>(videojuegos->find(new String(nombreVideojuego)));
     for(IIterator* it = this->usuarios->getIterator(); it->hasCurrent(); it->next()){
         Usuario* u = (Usuario*) it->getCurrent();
-        if((Jugador*)u){
+        if(dynamic_cast<Jugador*>(u)){
             Jugador* j = (Jugador*)u;
             j->eliminarContRegisJuego(vj);
         }
     }
     delete vj;
 }                               
+
+/**
+ * @brief Crea una nueva categoria y la agrega al diccionario de categorias
+ * 
+ * @param nom nobmre de la categoria 
+ * @param desc descripcion de la categoria
+ * @param tipo tipo de categoria {Genero, Plataforma, Otro}
+ */
+void Controlador::nuevaCategoria(const char* nom, string desc, enumCategoria tipo){
+    Categoria* c = new Categoria(nom,desc,tipo);
+    categorias->add(new String(nom), c);
+}
