@@ -63,8 +63,9 @@ class IControlador{
         //Eliminar Videojuego
         virtual string** listarVideojuegosPublicados() = 0;                                           //30
         virtual void confirmoEliminacion (char* nombreVideojuego) = 0;                                //31
-
-                                                                              
+        
+        //Agregar Categoria:
+        virtual void nuevaCategoria(const char*, string, enumCategoria) =0;                                                                              
 };
 
 

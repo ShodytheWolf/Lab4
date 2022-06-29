@@ -9,8 +9,10 @@ void altaUsuario();
 void iniciarSesion(char&);
 void finalizarPartida();
 void eliminarVideojuego();
+void verInformacionVideojuego();
 void publicarVideojuego();
 void suscribirseAVideojuego();
+void cargarDatos();
  
 using namespace std;
 
