@@ -35,7 +35,7 @@ class IControlador{
         virtual dtCategoria** listarGenero() = 0;                                                     //10
         virtual dtCategoria** listarPlataforma() = 0;                                                 //11
         virtual dtCategoria** listarOtro() = 0;                                                       //12
-        virtual void publicarVideojuego(dtVideoJuego datosJuegos,dtCategoria**                    //13
+        virtual void publicarVideojuego(dtVideoJuego* datosJuegos,dtCategoria**                    //13
         genero, dtCategoria** plataforma, dtCategoria** otros) = 0;
 
         //Suscribirse a Videojuego:

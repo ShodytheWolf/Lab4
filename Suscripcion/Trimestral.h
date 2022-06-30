@@ -7,6 +7,7 @@ class Trimestral : public Suscripcion
 {
     public:
         Trimestral();
+        Trimestral(float);
         ~Trimestral();
         float getCostoTrimestral();
         void setCostoTrimestral(float costoTrimestral);

@@ -1,8 +1,10 @@
 #include "Vitalicia.h"
 
-Vitalicia::Vitalicia()
-{
+Vitalicia::Vitalicia(){}
 
+Vitalicia::Vitalicia(float costoV)
+{
+	this->costoVitalicia = costoV;
 }
 
 Vitalicia::~Vitalicia()

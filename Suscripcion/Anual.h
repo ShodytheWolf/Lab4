@@ -7,6 +7,7 @@ class Anual : public Suscripcion
 {
     public:
         Anual();
+        Anual(float);
         ~Anual();
         float getCostoAnual();
         void setCostoAnual(float costoAnual);

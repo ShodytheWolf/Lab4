@@ -7,6 +7,7 @@ class Vitalicia : public Suscripcion
 {
     public:
         Vitalicia();
+        Vitalicia(float);
         ~Vitalicia();
         float getCostoVitalicia();
         void setCostoVitalicia(float costoVitalicia); 

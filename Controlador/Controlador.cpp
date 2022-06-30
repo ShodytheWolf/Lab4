@@ -112,18 +112,103 @@ char Controlador::confirmarSesion(){
 }
 
 dtCategoria** Controlador::listarGenero(){
+    
+    if(categorias->isEmpty()){
+    throw invalid_argument("No hay categorias en el sistema.");
+    }
 
+    dtCategoria** generos = new dtCategoria*[categorias->getSize()+1];    
+    for(IIterator* it = categorias->getIterator(); it->hasCurrent(); it->next()){
+        Categoria* catG = (Categoria*)it->getCurrent();
+
+        if(catG->getTipoCategoria() == Genero){
+           dtCategoria* genero = new dtCategoria(string(catG->getNombreCategoria()->getValue()), catG->getDescripcionCategoria(), Genero);
+        }
+        
+    }
 }                                                   
 dtCategoria** Controlador::listarPlataforma(){
 
-}                                                
+    dtCategoria** plataformas = new dtCategoria*[categorias->getSize()+1];
+    for(IIterator* it = categorias->getIterator(); it->hasCurrent(); it->next()){
+        Categoria* catP = (Categoria*)it->getCurrent();
+        if(catP->getTipoCategoria() == Plataforma){
+           dtCategoria* plataforma = new dtCategoria(string(catP->getNombreCategoria()->getValue()), catP->getDescripcionCategoria(), Plataforma);
+        }
+    }
+
+}  
+                                              
 dtCategoria** Controlador::listarOtro(){
+    
+    dtCategoria** otros = new dtCategoria*[categorias->getSize()+1];
+    for (IIterator* it = categorias->getIterator(); it->hasCurrent(); it->next()){
+        Categoria* catO = (Categoria*)it->getCurrent();
+        if(catO->getTipoCategoria() == Otro){
+            dtCategoria* plataforma = new dtCategoria(string(catO->getNombreCategoria()->getValue()), catO->getDescripcionCategoria(), Otro);
+        }
+    }
+} 
 
-}                                                      
-void Controlador::publicarVideojuego(dtVideoJuego datosJuegos,dtCategoria**                    
-genero, dtCategoria** plataforma, dtCategoria** otros){
+void Controlador::publicarVideojuego(dtVideoJuego* datosJuegos,dtCategoria**                    
+generos, dtCategoria** plataformas, dtCategoria** otros){
 
-}                            
+    Desarrollador* dev = (Desarrollador*) loggedUser;
+    int i = 0;
+    //constructor del vj
+    Videojuego* vj = new Videojuego(datosJuegos->getNombreVideojuego().data(), datosJuegos->getDescripcionJuego(),dev, datosJuegos->getCostos());
+    IIterator* it;
+    //itero en las categorias
+    for (it = categorias->getIterator(); it->hasCurrent(); it->next()){
+        Categoria* cat = (Categoria*) it->getCurrent();
+        string* str = new string(cat->getNombreCategoria()->getValue());
+        string* str2 = new string(generos[i]->getNombre().data());
+        //String* str = new String(generos[i]->getNombre().data());
+        switch(cat->getTipoCategoria()){
+            case Genero:        
+                i = 0;
+                while(generos[i] != NULL){
+                    if(str == str2){
+                       // vj->aniadirCategoria(); que carajos paso aca para que no rompa la pija.
+                    }
+                    else {
+                        cout << "puto" << endl; 
+                    }
+                }
+            break;
+            case Plataforma:
+                i = 0;
+                while(plataformas[i] != NULL){
+                //     if(plataformas[i] == cat){
+                //         vj->aniadirCategoria(cat);
+                //     }
+                //     else {
+                //         cout << "ta mal chikistrikis" << endl;
+                //     }
+                 }
+            break;
+            case Otro:
+                i = 0;
+                while(otros[i] != NULL){
+                    // if(otros[i] == cat){
+                    //     vj->aniadirCategoria(cat);
+                    // }
+                    // else{
+                    //     cout << "Que ISO mano kkkkkkk...." << endl;
+                    // }
+                }
+            break;
+            default:
+            cout << "opcion invalida, ponele" << endl;
+            break;
+        }
+    }
+    videojuegos->add(vj->getNombreJuego(), vj); //añado juego
+}  
+
+
+
+
 dtVideoJuego** Controlador::listarVideojuegosDiferenciada(){
 
 }                                 

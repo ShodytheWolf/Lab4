@@ -1,18 +1,24 @@
 #include "Videojuego.h"
 
-Videojuego::Videojuego(char* nombre, string descripcion)
+Videojuego::Videojuego(const char* nombre, string descripcion, Desarrollador* dev, dtSuscripcion* susCostos)
 {
     setNombreJuego(nombre); //creo la key
     this->descripcionJuego = descripcion;
+    this->desarrollador = dev;
+    this->suscripcionAnual = new Anual(susCostos->getCostoAnual());
+    this->suscripcionMensual = new Mensual(susCostos->getCostoMensual());
+    this->suscripcionTrimestral = new Trimestral(susCostos->getCostoTrimestral());
+    this->suscripcionVitalicia = new Vitalicia(susCostos->getCostoVitalicia());
 }
 
 Videojuego::~Videojuego()
 {
     IIterator* it;
-    for(it = this->suscripciones->getIterator(); it->hasCurrent(); it->next()){
-        Suscripcion* s = (Suscripcion*)it->getCurrent();
-        delete s;
-    }
+    delete this->suscripcionAnual;
+    delete this->suscripcionMensual;
+    delete this->suscripcionTrimestral;
+    delete this->suscripcionVitalicia;
+ 
     for(it = this->estadisticas->getIterator(); it->hasCurrent(); it->next()){
         Estadistica* e = (Estadistica*)it->getCurrent();
         delete e;
@@ -23,7 +29,7 @@ Videojuego::~Videojuego()
 String* Videojuego::getNombreJuego() {
     return this->nombreJuego;
 }
-void Videojuego::setNombreJuego(char*nombreJuego) {
+void Videojuego::setNombreJuego(const char* nombreJuego) {
     this->nombreJuego = new String(nombreJuego);
 }
 
@@ -45,17 +51,17 @@ void Videojuego::setDescripcionJuego(string descripcionJuego) {
 
 
 void Videojuego::aniadirCategoria(Categoria cat){
-    //KEKW
-};
-
-void Videojuego::crearSuscripciones(dtSuscripcion costos){
+    categorias->add(cat.getNombreCategoria());
+    //llamo a las categorias.
     //KEKW
 };
 
 void Videojuego::addDtJuego(dtVideoJuego datosJuego){
+
     //KEKW
 };
 
 dtEstadistica** Videojuego::getEstadisticas(){
+
     //KEKWWWW
 };

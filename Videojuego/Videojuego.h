@@ -8,6 +8,10 @@
 #include "../colecciones-genericas/collections/OrderedDictionary.h"
 #include "../Categoria/Categoria.h"
 #include "../Suscripcion/Suscripcion.h"
+#include "../Suscripcion/Anual.h"//agregar al make
+#include "../Suscripcion/Mensual.h"//agregar al make
+#include "../Suscripcion/Trimestral.h"//agregar al make
+#include "../Suscripcion/Vitalicia.h"//agregar al make
 #include "../Datatypes/dtSuscripcion.h"
 #include "../Datatypes/dtVideoJuego.h"
 #include "../Estadistica/Estadistica.h"
@@ -20,11 +24,11 @@ using namespace std;
 class Videojuego : public ICollectible
 {
 public:
-    Videojuego(char*, string);
+    Videojuego(const char*, string,Desarrollador*, dtSuscripcion*);
     ~Videojuego();
 
     String* getNombreJuego();
-    void setNombreJuego(char* nombreJuego);
+    void setNombreJuego(const char* nombreJuego);
 
     string getDescripcionJuego();
     void setDescripcionJuego(string descripcionJuego);
@@ -33,8 +37,7 @@ public:
     void setDesarrollador(Desarrollador* desarrollador);
 
     void aniadirCategoria(Categoria cat);
-    void crearSuscripciones(dtSuscripcion costos);
-    void addDtJuego(dtVideoJuego datosJuego);
+    void addDtJuego(dtVideoJuego datosJuego); //armar datos
     dtEstadistica** getEstadisticas();
 
 protected:
@@ -42,7 +45,10 @@ protected:
     string descripcionJuego; 
     Desarrollador* desarrollador;
     ICollection* categorias = new List();
-    ICollection* suscripciones = new List();
+    Anual* suscripcionAnual;
+    Mensual* suscripcionMensual;
+    Trimestral* suscripcionTrimestral;
+    Vitalicia* suscripcionVitalicia;
     IDictionary* estadisticas = new OrderedDictionary();
 };
 

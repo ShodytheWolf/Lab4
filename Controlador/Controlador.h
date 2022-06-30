@@ -33,7 +33,7 @@ class Controlador: public IControlador{
         dtCategoria** listarGenero();                                                     //10
         dtCategoria** listarPlataforma();                                                 //11
         dtCategoria** listarOtro();                                                       //12
-        void publicarVideojuego(dtVideoJuego datosJuegos,dtCategoria**                    //13
+        void publicarVideojuego(dtVideoJuego* datosJuegos,dtCategoria**                    //13
         genero, dtCategoria** plataforma, dtCategoria** otros);
 
         //Suscribirse a Videojuego:
