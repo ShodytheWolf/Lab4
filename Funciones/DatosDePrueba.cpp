@@ -48,6 +48,7 @@ void cargarDatos(){
             case '3':
                 cargarGeneros(f);
                 cargarPltaformas(f);
+                cargarOtros(f);
                 break;
             case '4':
                 break;

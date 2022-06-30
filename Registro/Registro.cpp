@@ -31,7 +31,11 @@ void Registro::cancelSuscripcion(){
 }
 
 bool Registro::estaSuscrito(){
-    
+    if(this->contratacionActiva = NULL){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 float Registro::getCantHoras() {

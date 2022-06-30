@@ -37,13 +37,13 @@ int main(){
                 esperarEnter();
                 break;
             case 'd':
-                cout << "Entraste al menu Desarrollador" <<endl; //menuDesarrollador()
+                menuDesarrollador();
                 esperarEnter();
                 break;
             }
             break;
         case '3':
-            /* code */
+            cargarDatos();
             break;
         case '4':
             cout << "Hasta luego, vuelva pronto :)" <<endl;
@@ -58,8 +58,7 @@ int main(){
 }
 
 void esperarEnter(){
-    cout << "Presione <enter> para continuar";
-    getchar();
+    cout << "Presione <enter> para continuar" <<endl;
     getchar();
 }
 
@@ -71,24 +70,40 @@ void bp()
 
 
 void menuDesarrollador(){
-    int opcion;
-    cout << "Bienvenido al menu de Jugador\n" 
+    char op;
+    cout << "Bienvenido al menu de Desarrollador\n" 
     "Por favor ingrese una opcion:\n" << endl;
     do{
         cout << 
-        "1. Agregar categoría\n"
-        "2. Publicar videojuego\n"
-        "3. Eliminar videojuego\n"
-        "4. Seleccionar estadísticas\n"
-        "5. Consultar estadísticas\n"
-        "6. Ver información de videojuego\n"
-        "7. Modificar fecha del sistema\n"
-        "8. Salir"
+        "1. Publicar videojuego\n"
+        "2. Eliminar videojuego\n"
+        "3. Ver información de videojuego\n"
+        "4. Modificar fecha del sistema\n"
+        "5. Salir"
         <<endl;
-        cin >> opcion;
-        if( opcion < 1 || opcion>8 )
-            cout << "Opcion incorrecta\n";
-    }while(opcion < 1 || opcion > 8);
+        cin >> op;
+        switch(op){
+            case '1':
+                publicarVideojuego();
+                break;
+            case '2':
+                eliminarVideojuego();
+                break;
+            case '3':
+                verInformacionVideojuego();
+                break;
+            case '4':
+                cout << "Esta funcion se ha deshabilitado en esta version\nPresione <enter> para continuar"<<endl;
+                getchar();
+                break;
+            case '5':
+                system("clear");
+                break;
+            default:
+                cout << "Opcion incorrecta. Por favor intente nuevamente" <<endl;
+                break;
+        }
+    }while(op != '5');
 }
 
 // void menuJugador(){

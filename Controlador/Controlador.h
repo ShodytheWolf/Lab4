@@ -47,7 +47,7 @@ class Controlador: public IControlador{
         string** listarVideojuegosSuscripto();                                            //20
         dtPartidaIndividual** listoPartidasInactivas();                                   //21
         void confirmarIndividual(dtPartidaIndividual *datosPartida);                       //22
-        string** listarNicks(char* nombreVideojuego);                                     //23
+        string** listarNicks(string nombreVideojuego);                                     //23
         void confirmarMultijugador (dtPartidaMultijugador *datosPartida);                  //24
         
         //Finalizar Partida:
@@ -61,6 +61,9 @@ class Controlador: public IControlador{
         //Eliminar Videojuego
         string** listarVideojuegosPublicados();                                           //30
         void confirmoEliminacion (char* nombreVideojuego);                                //31
+        
+        //Agregar Categoria:
+        void nuevaCategoria(const char*, string, enumCategoria);
 
 
 
@@ -73,10 +76,10 @@ class Controlador: public IControlador{
         const char* nombreEmpresa;
         const char* nickJugador;
         char* nombreVideojuego;
-        int ultimaIdPartida;
-        int ultimaIdComentario;
+        unsigned int ultimaIdPartida = 0;
+        unsigned int ultimaIdComentario = 0;
 
-        //pesudoatributos
+        //pseudoatributos
         Usuario* loggedUser;
 
         //colecciones

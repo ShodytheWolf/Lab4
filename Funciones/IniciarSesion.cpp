@@ -34,9 +34,6 @@ void iniciarSesion(char &tU){
                         cout << "Email o contraseña incorrectos" <<endl;
                     else
                         tU = sistema->confirmarSesion();
-                        cout << tU <<endl;
-                        getchar();
-                        getchar();
                     break;
                 case '4': 
                     return;

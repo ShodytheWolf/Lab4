@@ -86,31 +86,61 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
 }
 
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
-String Jugador::getNick(String nombreJuego){}
+
+String* Jugador::getNick(string nombreJuego){
+
+    bool taSuscritoSi = false;
+    String* s1 = new String(nombreJuego.data());
+
+    IIterator* it = registros->getIterator();
+
+    while(it->hasCurrent()){
+        Registro* reg = dynamic_cast<Registro*>(it->getCurrent());
+        String* s2 = reg->getVideojuego()->getNombreJuego();
+
+        if(s1 == s2){
+            taSuscritoSi = reg->estaSuscrito();
+            if(taSuscritoSi){
+                return s2;
+            }
+        }
+        it->next();
+    }
+    return NULL;
+}
+
 void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj){}
 
-void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj){
+void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj,int idUltimaPartida){
 
     if(datosPartida->getContinuacion()){
         //hay que hacer
         OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
 
-        Partida* partiContinuada = (Individual*)partidasInactivas->find(k);//conseguimos la partida ya inactiva a continuar
+        Individual* partiContinuada = (Individual*)partidasInactivas->find(k);//conseguimos la partida ya inactiva a continuar
         time_t dameLaHora = time(NULL);
 
         //IIterator* it = partidasInactivas->getIterator();
 
-        //int c = partidasInactivas->getSize()+1;//arreglar
-        int c = 9;
-
         double horadiferida = difftime(datosPartida->getFecha(),dameLaHora);
        
-       //Partida* partiAAnadiar = new Individual(c,dameLaHora,horadiferida,vj,partiContinuada);
-        
+        Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,horadiferida,vj,partiContinuada);
+        delete k;
 
+        OrderedKey* k = new Integer(idUltimaPartida);
 
+        this->partidasActivas->add(k,partiAAnadiar);
+    }else{
+
+        //OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
+        time_t dameLaHora = time(NULL);
+        Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,0,vj,NULL);
+
+        OrderedKey* k = new Integer(idUltimaPartida);
+
+        this->partidasActivas->add(k,partiAAnadiar);
     }
-
+    return;
 }
 
 dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}

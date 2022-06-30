@@ -49,7 +49,7 @@ class IControlador{
         virtual string** listarVideojuegosSuscripto() = 0;                                            //20
         virtual dtPartidaIndividual** listoPartidasInactivas() = 0;                                   //21
         virtual void confirmarIndividual(dtPartidaIndividual *datosPartida) = 0;                       //22
-        virtual string** listarNicks(char* nombreVideojuego) = 0;                                          //23
+        virtual string** listarNicks(string nombreVideojuego) = 0;                                          //23
         virtual void confirmarMultijugador (dtPartidaMultijugador *datosPartida) = 0;                  //24
         
         //Finalizar Partida:
@@ -63,8 +63,9 @@ class IControlador{
         //Eliminar Videojuego
         virtual string** listarVideojuegosPublicados() = 0;                                           //30
         virtual void confirmoEliminacion (char* nombreVideojuego) = 0;                                //31
-
-                                                                              
+        
+        //Agregar Categoria:
+        virtual void nuevaCategoria(const char*, string, enumCategoria) =0;                                                                              
 };
 
 

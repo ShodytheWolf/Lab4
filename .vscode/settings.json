@@ -11,6 +11,7 @@
         "xlocnum": "cpp",
         "xstring": "cpp",
         "string": "cpp",
-        "optional": "cpp"
+        "optional": "cpp",
+        "ctime": "cpp"
     }
 }
