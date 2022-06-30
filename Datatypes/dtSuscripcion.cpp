@@ -5,6 +5,14 @@ dtSuscripcion::dtSuscripcion()
 
 }
 
+dtSuscripcion::dtSuscripcion(float costoMen, float costoTri, float costoAn, float costoVit){
+
+    this->costoAnual = costoAn;
+    this->costoMensual = costoMen;
+    this->costoTrimestral = costoTri;
+    this->costoVitalicia = costoVit;
+}
+
 dtSuscripcion::~dtSuscripcion()
 {
 

@@ -40,7 +40,7 @@ public:
     string** listarJuegosSuscripto(); 
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
-    String getNick(String nombreJuego);
+    String* getNick(string nombreJuego);
     void iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj);
     void iniciarIndividual(dtPartidaIndividual* datosPartida, Videojuego* vj,int idUltimaPartida);
     dtPartidaIndividual** listarPartidasIndividuales();

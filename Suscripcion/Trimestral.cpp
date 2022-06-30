@@ -1,8 +1,10 @@
 #include "Trimestral.h"
 
-Trimestral::Trimestral()
-{
+Trimestral::Trimestral(){}
 
+Trimestral::Trimestral(float costoT)
+{
+	this->costoTrimestral = costoT;
 }
 
 Trimestral::~Trimestral()

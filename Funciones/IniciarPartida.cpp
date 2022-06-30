@@ -25,7 +25,7 @@ void iniciarPartida(){
   	    cout<<"2)Salir"<<endl;
   		cin>>optInicarPartida;
 
-		char* juegoAIniciar;
+		string juegoAIniciar;
  		switch(optInicarPartida)
  		{
  		case 1:
@@ -60,7 +60,7 @@ void iniciarPartida(){
 			do{
  				cout<<"Seleccione el nombre del juego que desea iniciar partida"<<endl;
  				cin>>juegoAIniciar;
-				taBienEscrito = verificarEnLista(juegosSuscriptos, string(juegoAIniciar));
+				taBienEscrito = verificarEnLista(juegosSuscriptos, juegoAIniciar);
 			}while(taBienEscrito != true);
 
 			
@@ -92,7 +92,7 @@ void iniciarPartida(){
 					//listo las partidas que consegui
 					i = 0;
 					while(partidasSeleccionadas[i] != NULL){//HOW
-						if(string(partidasSeleccionadas[i]->getNombreVideojuego()) == string(juegoAIniciar)){//HOW
+						if(string(partidasSeleccionadas[i]->getNombreVideojuego()) == juegoAIniciar){//HOW
 							cout<<"ID: "<<partidasSeleccionadas[i]->getIdPartida()<<"-Duracion: "<<partidasSeleccionadas[i]->getDuracion()<<"-Fecha: "<<partidasSeleccionadas[i]->getFecha()<<endl;
 						};
 						i++;
@@ -109,7 +109,7 @@ void iniciarPartida(){
 					return;
 				};
 
-				datosPartida = new dtPartidaIndividual(0,string(juegoAIniciar),esContinuacion,IdPartidaAContinuar,float(0));
+				datosPartida = new dtPartidaIndividual(0,juegoAIniciar,esContinuacion,IdPartidaAContinuar,float(0));
 				sistema->confirmarIndividual(datosPartida);
 				cout<<"Partida Inicializada con exito!"<<endl;
 				return;
@@ -117,8 +117,6 @@ void iniciarPartida(){
 
 			
  			case 2://Multijugador
- 				esVivo = false;
-
  				cout<<"Epicardo, sera una partida transmitida en vivo?"<<endl;
  				cout<<"1)en vivo"<<endl;
  				cout<<"2)NO en vivo"<<endl;
@@ -126,7 +124,7 @@ void iniciarPartida(){
 
 				if(eleccion == 1){
 					esVivo = true;
-				};
+				};//CONTROLAR MEJOR ESTA PARTE 
 				
 				nicksJugadoresUnidos = sistema->listarNicks(juegoAIniciar);//consigo todos los jugadores que estan suscriptos al juego en cuestion.
 

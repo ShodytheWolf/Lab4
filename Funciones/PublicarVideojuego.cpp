@@ -18,9 +18,9 @@ void publicarVideojuego(){
     IControlador* controlador = fab.getInterface();
 
     //arr
-    dtCategoria** generos;
-    dtCategoria** plataformas;
-    dtCategoria** otros;
+    dtCategoria** listGeneros;
+    dtCategoria** listPlataformas;
+    dtCategoria** listOtros;
     
     string inGgenero;
     string inGplataforma;
@@ -57,17 +57,14 @@ void publicarVideojuego(){
     cin >> costoVitalicia;
     
     //guardar costos 
-    dtSuscripcion* costos;
-    costoAnual = costos->getCostoAnual();
-    costoTrimestral = costos->getCostoTrimestral();
-    costoMensual = costos->getCostoMensual();
-    costoVitalicia = costos->getCostoVitalicia();
+    dtSuscripcion* costos = new dtSuscripcion(costoMensual,costoTrimestral, costoAnual, costoVitalicia);
     pausa();
 
     //generos
+    int i = 0;
     do{
         cout << "Listado de generos:" << endl;
-        dtCategoria** listGeneros = controlador->listarGenero();
+        listGeneros = controlador->listarGenero();
         muestroList(listGeneros); //muestro  
         cout << "Seleccione  un género (sensible a mayúsculas y minúsculas): " << endl;
         cin >> inGgenero;
@@ -81,19 +78,21 @@ void publicarVideojuego(){
                 system("clear");
             }
         }
-        int i = 0;
+        
         dtCategoria* addCatGenero = new dtCategoria(inGgenero, NULL, Genero); //paso cat al dt
         listGeneros[i] = addCatGenero;
         cout << "¿Desea ingresar otro género? (S/N)" << endl;
         cin >> confirmar;
-
+        i++;
     }while(confirmar == 'S'); 
+    listGeneros[i+1] = NULL;
     pausa();
 
+    i = 0;
     //plataformas
     do{
         cout << "Listado de plataforma:" << endl;
-        dtCategoria** listPlataformas = controlador->listarPlataforma(); //listo y muestro
+        listPlataformas = controlador->listarPlataforma(); //listo y muestro
         muestroList(listPlataformas);
         cout << "Seleccione  una plataforma (sensible a mayúsculas y minúsculas): " << endl;
         cin >> inGplataforma;
@@ -113,12 +112,14 @@ void publicarVideojuego(){
         cout << "¿Desea ingresar otro género? (S/N)" << endl;
         cin >> confirmar;
     }while(confirmar == 'S');
+    listPlataformas[i+1] = NULL;
     pausa();
 
     //otros
+    i = 0;
     while(true){
         cout << "Listado de otras categorias: " << endl;
-        dtCategoria** listOtros = controlador->listarOtro(); //listo y muestro
+        listOtros = controlador->listarOtro(); //listo y muestro
         muestroList(listOtros);
         cout << "¿Desea seleccionar otros?" << endl;
         cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
@@ -136,7 +137,6 @@ void publicarVideojuego(){
                     system("clear");
                 }
             }
-            int i = 0;
             dtCategoria* addCatOtro = new dtCategoria(inGotros, NULL, Otro);
             listOtros[i] = addCatOtro;
             cout << "¿Desea ingresar otro género? (S/N)" << endl;
@@ -147,6 +147,7 @@ void publicarVideojuego(){
             cout << "No seleccionaste otros." << endl;
         }
     }
+    listOtros[i+1] = NULL;
     pausa();
 
 
@@ -156,7 +157,7 @@ void publicarVideojuego(){
     if (confirmar == 's' || confirmar == 'S'){
     cout << "Publicaste un videojuego." << endl;
     dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego, NULL, descripcion, costos, NULL,0,0);
-    //controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros);
+    controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros);
     } 
     else {
         cout << "cancelaste" << endl;
@@ -188,26 +189,3 @@ void pausa(){
     getchar();
     system("clear");
 }
-
-// /**
-//  * string** lGeneros
-//  * dtCategoria** listGeneros;
-//  * usuario elige 
-//  * loop(mientras el quiera poner mas){
-//  * cin >> genero(string); esto lo contolas con el verificarCat()
-//  * if esta bien{
-//  *  dtCategoria* cat = new dtCategoria(genero, NULL, Genero);
-//  *  listGeneros[i] = cat;
-//  * }
-//  * listaGeneros[i+1] = NULL;
-//  * loop() para plataforma
-//  * loop() otros
-//  * listaOtros[0] =NULL;
-//  *
-//  * dtSuscripion* costos;
-//  * costos->mensual = men;
-//  * dtVideojuego* datosJuego = new dtVideojuego(nombreJuego,NULL,descJuego,costos,NULL,0,0);
-//  * sistema->confirmar(datosJuego,listaGeneros,listaPlatafroma,listaOtros); 
-//  * 
-//  * 
-//  */

@@ -33,7 +33,7 @@ class Controlador: public IControlador{
         dtCategoria** listarGenero();                                                     //10
         dtCategoria** listarPlataforma();                                                 //11
         dtCategoria** listarOtro();                                                       //12
-        void publicarVideojuego(dtVideoJuego datosJuegos,dtCategoria**                    //13
+        void publicarVideojuego(dtVideoJuego* datosJuegos,dtCategoria**                    //13
         genero, dtCategoria** plataforma, dtCategoria** otros);
 
         //Suscribirse a Videojuego:
@@ -47,7 +47,7 @@ class Controlador: public IControlador{
         string** listarVideojuegosSuscripto();                                            //20
         dtPartidaIndividual** listoPartidasInactivas();                                   //21
         void confirmarIndividual(dtPartidaIndividual *datosPartida);                       //22
-        string** listarNicks(char* nombreVideojuego);                                     //23
+        string** listarNicks(string nombreVideojuego);                                     //23
         void confirmarMultijugador (dtPartidaMultijugador *datosPartida);                  //24
         
         //Finalizar Partida:

@@ -35,7 +35,7 @@ class IControlador{
         virtual dtCategoria** listarGenero() = 0;                                                     //10
         virtual dtCategoria** listarPlataforma() = 0;                                                 //11
         virtual dtCategoria** listarOtro() = 0;                                                       //12
-        virtual void publicarVideojuego(dtVideoJuego datosJuegos,dtCategoria**                    //13
+        virtual void publicarVideojuego(dtVideoJuego* datosJuegos,dtCategoria**                    //13
         genero, dtCategoria** plataforma, dtCategoria** otros) = 0;
 
         //Suscribirse a Videojuego:
@@ -49,7 +49,7 @@ class IControlador{
         virtual string** listarVideojuegosSuscripto() = 0;                                            //20
         virtual dtPartidaIndividual** listoPartidasInactivas() = 0;                                   //21
         virtual void confirmarIndividual(dtPartidaIndividual *datosPartida) = 0;                       //22
-        virtual string** listarNicks(char* nombreVideojuego) = 0;                                          //23
+        virtual string** listarNicks(string nombreVideojuego) = 0;                                          //23
         virtual void confirmarMultijugador (dtPartidaMultijugador *datosPartida) = 0;                  //24
         
         //Finalizar Partida:

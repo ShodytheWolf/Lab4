@@ -86,7 +86,29 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
 }
 
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
-String Jugador::getNick(String nombreJuego){}
+
+String* Jugador::getNick(string nombreJuego){
+
+    bool taSuscritoSi = false;
+    String* s1 = new String(nombreJuego.data());
+
+    IIterator* it = registros->getIterator();
+
+    while(it->hasCurrent()){
+        Registro* reg = dynamic_cast<Registro*>(it->getCurrent());
+        String* s2 = reg->getVideojuego()->getNombreJuego();
+
+        if(s1 == s2){
+            taSuscritoSi = reg->estaSuscrito();
+            if(taSuscritoSi){
+                return s2;
+            }
+        }
+        it->next();
+    }
+    return NULL;
+}
+
 void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj){}
 
 void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj,int idUltimaPartida){

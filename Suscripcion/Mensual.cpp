@@ -1,8 +1,10 @@
 #include "Mensual.h"
 
-Mensual::Mensual()
-{
+Mensual::Mensual(){}
 
+Mensual::Mensual(float costoM)
+{
+	this->costoMensual = costoM;
 }
 
 Mensual::~Mensual()

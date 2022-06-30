@@ -7,6 +7,7 @@ class dtSuscripcion
 {
 public:
     dtSuscripcion();
+    dtSuscripcion(float costoMensual, float costoTrimestral, float costoAnual, float costoVitalicia);
     ~dtSuscripcion();
 
     float getCostoMensual();

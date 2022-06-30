@@ -7,6 +7,7 @@ class Mensual : public Suscripcion
 {
     public:
         Mensual();
+        Mensual(float);
         ~Mensual();
         float getCostoMensual();
         void setCostoMensual(float costoMensual);

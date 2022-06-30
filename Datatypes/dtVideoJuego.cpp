@@ -11,7 +11,7 @@ dtVideoJuego::dtVideoJuego(string n, string nD, string d, dtSuscripcion* c, bool
     this->puntajePromedio = pP;
     this->horasTotales = hT;
 }
-
+//datos juegos
 dtVideoJuego::dtVideoJuego(string n, string nD, string d, dtSuscripcion* c, bool eS, float pP, float hT)
 {
     this->nombreJuego = n;
