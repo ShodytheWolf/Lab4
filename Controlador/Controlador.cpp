@@ -169,10 +169,10 @@ generos, dtCategoria** plataformas, dtCategoria** otros){
                 i = 0;
                 while(generos[i] != NULL){
                     if(str == str2){
-                       // vj->aniadirCategoria(); que carajos paso aca para que no rompa la pija.
+                       // vj->aniadirCategoria(); no se que poner aca :)
                     }
                     else {
-                        cout << "puto" << endl; 
+                        cout << "error" << endl; //para implementar 
                     }
                 }
             break;
