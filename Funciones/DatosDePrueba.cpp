@@ -126,25 +126,39 @@ void cargarOtros(Fabrica f){
 }
 
 void cargarVideojuegos(Fabrica f){ //para arreglar
-    // IControlador* sistema = f.getInterface();
-    // string nombres[VIDEOJUEGOS] = {"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"};
-    // dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
-    // dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
-    // dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
-    // dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50);
-    // dtCategoria* c1 = new dtCategoria("PC", NULL, Plataforma);
-    // dtCategoria* c2 = new dtCategoria("PS4", NULL, Plataforma);
-    // dtCategoria* c3 = new dtCategoria("Xbox One", NULL, Plataforma);
-    // dtCategoria* c4 = new dtCategoria("Deporte",NULL,Genero);
-    // dtCategoria* c5 = new dtCategoria("Supervivencia",NULL,Genero);
-    // dtCategoria* c6 = new dtCategoria("Estrategia",NULL,Genero);
-    // dtCategoria* c7 = new dtCategoria("Teen",NULL,Otro);
-    // dtCategoria* c8 = new dtCategoria("E",NULL,Otro);
-    // vector<dtCategoria*> catsKR = {c1, c2, c6, c8};
-    // vector<dtCategoria*> catsFortnite = {c1, c2, c3, c5, c7};
-    // dtVideoJuego* vj = new dtVideoJuego(NULL, NULL, NULL, NULL, true, 0, 0);
+    IControlador* sistema = f.getInterface();
+    //"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"
+    dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
+    dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
+    dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
+    dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50);
+    dtCategoria* c1 = new dtCategoria("PC", NULL, Plataforma);
+    dtCategoria* c2 = new dtCategoria("PS4", NULL, Plataforma);
+    dtCategoria* c3 = new dtCategoria("Xbox One", NULL, Plataforma);
+    dtCategoria* c4 = new dtCategoria("Deporte",NULL,Genero);
+    dtCategoria* c5 = new dtCategoria("Supervivencia",NULL,Genero);
+    dtCategoria* c6 = new dtCategoria("Estrategia",NULL,Genero);
+    dtCategoria* c7 = new dtCategoria("Teen",NULL,Otro);
+    dtCategoria* c8 = new dtCategoria("E",NULL,Otro);
+    dtCategoria** plataformasKR = new dtCategoria*[3];
+    plataformasKR[0] = c1; plataformasKR[1] = c2;
+    dtCategoria** generosKR = new dtCategoria*[2];
+    generosKR[0] = c6;
+    dtCategoria** otrosKR = new dtCategoria*[2];
+    otrosKR[0] = c8;
+    //dtVideoJuego* datosKR = new dtVideoJuego();
 }  
-
+/**
+ * C1: PC
+ * C2: PS4
+ * C3: Xbox One
+ * C4: Deporte
+ * C5: Supervivencia
+ * C6: Estrategia
+ * C8: Teen
+ * C9: E
+ * 
+ */
 /**
  *
  *  

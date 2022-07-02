@@ -4,10 +4,10 @@
 #pragma once
 
 typedef enum{
-    Mensual,
-    Trimestral,
-    Anual,
-    Vitalicia
+    Men,
+    Trim,
+    An,
+    Vit
 }enumSuscripcion;
 
 #endif

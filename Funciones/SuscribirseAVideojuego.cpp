@@ -62,19 +62,19 @@ bool suscripto = controlador->estaSuscripto(nombreVideojuego);
         switch(selecTipoSus){
             case 'a':
             case 'A':
-                tipoSus = Anual;
+                tipoSus = An;
                 break;
             case 'm':
             case 'M':
-                tipoSus = Mensual;
+                tipoSus = Men;
                 break;
             case 't':
             case 'T':
-                tipoSus = Trimestral;
+                tipoSus = Trim;
                 break;
             case 'v':
             case 'V':
-                tipoSus = Vitalicia;
+                tipoSus = Vit;
                 break;
             default:
                 cout << "Tipo invalido." << endl;
@@ -101,7 +101,7 @@ bool suscripto = controlador->estaSuscripto(nombreVideojuego);
         } 
     }
     else { //tiene una suscripcion temporal 
-        if(suscripto && tipoSus != Vitalicia){
+        if(suscripto && tipoSus != Vit){
 
             cout << "¿Desea dar de baja la suscripcion activa y crear una nueva?" << endl;
             cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
@@ -130,19 +130,19 @@ bool suscripto = controlador->estaSuscripto(nombreVideojuego);
                 switch(selecTipoSus){
                     case 'a':
                     case 'A':
-                        tipoSus = Anual;
+                        tipoSus = An;
                         break;
                     case 'm':
                     case 'M':
-                        tipoSus = Mensual;
+                        tipoSus = Men;
                         break;
                     case 't':
                     case 'T':
-                        tipoSus = Trimestral;
+                        tipoSus = Trim;
                         break;
                     case 'v':
                     case 'V':
-                        tipoSus = Vitalicia;
+                        tipoSus = Vit;
                         break;
                     default:
                         cout << "Tipo invalido." << endl;

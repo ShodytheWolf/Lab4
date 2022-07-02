@@ -153,10 +153,4 @@ void esperarEnter(){
     system("clear");
 }
 
-//Operacion para meter breakpoints cuando sea necesario (no quedara en la version final del programa)
-void bp()
-{
-    cout <<"BP" <<endl;
-    getchar();
-}
 
