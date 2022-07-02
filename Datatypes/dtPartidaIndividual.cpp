@@ -8,7 +8,8 @@ dtPartidaIndividual::dtPartidaIndividual()
 dtPartidaIndividual::dtPartidaIndividual(int idPart, string nombrejuego, bool conti, int IdPartidaAnt, float dura){
     this->idPartida = idPart;
     //this->fechaInicio = fechaIni;
-    this->nombreVideojuego = nombrejuego.data();
+    const char* i = nombrejuego.data();
+    this->nombreVideojuego = i;
     this->continuacion = conti;
     this->idPartidaAnterior = IdPartidaAnt;
     this->duracion = dura;
