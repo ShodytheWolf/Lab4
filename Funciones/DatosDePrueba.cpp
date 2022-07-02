@@ -126,25 +126,73 @@ void cargarOtros(Fabrica f){
 }
 
 void cargarVideojuegos(Fabrica f){ //para arreglar
-    // IControlador* sistema = f.getInterface();
-    // string nombres[VIDEOJUEGOS] = {"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"};
-    // dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
-    // dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
-    // dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
-    // dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50);
-    // dtCategoria* c1 = new dtCategoria("PC", NULL, Plataforma);
-    // dtCategoria* c2 = new dtCategoria("PS4", NULL, Plataforma);
-    // dtCategoria* c3 = new dtCategoria("Xbox One", NULL, Plataforma);
-    // dtCategoria* c4 = new dtCategoria("Deporte",NULL,Genero);
-    // dtCategoria* c5 = new dtCategoria("Supervivencia",NULL,Genero);
-    // dtCategoria* c6 = new dtCategoria("Estrategia",NULL,Genero);
-    // dtCategoria* c7 = new dtCategoria("Teen",NULL,Otro);
-    // dtCategoria* c8 = new dtCategoria("E",NULL,Otro);
-    // vector<dtCategoria*> catsKR = {c1, c2, c6, c8};
-    // vector<dtCategoria*> catsFortnite = {c1, c2, c3, c5, c7};
-    // dtVideoJuego* vj = new dtVideoJuego(NULL, NULL, NULL, NULL, true, 0, 0);
-}  
+    IControlador* sistema = f.getInterface();
+    //"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"
+    dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
+    dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
+    dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
+    dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50);
+    dtCategoria* c1 = new dtCategoria("PC", NULL, Plataforma);
+    dtCategoria* c2 = new dtCategoria("PS4", NULL, Plataforma);
+    dtCategoria* c3 = new dtCategoria("Xbox One", NULL, Plataforma);
+    dtCategoria* c4 = new dtCategoria("Deporte",NULL,Genero);
+    dtCategoria* c5 = new dtCategoria("Supervivencia",NULL,Genero);
+    dtCategoria* c6 = new dtCategoria("Estrategia",NULL,Genero);
+    dtCategoria* c7 = new dtCategoria("Teen",NULL,Otro);
+    dtCategoria* c8 = new dtCategoria("E",NULL,Otro);
 
+    //Incersion del Kingdom Rush
+    dtCategoria** plataformasKR = new dtCategoria*[3];
+    plataformasKR[0] = c1; plataformasKR[1] = c2;
+    dtCategoria** generosKR = new dtCategoria*[2];
+    generosKR[0] = c6;
+    dtCategoria** otrosKR = new dtCategoria*[2];
+    otrosKR[0] = c8;
+    dtVideoJuego* datosKR = new dtVideoJuego("Kingdom Rush", "", "", costosKR, false, 0, 0);
+    sistema->publicarVideojuego(datosKR, generosKR, plataformasKR, otrosKR);
+
+    //Incersion del Fortnite
+    dtCategoria** plataformasFortnite = new dtCategoria*[4];
+    plataformasFortnite[0] = c1; plataformasFortnite[1] = c2; plataformasFortnite[2] = c3;
+    dtCategoria** generosFortnite = new dtCategoria*[2];
+    generosFortnite[0] = c5;
+    dtCategoria** otrosFortnite = new dtCategoria*[2];
+    otrosFortnite[0] = c7;
+    dtVideoJuego* datosFortnite = new dtVideoJuego("Fortnite", "", "", costosFortnite, false, 0, 0);
+    sistema->publicarVideojuego(datosFortnite, generosFortnite, plataformasFortnite, otrosFortnite);
+
+    //Incersion del Minecraft
+    dtCategoria** plataformasMinecraft = new dtCategoria*[2];
+    plataformasMinecraft[0] = c1; 
+    dtCategoria** generosMinecraft = new dtCategoria*[2];
+    generosMinecraft[0] = c5;
+    dtCategoria** otrosMinecraft = new dtCategoria*[2];
+    otrosMinecraft[0] = c8;
+    dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
+    sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
+
+    //Incersion del FIFA
+    dtCategoria** plataformasFIFA = new dtCategoria*[4];
+    plataformasFIFA[0] = c1; plataformasFIFA[1] = c2; plataformasFIFA[2] = c3;
+    dtCategoria** generosFIFA = new dtCategoria*[2];
+    generosFIFA[0] = c4;
+    dtCategoria** otrosFIFA = new dtCategoria*[2];
+    otrosFIFA[0] = c8;
+    dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
+    sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
+
+}  
+/**
+ * C1: PC
+ * C2: PS4
+ * C3: Xbox One
+ * C4: Deporte
+ * C5: Supervivencia
+ * C6: Estrategia
+ * C7: Teen
+ * C8: E
+ * 
+ */
 /**
  *
  *  

@@ -3,13 +3,13 @@
 #include "IControlador/IControlador.h"
 #include "Fabrica/Fabrica.h"
 #include "Funciones/Menus.h"
+#include "breakpoint.cpp"
 
 using namespace std;
 
 void menuDesarrollador();
 void menuJugador();
 void esperarEnter();
-void bp();
 
 int main(){
     char tipoUsuario = ' ';
@@ -154,10 +154,4 @@ void esperarEnter(){
     system("clear");
 }
 
-//Operacion para meter breakpoints cuando sea necesario (no quedara en la version final del programa)
-void bp()
-{
-    cout <<"BP" <<endl;
-    getchar();
-}
 

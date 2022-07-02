@@ -41,13 +41,14 @@ public:
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
     String* getNick(string nombreJuego);
-    void iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj);
-    void iniciarIndividual(dtPartidaIndividual* datosPartida, Videojuego* vj,int idUltimaPartida);
+    Multijugador* iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj, int idUltimaPartida,time_t horaActual);
+    void iniciarIndividual(dtPartidaIndividual* datosPartida, Videojuego* vj,int idUltimaPartida,time_t horaActual);
     dtPartidaIndividual** listarPartidasIndividuales();
     dtPartidaMultijugador** partidaAFinalizar();
     void partidaAFinalizar(int idPartida);
     string** comprobarPartidas(string** nombreJuegos, int t);
     void eliminarContRegisJuego(Videojuego* vj);
+    void unirseAPartida(Multijugador* multi);
 
 private:
     String* nickname;
