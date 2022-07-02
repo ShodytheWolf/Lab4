@@ -13,8 +13,8 @@ public:
     dtPartida();
     ~dtPartida();
 
-   virtual char* getNombreVideojuego();
-   int getIdPartida();
+   const char* getNombreVideojuego();
+   virtual int getIdPartida();
    time_t getFecha();
 
 protected:

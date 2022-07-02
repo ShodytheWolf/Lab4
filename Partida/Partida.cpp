@@ -36,6 +36,10 @@ float Partida::getDuracion() {
     return this->duracion;
 }
 
+void Partida::setDuracion(double duracion) {
+    this->duracion = duracion;
+}
+
 dtPartida Partida::getDtPartida(){}
 void Partida::calcularDuracion(){}
 

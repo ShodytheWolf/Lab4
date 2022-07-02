@@ -255,7 +255,7 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida){
     OrderedKey* k = new String(datosPartida->getNombreVideojuego());
 
     this->ultimaIdPartida =+ 1;
-    jug->iniciarIndividual(datosPartida,(Videojuego*)videojuegos->find(k),this->ultimaIdPartida);//casteo paaaaaaaaaaaaa
+    jug->iniciarIndividual(datosPartida,(Videojuego*)videojuegos->find(k),this->ultimaIdPartida,this->horaActual);//casteo paaaaaaaaaaaaa
 
 
 
@@ -283,9 +283,25 @@ string** Controlador::listarNicks(string nombreVideojuego){
     }
     return listaADevolver;
 
-}                                        
-void Controlador::confirmarMultijugador (dtPartidaMultijugador *datosPartida){
+}          
 
+void Controlador::confirmarMultijugador (dtPartidaMultijugador *datosPartida){
+    Jugador* jug = dynamic_cast<Jugador*>(this->loggedUser);
+
+    OrderedKey* k = new String(datosPartida->getNombreVideojuego());
+
+    this->ultimaIdPartida =+ 1;
+    Multijugador* multi = jug->iniciarMultijugador(datosPartida,(Videojuego*)videojuegos->find(k),this->ultimaIdPartida,this->horaActual);//casteo paaaaaaaaaaaaa
+
+    int i = 0;
+    while (datosPartida->getjugadoresUnidos()[i] != NULL)
+    {
+        String* str = new String(datosPartida->getjugadoresUnidos()[i]->data());
+
+        Jugador* user = dynamic_cast<Jugador*>(this->usuarios->find(str));
+        user->unirseAPartida(multi);
+        i++;
+    }
 }                
 
 dtPartida** Controlador::listoPartidasActivas(){
