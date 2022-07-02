@@ -20,3 +20,7 @@ Multijugador::~Multijugador()
 }
 
 time_t Multijugador::registrarHoraRetiro(){}
+
+void Multijugador::setDuracion(double dura){
+    this->duracion = dura;
+}
