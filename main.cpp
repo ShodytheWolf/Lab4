@@ -31,6 +31,7 @@ int main(){
             break;
         case '2':
             iniciarSesion(tipoUsuario);
+            bp();
             switch (tipoUsuario)
             {
             case 'j':
@@ -74,8 +75,8 @@ void menuDesarrollador(){
         <<"5. Salir\n"
         <<"Ingrese una opción numerica:\n"
         <<endl;
-        system("clear");
         cin >> op;
+        system("clear");
         switch(op){
             case '1':
                 publicarVideojuego();
@@ -91,12 +92,12 @@ void menuDesarrollador(){
                 getchar();
                 break;
             case '5':
-                cout << "Volvera al menu principal y debera iniciar seion nuevamente. Seguro que desea hacerlo ? S/N" << endl;
+                cout << "Volvera al menu principal y debera iniciar sesion nuevamente. Seguro que desea hacerlo ? S/N" << endl;
                 cin >> exit;
                 system("clear");
                 break;
             default:
-                cout << "op incorrecta. Por favor intente nuevamente" <<endl;
+                cout << "opcion incorrecta. Por favor intente nuevamente" <<endl;
                 break;
         }
     }while(exit != 's' || exit != 'S');

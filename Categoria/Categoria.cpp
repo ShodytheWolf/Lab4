@@ -36,6 +36,15 @@ void Categoria::setTipoCategoria(enumCategoria tipoCategoria) {
 	this->tipoCategoria = tipoCategoria;
 }
 
-dtCategoria Categoria::getDtGenero(){}
-dtCategoria Categoria::getDtPlataforma(){}
-dtCategoria Categoria::getDtOtro(){}
+dtCategoria* Categoria::getDtGenero(){
+    dtCategoria* genero = new dtCategoria(string(this->nombreCategoria->getValue()), this->descripcionCategoria, Genero);
+    return genero;
+}
+dtCategoria* Categoria::getDtPlataforma(){
+    dtCategoria* plataforma = new dtCategoria(string(this->nombreCategoria->getValue()), this->descripcionCategoria, Plataforma);
+    return plataforma;
+}
+dtCategoria* Categoria::getDtOtro(){
+    dtCategoria* otro = new dtCategoria (string(this->nombreCategoria->getValue()), this->descripcionCategoria, Otro);
+    return otro;
+}
