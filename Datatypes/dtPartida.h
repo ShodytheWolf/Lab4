@@ -20,7 +20,7 @@ public:
 protected:
     int idPartida;
     time_t fechaInicio = 0;
-    const char* nombreVideojuego;
+    char* nombreVideojuego;
 };
 
 #endif
