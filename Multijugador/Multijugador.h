@@ -8,10 +8,12 @@ class Multijugador : public Partida
 {
     public:
         Multijugador();
+        Multijugador(int id, time_t fechaInicio, double dura,Videojuego* vjuego);
         ~Multijugador();
+        void setDuracion(double dura);
         time_t registrarHoraRetiro();
     private:
-         time_t** horaRetiro;
+        time_t** horaRetiro;
 };
 
 #endif

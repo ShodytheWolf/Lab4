@@ -5,10 +5,10 @@ dtPartidaMultijugador::dtPartidaMultijugador()
 
 }
 
-dtPartidaMultijugador::dtPartidaMultijugador(int idParti,time_t fechaIni, char*juego,bool deVivo,string papaOso,string** nicksJuego){
+dtPartidaMultijugador::dtPartidaMultijugador(int idParti,time_t fechaIni, string juego,bool deVivo,string papaOso,string** nicksJuego){
     this->idPartida = idParti;
     this->fechaInicio = fechaIni;
-    this->nombreVideojuego = juego;
+    this->nombreVideojuego = juego.data();
     this->enVivo = deVivo;
     this->nickHost = papaOso;
     this->jugadoresUnidos = nicksJuego;

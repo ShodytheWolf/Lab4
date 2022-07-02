@@ -11,6 +11,7 @@ class EnVivo : public Multijugador
 {
 public:
     EnVivo();
+    EnVivo(int id, time_t fechaInicio, double duracion,Videojuego* vj);
     ~EnVivo();
     void eliminarComentarios();
 private:
