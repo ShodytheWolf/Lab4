@@ -127,14 +127,18 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
         Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,horadiferida,vj,partiContinuada);
         delete k;
 
-        this->partidasActivas->add(new Integer(idUltimaPartida),partiAAnadiar);
+        OrderedKey* k = new Integer(idUltimaPartida);
+
+        this->partidasActivas->add(k,partiAAnadiar);
     }else{
 
         //OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
         time_t dameLaHora = time(NULL);
         Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,0,vj,NULL);
 
-        this->partidasActivas->add(new Integer(idUltimaPartida),partiAAnadiar);
+        OrderedKey* k = new Integer(idUltimaPartida);
+
+        this->partidasActivas->add(k,partiAAnadiar);
     }
     return;
 }
