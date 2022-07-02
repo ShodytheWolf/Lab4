@@ -140,13 +140,47 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     dtCategoria* c6 = new dtCategoria("Estrategia",NULL,Genero);
     dtCategoria* c7 = new dtCategoria("Teen",NULL,Otro);
     dtCategoria* c8 = new dtCategoria("E",NULL,Otro);
+
+    //Incersion del Kingdom Rush
     dtCategoria** plataformasKR = new dtCategoria*[3];
     plataformasKR[0] = c1; plataformasKR[1] = c2;
     dtCategoria** generosKR = new dtCategoria*[2];
     generosKR[0] = c6;
     dtCategoria** otrosKR = new dtCategoria*[2];
     otrosKR[0] = c8;
-    //dtVideoJuego* datosKR = new dtVideoJuego();
+    dtVideoJuego* datosKR = new dtVideoJuego("Kingdom Rush", "", "", costosKR, false, 0, 0);
+    sistema->publicarVideojuego(datosKR, generosKR, plataformasKR, otrosKR);
+
+    //Incersion del Fortnite
+    dtCategoria** plataformasFortnite = new dtCategoria*[4];
+    plataformasFortnite[0] = c1; plataformasFortnite[1] = c2; plataformasFortnite[2] = c3;
+    dtCategoria** generosFortnite = new dtCategoria*[2];
+    generosFortnite[0] = c5;
+    dtCategoria** otrosFortnite = new dtCategoria*[2];
+    otrosFortnite[0] = c7;
+    dtVideoJuego* datosFortnite = new dtVideoJuego("Fortnite", "", "", costosFortnite, false, 0, 0);
+    sistema->publicarVideojuego(datosFortnite, generosFortnite, plataformasFortnite, otrosFortnite);
+
+    //Incersion del Minecraft
+    dtCategoria** plataformasMinecraft = new dtCategoria*[2];
+    plataformasMinecraft[0] = c1; 
+    dtCategoria** generosMinecraft = new dtCategoria*[2];
+    generosMinecraft[0] = c5;
+    dtCategoria** otrosMinecraft = new dtCategoria*[2];
+    otrosMinecraft[0] = c8;
+    dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
+    sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
+
+    //Incersion del FIFA
+    dtCategoria** plataformasFIFA = new dtCategoria*[4];
+    plataformasFIFA[0] = c1; plataformasFIFA[1] = c2; plataformasFIFA[2] = c3;
+    dtCategoria** generosFIFA = new dtCategoria*[2];
+    generosFIFA[0] = c4;
+    dtCategoria** otrosFIFA = new dtCategoria*[2];
+    otrosFIFA[0] = c8;
+    dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
+    sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
+
 }  
 /**
  * C1: PC
@@ -155,8 +189,8 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
  * C4: Deporte
  * C5: Supervivencia
  * C6: Estrategia
- * C8: Teen
- * C9: E
+ * C7: Teen
+ * C8: E
  * 
  */
 /**

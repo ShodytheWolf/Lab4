@@ -3,13 +3,13 @@
 #include "IControlador/IControlador.h"
 #include "Fabrica/Fabrica.h"
 #include "Funciones/Menus.h"
+#include "breakpoint.cpp"
 
 using namespace std;
 
 void menuDesarrollador();
 void menuJugador();
 void esperarEnter();
-void bp();
 
 int main(){
     char tipoUsuario = ' ';
@@ -74,8 +74,8 @@ void menuDesarrollador(){
         <<"5. Salir\n"
         <<"Ingrese una opción numerica:\n"
         <<endl;
-        system("clear");
         cin >> op;
+        system("clear");
         switch(op){
             case '1':
                 publicarVideojuego();

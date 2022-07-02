@@ -1,7 +1,6 @@
 #include "Controlador.h"
 #include <iostream>
 #include <stdlib.h>
-#include "../breakpoint.cpp"
 
 Controlador* Controlador::instance = nullptr;
 
