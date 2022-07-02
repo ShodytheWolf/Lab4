@@ -78,6 +78,7 @@ class Controlador: public IControlador{
         char* nombreVideojuego;
         unsigned int ultimaIdPartida = 0;
         unsigned int ultimaIdComentario = 0;
+        time_t horaActual = time(NULL);
 
         //pseudoatributos
         Usuario* loggedUser;

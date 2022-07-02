@@ -106,37 +106,55 @@ String* Jugador::getNick(string nombreJuego){
         }
         it->next();
     }
+    delete it;
     return NULL;
 }
 
-void Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj){}
+Multijugador* Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj, int idPartida,time_t horaActual){
 
-void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj,int idUltimaPartida){
+    if(datosPartida->getEnVivo()){
+
+        EnVivo* partiAAnadiar = new EnVivo(idPartida,horaActual,0,vj);
+
+        Integer* k = new Integer(idPartida);
+        partidasActivas->add(k,partiAAnadiar);
+
+        return partiAAnadiar;
+
+    }else{
+
+        Multijugador* partiAAnadiar = new Multijugador(idPartida,horaActual,0,vj);
+
+        Integer* k = new Integer(idPartida);
+        partidasActivas->add(k,partiAAnadiar);
+
+        return partiAAnadiar;
+    }
+    
+}
+
+void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj,int idPartida,time_t horaActual){
 
     if(datosPartida->getContinuacion()){
         //hay que hacer
         OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
 
         Individual* partiContinuada = (Individual*)partidasInactivas->find(k);//conseguimos la partida ya inactiva a continuar
-        time_t dameLaHora = time(NULL);
 
-        //IIterator* it = partidasInactivas->getIterator();
-
-        double horadiferida = difftime(datosPartida->getFecha(),dameLaHora);
+        double horadiferida = difftime(datosPartida->getFecha(),horaActual);
        
-        Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,horadiferida,vj,partiContinuada);
-        delete k;
+        Individual* partiAAnadiar = new Individual(idPartida,horaActual,horadiferida,vj,partiContinuada);
+        //delete k;
 
-        OrderedKey* k = new Integer(idUltimaPartida);
+        OrderedKey* k2 = new Integer(idPartida);
 
-        this->partidasActivas->add(k,partiAAnadiar);
+        this->partidasActivas->add(k2,partiAAnadiar);
     }else{
 
         //OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
-        time_t dameLaHora = time(NULL);
-        Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,0,vj,NULL);
+        Individual* partiAAnadiar = new Individual(idPartida,horaActual,0,vj,NULL);
 
-        OrderedKey* k = new Integer(idUltimaPartida);
+        OrderedKey* k = new Integer(idPartida);
 
         this->partidasActivas->add(k,partiAAnadiar);
     }
@@ -202,5 +220,9 @@ void Jugador::eliminarContRegisJuego(Videojuego* vj){
         delete it;
         return;
     }
+}
+
+void Jugador::unirseAPartida(Multijugador* multi){
+    this->partidasUnido->add(multi);
 }
 
