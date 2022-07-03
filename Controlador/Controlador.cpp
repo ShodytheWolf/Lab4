@@ -102,11 +102,13 @@ char Controlador::confirmarSesion(){
     for(IIterator* it = usuarios->getIterator(); it->hasCurrent(); it->next()){
         Usuario* u = (Usuario*)it->getCurrent();
         if(u->getEmail() == this->emailUser && u->getContrasenia() == this->passUser){
+            cout << "entre al if" << endl;
             this->loggedUser = u;
             if(dynamic_cast<Jugador*>(u))
-                return 'j';
+                return 'j';   
             else
                 return 'd';
+            
         }
     }
 }
@@ -114,40 +116,46 @@ char Controlador::confirmarSesion(){
 dtCategoria** Controlador::listarGenero(){
     
     if(categorias->isEmpty()){
-    throw invalid_argument("No hay categorias en el sistema.");
+        throw invalid_argument("No hay categorias en el sistema.");
     }
-
-    dtCategoria** generos = new dtCategoria*[categorias->getSize()+1];    
+    dtCategoria** generos = new dtCategoria*[categorias->getSize()+1];
+    int c = 0;    
     for(IIterator* it = categorias->getIterator(); it->hasCurrent(); it->next()){
         Categoria* catG = (Categoria*)it->getCurrent();
-
         if(catG->getTipoCategoria() == Genero){
-           dtCategoria* genero = new dtCategoria(string(catG->getNombreCategoria()->getValue()), catG->getDescripcionCategoria(), Genero);
-        }
-        
+            generos[c] = catG->getDtGenero();
+            c++;
+        }  
     }
-}                                                   
+    return generos;
+}
+
 dtCategoria** Controlador::listarPlataforma(){
 
     dtCategoria** plataformas = new dtCategoria*[categorias->getSize()+1];
+    int c = 0;
     for(IIterator* it = categorias->getIterator(); it->hasCurrent(); it->next()){
         Categoria* catP = (Categoria*)it->getCurrent();
         if(catP->getTipoCategoria() == Plataforma){
-           dtCategoria* plataforma = new dtCategoria(string(catP->getNombreCategoria()->getValue()), catP->getDescripcionCategoria(), Plataforma);
+          plataformas[c] = catP->getDtPlataforma();
+          c++;
         }
     }
-
+    return plataformas;
 }  
                                               
 dtCategoria** Controlador::listarOtro(){
     
     dtCategoria** otros = new dtCategoria*[categorias->getSize()+1];
+    int c = 0;
     for (IIterator* it = categorias->getIterator(); it->hasCurrent(); it->next()){
         Categoria* catO = (Categoria*)it->getCurrent();
         if(catO->getTipoCategoria() == Otro){
-            dtCategoria* plataforma = new dtCategoria(string(catO->getNombreCategoria()->getValue()), catO->getDescripcionCategoria(), Otro);
+            otros[c] = catO->getDtOtro();
+            c++;
         }
     }
+    return otros;
 } 
 
 void Controlador::publicarVideojuego(dtVideoJuego* datosJuegos,dtCategoria**                    
@@ -161,15 +169,15 @@ generos, dtCategoria** plataformas, dtCategoria** otros){
     //itero en las categorias
     for (it = categorias->getIterator(); it->hasCurrent(); it->next()){
         Categoria* cat = (Categoria*) it->getCurrent();
-        string* str = new string(cat->getNombreCategoria()->getValue());
-        string* str2 = new string(generos[i]->getNombre().data());
-        //String* str = new String(generos[i]->getNombre().data());
+        //string* str = new string(cat->getNombreCategoria()->getValue());
+        String* str = new String(generos[i]->getNombre().data());
         switch(cat->getTipoCategoria()){
             case Genero:        
                 i = 0;
                 while(generos[i] != NULL){
-                    if(str == str2){
-                       // vj->aniadirCategoria(); no se que poner aca :)
+                    if(cat->getNombreCategoria()->compare(str)){
+
+                        vj->aniadirCategoria(cat); //no se que poner aca :)
                     }
                     else {
                         cout << "error" << endl; //para implementar 
@@ -179,23 +187,23 @@ generos, dtCategoria** plataformas, dtCategoria** otros){
             case Plataforma:
                 i = 0;
                 while(plataformas[i] != NULL){
-                //     if(plataformas[i] == cat){
-                //         vj->aniadirCategoria(cat);
-                //     }
-                //     else {
-                //         cout << "ta mal chikistrikis" << endl;
-                //     }
+                    if(cat->getNombreCategoria()->compare(str)){
+                        vj->aniadirCategoria(cat);
+                    }
+                    else {
+                        cout << "ta mal chikistrikis" << endl;
+                    }
                  }
             break;
             case Otro:
                 i = 0;
                 while(otros[i] != NULL){
-                    // if(otros[i] == cat){
-                    //     vj->aniadirCategoria(cat);
-                    // }
-                    // else{
-                    //     cout << "Que ISO mano kkkkkkk...." << endl;
-                    // }
+                    if(cat->getNombreCategoria()->compare(str)){
+                        vj->aniadirCategoria(cat);
+                    }
+                    else{
+                        cout << "Que ISO mano kkkkkkk...." << endl;
+                    }
                 }
             break;
             default:
@@ -306,7 +314,8 @@ void Controlador::confirmarMultijugador (dtPartidaMultijugador *datosPartida){
 
 dtPartida** Controlador::listoPartidasActivas(){
 
-}                                              
+} 
+
 void Controlador::seleccionarPartida(int idPartida){
 
 }

@@ -36,7 +36,7 @@ public:
     Desarrollador* getDesarrollador();
     void setDesarrollador(Desarrollador* desarrollador);
 
-    void aniadirCategoria(Categoria cat);
+    void aniadirCategoria(Categoria* cat);
     void addDtJuego(dtVideoJuego datosJuego); //armar datos
     dtEstadistica** getEstadisticas();
 

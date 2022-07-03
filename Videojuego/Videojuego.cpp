@@ -48,12 +48,8 @@ void Videojuego::setDescripcionJuego(string descripcionJuego) {
     this->descripcionJuego = descripcionJuego;
 }
 
-
-
-void Videojuego::aniadirCategoria(Categoria cat){
-    categorias->add(cat.getNombreCategoria());
-    //llamo a las categorias.
-    //KEKW
+void Videojuego::aniadirCategoria(Categoria* cat){
+    categorias->add(cat->getNombreCategoria());
 };
 
 void Videojuego::addDtJuego(dtVideoJuego datosJuego){

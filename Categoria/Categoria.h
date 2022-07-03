@@ -21,9 +21,9 @@ public:
     void setDescripcionCategoria(string descripcionCategoria);
     enumCategoria getTipoCategoria();
     void setTipoCategoria(enumCategoria tipoCategoria);
-    dtCategoria getDtGenero();
-    dtCategoria getDtPlataforma();
-    dtCategoria getDtOtro();
+    dtCategoria* getDtGenero();
+    dtCategoria* getDtPlataforma();
+    dtCategoria* getDtOtro();
 
 private:
     String* nombreCategoria; //key
