@@ -39,8 +39,11 @@ void publicarVideojuego(){
 
     cout << "Ingrese nombre del videojuego: " << endl;
     cin >> nombreVideojuego;
+    getline(cin,nombreVideojuego,'\n');
+   
     cout << "Ingrese descripción del videojuego: " << endl;
     cin >> descripcion;
+    getline(cin,descripcion,'\n');
 
     cout << "Ingrese costos por tipo de suscripción." << endl;
 

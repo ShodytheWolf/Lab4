@@ -187,14 +187,12 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
 
     Desarrollador *dev = (Desarrollador *)loggedUser; //traigo al desarrollador
     int i = 0;
-    int c = 0;
     String *str;
     // constructor del vj
     Videojuego *vj = new Videojuego(datosJuegos->getNombreVideojuego().data(), datosJuegos->getDescripcionJuego(), dev, datosJuegos->getCostos());//creo el jueguito
     IIterator *it;//creo iterador
     for (it = categorias->getIterator(); it->hasCurrent(); it->next()){ //itero en categorias
         Categoria *cat = (Categoria *)it->getCurrent();//obtengo la categoria
-        cout << "iteracion " << c << endl;
         //string* str = new string(cat->getNombreCategoria()->getValue());
         switch (cat->getTipoCategoria()){ //para cada tipo de categoria un caso
         case Genero:
@@ -202,8 +200,7 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
             while (generos[i]){
                 str = new String(generos[i]->getNombre().data());//cambiazo de tipo
                 if (cat->getNombreCategoria()->compare(str) == EQUAL){
-                    cout << generos[i] << endl;
-                    vj->aniadirCategoria(cat); //Tic
+                    vj->aniadirCategoria(cat); //agrego cat al vj
                 }
                 i++;
             }
@@ -230,14 +227,15 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
             }
             break;
         }
-        c++;
     }
     videojuegos->add(vj->getNombreJuego(), vj); // añado juego
 }
 
+//suscribirse a videojuego
 dtVideoJuego **Controlador::listarVideojuegosDiferenciada()
 {
 }
+
 void Controlador::ingresarVideojuego(char *nombreVideojuego)
 {
 }
