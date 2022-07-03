@@ -12,7 +12,7 @@ public:
     Estadistica(char*, string);
     ~Estadistica();
 
-    String getNombre();
+    String* getNombre();
     string getDescripcion();
     void setNombre(char* nuevoNombre);
     void setDescripcion(string nuevaDesc);
@@ -20,7 +20,7 @@ public:
     void setDato(float dato);
     dtEstadistica * getDtEstadistica();
 private:
-    String nombre;
+    String* nombre;
     string descripcion;
     float dato;
 };

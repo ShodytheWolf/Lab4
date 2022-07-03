@@ -44,7 +44,7 @@ protected:
     String* nombreJuego; // atributo que sera la key
     string descripcionJuego; 
     Desarrollador* desarrollador;
-    ICollection* categorias = new List();
+    IDictionary* categorias = new OrderedDictionary();
     Anual* suscripcionAnual;
     Mensual* suscripcionMensual;
     Trimestral* suscripcionTrimestral;

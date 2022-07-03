@@ -5,7 +5,8 @@ using namespace std;
 
 Estadistica::Estadistica(char* nombre, string descripcion)
 {
-    this->nombre = String(nombre);
+    this->dato = 0;
+    this->nombre = new String(nombre);
     this->descripcion = descripcion;
 }
 
@@ -26,10 +27,10 @@ void Estadistica::setDescripcion(string nuevaDesc){
 };
 
 void Estadistica::setNombre(char* nuevoNombre){
-    this->nombre = String(nuevoNombre);
+    this->nombre = new String(nuevoNombre);
 };
 
-String Estadistica::getNombre(){
+String* Estadistica::getNombre(){
     return this->nombre;
 };
 
