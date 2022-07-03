@@ -117,7 +117,6 @@ char Controlador::confirmarSesion()
         Usuario *u = (Usuario *)it->getCurrent();
         if (u->getEmail() == this->emailUser && u->getContrasenia() == this->passUser)
         {
-            cout << "entre al if" << endl;
             this->loggedUser = u;
             if (dynamic_cast<Jugador *>(u))
                 return 'j';

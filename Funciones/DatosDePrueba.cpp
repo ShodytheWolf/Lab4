@@ -133,14 +133,14 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
     dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
     dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50);
-    dtCategoria* c1 = new dtCategoria("PC", NULL, Plataforma);
-    dtCategoria* c2 = new dtCategoria("PS4", NULL, Plataforma);
-    dtCategoria* c3 = new dtCategoria("Xbox One", NULL, Plataforma);
-    dtCategoria* c4 = new dtCategoria("Deporte",NULL,Genero);
-    dtCategoria* c5 = new dtCategoria("Supervivencia",NULL,Genero);
-    dtCategoria* c6 = new dtCategoria("Estrategia",NULL,Genero);
-    dtCategoria* c7 = new dtCategoria("Teen",NULL,Otro);
-    dtCategoria* c8 = new dtCategoria("E",NULL,Otro);
+    dtCategoria* c1 = new dtCategoria("PC", "", Plataforma);
+    dtCategoria* c2 = new dtCategoria("PS4", "", Plataforma);
+    dtCategoria* c3 = new dtCategoria("Xbox One", "", Plataforma);
+    dtCategoria* c4 = new dtCategoria("Deporte","",Genero);
+    dtCategoria* c5 = new dtCategoria("Supervivencia","",Genero);
+    dtCategoria* c6 = new dtCategoria("Estrategia","",Genero);
+    dtCategoria* c7 = new dtCategoria("Teen","",Otro);
+    dtCategoria* c8 = new dtCategoria("E","",Otro);
 
     //Incersion del Kingdom Rush
     dtCategoria** plataformasKR = new dtCategoria*[3];
@@ -150,6 +150,8 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     dtCategoria** otrosKR = new dtCategoria*[2];
     otrosKR[0] = c8;
     dtVideoJuego* datosKR = new dtVideoJuego("Kingdom Rush", "", "", costosKR, false, 0, 0);
+    sistema->ingresoData("ironhide@mail.com", "123", false);
+    sistema->confirmarSesion();
     sistema->publicarVideojuego(datosKR, generosKR, plataformasKR, otrosKR);
 
     //Incersion del Fortnite
@@ -160,6 +162,8 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     dtCategoria** otrosFortnite = new dtCategoria*[2];
     otrosFortnite[0] = c7;
     dtVideoJuego* datosFortnite = new dtVideoJuego("Fortnite", "", "", costosFortnite, false, 0, 0);
+    sistema->ingresoData("epic@mail.com", "123", false);
+    sistema->confirmarSesion();
     sistema->publicarVideojuego(datosFortnite, generosFortnite, plataformasFortnite, otrosFortnite);
 
     //Incersion del Minecraft
@@ -169,6 +173,8 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     generosMinecraft[0] = c5;
     dtCategoria** otrosMinecraft = new dtCategoria*[2];
     otrosMinecraft[0] = c8;
+    sistema->ingresoData("mojang@mail.com", "123", false);
+    sistema->confirmarSesion();
     dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
     sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
 
@@ -179,9 +185,10 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     generosFIFA[0] = c4;
     dtCategoria** otrosFIFA = new dtCategoria*[2];
     otrosFIFA[0] = c8;
+    sistema->ingresoData("ea@mail.com", "123", false);
+    sistema->confirmarSesion();
     dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
     sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
-
 }  
 /**
  * C1: PC
