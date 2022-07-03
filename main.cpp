@@ -3,7 +3,7 @@
 #include "IControlador/IControlador.h"
 #include "Fabrica/Fabrica.h"
 #include "Funciones/Menus.h"
-#include "breakpoint.cpp"
+//#include "breakpoint.cpp"
 
 using namespace std;
 
@@ -31,7 +31,6 @@ int main(){
             break;
         case '2':
             iniciarSesion(tipoUsuario);
-            bp();
             switch (tipoUsuario)
             {
             case 'j':

@@ -22,9 +22,9 @@ void publicarVideojuego(){
     dtCategoria** listPlataformas;
     dtCategoria** listOtros;
     
-    string inGgenero;
-    string inGplataforma;
-    string inGotros;
+    string inGgenero = "";
+    string inGplataforma = "";
+    string inGotros = "";
     float costoAnual;
     float costoMensual;
     float costoTrimestral;
@@ -87,7 +87,7 @@ void publicarVideojuego(){
             cin >> confirmar;
             i++;
         }while(confirmar == 'S'); 
-        listGeneros[i+1] = NULL;
+        listGeneros[i] = NULL;
         pausa();
 
         i = 0;
@@ -114,7 +114,7 @@ void publicarVideojuego(){
             cout << "¿Desea ingresar otra plataforma (S/N)" << endl;
             cin >> confirmar;
         }while(confirmar == 'S');
-        listPlataformas[i+1] = NULL;
+        listPlataformas[i] = NULL;
         pausa();
 
         //otros
@@ -124,9 +124,9 @@ void publicarVideojuego(){
             listOtros = controlador->listarOtro(); //listo y muestro
             muestroList(listOtros);
             cout << "¿Desea seleccionar otros?" << endl;
-            cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
-            cin >> confirmar;
-            if (confirmar == 's' || confirmar == 'S'){
+            cout << "Presione (s/S) para confirmar o (n/N) para cancelar" << endl;
+            cin >> confirmar; 
+            if (confirmar == 's' || confirmar == 'S' && confirmar != 'n' && confirmar != 'N'){
                 cout << "Seleccione una categoría otros" << endl;
                 cin >> inGotros;
                 system("clear");
@@ -148,9 +148,10 @@ void publicarVideojuego(){
             } 
             else {
                 cout << "No seleccionaste otros." << endl;
+                break;
             }
         }
-        listOtros[i+1] = NULL;
+        listOtros[i] = NULL;
         pausa();
 
         cout << "Confirme si desea publicar un videojuego:" << endl;
@@ -158,9 +159,7 @@ void publicarVideojuego(){
         cin >> confirmar;
         if (confirmar == 's' || confirmar == 'S'){
         dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego,"", descripcion, costos,"",0,0);
-        cout << "pase el dtVj" << endl;
-        cout << nombreVideojuego << descripcion << costos << endl;
-        controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros);
+        controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros); //aca esta el drama
         cout << "Publicaste un videojuego." << endl;
         } 
         pausa();

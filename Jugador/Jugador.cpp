@@ -135,35 +135,27 @@ Multijugador* Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,V
 
 void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj,int idPartida,time_t horaActual){
 
-    // if(datosPartida->getContinuacion()){
-    //     //hay que hacer
-    //     OrderedKey* kAnt = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
+     if(datosPartida->getContinuacion()){
+         //hay que hacer
+         OrderedKey* kAnt = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
 
-    //     Individual* partiContinuada = (Individual*)partidasInactivas->find(kAnt);//conseguimos la partida ya inactiva a continuar
-    //     time_t dameLaHora = time(NULL);
+         Individual* partiContinuada = (Individual*)partidasInactivas->find(kAnt);//conseguimos la partida ya inactiva a continuar
 
-    //     //IIterator* it = partidasInactivas->getIterator();
-
-    //     double horadiferida = difftime(datosPartida->getFecha(),horaActual);
+         double horadiferida = difftime(datosPartida->getFecha(),horaActual);
+         OrderedKey* k = new Integer(idPartida);
        
-    //     Individual* partiAAnadiar = new Individual(idUltimaPartida,dameLaHora,horadiferida,vj,partiContinuada);
-    //     delete kAnt;
+         Individual* partiAAnadiar = new Individual(idPartida,horaActual,horadiferida,vj,partiContinuada);
 
-    //     Integer* k = new Integer(idUltimaPartida);
+         this->partidasActivas->add(k,partiAAnadiar);
+     }else{
 
-    //     this->partidasActivas->add(k,partiAAnadiar);
-    // }else{
+         Individual* partiAAnadiar = new Individual(idPartida,horaActual,0,vj,NULL);
 
-    //     //OrderedKey* k = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
-    //     Individual* partiAAnadiar = new Individual(idPartida,horaActual,0,vj,NULL);
+         OrderedKey* k2 = new Integer(idPartida);
 
-    //     OrderedKey* k = new Integer(idPartida);
-
-    //     OrderedKey* k = new Integer(idUltimaPartida);
-
-    //     this->partidasActivas->add(k,partiAAnadiar);
-    // }
-    // return;
+         this->partidasActivas->add(k2,partiAAnadiar);
+     }
+     return;
 }
 dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}
 dtPartidaMultijugador** Jugador::partidaAFinalizar(){}

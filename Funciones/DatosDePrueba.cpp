@@ -53,6 +53,7 @@ void cargarDatos(){
                 cargarOtros(f);
                 break;
             case '4':
+                cargarVideojuegos(f);
                 break;
             case '5':
                 break;

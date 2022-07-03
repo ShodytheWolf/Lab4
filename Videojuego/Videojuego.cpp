@@ -9,6 +9,14 @@ Videojuego::Videojuego(const char* nombre, string descripcion, Desarrollador* de
     this->suscripcionMensual = new Mensual(susCostos->getCostoMensual());
     this->suscripcionTrimestral = new Trimestral(susCostos->getCostoTrimestral());
     this->suscripcionVitalicia = new Vitalicia(susCostos->getCostoVitalicia());
+    
+    Estadistica* statsHoras = new Estadistica("Total de Horas",
+    "Esta estadistica muestra el total de horas de todos los jugadores");
+    estadisticas->add(statsHoras->getNombre(), statsHoras);
+
+    Estadistica* statsPuntaje = new Estadistica("Puntaje promedio",
+    "Esta estadistica muestra el puntaje promedio otrogado por todos los jugadores al videojuego");
+    estadisticas->add(statsPuntaje->getNombre(),statsPuntaje);
 }
 
 Videojuego::~Videojuego()
@@ -48,8 +56,8 @@ void Videojuego::setDescripcionJuego(string descripcionJuego) {
     this->descripcionJuego = descripcionJuego;
 }
 
-void Videojuego::aniadirCategoria(Categoria* cat){
-    categorias->add(cat->getNombreCategoria());
+void Videojuego::aniadirCategoria(Categoria* cat){ //tic
+    categorias->add(cat->getNombreCategoria(), cat);
 };
 
 void Videojuego::addDtJuego(dtVideoJuego datosJuego){
