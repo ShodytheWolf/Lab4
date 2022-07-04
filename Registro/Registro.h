@@ -16,7 +16,7 @@ public:
     Registro(float cantHoras,int puntajeJuego );
     ~Registro();
 
-    dtVideoJuego** getDtJuego();
+    dtVideoJuego* getDtJuego();
     void activarSuscripcion(enumSuscripcion tipoSuscripcion, enumPago metodoDePago);
     void cancelSuscripcion();
     bool estaSuscrito();

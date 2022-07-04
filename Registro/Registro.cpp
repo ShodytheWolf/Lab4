@@ -21,8 +21,28 @@ Registro::~Registro(){
 	}
 }
 
-dtVideoJuego** Registro::getDtJuego(){
+dtVideoJuego* Registro::getDtJuego(){
+
+	dtVideoJuego** listSuscritos;
+	dtVideoJuego** listNoSuscriptos;
+	dtVideoJuego** listJuegosDiff; //suscriptos y no suscriptos
+
+	//aca le paso si esta suscrito o no
+	//dtVideojuego* addJS = new dtVideojuego(nombrejuego,dessarrollador, desc, sus, suscrito, puntaje, horas);
+
+	/*if(estaSuscrito){
+		añado juego a lista suscritos.
+		 //listSuscritos[i] = addJS;
+
+	}
+	else {
+		añado juego a lista no suscrito.
+		 //listNoSuscritos[i] = addJS;
+	}
+	*/
+
 }
+
 void Registro::activarSuscripcion(enumSuscripcion tipoSuscripcion,enumPago metodoDePago){
 
 }
