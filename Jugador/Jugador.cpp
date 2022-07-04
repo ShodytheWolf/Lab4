@@ -202,13 +202,9 @@ void Jugador::eliminarContRegisJuego(Videojuego* vj){
             for(it = this->partidasInactivas->getIterator(); it->hasCurrent(); it->next()){
                 Partida* paIna = (Partida*) it->getCurrent();
                 if(paIna->comprobarJuego(vj)){
-                    if((EnVivo*) paIna){
-                        paIna->eliminarComentarios();
-                    }
                     partidasInactivas->remove(paIna->getId());
                     delete paIna;
                 }
-
             }
         }
         delete it;
