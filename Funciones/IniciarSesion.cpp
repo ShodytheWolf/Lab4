@@ -18,7 +18,7 @@ void iniciarSesion(char &tU){
             <<"3-Confirmar\n"
             <<"4-Cancelar"
             <<endl;
-            cin >> op;
+            cin.ignore() >> op;
             switch(op){
                 case '1':
                     cout << "Ingrese su email: " <<endl;
