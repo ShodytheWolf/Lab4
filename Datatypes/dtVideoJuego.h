@@ -14,7 +14,8 @@ public:
     /**
      * @brief Constructor de dtVideojuego con categorias
      */
-    dtVideoJuego(string n, string nD, string d, dtSuscripcion* c, bool eS, string **categorias, float pP, float hT);
+    dtVideoJuego(string n, string nD, string d, 
+    dtSuscripcion* c, bool eS, string **categorias, float pP, float hT);
 
     /**
      * @brief Constructor de dtVideojuego sin categorias
@@ -41,7 +42,6 @@ private:
     string **categorias;
     float puntajePromedio;
     float horasTotales;
-
 };
 
 #endif
