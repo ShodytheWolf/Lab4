@@ -36,9 +36,15 @@ public:
     Desarrollador* getDesarrollador();
     void setDesarrollador(Desarrollador* desarrollador);
 
+    Anual* getSuscripcionAnual();
+    Mensual* getSuscripcionMensual();
+    Trimestral* getSuscripcionTrimestral();
+    Vitalicia* getSuscripcionVitalicia();
+
     void aniadirCategoria(Categoria* cat);
     void addDtJuego(dtVideoJuego datosJuego); //armar datos
-    dtEstadistica** getEstadisticas();
+    dtEstadistica* getEstadisticas(const char*);
+    string** getNombreCategorias();
 
 protected:
     String* nombreJuego; // atributo que sera la key

@@ -20,11 +20,14 @@ public:
     void activarSuscripcion(enumSuscripcion tipoSuscripcion, enumPago metodoDePago);
     void cancelSuscripcion();
     bool estaSuscrito();
+    bool confrmarJuego(Videojuego*);
+
+
     float getCantHoras();
     void setCantHoras(float cantHoras);
     int getPuntajeJuego();
     void setPuntajeJuego(int puntajeJuego);
-    bool confrmarJuego(Videojuego*);
+
 
     Videojuego* getVideojuego();
 private:

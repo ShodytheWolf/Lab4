@@ -358,18 +358,47 @@ void Controlador::seleccionarPartida(int idPartida)
 {
 }
 
-string **Controlador::listarTodosVJ()
+string** Controlador::listarTodosVJ()
 {
+    string** listVj = new string*[videojuegos->getSize() + 1];
+    int i = 0;
+    for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){
+        Videojuego* v = (Videojuego*) it->getCurrent();
+        listVj[i] = new string(v->getNombreJuego()->getValue());
+        i++;
+    }
+    return listVj;
 }
 
-dtVideoJuego *Controlador::seleccionarVideojuego(char *nombreVideojuego)
+dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
 {
+    Videojuego* v = (Videojuego*) videojuegos->find(new String(nombreVideojuego));
+    string nombreVj = string(v->getNombreJuego()->getValue());
+    string descVj = v->getDescripcionJuego();
+    dtSuscripcion* costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
+    v->getSuscripcionTrimestral()->getCostoTrimestral(),v->getSuscripcionAnual()->getCostoAnual(),
+    v->getSuscripcionVitalicia()->getCostoVitalicia());
+    string** categoriasVj = v->getNombreCategorias();
+    dtEstadistica* puntajeVj = v->getEstadisticas("Puntaje");
+    if(dynamic_cast<Desarrollador*>(loggedUser)){
+        dtEstadistica* horasVj = v->getEstadisticas("Horas");
+        Desarrollador* d = (Desarrollador*) loggedUser;
+        dtVideoJuego* datosVj = new dtVideoJuego(nombreVj,
+        string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+        descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
+        return datosVj;
+    }
+    Jugador* j = (Jugador*) loggedUser;
+    dtVideoJuego* datosVj = new dtVideoJuego(nombreVj,
+    string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+    descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
+    return datosVj;
 }
 
 string **Controlador::listarVideojuegosPublicados()
 {
     if (this->videojuegos->isEmpty())
-        throw invalid_argument("No hay videojuegos en el sistema");
+        throw invalid_argument("Error: No hay videojuegos en el sistema");
     int tam = this->videojuegos->getSize();
     string **listVJ = new string *[tam + 1];
     Desarrollador *d = (Desarrollador *)this->loggedUser;
@@ -388,7 +417,7 @@ string **Controlador::listarVideojuegosPublicados()
         }
     }
     if (listVJ[0] == NULL)
-        throw invalid_argument("No hay ningun juego publicado por el Desarrollador");
+        throw invalid_argument("Error: No hay ningun juego publicado por el Desarrollador");
     for (it = usuarios->getIterator(); it->hasCurrent(); it->next())
     {
         Usuario *u = dynamic_cast<Usuario *>(it->getCurrent());
@@ -398,15 +427,15 @@ string **Controlador::listarVideojuegosPublicados()
             listVJ = j->comprobarPartidas(listVJ, tam);
         }
         if (listVJ[0] == NULL)
-            throw invalid_argument("No hay ningun videojuego sin partida activa");
+            throw invalid_argument("Error: Todos sus VJ tienen, por lo menos, una partida activa");
     }
     delete it;
     return listVJ;
 }
 
-void Controlador::confirmoEliminacion(char *nombreVideojuego)
+void Controlador::confirmoEliminacion(const char *nombreVideojuego)
 {
-    Videojuego *vj = dynamic_cast<Videojuego *>(videojuegos->find(new String(nombreVideojuego)));
+    Videojuego *vj = (Videojuego *) videojuegos->find(new String(nombreVideojuego));
     for (IIterator *it = this->usuarios->getIterator(); it->hasCurrent(); it->next())
     {
         Usuario *u = (Usuario *)it->getCurrent();
@@ -415,8 +444,11 @@ void Controlador::confirmoEliminacion(char *nombreVideojuego)
             Jugador *j = (Jugador *)u;
             j->eliminarContRegisJuego(vj);
         }
-    }
+    }    
+    String k = String(vj->getNombreJuego()->getValue());
+    String* pointerK = &k;
     delete vj;
+    this->videojuegos->remove(pointerK);
 }
 
 /**

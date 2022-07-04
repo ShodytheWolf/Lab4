@@ -20,6 +20,7 @@ void cargarGeneros(Fabrica);
 void cargarPltaformas(Fabrica);
 void cargarOtros(Fabrica);
 void cargarVideojuegos(Fabrica);
+void cargarPuntajes(Fabrica);
 
 void cargarDatos(){
     Fabrica f;
@@ -58,6 +59,7 @@ void cargarDatos(){
             case '5':
                 break;
             case '6':
+                cargarPuntajes(f);
                 break;
             case '7':
                 break;
@@ -126,7 +128,7 @@ void cargarOtros(Fabrica f){
     }
 }
 
-void cargarVideojuegos(Fabrica f){ //para arreglar
+void cargarVideojuegos(Fabrica f){ 
     IControlador* sistema = f.getInterface();
     //"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"
     dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
@@ -141,6 +143,19 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     dtCategoria* c6 = new dtCategoria("Estrategia","",Genero);
     dtCategoria* c7 = new dtCategoria("Teen","",Otro);
     dtCategoria* c8 = new dtCategoria("E","",Otro);
+
+
+    //Incersion del FIFA
+    dtCategoria** plataformasFIFA = new dtCategoria*[4];
+    plataformasFIFA[0] = c1; plataformasFIFA[1] = c2; plataformasFIFA[2] = c3;
+    dtCategoria** generosFIFA = new dtCategoria*[2];
+    generosFIFA[0] = c4;
+    dtCategoria** otrosFIFA = new dtCategoria*[2];
+    otrosFIFA[0] = c8;
+    sistema->ingresoData("ea@mail.com", "123", false);
+    sistema->confirmarSesion();
+    dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
+    sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
 
     //Incersion del Kingdom Rush
     dtCategoria** plataformasKR = new dtCategoria*[3];
@@ -177,36 +192,8 @@ void cargarVideojuegos(Fabrica f){ //para arreglar
     sistema->confirmarSesion();
     dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
     sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
-
-    //Incersion del FIFA
-    dtCategoria** plataformasFIFA = new dtCategoria*[4];
-    plataformasFIFA[0] = c1; plataformasFIFA[1] = c2; plataformasFIFA[2] = c3;
-    dtCategoria** generosFIFA = new dtCategoria*[2];
-    generosFIFA[0] = c4;
-    dtCategoria** otrosFIFA = new dtCategoria*[2];
-    otrosFIFA[0] = c8;
-    sistema->ingresoData("ea@mail.com", "123", false);
-    sistema->confirmarSesion();
-    dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
-    sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
 }  
-/**
- * C1: PC
- * C2: PS4
- * C3: Xbox One
- * C4: Deporte
- * C5: Supervivencia
- * C6: Estrategia
- * C7: Teen
- * C8: E
- * 
- */
-/**
- *
- *  
-    V1 D1 KingdomRush $1 | $2 | $7 | $14 C1, C2, C6, C8
-    V2 D2 Fortnite $3 | $8 | $30 | $60 C1, C2, C3, C5, C7
-    V3 D3 Minecraft $2 | $5 | $20 | $40 C1, C5, C8
-    V4 D4 FIFA 21 $3 | $8 | $28 | $50 C1, C2, C3, C4, C8
- * 
- */
+
+void cargarPuntajes(Fabrica f){
+    
+}
