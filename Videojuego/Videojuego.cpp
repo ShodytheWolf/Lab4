@@ -10,11 +10,11 @@ Videojuego::Videojuego(const char* nombre, string descripcion, Desarrollador* de
     this->suscripcionTrimestral = new Trimestral(susCostos->getCostoTrimestral());
     this->suscripcionVitalicia = new Vitalicia(susCostos->getCostoVitalicia());
     
-    Estadistica* statsHoras = new Estadistica("Total de Horas",
+    Estadistica* statsHoras = new Estadistica("Horas",
     "Esta estadistica muestra el total de horas de todos los jugadores");
     estadisticas->add(statsHoras->getNombre(), statsHoras);
 
-    Estadistica* statsPuntaje = new Estadistica("Puntaje promedio",
+    Estadistica* statsPuntaje = new Estadistica("Puntaje",
     "Esta estadistica muestra el puntaje promedio otrogado por todos los jugadores al videojuego");
     estadisticas->add(statsPuntaje->getNombre(),statsPuntaje);
 }
@@ -26,7 +26,8 @@ Videojuego::~Videojuego()
     delete this->suscripcionMensual;
     delete this->suscripcionTrimestral;
     delete this->suscripcionVitalicia;
- 
+    this->desarrollador = NULL;
+
     for(it = this->estadisticas->getIterator(); it->hasCurrent(); it->next()){
         Estadistica* e = (Estadistica*)it->getCurrent();
         delete e;
@@ -58,14 +59,45 @@ void Videojuego::setDescripcionJuego(string descripcionJuego) {
 
 void Videojuego::aniadirCategoria(Categoria* cat){ //tic
     categorias->add(cat->getNombreCategoria(), cat);
-};
+}
+
+Anual* Videojuego::getSuscripcionAnual() {
+    return this->suscripcionAnual;
+}
+
+Mensual* Videojuego::getSuscripcionMensual() {
+    return this->suscripcionMensual;
+}
+
+Trimestral* Videojuego::getSuscripcionTrimestral() {
+    return this->suscripcionTrimestral;
+}
+
+Vitalicia* Videojuego::getSuscripcionVitalicia() {
+    return this->suscripcionVitalicia;
+}
+
+string** Videojuego::getNombreCategorias(){
+    string** nCats = new string*[categorias->getSize() + 1];
+    int i = 0;
+    for(IIterator* it = this->categorias->getIterator(); it->hasCurrent(); it->next()){
+        Categoria* c = (Categoria*) it->getCurrent();
+        nCats[i] = new string(c->getNombreCategoria()->getValue());
+        i++;
+    }
+    return nCats;
+}
+
+
 
 void Videojuego::addDtJuego(dtVideoJuego datosJuego){
 
     //KEKW
 };
 
-dtEstadistica** Videojuego::getEstadisticas(){
-
-    //KEKWWWW
-};
+dtEstadistica* Videojuego::getEstadisticas(const char* nStat)
+{
+    Estadistica* e = (Estadistica*) estadisticas->find(new String(nStat));
+    dtEstadistica* dtE = new dtEstadistica(string(e->getNombre()->getValue()), e->getDato());
+    return dtE;
+}
