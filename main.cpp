@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 void menuDesarrollador();
 void menuJugador();
 void esperarEnter();
@@ -61,7 +62,8 @@ int main(){
 
 void menuDesarrollador(){
     char op = ' ';
-    char exit = ' ';
+    bool exit = false;
+    char opExit = ' ';
     do{
         cout
         << "=============\n" 
@@ -72,7 +74,7 @@ void menuDesarrollador(){
         <<"3. Ver información de videojuego\n"
         <<"4. Modificar fecha del sistema\n"
         <<"5. Salir\n"
-        <<"Ingrese una opción numerica:\n"
+        <<"Ingrese una opción numerica:"
         <<endl;
         cin >> op;
         system("clear");
@@ -92,32 +94,36 @@ void menuDesarrollador(){
                 break;
             case '5':
                 cout << "Volvera al menu principal y debera iniciar sesion nuevamente. Seguro que desea hacerlo ? S/N" << endl;
-                cin >> exit;
+                cin >> opExit;
+                if( opExit == 's' || opExit == 'S')
+                    exit = true;
                 system("clear");
+                esperarEnter();
                 break;
             default:
                 cout << "opcion incorrecta. Por favor intente nuevamente" <<endl;
                 break;
         }
-    }while(exit != 's' || exit != 'S');
+    }while(!exit);
 }
-
+//ARREGLAR EXIT
 void menuJugador(){
 
     char op = ' ';
-    char exit = ' ';
-    cout << "=============" << endl;
-    cout << "Menú jugador." << endl;
-    cout << "=============" << endl;
-    cout << "1- Suscribirse a un videojuego." << endl;
-    cout << "2- Iniciar partida." << endl;
-    cout << "3- Finalizar partida." << endl;
-    cout << "4- Ver información de videojuego." << endl;
-    cout << "5- Modificar fecha del sistema." << endl;
-    cout << "6- Salir." << endl;
-    cin >> op;
-    system("clear");
+    char opExit = ' ';
+    bool exit = false;
     do{
+        cout << "=============" << endl;
+        cout << "Menú jugador." << endl;
+        cout << "=============" << endl;
+        cout << "1- Suscribirse a un videojuego." << endl;
+        cout << "2- Iniciar partida." << endl;
+        cout << "3- Finalizar partida." << endl;
+        cout << "4- Ver información de videojuego." << endl;
+        cout << "5- Modificar fecha del sistema." << endl;
+        cout << "6- Salir." << endl;
+        cin.ignore() >> op;
+        system("clear");
         switch(op){
             case '1':
                 suscribirseAVideojuego();
@@ -136,20 +142,21 @@ void menuJugador(){
                 break;
             case '6':
                 cout << "Volvera al menu principal y debera iniciar seion nuevamente.\nSeguro que desea continuar? S/N" << endl;
-                cin >> exit;
+                cin >> opExit;
+                if( opExit == 's' || opExit == 'S')
+                    exit = true;
                 system("clear");
                 break;
             default: 
             cout << "Opción incorrecta. Intente de nuevo" << endl;
             break;
         }
-    }while( exit != 's' || exit != 'S');
+    }while(!exit);
 }
 
 void esperarEnter(){
     cout << "Presione <enter> para continuar" <<endl;
-    getchar();
-    getchar();
+    cin.ignore();
     system("clear");
 }
 
