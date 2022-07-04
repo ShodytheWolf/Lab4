@@ -38,11 +38,10 @@ void publicarVideojuego(){
     cout << "|=======================|" << endl;
 
     cout << "Ingrese nombre del videojuego: " << endl;
-    cin >> nombreVideojuego;
+    getchar();
     getline(cin,nombreVideojuego,'\n');
    
     cout << "Ingrese descripción del videojuego: " << endl;
-    cin >> descripcion;
     getline(cin,descripcion,'\n');
 
     cout << "Ingrese costos por tipo de suscripción." << endl;
@@ -111,11 +110,11 @@ void publicarVideojuego(){
                     system("clear");
                 }
             }
-            int i = 0;
             dtCategoria* addCatPlataforma = new dtCategoria(inGplataforma, "", Plataforma); //paso cat al dt esta cat pasa por el control.
             listPlataformas[i] = addCatPlataforma;
             cout << "¿Desea ingresar otra plataforma (S/N)" << endl;
             cin >> confirmar;
+            i++;
         }while(confirmar == 'S');
         listPlataformas[i] = NULL;
         pausa();
@@ -144,6 +143,7 @@ void publicarVideojuego(){
                 }
                 dtCategoria* addCatOtro = new dtCategoria(inGotros, "", Otro);
                 listOtros[i] = addCatOtro;
+                i++;
                 cout << "¿Desea ingresar otra categoría (S/N)" << endl;
                 cin >> confirmar;
                 if (confirmar == 'N')
@@ -161,9 +161,14 @@ void publicarVideojuego(){
         cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar." << endl;
         cin >> confirmar;
         if (confirmar == 's' || confirmar == 'S'){
-        dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego,"", descripcion, costos,"",0,0);
-        controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros); //aca esta el drama
-        cout << "Publicaste un videojuego." << endl;
+            cout << listGeneros[0]->getNombre() << " | " << listPlataformas[0]->getNombre() <<endl;
+            getchar();
+            getchar();
+            dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego,"", descripcion, costos,"",0,0);
+
+
+            controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros); //aca esta el drama
+            cout << "Publicaste un videojuego." << endl;
         } 
         pausa();
 
