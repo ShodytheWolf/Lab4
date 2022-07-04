@@ -56,11 +56,11 @@ class Controlador: public IControlador{
 
         //Ver info Videojuego:
         string** listarTodosVJ();
-        dtVideoJuego* seleccionarVideojuego(char* nombreVideojuego);                     //29
+        dtVideoJuego* seleccionarVideojuego(const char* nombreVideojuego);                     //29
 
         //Eliminar Videojuego
         string** listarVideojuegosPublicados();                                           //30
-        void confirmoEliminacion (char* nombreVideojuego);                                //31
+        void confirmoEliminacion (const char* nombreVideojuego);                                //31
         
         //Agregar Categoria:
         void nuevaCategoria(const char*, string, enumCategoria);
