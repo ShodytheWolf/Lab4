@@ -49,6 +49,7 @@ public:
     string** comprobarPartidas(string** nombreJuegos, int t);
     void eliminarContRegisJuego(Videojuego* vj);
     void unirseAPartida(Multijugador* multi);
+    void nuevoPuntaje(Videojuego*, int);
 
 private:
     String* nickname;

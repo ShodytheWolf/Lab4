@@ -196,7 +196,7 @@ void Jugador::eliminarContRegisJuego(Videojuego* vj){
     IIterator* it;
     for(it = this->registros->getIterator(); it->hasCurrent(); it->next()){
         Registro* r = (Registro*) it->getCurrent();
-        if(r->confrmarJuego(vj)){
+        if(r->confirmarJuego(vj)){
             registros->remove(r);
             delete r;
             for(it = this->partidasInactivas->getIterator(); it->hasCurrent(); it->next()){
@@ -216,3 +216,12 @@ void Jugador::unirseAPartida(Multijugador* multi){
     this->partidasUnido->add(multi);
 }
 
+void Jugador::nuevoPuntaje(Videojuego* vj, int p){
+    for(IIterator* it = registros->getIterator(); it->hasCurrent(); it->next()){
+        Registro* r = (Registro*) it->getCurrent();
+        if(r->confirmarJuego(vj)){
+            r->puntuar(p);
+            break;
+        }
+    }
+}
