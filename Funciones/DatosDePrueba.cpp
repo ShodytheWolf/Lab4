@@ -158,10 +158,10 @@ void cargarOtros(Fabrica f){
 void cargarVideojuegos(Fabrica f){ 
     IControlador* sistema = f.getInterface();
     //"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"
-    dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14, NULL);
-    dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60, NULL);
-    dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40, NULL);
-    dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50, NULL);
+    dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14, enumSuscripcion(NULL));
+    dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60, enumSuscripcion(NULL));
+    dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40, enumSuscripcion(NULL));
+    dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50, enumSuscripcion(NULL));
     dtCategoria* c1 = new dtCategoria("PC", "", Plataforma);
     dtCategoria* c2 = new dtCategoria("PS4", "", Plataforma);
     dtCategoria* c3 = new dtCategoria("Xbox One", "", Plataforma);

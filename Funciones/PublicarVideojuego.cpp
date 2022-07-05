@@ -59,7 +59,7 @@ void publicarVideojuego(){
     cin >> costoVitalicia;
     
     //guardar costos 
-    dtSuscripcion* costos = new dtSuscripcion(costoMensual,costoTrimestral, costoAnual, costoVitalicia, NULL);
+    dtSuscripcion* costos = new dtSuscripcion(costoMensual,costoTrimestral, costoAnual, costoVitalicia, enumSuscripcion(NULL));
     pausa();
 
     //generos

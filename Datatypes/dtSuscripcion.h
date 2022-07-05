@@ -7,16 +7,18 @@ class dtSuscripcion
 {
 public:
     dtSuscripcion();
-    dtSuscripcion(float costoMensual, float costoTrimestral, float costoAnual, float costoVitalicia, enumSuscripcion* tipo);
+    dtSuscripcion(float costoMensual, float costoTrimestral, float costoAnual, float costoVitalicia, enumSuscripcion tipo);
     ~dtSuscripcion();
 
     float getCostoMensual();
     float getCostoTrimestral();
     float getCostoAnual();
     float getCostoVitalicia();
-    enumSuscripcion* getTipo();
+    enumSuscripcion getTipo();
+
 private:
-    enumSuscripcion* tipo;
+
+    enumSuscripcion tipo;
     float costoMensual;
     float costoTrimestral;
     float costoAnual;
