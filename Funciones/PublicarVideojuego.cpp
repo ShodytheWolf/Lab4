@@ -71,14 +71,14 @@ void publicarVideojuego(){
             listGeneros = controlador->listarGenero();
             muestroList(listGeneros); //muestro  
             cout << "Seleccione  un género (sensible a mayúsculas y minúsculas): " << endl;
-            cin >> inGgenero;
+            getline(cin,inGgenero,'\n');
             system("clear");
             if (listGeneros[0] !=NULL){   
                 while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero
                     cout << "El género ingresado no existe. Intente nuevamente." << endl;
                     muestroList(listGeneros);
                     cout << "Seleccione un género, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
-                    cin >> inGgenero;
+                    getline(cin,inGgenero,'\n');
                     system("clear");
                 }
             }
@@ -99,14 +99,14 @@ void publicarVideojuego(){
             listPlataformas = controlador->listarPlataforma(); //listo y muestro
             muestroList(listPlataformas);
             cout << "Seleccione  una plataforma (sensible a mayúsculas y minúsculas): " << endl;
-            cin >> inGplataforma;
+            getline(cin,inGplataforma,'\n');
             system("clear");
             if (listPlataformas[0] != NULL){  
                 while(!verificarCat(listPlataformas, inGplataforma)){   //si no existe plataforma 
                     cout << "La plataforma ingresada no existe. Intente nuevamente." << endl;
                     cout << "Seleccione una plataforma, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
                     muestroList(listPlataformas);
-                    cin >> inGplataforma;
+                    getline(cin,inGplataforma,'\n');
                     system("clear");
                 }
             }
@@ -130,14 +130,14 @@ void publicarVideojuego(){
             cin >> confirmar; 
             if (confirmar == 's' || confirmar == 'S' && confirmar != 'n' && confirmar != 'N'){
                 cout << "Seleccione una categoría otros" << endl;
-                cin >> inGotros;
+                getline(cin,inGotros,'\n');
                 system("clear");
                 if (listOtros[0] != NULL){
                     while(!verificarCat(listOtros, inGotros)){
                         cout << "La categoría otros- ingresada no existe. Intente nuevamente." << endl;
                         cout << "Seleccione una categoria otros, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
                         muestroList(listOtros);
-                        cin >> inGotros;
+                        getline(cin,inGotros,'\n');
                         system("clear");
                     }
                 }
