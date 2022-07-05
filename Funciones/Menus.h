@@ -13,6 +13,7 @@ void verInformacionVideojuego();
 void publicarVideojuego();
 void suscribirseAVideojuego();
 void cargarDatos();
+void cambiarFecha();
  
 using namespace std;
 
