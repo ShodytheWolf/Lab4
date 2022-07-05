@@ -416,7 +416,7 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
     string descVj = v->getDescripcionJuego();
     dtSuscripcion* costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
     v->getSuscripcionTrimestral()->getCostoTrimestral(),v->getSuscripcionAnual()->getCostoAnual(),
-    v->getSuscripcionVitalicia()->getCostoVitalicia(), NULL);
+    v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
 
 
     string** categoriasVj = v->getNombreCategorias();

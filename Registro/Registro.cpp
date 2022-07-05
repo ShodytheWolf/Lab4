@@ -39,13 +39,13 @@ dtVideoJuego* Registro::getDtJuego(){
 		string nombreVJ = this->juego->getNombreJuego()->getValue();
 		string nombreEmp = this->juego->getDesarrollador()->getNombreEmpresa()->getValue();
 		string desc = juego->getDescripcionJuego();
-		
 		dtSuscripcion* dataCostos = new dtSuscripcion(this->juego->getSuscripcionMensual()->getCostoMensual(),
 		this->juego->getSuscripcionTrimestral()->getCostoTrimestral(),
 		this->juego->getSuscripcionAnual()->getCostoAnual(),
 		this->juego->getSuscripcionVitalicia()->getCostoVitalicia(),
 		this->contratacionActiva->getTipoSuscripto()); //costos de cada una y tipo de suscripcion contratada
-
+		cout << dataCostos->getTipo() <<endl;
+		getchar(); getchar();
 		data = new dtVideoJuego(nombreVJ, nombreEmp, desc, dataCostos, true, 0, 0);
 	}
 	return data;

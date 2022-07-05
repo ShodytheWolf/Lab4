@@ -132,7 +132,7 @@ void Videojuego::addDtJuego(dtVideoJuego** datosJuego){
     dtSuscripcion* dataCostos = new dtSuscripcion(this->getSuscripcionMensual()->getCostoMensual(),
     this->getSuscripcionTrimestral()->getCostoTrimestral(),
     this->getSuscripcionAnual()->getCostoAnual(),
-    this->getSuscripcionVitalicia()->getCostoVitalicia(),NULL); //costos de cada una y tipo de suscripcion contratada
+    this->getSuscripcionVitalicia()->getCostoVitalicia(),enumSuscripcion(NULL)); //costos de cada una y tipo de suscripcion contratada
 
     data = new dtVideoJuego(nombreVJ, nombreEmp, desc, dataCostos, false, 0, 0);
     
