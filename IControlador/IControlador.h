@@ -1,5 +1,6 @@
 #ifndef ICONTROLADOR_H
 #define ICONTROLADOR_H
+#include <ctime>
 #include "../Datatypes/dtCategoria.h"
 #include "../Datatypes/dtPartidaIndividual.h"
 #include "../Datatypes/dtPartidaMultijugador.h"
@@ -66,6 +67,14 @@ class IControlador{
         
         //Agregar Categoria:
         virtual void nuevaCategoria(const char*, string, enumCategoria) =0;                                                                              
+
+        //Asignar Puntaje
+        virtual void asignarPuntaje(const char*, int) = 0;
+
+        //Cambiar fecha del sistema
+        virtual void setFechaSistema(tm) = 0;
+        virtual time_t* getFechaSistema() = 0; 
+
 };
 
 
