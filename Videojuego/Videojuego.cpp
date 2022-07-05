@@ -77,6 +77,14 @@ Vitalicia* Videojuego::getSuscripcionVitalicia() {
     return this->suscripcionVitalicia;
 }
 
+int Videojuego::getCantPuntajes() {
+    return this->cantPuntajes;
+}
+
+void Videojuego::setCantPuntajes(int cantPuntajes) {
+    this->cantPuntajes = cantPuntajes;
+}
+
 string** Videojuego::getNombreCategorias(){
     string** nCats = new string*[categorias->getSize() + 1];
     int i = 0;
@@ -88,7 +96,11 @@ string** Videojuego::getNombreCategorias(){
     return nCats;
 }
 
-
+void Videojuego::nuevoPuntaje(int p){
+    this->puntajeTotal += p;
+    Estadistica* e = (Estadistica*) estadisticas->find(new String("Puntaje"));
+    e->calcularPromedio(this->puntajeTotal, this->cantPuntajes);
+}
 
 void Videojuego::addDtJuego(dtVideoJuego datosJuego){
 
@@ -100,4 +112,8 @@ dtEstadistica* Videojuego::getEstadisticas(const char* nStat)
     Estadistica* e = (Estadistica*) estadisticas->find(new String(nStat));
     dtEstadistica* dtE = new dtEstadistica(string(e->getNombre()->getValue()), e->getDato());
     return dtE;
+}
+
+void Videojuego::setPuntajeTotal(int puntaje) {
+    this->puntajeTotal += puntaje;
 }
