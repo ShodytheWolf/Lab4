@@ -129,7 +129,6 @@ try{
             if (confirmar == 's' || confirmar == 'S'){
             cout << "Compra realizada con éxito" << endl;
             controlador->nuevaSuscripcion(pago, tipoSus);
-            //delete nombreVideojuego.data(), listJuegosDiff;
             return;
             }
             else { //cancelar
@@ -137,13 +136,11 @@ try{
                 cout << "Pulsa ENTER para continuar..." << endl;
                 getchar();
                 getchar();
-                //delete nombreVideojuego.data(), listJuegosDiff;
                 return;
             } 
         }
         else { //tiene una suscripcion temporal
             enumSuscripcion* tipoSuscripto = jogo->getCostos()->getTipo();
-            cout << jogo->getCostos()<< endl;
             if(*tipoSuscripto != Vit){
                 cout << "¿Desea dar de baja la suscripcion activa y crear una nueva?" << endl;
                 cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
@@ -151,7 +148,7 @@ try{
                 if (confirmar == 's' || confirmar == 'S'){
                     cout << "diste de baja una suscripcion" << endl;
                     controlador->darDeBajaSuscripcion();
-                    cout << "Ingrese un metodo de Pago: " << endl;
+                    cout << "Ingrese un metodo de Pago Paypal(p/P), Tarjeta(t/T): " << endl;
                     cin >> selecPago;
                     switch(selecPago){
                         case 'p':
@@ -194,7 +191,6 @@ try{
                     if (confirmar == 's' || confirmar == 'S'){
                     cout << "Compra realizada con éxito" << endl;                          
                     controlador->nuevaSuscripcion(pago, tipoSus);
-                    //delete nombreVideojuego.data(), listJuegosDiff;
                     return;
                     }
                 }
@@ -203,7 +199,6 @@ try{
                     cout << "Pulsa ENTER para continuar..." << endl;
                     getchar();
                     getchar();
-                    //delete nombreVideojuego.data(), listJuegosDiff;
                     return;
                 }
             }
