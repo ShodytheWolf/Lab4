@@ -11,16 +11,18 @@
 #define GENEROS 5
 #define PLATAFORMAS 6
 #define OTRAS 2
+#define PUNTAJES 4
 
 using namespace std;
 
-void cargarDesarrolladores(Fabrica);
-void cargarJugadores(Fabrica);
-void cargarGeneros(Fabrica);
-void cargarPltaformas(Fabrica);
-void cargarOtros(Fabrica);
-void cargarVideojuegos(Fabrica);
-void cargarPuntajes(Fabrica);
+void cargarDesarrolladores(Fabrica); //1
+void cargarJugadores(Fabrica); //2
+void cargarGeneros(Fabrica); 
+void cargarPltaformas(Fabrica); 
+void cargarOtros(Fabrica); //3
+void cargarVideojuegos(Fabrica); //4
+void cargarSuscripciones(Fabrica); //5
+void cargarPuntajes(Fabrica); //6
 
 void cargarDatos(){
     Fabrica f;
@@ -37,7 +39,6 @@ void cargarDatos(){
         << "6.Puntajes de videojuegos\n"
         << "7.Partidas Individuales\n"
         << "8.Partidas multijugador\n"
-        << "9.Abandono de partidas\n"
         << "0.Cancelar"
         <<endl;
         cin >> op;
@@ -194,6 +195,20 @@ void cargarVideojuegos(Fabrica f){
     sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
 }  
 
-void cargarPuntajes(Fabrica f){
-    
+void cargarSuscripciones(Fabrica f){
+       
 }
+
+void cargarPuntajes(Fabrica f){
+    IControlador* sistema = f.getInterface();
+    string emailJdrs[PUNTAJES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com","ari@mail.com"};
+    string juegos[PUNTAJES] = { "Kingdom Rush", "Fortnite", "Fortnite", "Minecraft"};
+    int puntajes[PUNTAJES] = {4, 5, 5, 3};
+    for(int i = 0; i < PUNTAJES; i++){
+        sistema->ingresoData(emailJdrs[i], "123", false);
+        sistema->confirmarSesion();
+        sistema->asignarPuntaje(juegos[i].data(), puntajes[i]);
+    }
+}
+
+
