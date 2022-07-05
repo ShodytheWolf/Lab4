@@ -50,7 +50,16 @@ void Jugador::setDescripcionJugador(string descripcionJugador) {
 
 
 void Jugador::pasoJuego(String nombreVideojuego){}
-dtVideoJuego** Jugador::getDatosVj(){} 
+
+//getDatos vj suscripto
+dtVideoJuego** Jugador::getDatosVj(){   
+    IIterator* it;
+    for (it = registros->getIterator(); it->hasCurrent(); it->next()){ //itero en registros.
+        Registro* reg = (Registro*)it->getCurrent(); //obtengo registro
+        reg->getDtJuego();//llamo al get en registro
+    }
+}
+
 void Jugador::aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago){}
 
 string** Jugador::listarJuegosSuscripto(){

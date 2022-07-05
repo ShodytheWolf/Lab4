@@ -32,6 +32,7 @@ dtVideoJuego* Registro::getDtJuego(){
 	return NULL;
 
 }
+
 void Registro::activarSuscripcion(enumSuscripcion tipoSuscripcion,enumPago metodoDePago){
 
 }

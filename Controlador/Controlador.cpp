@@ -228,26 +228,45 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
         }
     }
     videojuegos->add(vj->getNombreJuego(), vj); // añado juego
+    cout << vj->getNombreJuego() << endl;
+
 }
 
 //suscribirse a videojuego
-dtVideoJuego **Controlador::listarVideojuegosDiferenciada()
-{
+dtVideoJuego **Controlador::listarVideojuegosDiferenciada(){
+
+        Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
+        j->getDatosVj(); //llamo a getDatos en jugador
+        //depois itero en jogos
+        /*
+        for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){
+        //videojuegos->add();
+        }
+        */
+
 }
 
-void Controlador::ingresarVideojuego(char *nombreVideojuego)
-{
+void Controlador::ingresarVideojuego(char* nombreVj){
+
+    this->nombreVideojuego = nombreVj;
 }
-bool Controlador::estaSuscripto(char *nombreVideojuego)
-{
+
+bool Controlador::estaSuscripto(char *nombreVideojuego){ //de donde sale este coso
 }
+
 void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion)
 {
+
+    //llamoctor
+
 }
 void Controlador::darDeBajaSuscripcion()
 {
-}
 
+    //llamo dtor en registro pa matar contratacion
+
+}
+/******************************************************************************************************/
 string **Controlador::listarVideojuegosSuscripto()
 {
 

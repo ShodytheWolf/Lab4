@@ -62,6 +62,8 @@ FABYCONT = IControlador.o Fabrica.o
  
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -71,13 +73,11 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/braian/Escritorio/Lab4
+CURDIR := /home/lucas/Documentos/GitHub/Lab4
 # makefile
 SHELL = /bin/sh
 # environment
 SNAP_DATA = /var/snap/code/99
-# environment
-VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"es-419","availableLanguages":{},"_languagePackSupport":true}
 # environment
@@ -93,13 +93,13 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-IM_CONFIG_PHASE = 1
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-USERNAME = braian
+USERNAME = lucas
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=dd07a5e25420492ef0a744de62c2f4f0
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
@@ -107,7 +107,7 @@ MANAGERPID = 1159
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/braian/Escritorio/Lab4
+VSCODE_CWD = /home/lucas
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/99/usr/share/glib-2.0/schemas
 # default
@@ -121,7 +121,7 @@ SESSION_MANAGER = local/braian-VirtualBox:@/tmp/.ICE-unix/1444,unix/braian-Virtu
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-GDK_PIXBUF_MODULE_FILE = /home/braian/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+GDK_PIXBUF_MODULE_FILE = /home/lucas/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 SNAP = /snap/code/99
 # environment
@@ -143,11 +143,13 @@ GDK_PIXBUF_MODULEDIR = /snap/code/99/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 # makefile (from 'Makefile', line 8)
 FUNCIONES = CambiaFecha.o DatosDePrueba.o AltaUsuario.o FinalizarPartida.o IniciarPartida.o EliminarVideojuego.o VerInfoVideojuego.o SuscribirseAVideojuego.o PublicarVideojuego.o IniciarSesion.o
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = 
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2364
 # automatic
 %F = $(notdir $%)
 # environment
@@ -157,7 +159,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-PWD = /home/braian/Escritorio/Lab4
+PWD = /home/lucas/Documentos/GitHub/Lab4
 # makefile (from 'Makefile', line 5)
 VJDEP = ICollection.o List.o IDictionary.o OrderedDictionary.o Categoria.o Suscripcion.o dtSuscripcion.o Estadistica.o Desarrollador.o Mensual.o Trimestral.o Anual.o Vitalicia.o
 # default
@@ -177,19 +179,19 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/braian/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = /home/lucas/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
-LOGNAME = braian
+LOGNAME = lucas
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
-SNAP_CONTEXT = jhT-kSYQCiJAGevdq2h2i85TJ4LyvujLO13ppdHCDL0k5fqqjySR
+SNAP_CONTEXT = qgPciXJz889BO8BrA_VLU6BjWx7PTvW5bVDmDGBeGm9tVOpZngtE
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-SNAP_USER_COMMON = /home/braian/snap/code/common
+SNAP_USER_COMMON = /home/lucas/snap/code/common
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
@@ -199,9 +201,7 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 MAKELEVEL := 0
 # environment
-SNAP_REAL_HOME = /home/braian
-# environment
-COLORTERM = truecolor
+SNAP_REAL_HOME = /home/lucas
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -209,9 +209,10 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/braian/snap/code/99
+SNAP_USER_DATA = /home/lucas/snap/code/99
 # environment
-SHLVL = 1
+ 
+SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -219,7 +220,7 @@ VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-24dbe224-9559-41d4-9011-f3d8
 # default
 MAKE_VERSION := 4.2.1
 # environment
-USER = braian
+USER = lucas
 # environment
 SNAP_REVISION = 99
 # makefile
@@ -232,8 +233,6 @@ JGDEP = Usuario.o Videojuego.o dtPartidaIndividual.o dtPartidaMultijugador.o ICo
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# environment
-OLDPWD = /home/braian
 # default
 .VARIABLES := 
 # automatic
@@ -241,7 +240,9 @@ OLDPWD = /home/braian
 # environment
 LANGUAGE = es_UY:es
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-0ae747f0-1.68.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-f23a0542-1.68.1-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -261,7 +262,7 @@ MAKEFILES :=
 # makefile (from 'Makefile', line 4)
 DATAS = dtCategoria.o dtPartidaIndividual.o dtPartidaMultijugador.o dtVideoJuego.o dtJugador.o
 # environment
-SNAP_COOKIE = jhT-kSYQCiJAGevdq2h2i85TJ4LyvujLO13ppdHCDL0k5fqqjySR
+SNAP_COOKIE = qgPciXJz889BO8BrA_VLU6BjWx7PTvW5bVDmDGBeGm9tVOpZngtE
 # automatic
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 2)
@@ -291,7 +292,7 @@ WINDOWPATH = 2
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
+VSCODE_PID = 2409
 # environment
 VSCODE_PID = 8242
 # variable set hash-table stats:
@@ -362,7 +363,7 @@ Suscripcion/Mensual.cpp:
 # Not a target:
 Datatypes/dtPartida.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 20:44:49.76332726
+#  Last modified 2022-07-02 20:57:01.718373982
 #  File has been updated.
 #  Successfully updated.
 
@@ -412,7 +413,7 @@ all: programa
 
 dtCategoria.o: Datatypes/dtCategoria.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-28 13:23:21.136149037
+#  Last modified 2022-06-27 16:01:18.384779645
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 124):
@@ -475,14 +476,14 @@ IDictionary.o: colecciones-genericas/interfaces/IDictionary.cpp IKey.o ICollecti
 # Not a target:
 Datatypes/dtCategoria.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-28 13:23:20.860151748
+#  Last modified 2022-06-22 21:00:06.306533222
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Datatypes/dtPartidaMultijugador.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 18:21:43.855930934
+#  Last modified 2022-07-02 20:59:39.502734176
 #  File has been updated.
 #  Successfully updated.
 
@@ -585,7 +586,7 @@ colecciones-genericas/collections/List.cpp:
 
 dtVideoJuego.o: Datatypes/dtVideoJuego.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 18:19:28.899465758
+#  Last modified 2022-07-02 18:01:22.244223105
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 139):
@@ -655,7 +656,7 @@ ICollection.o: colecciones-genericas/interfaces/ICollection.cpp IIterator.o
 # Not a target:
 Datatypes/dtVideoJuego.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-30 14:36:21.935460464
+#  Last modified 2022-06-29 19:18:02.185049258
 #  File has been updated.
 #  Successfully updated.
 
@@ -749,6 +750,7 @@ Partida.o: Partida/Partida.cpp dtPartida.o ICollectible.o String.o Integer.o
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 118):
 	@$(GXX) -c $^
+ 
 
 # Not a target:
 Estadistica/Estadistica.cpp:
@@ -899,7 +901,7 @@ Controlador/Controlador.cpp:
 
 dtPartidaIndividual.o: Datatypes/dtPartidaIndividual.cpp dtPartida.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 20:47:22.543250136
+#  Last modified 2022-07-02 20:57:01.726374239
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 130):
@@ -964,7 +966,7 @@ IniciarSesion.o: Funciones/IniciarSesion.cpp IControlador.o Fabrica.o
 # Not a target:
 Datatypes/dtPartidaIndividual.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-02 20:44:49.76332726
+#  Last modified 2022-07-02 20:57:01.718373982
 #  File has been updated.
 #  Successfully updated.
 
@@ -1094,7 +1096,7 @@ AltaUsuario.o: Funciones/AltaUsuario.cpp IControlador.o Fabrica.o
 
 dtPartida.o: Datatypes/dtPartida.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-02 20:47:22.123250307
+#  Last modified 2022-07-02 20:57:01.726374239
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 136):
@@ -1150,7 +1152,7 @@ Usuario.o: Usuario/Usuario.cpp ICollectible.o String.o
 # Not a target:
 IControlador/IControlador.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-14 19:27:11.766331602
+#  Last modified 2022-06-14 19:51:01.844844344
 #  File has been updated.
 #  Successfully updated.
 
