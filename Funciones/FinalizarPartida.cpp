@@ -37,7 +37,7 @@ void finalizarPartida(){
             while(partidasActivas[i] != NULL){
                 cout<<"ID: "<<partidasActivas[i]->getIdPartida()<<endl
                 <<"Fecha de Inicio: "<<partidasActivas[i]->getFecha()<<endl
-                <<"Nombre do videojogo: "<<partidasActivas[i]->getNombreVideojuego()<<endl;
+                <<"Nombre do videojogo: "<<*partidasActivas[i]->getNombreVideojuego()<<endl;
 
                 if (dynamic_cast<dtPartidaIndividual*>(partidasActivas[i]))
                 {

@@ -93,6 +93,7 @@ void iniciarPartida(){
 					//listo las partidas que consegui
 					i = 0;
 					while(partidasSeleccionadas[i] != NULL){//HOW
+					
 						if(string(partidasSeleccionadas[i]->getNombreVideojuego()) == juegoAIniciar){//HOW
 							cout<<"ID: "<<partidasSeleccionadas[i]->getIdPartida()<<"-Duracion: "<<partidasSeleccionadas[i]->getDuracion()<<"-Fecha: "<<partidasSeleccionadas[i]->getFecha()<<endl;
 						};
