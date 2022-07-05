@@ -13,7 +13,7 @@ class Registro : public ICollectible
 {
 public:
     Registro();
-    Registro(float cantHoras,int puntajeJuego );
+    Registro(Videojuego*, enumSuscripcion, enumPago, time_t);
     ~Registro();
 
     dtVideoJuego* getDtJuego();
@@ -34,7 +34,6 @@ public:
 private:
     float cantHoras;
     int puntajeJuego;
-    time_t fecha;  
     Videojuego* juego;
     ICollection* contratacionesInactivas = new List();
     Contratacion* contratacionActiva;

@@ -1,10 +1,19 @@
 #include "Registro.h"
 
 Registro::Registro(){}
-Registro::Registro(float cantHoras,int puntajeJuego){
-    this->cantHoras = cantHoras;
-    this->puntajeJuego = puntajeJuego;
 
+/**
+ * @brief Construct a new Registro:: Registro object
+ * 
+ * @param vj juego del registro
+ * @param tS tipo de suscripcion
+ * @param tP tipo de pago
+ * @param fS fecha de suscripcion
+ */
+Registro::Registro(Videojuego* vj,enumSuscripcion tS, enumPago tP, time_t fS){
+	this->juego = vj;
+	Contratacion* cont = new Contratacion(vj, tS, tP, fS);
+	this->contratacionActiva = cont;
 }
 
 /**
@@ -36,6 +45,7 @@ dtVideoJuego* Registro::getDtJuego(){
 
 void Registro::activarSuscripcion(Videojuego* vj, enumSuscripcion tipoSuscripcion,enumPago metodoDePago, time_t dateSus){
 	Contratacion* cont = new Contratacion(vj, tipoSuscripcion, metodoDePago, dateSus);
+	this->contratacionActiva = cont;
 }
 
 void Registro::cancelSuscripcion(){

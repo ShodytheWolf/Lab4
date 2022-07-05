@@ -83,16 +83,17 @@ dtVideoJuego** Jugador::getDatosVj(){
 void Jugador::aniadirSuscripcion(Videojuego* obj, enumSuscripcion tipoSuscipcion, enumPago metodoDePago, time_t susDate){
 
     IIterator* it;
-    for (it= registros->getIterator(); it->hasCurrent(); it->next()){//itero en registros
+    for(it= registros->getIterator(); it->hasCurrent(); it->next()){//itero en registros
         Registro* r = dynamic_cast<Registro*>(it->getCurrent()); //registro en el q toy parao
         if(r->confirmarJuego(obj)){//confirmo si existe objeto en registro
-            r->activarSuscripcion(obj, tipoSuscipcion, metodoDePago, susDate); //llamo coso pum pere   
+            r->activarSuscripcion(obj, tipoSuscipcion, metodoDePago, susDate); //llamo coso pum pere
+            registros->add(r);
+            delete it;
+            return;   
         }
-        if(r == NULL){
-           r->activarSuscripcion(obj, tipoSuscipcion, metodoDePago, susDate); 
-        }
-        registros->add(r);
     } 
+    Registro* r = new Registro(obj, tipoSuscipcion, metodoDePago, susDate);
+    registros->add(r);
 }
 
 string** Jugador::listarJuegosSuscripto(){
