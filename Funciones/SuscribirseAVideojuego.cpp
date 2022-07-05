@@ -24,6 +24,7 @@ enumPago pago;
 char selecPago;
 char selecTipoSus;
 dtVideoJuego** listJuegosDiff = controlador->listarVideojuegosDiferenciada();
+bool control = true;
 
 try{
     cout << "|===========================|" << endl;
@@ -88,47 +89,62 @@ try{
 
         if (!suscripto){ //si no tiene una suscripcion 
                         
+           
+
+            do{ 
             cout << "Ingrese un metodo de Pago Paypal(p/P), Tarjeta(t/T). " << endl;
             cin >> selecPago; 
+                switch(selecPago){
+                    case 'p':
+                    case 'P':
+                        pago = Paypal;
+                        control = false;
+                        break;
+                    case 't':
+                    case 'T':
+                        pago = Tarjeta;
+                        control = false;
+                        break;
+                    default:
+                        cout << "Metodo de pago invalido. " << endl;
+                        break;
+                }
 
-            switch(selecPago){
-                case 'p':
-                case 'P':
-                    pago = Paypal;
-                    break;
-                case 't':
-                case 'T':
-                    pago = Tarjeta;
-                    break;
-                default:
-                    cout << "Metodo de pago invalido. " << endl;
-                    break;
-            }
+            }while(control);
 
-            cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)." << endl;
-            cin >> selecTipoSus;
-            
-            switch(selecTipoSus){
-                case 'a':
-                case 'A':
-                    tipoSus = An;
-                    break;
-                case 'm':
-                case 'M':
-                    tipoSus = Men;
-                    break;
-                case 't':
-                case 'T':
-                    tipoSus = Trim;
-                    break;
-                case 'v':
-                case 'V':
-                    tipoSus = Vit;
-                    break;
-                default:
-                    cout << "Tipo invalido." << endl;
-                    break;
-            }
+            system("clear");
+            control = true;
+
+            do{
+                cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)." << endl;
+                cin >> selecTipoSus;
+                
+                switch(selecTipoSus){
+                    case 'a':
+                    case 'A':
+                        tipoSus = An;
+                        control = false;
+                        break;
+                    case 'm':
+                    case 'M':
+                        tipoSus = Men;
+                        control = false;
+                        break;
+                    case 't':
+                    case 'T':
+                        tipoSus = Trim;
+                        control = false;
+                        break;
+                    case 'v':
+                    case 'V':
+                        tipoSus = Vit;
+                        control = false;
+                        break;
+                    default:
+                        cout << "Tipo invalido." << endl;
+                        break;
+                }
+            }while(control);
 
             system ("clear");
 
@@ -161,48 +177,64 @@ try{
                     cout << "diste de baja una suscripcion" << endl;
                     controlador->darDeBajaSuscripcion(); //doy de baja suscripcion, añado a suscripciones inactivas.
                     
+                    control = true;
 
-                    cout << "Ingrese un metodo de Pago Paypal(p/P), Tarjeta(t/T): " << endl;
-                    cin >> selecPago;
-                
-                    switch(selecPago){
-                        case 'p':
-                        case 'P':
-                            pago = Paypal;
-                            break;
-                        case 't':
-                        case 'T':
-                            pago = Tarjeta;
-                            break;
-                        default:
-                            cout << "Metodo de pago invalido. " << endl;
-                            break;
-                    }
+                    do{
+                        cout << "Ingrese un metodo de Pago Paypal(p/P), Tarjeta(t/T): " << endl;
+                        cin >> selecPago;
+                    
+                        switch(selecPago){
+                            case 'p':
+                            case 'P':
+                                pago = Paypal;
+                                control = false;
+                                break;
+                            case 't':
+                            case 'T':
+                                pago = Tarjeta;
+                                control = false;
+                                break;
+                            default:
+                                cout << "Metodo de pago invalido. " << endl;
+                                break;
+                        }
+                    }while(control);
 
-                    cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)" << endl;
-                    cin >> selecTipoSus;
+                    system("clear");
 
-                    switch(selecTipoSus){
-                        case 'a':
-                        case 'A':
-                            tipoSus = An;
-                            break;
-                        case 'm':
-                        case 'M':
-                            tipoSus = Men;
-                            break;
-                        case 't':
-                        case 'T':
-                            tipoSus = Trim;
-                            break;
-                        case 'v':
-                        case 'V':
-                            tipoSus = Vit;
-                            break;
-                        default:
-                            cout << "Tipo invalido." << endl;
-                            break;
-                    }
+                    control = true;
+                    do{
+                        cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)" << endl;
+                        cin >> selecTipoSus;
+
+                        switch(selecTipoSus){
+                            case 'a':
+                            case 'A':
+                                tipoSus = An;
+                                control = false;
+                                break;
+                            case 'm':
+                            case 'M':
+                                tipoSus = Men;
+                                control = false;
+                                break;
+                            case 't':
+                            case 'T':
+                                tipoSus = Trim;
+                                control = false;
+                                break;
+                            case 'v':
+                            case 'V':
+                                tipoSus = Vit;
+                                control = false;
+                                break;
+                            default:
+                                cout << "Tipo invalido." << endl;
+                                break;
+                        }
+                    }while(control);
+
+                    system("clear");
 
                     cout << "¿Desea confirmar?" << endl;
                     cin >> confirmar;

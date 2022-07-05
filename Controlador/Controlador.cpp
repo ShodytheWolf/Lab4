@@ -298,7 +298,7 @@ dtPartidaIndividual **Controlador::listoPartidasInactivas()
 
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    dtPartidaIndividual **listaPartidas = jug->listarPartidasFinalizadas();
+    dtPartidaIndividual** listaPartidas = jug->listarPartidasFinalizadas();
     return listaPartidas;
 }
 void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
@@ -308,10 +308,11 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
 
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    OrderedKey *k = new String(datosPartida->getNombreVideojuego());
+    String* k = new String(datosPartida->getNombreVideojuego());
+    Videojuego* juego = dynamic_cast<Videojuego*>(videojuegos->find(k));
 
     this->ultimaIdPartida = +1;
-    jug->iniciarIndividual(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
+    jug->iniciarIndividual(datosPartida, juego, this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
 }
 
 string **Controlador::listarNicks(string nombreVideojuego)
@@ -366,7 +367,7 @@ dtPartida **Controlador::listoPartidasActivas(){
 
         Jugador* jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-        dtPartida** listaADevolver = jug->getDtPartidasActivas();
+        dtPartida** listaADevolver = jug->getDtPartidasActivas();//DESDE ACA LLEGA MAL LA INFO PUTA DE M;IERDA
         return listaADevolver;
 
     }else{
