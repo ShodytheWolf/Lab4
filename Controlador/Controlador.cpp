@@ -285,6 +285,7 @@ string **Controlador::listarVideojuegosSuscripto()
         Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
         string **lista = jug->listarJuegosSuscripto();
+        //cout<<"en el controlador, despues de conseguir la lista"<<endl;
         return lista;
     }
     else
@@ -317,7 +318,7 @@ string **Controlador::listarNicks(string nombreVideojuego)
 {
 
     IIterator *it = usuarios->getIterator();
-    string **listaADevolver = new string *[usuarios->getSize()];
+    string **listaADevolver = new string *[usuarios->getSize()+1];
 
     int c = 0;
     while (it->hasCurrent())
@@ -347,25 +348,52 @@ void Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
     OrderedKey *k = new String(datosPartida->getNombreVideojuego());
 
     this->ultimaIdPartida = +1;
-    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
+    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual,datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
 
     int i = 0;
     while (datosPartida->getjugadoresUnidos()[i] != NULL)
     {
-        String *str = new String(datosPartida->getjugadoresUnidos()[i]->data());
+        String* str = new String(datosPartida->getjugadoresUnidos()[i]->data());
 
-        Jugador *user = dynamic_cast<Jugador *>(this->usuarios->find(str));
+        Jugador* user = dynamic_cast<Jugador*>(this->usuarios->find(str));
         user->unirseAPartida(multi);
         i++;
     }
 }
 
-dtPartida **Controlador::listoPartidasActivas()
-{
+dtPartida **Controlador::listoPartidasActivas(){
+    if(dynamic_cast<Jugador*>(this->loggedUser)){
+
+        Jugador* jug = dynamic_cast<Jugador *>(this->loggedUser);
+
+        dtPartida** listaADevolver = jug->getDtPartidasActivas();
+        return listaADevolver;
+
+    }else{
+       throw invalid_argument("El usuario loggeado no es un jugador");
+    }
 }
 
-void Controlador::seleccionarPartida(int idPartida)
-{
+void Controlador::seleccionarPartida(int idPartida){
+
+    IIterator* it = usuarios->getIterator();
+
+    while(it->hasCurrent()){
+
+        if(dynamic_cast<Jugador*>(it->getCurrent())){
+
+            Jugador* jug = dynamic_cast<Jugador*>(it->getCurrent());
+            jug->abandonarPartidaMultijugador(idPartida,this->horaActual);
+        }
+        it->next();
+    }
+    
+    Jugador* registrado = dynamic_cast<Jugador*>(this->loggedUser);
+    registrado->partidaAFinalizar(idPartida,horaActual);
+
+    return;
+
+    
 }
 
 string** Controlador::listarTodosVJ()

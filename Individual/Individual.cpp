@@ -30,3 +30,21 @@ Individual* Individual::getPartidaContinuada() {
 void Individual::setPartidaContinuada(Individual* partidaContinuada) {
     this->partidaContinuada = partidaContinuada;
 }
+
+
+dtPartida* Individual::getDtPartida(){
+    
+    if(this->partidaContinuada == NULL){
+        dtPartidaIndividual* parti = new dtPartidaIndividual(this->id->getValue(),string(this->vj->getNombreJuego()->getValue()),false,0,this->getFechaInicio());
+        return parti;
+
+    }else{
+        dtPartidaIndividual* parti2 = new dtPartidaIndividual(this->id->getValue(),string(this->vj->getNombreJuego()->getValue()),true,this->partidaContinuada->id->getValue(),this->getFechaInicio());
+        return parti2;
+    }
+    
+}
+
+dtPartida* Individual::getDtPartida(string papaOso){
+    
+}

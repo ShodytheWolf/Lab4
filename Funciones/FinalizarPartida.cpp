@@ -10,7 +10,9 @@ void finalizarPartida(){
     do{
         bool tabien = false;
         int i = 0;
+        int j = 0;
         dtPartida** partidasActivas;
+        int idPartidaAFinalizar;
 
         cout<<"Bienvenido a Finalizar Partida!"<<endl;
  	    cout<<"Seleccione una opcion a continuacion:"<<endl;
@@ -23,7 +25,7 @@ void finalizarPartida(){
         {
         case 1:
             partidasActivas = sistema->listoPartidasActivas();
-            int idPartidaAFinalizar;
+            
 
             //entiendo que iteramos ese SET de dtsPartidas para mostrar IDs, Fecha de Comienzo y el nick del juego, y si es Individual, también se muestra
            
@@ -46,12 +48,13 @@ void finalizarPartida(){
                     cout<<((partiMulta->getEnVivo() ? "Es en vivo":"NO es en vivo"))<<endl;
 
                     cout<<"Jugadores unidos:";
-                    int j = 0;
+                    j = 0;
                     while(partiMulta->getjugadoresUnidos()[j] != NULL){
                         cout<<partiMulta->getjugadoresUnidos()[j]<<", ";
+                        j++;
                     }
-                    i++;
                 };
+                i++;
             };
 
 

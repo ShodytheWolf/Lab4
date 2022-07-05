@@ -40,7 +40,9 @@ void Partida::setDuracion(double duracion) {
     this->duracion = duracion;
 }
 
-dtPartida Partida::getDtPartida(){}
+//dtPartida* Partida::getDtPartida(){
+//}
+
 void Partida::calcularDuracion(){}
 
 /**

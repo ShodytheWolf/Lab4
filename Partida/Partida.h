@@ -21,8 +21,9 @@ public:
     time_t getFechaInicio();
     void setFechaInicio(time_t fechaInicio);
     float getDuracion();
-    virtual void setDuracion(double duracion) = 0;
-    dtPartida getDtPartida();
+    virtual void setDuracion(double duracion);
+    virtual dtPartida* getDtPartida() = 0;
+    virtual dtPartida* getDtPartida(string papaOso) = 0;
     void calcularDuracion();
     Videojuego* getVideojuego();
 

@@ -1,6 +1,7 @@
 #ifndef INDIVIDUAL_H
 #define INDIVIDUAL_H
 #include "../Partida/Partida.h"
+#include "../Datatypes/dtPartidaIndividual.h" //CUIDADO
 
 #pragma once
 
@@ -13,6 +14,8 @@ public:
 
 
     Individual* getPartidaContinuada();
+    dtPartida* getDtPartida();
+    dtPartida* getDtPartida(string papaOso);
     void setDuracion(double duracion);
     void setPartidaContinuada(Individual* partidaContinuada);
 
