@@ -194,5 +194,5 @@ ICollectible.o: colecciones-genericas/interfaces/ICollectible.cpp
 
 
 clear:
-	rm -f steam *.o *.out
+	rm -f programa *.o *.out
 
