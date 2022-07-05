@@ -45,3 +45,7 @@ dtPartida* Multijugador::getDtPartida(string papaOso){
     dtPartidaMultijugador* parti = new dtPartidaMultijugador(this->id->getValue(),this->fechaInicio,string(this->vj->getNombreJuego()->getValue()),false,papaOso,this->jugadoresUnidos);
     return parti;
 }
+
+dtPartida* Multijugador::getDtPartida(){
+    
+}
