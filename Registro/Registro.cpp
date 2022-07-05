@@ -4,6 +4,7 @@ Registro::Registro(){}
 Registro::Registro(float cantHoras,int puntajeJuego){
     this->cantHoras = cantHoras;
     this->puntajeJuego = puntajeJuego;
+
 }
 
 /**
@@ -22,32 +23,23 @@ Registro::~Registro(){
 }
 
 dtVideoJuego* Registro::getDtJuego(){
+	dtVideoJuego* data = NULL; 
 
-	dtVideoJuego** listSuscritos;
-	dtVideoJuego** listNoSuscriptos;
-	dtVideoJuego** listJuegosDiff; //suscriptos y no suscriptos
-
-	//aca le paso si esta suscrito o no
-	//dtVideojuego* addJS = new dtVideojuego(nombrejuego,dessarrollador, desc, sus, suscrito, puntaje, horas);
-
-	/*if(estaSuscrito){
-		añado juego a lista suscritos.
-		 //listSuscritos[i] = addJS;
-
+	if (contratacionActiva){
+		data = new dtVideoJuego(string(this->juego->getNombreJuego()->getValue()),
+		string(this->juego->getDesarrollador()->getNombreEmpresa()->getValue()),
+		juego->getDescripcionJuego(), NULL, true, 0,0); //dato vj contratacion activa.
 	}
-	else {
-		añado juego a lista no suscrito.
-		 //listNoSuscritos[i] = addJS;
-	}
-	*/
-
+	return data;
 }
 
-void Registro::activarSuscripcion(enumSuscripcion tipoSuscripcion,enumPago metodoDePago){
-
+void Registro::activarSuscripcion(Videojuego* vj, enumSuscripcion tipoSuscripcion,enumPago metodoDePago, time_t dateSus){
+	Contratacion* cont = new Contratacion(vj, tipoSuscripcion, metodoDePago, dateSus);
 }
+
 void Registro::cancelSuscripcion(){
-
+	contratacionesInactivas->add(contratacionActiva);
+	contratacionActiva = NULL;
 }
 
 bool Registro::estaSuscrito(){
@@ -73,7 +65,7 @@ void Registro::setPuntajeJuego(int puntajeJuego) {
 	this->puntajeJuego = puntajeJuego;
 }
 
-bool Registro::confrmarJuego(Videojuego* vj){
+bool Registro::confirmarJuego(Videojuego* vj){
 	if(this->juego == vj){return true;}
 	return false;
 }

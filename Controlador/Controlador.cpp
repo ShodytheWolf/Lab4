@@ -235,37 +235,44 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
 //suscribirse a videojuego
 dtVideoJuego **Controlador::listarVideojuegosDiferenciada(){
 
-        Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
-        j->getDatosVj(); //llamo a getDatos en jugador
-        //depois itero en jogos
-        /*
-        for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){
-        //videojuegos->add();
-        }
-        */
-
+    if(videojuegos->isEmpty()){
+        throw invalid_argument("Error: no existen videojuegos en el sistema.");
+    }
+    dtVideoJuego** listJ;
+    
+    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
+    listJ = j->getDatosVj(); //
+    //depois itero en jogos
+    for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){ //itero en juegos.
+        Videojuego* vj = dynamic_cast<Videojuego *>(it->getCurrent()); //videojuego en el q toy parao
+        vj->addDtJuego(listJ);//añado vj.
+    }
+    return listJ;
 }
 
-void Controlador::ingresarVideojuego(char* nombreVj){
+void Controlador::ingresarVideojuego(const char* nombreVj){
 
     this->nombreVideojuego = nombreVj;
 }
 
-bool Controlador::estaSuscripto(char *nombreVideojuego){ //de donde sale este coso
+bool Controlador::estaSuscripto(const char *nombreVideojuego){ //meti const aca
 }
 
 void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion)
 {
+    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
 
-    //llamoctor
-
+    String* clave = new String(nombreVideojuego);//creo key
+    Videojuego* vj = (Videojuego*)videojuegos->find(clave); //casteo.
+    j->aniadirSuscripcion(vj, tipoSuscripcion, metodoDePago,this->horaActual);
 }
+
 void Controlador::darDeBajaSuscripcion()
 {
-
-    //llamo dtor en registro pa matar contratacion
-
+    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
+    j->pasoJuego(nombreVideojuego);
 }
+   
 /******************************************************************************************************/
 string **Controlador::listarVideojuegosSuscripto()
 {

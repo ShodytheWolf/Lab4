@@ -11,7 +11,7 @@
 class Contratacion : public ICollectible
 {
     public:
-        Contratacion(enumSuscripcion, enumPago, Videojuego*);
+        Contratacion(Videojuego*,enumSuscripcion, enumPago, time_t);
         ~Contratacion();
         enumPago getMetodoDePago();
         void setMetodoDePago(enumPago metodoDePago);

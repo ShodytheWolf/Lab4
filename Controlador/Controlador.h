@@ -38,8 +38,8 @@ class Controlador: public IControlador{
 
         //Suscribirse a Videojuego:
         dtVideoJuego** listarVideojuegosDiferenciada();                                   //14
-        void ingresarVideojuego(char* nombreVideojuego);                                  //15
-        bool estaSuscripto(char* nombreVideojuego); //nueva
+        void ingresarVideojuego(const char* nombreVideojuego);                                  //15
+        bool estaSuscripto(const char* nombreVideojuego); //nueva
         void nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion);    //16
         void darDeBajaSuscripcion();                                                      //17
 
@@ -75,7 +75,7 @@ class Controlador: public IControlador{
         string descripcionJuegador;
         const char* nombreEmpresa;
         const char* nickJugador;
-        char* nombreVideojuego;
+        const char* nombreVideojuego;
         unsigned int ultimaIdPartida = 0;
         unsigned int ultimaIdComentario = 0;
         time_t horaActual = time(NULL);

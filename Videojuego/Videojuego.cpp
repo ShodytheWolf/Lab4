@@ -90,9 +90,23 @@ string** Videojuego::getNombreCategorias(){
 
 
 
-void Videojuego::addDtJuego(dtVideoJuego datosJuego){
+void Videojuego::addDtJuego(dtVideoJuego** datosJuego){
 
-    //KEKW
+    int i = 0;
+
+    while(datosJuego[i]){
+        if(datosJuego[i]->getNombreVideojuego() == string(this->nombreJuego->getValue())){ // si nombre del dt es igual al nombre del videojuego que itero
+            return;
+        }
+        i++;
+    }
+    dtVideoJuego* data = NULL;
+    data = new dtVideoJuego(string(this->nombreJuego->getValue()),
+	string(this->desarrollador->getNombreEmpresa()->getValue()),
+	this->descripcionJuego, NULL, false, 0,0);
+    
+    datosJuego[i] = data;//añado a lista
+    datosJuego[i+1] = NULL; // inicializo siguiente en null.
 };
 
 dtEstadistica* Videojuego::getEstadisticas(const char* nStat)

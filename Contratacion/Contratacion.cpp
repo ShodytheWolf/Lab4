@@ -1,8 +1,25 @@
 #include "Contratacion.h"
 
-Contratacion::Contratacion(enumSuscripcion tipoSuscripcio, enumPago tipoPago, Videojuego* vj)
+Contratacion::Contratacion(Videojuego* vj ,enumSuscripcion tipoSuscripcio, enumPago tipoPago, time_t fechaCont)
 {
-
+	this->metodoDePago = tipoPago;
+	this->fechaDeSuscripcion = fechaCont;
+	
+	switch(tipoSuscripcio){
+		case Men:
+			this->suscripcion = vj->getSuscripcionMensual();
+			break;
+		case Trim:
+			this->suscripcion = vj->getSuscripcionTrimestral();
+			break;
+		case An:
+			this->suscripcion = vj->getSuscripcionAnual();
+			break;
+		case Vit:
+			this->suscripcion = vj->getSuscripcionVitalicia();
+			break;
+	}
+	
 }
 
 Contratacion::~Contratacion()

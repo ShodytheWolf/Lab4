@@ -40,8 +40,8 @@ class IControlador{
 
         //Suscribirse a Videojuego:
         virtual dtVideoJuego** listarVideojuegosDiferenciada() = 0;                                   //14
-        virtual void ingresarVideojuego(char* nombreVideojuego) = 0;                                  //15
-        virtual bool estaSuscripto(char* nombreVideojuego) = 0;
+        virtual void ingresarVideojuego(const char* nombreVideojuego) = 0;                                  //15
+        virtual bool estaSuscripto(const char* nombreVideojuego) = 0;
         virtual void nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion) = 0;    //16
         virtual void darDeBajaSuscripcion() = 0;                                                      //17
 

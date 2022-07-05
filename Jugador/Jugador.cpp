@@ -49,18 +49,51 @@ void Jugador::setDescripcionJugador(string descripcionJugador) {
 
 
 
-void Jugador::pasoJuego(String nombreVideojuego){}
+void Jugador::pasoJuego(String nombreVideojuego){
 
-//getDatos vj suscripto
-dtVideoJuego** Jugador::getDatosVj(){   
     IIterator* it;
     for (it = registros->getIterator(); it->hasCurrent(); it->next()){ //itero en registros.
-        Registro* reg = (Registro*)it->getCurrent(); //obtengo registro
-        reg->getDtJuego();//llamo al get en registro
+        Registro* r = (Registro*)it->getCurrent(); //obtengo registro
+        if(r->getVideojuego()->getNombreJuego()->compare(&nombreVideojuego) == EQUAL){ //comparo si el juego del registro es igual al que le paso por paramtero.
+            r->cancelSuscripcion();
+        }
     }
 }
 
-void Jugador::aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago){}
+//getDatos vj suscripto
+dtVideoJuego** Jugador::getDatosVj(){  
+
+    dtVideoJuego** listajuegos = new dtVideoJuego*[registros->getSize()+1];
+    dtVideoJuego* datoVj; //guardamos datos del dtjuego
+    IIterator* it;
+    int c = 0;
+
+    for (it = registros->getIterator(); it->hasCurrent(); it->next()){ //itero en registros.
+        Registro* reg = (Registro*)it->getCurrent(); //obtengo registro
+        datoVj = reg->getDtJuego(); //->getNombreVideojuego();llamo al get en registro
+        if(datoVj != NULL){
+           listajuegos[c] = datoVj; 
+        }
+        c++;
+    }
+
+    return listajuegos;
+}
+
+void Jugador::aniadirSuscripcion(Videojuego* obj, enumSuscripcion tipoSuscipcion, enumPago metodoDePago, time_t susDate){
+
+    IIterator* it;
+    for (it= registros->getIterator(); it->hasCurrent(); it->next()){//itero en registros
+        Registro* r = dynamic_cast<Registro*>(it->getCurrent()); //registro en el q toy parao
+        if(r->confirmarJuego(obj)){//confirmo si existe objeto en registro
+            r->activarSuscripcion(obj, tipoSuscipcion, metodoDePago, susDate); //llamo coso pum pere   
+        }
+        if(r == NULL){
+           r->activarSuscripcion(obj, tipoSuscipcion, metodoDePago, susDate); 
+        }
+        registros->add(r);
+    } 
+}
 
 string** Jugador::listarJuegosSuscripto(){
     IIterator* it = registros->getIterator();
@@ -205,7 +238,7 @@ void Jugador::eliminarContRegisJuego(Videojuego* vj){
     IIterator* it;
     for(it = this->registros->getIterator(); it->hasCurrent(); it->next()){
         Registro* r = (Registro*) it->getCurrent();
-        if(r->confrmarJuego(vj)){
+        if(r->confirmarJuego(vj)){
             registros->remove(r);
             delete r;
             for(it = this->partidasInactivas->getIterator(); it->hasCurrent(); it->next()){

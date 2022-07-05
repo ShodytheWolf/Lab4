@@ -42,7 +42,7 @@ public:
     Vitalicia* getSuscripcionVitalicia();
 
     void aniadirCategoria(Categoria* cat);
-    void addDtJuego(dtVideoJuego datosJuego); //armar datos
+    void addDtJuego(dtVideoJuego** datosJuego); //armar datos
     dtEstadistica* getEstadisticas(const char*);
     string** getNombreCategorias();
 

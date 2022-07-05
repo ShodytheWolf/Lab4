@@ -36,7 +36,7 @@ public:
 
     void pasoJuego(String nombreVideojuego);
     dtVideoJuego** getDatosVj(); 
-    void aniadirSuscripcion(enumSuscripcion tipoSuscipcion, enumPago metodoDePago);
+    void aniadirSuscripcion(Videojuego* objeto, enumSuscripcion tipoSuscipcion, enumPago metodoDePago, time_t fechaSus);
     string** listarJuegosSuscripto(); 
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
@@ -53,6 +53,7 @@ public:
 private:
     String* nickname;
     string descripcionJugador;
+    time_t fecha;
     IDictionary* partidasInactivas = new OrderedDictionary();
     IDictionary* partidasActivas = new OrderedDictionary();
     ICollection* partidasUnido = new List(); 

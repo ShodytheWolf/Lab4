@@ -17,10 +17,10 @@ public:
     ~Registro();
 
     dtVideoJuego* getDtJuego();
-    void activarSuscripcion(enumSuscripcion tipoSuscripcion, enumPago metodoDePago);
+    void activarSuscripcion(Videojuego* obj, enumSuscripcion tipoSuscripcion, enumPago metodoDePago, time_t fechinha);
     void cancelSuscripcion();
     bool estaSuscrito();
-    bool confrmarJuego(Videojuego*);
+    bool confirmarJuego(Videojuego*);
 
 
     float getCantHoras();
@@ -32,7 +32,8 @@ public:
     Videojuego* getVideojuego();
 private:
     float cantHoras;
-    int puntajeJuego;  
+    int puntajeJuego;
+    time_t fecha;  
     Videojuego* juego;
     ICollection* contratacionesInactivas = new List();
     Contratacion* contratacionActiva;
