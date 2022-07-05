@@ -24,7 +24,8 @@ void eliminarVideojuego(){
         getline(cin.ignore(),juego,'\n');
         while(!verificarEnLista(listVJ, juego)){
             cout << "El juego no existe. Por favor intentelo de nuevo" <<endl;
-            cin >> juego; 
+            getline(cin,juego,'\n');
+            cout << endl;
         }
         cout << "Se eliminara el Videojuego: " << juego <<"\nDesea confirmar? S/N\n" <<endl;
         do{
@@ -36,11 +37,14 @@ void eliminarVideojuego(){
                 sistema->confirmoEliminacion(juego.data());
                 cout << "Se elimino correctamente " << juego <<"\n\nPresione <enter> para continuar" << endl;
                 getchar();
+                getchar();
                 loop = false;
                 break;
             case 'n':
             case 'N':
-                cout << "Cancelando eliminacion..." <<endl;
+                cout << "Cancelando eliminacion...\n\nPresione <enter> para continuar" <<endl;
+                getchar();
+                getchar();
                 loop = false;
                 break;
 
@@ -53,5 +57,7 @@ void eliminarVideojuego(){
     }catch(invalid_argument &e){
         cout << e.what() << " Presione <enter> para continuar"<<endl;
         getchar();
+        getchar();
     }
+    system("clear");
 }
