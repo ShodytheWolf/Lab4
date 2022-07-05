@@ -11,18 +11,22 @@
 #define GENEROS 5
 #define PLATAFORMAS 6
 #define OTRAS 2
+#define SUSCRIPCIONES 6
 #define PUNTAJES 4
+#define INDIVIDUALES 3
 
 using namespace std;
 
 void cargarDesarrolladores(Fabrica); //1
 void cargarJugadores(Fabrica); //2
-void cargarGeneros(Fabrica); 
-void cargarPltaformas(Fabrica); 
+void cargarGeneros(Fabrica); //3
+void cargarPltaformas(Fabrica); //3
 void cargarOtros(Fabrica); //3
 void cargarVideojuegos(Fabrica); //4
 void cargarSuscripciones(Fabrica); //5
 void cargarPuntajes(Fabrica); //6
+void cargarIndividuales(Fabrica); //7
+void cargarMultijugador(Fabrica); //8
 
 void cargarDatos(){
     Fabrica f;
@@ -58,15 +62,15 @@ void cargarDatos(){
                 cargarVideojuegos(f);
                 break;
             case '5':
+                cargarSuscripciones(f);
                 break;
             case '6':
                 cargarPuntajes(f);
                 break;
             case '7':
+                
                 break;
             case '8':
-                break;
-            case '9':
                 break;
             case '0':
                 return;
@@ -131,7 +135,7 @@ void cargarOtros(Fabrica f){
 
 void cargarVideojuegos(Fabrica f){ 
     IControlador* sistema = f.getInterface();
-    //"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"
+    //"KingdomRush", "Fortnite", "Minecraft", "FIFA"
     dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
     dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
     dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
@@ -158,14 +162,14 @@ void cargarVideojuegos(Fabrica f){
     dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
     sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
 
-    //Incersion del Kingdom Rush
+    //Incersion del KingdomRush
     dtCategoria** plataformasKR = new dtCategoria*[3];
     plataformasKR[0] = c1; plataformasKR[1] = c2;
     dtCategoria** generosKR = new dtCategoria*[2];
     generosKR[0] = c6;
     dtCategoria** otrosKR = new dtCategoria*[2];
     otrosKR[0] = c8;
-    dtVideoJuego* datosKR = new dtVideoJuego("Kingdom Rush", "", "", costosKR, false, 0, 0);
+    dtVideoJuego* datosKR = new dtVideoJuego("KingdomRush", "", "", costosKR, false, 0, 0);
     sistema->ingresoData("ironhide@mail.com", "123", false);
     sistema->confirmarSesion();
     sistema->publicarVideojuego(datosKR, generosKR, plataformasKR, otrosKR);
@@ -196,13 +200,33 @@ void cargarVideojuegos(Fabrica f){
 }  
 
 void cargarSuscripciones(Fabrica f){
-       
+    IControlador* sistema = f.getInterface();
+    tm fecha;
+    string mailJdrs[SUSCRIPCIONES] = {"gamer@mail.com", "gamer@mail.com", "ari@mail.com", "ari@mail.com", "ibai@mail.com", "ibai@mail.com"};
+    string juegos[SUSCRIPCIONES] = {"KingdomRush", "Fortnite", "Fortnite","Minecraft" "Fortnite", "Minecraft"};
+    enumSuscripcion tipoSus[SUSCRIPCIONES] = {Trim, Trim, Men, An, Men, Vit};
+    int anios[SUSCRIPCIONES] = {2021, 2021, 2021, 2021, 2021, 2020};
+    int meses[SUSCRIPCIONES] = {06, 06, 06, 06, 06, 05};
+    int dias[SUSCRIPCIONES] = {01, 02, 04, 11, 03, 21};
+    int horas[SUSCRIPCIONES] = {9, 11, 9, 9, 7, 15};
+    enumPago tipoPagos[SUSCRIPCIONES] = {Paypal, Tarjeta, Paypal, Tarjeta, Tarjeta, Tarjeta};
+    for(int i = 0; i < SUSCRIPCIONES; i++){
+        sistema->ingresoData(mailJdrs[i], "123", false);
+        sistema->confirmarSesion();
+        fecha.tm_yday = anios[i];
+        fecha.tm_mon = meses[i];
+        fecha.tm_mday = dias[i];
+        fecha.tm_hour = horas[i];
+        sistema->setFechaSistema(fecha);
+        sistema->ingresarVideojuego(juegos[i].data());
+        sistema->nuevaSuscripcion(tipoPagos[i], tipoSus[i]);
+    }
 }
 
 void cargarPuntajes(Fabrica f){
     IControlador* sistema = f.getInterface();
     string emailJdrs[PUNTAJES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com","ari@mail.com"};
-    string juegos[PUNTAJES] = { "Kingdom Rush", "Fortnite", "Fortnite", "Minecraft"};
+    string juegos[PUNTAJES] = { "KingdomRush", "Fortnite", "Fortnite", "Minecraft"};
     int puntajes[PUNTAJES] = {4, 5, 5, 3};
     for(int i = 0; i < PUNTAJES; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
@@ -211,4 +235,28 @@ void cargarPuntajes(Fabrica f){
     }
 }
 
+// void cargarIndividuales(Fabrica f){
+//     IControlador* sistema = f.getInterface();
+//     string emailJdrs[INDIVIDUALES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
+//     string juegos[INDIVIDUALES] = { "KingdomRush", "KingdomRush", "Minecraft"};
+//     bool continuacion[INDIVIDUALES] = {false, true, false}; 
+//     int dias[INDIVIDUALES] = { 02, 03, 12};
+//     int horas[INDIVIDUALES] = {9, 15, 16};
 
+    
+// }
+
+/**
+J1 gamer gamer@mail.com 123
+J2 ari ari@mail.com 123
+J3 ibai ibai@mail.com 123
+J4 camila camila@mail.com 123
+*/
+
+/**
+V1 D1 KingdomRush $1 | $2 | $7 | $14 C1, C2, C6, C8
+V2 D2 Fortnite $3 | $8 | $30 | $60 C1, C2, C3, C5, C7
+V3 D3 Minecraft $2 | $5 | $20 | $40 C1, C5, C8
+V4 D4 FIFA 21 $3 | $8 | $28 | $50 C1, C2, C3, C4, C8
+ * 
+ */
