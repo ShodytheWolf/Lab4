@@ -11,9 +11,10 @@ class EnVivo : public Multijugador
 {
 public:
     EnVivo();
-    EnVivo(int id, time_t fechaInicio, double duracion,Videojuego* vj);
+    EnVivo(int id, time_t fechaInicio, double duracion,Videojuego* vj,string** jugadoresAUnirse);
     ~EnVivo();
     void eliminarComentarios();
+    dtPartida* getDtPartida(string papaOso);
 private:
     ICollection* comentarios = new List();
 };

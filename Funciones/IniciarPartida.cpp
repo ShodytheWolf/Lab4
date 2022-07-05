@@ -139,7 +139,7 @@ void iniciarPartida(){
 
 				//iteramos cuantas veces se quiera para conseguir un array con los nombres de los jugadores que se van a unir,cuidando que esten suscriptos claro.
 				i = 0;
-				string** nicksUnidos;//ACA SI HOW HOW HOW HOW HOW HOWO HOW HOW HOW OWO HOW HOW HOW
+				string** nicksUnidos;//Como determino el tamanio de este array???
 				int deseaSeguir;
 				do{
 					char* nombreAIngresar;
