@@ -37,7 +37,8 @@ public:
     void pasoJuego(String nombreVideojuego);
     dtVideoJuego** getDatosVj(); 
     void aniadirSuscripcion(Videojuego* objeto, enumSuscripcion tipoSuscipcion, enumPago metodoDePago, time_t fechaSus);
-    string** listarJuegosSuscripto(); 
+    string** listarJuegosSuscripto();
+    bool verificoJuego(Videojuego* vj); 
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
     String* getNick(string nombreJuego);

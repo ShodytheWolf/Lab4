@@ -10,9 +10,11 @@ class Anual : public Suscripcion
         Anual(float);
         ~Anual();
         float getCostoAnual();
+        enumSuscripcion getTipo();
         void setCostoAnual(float costoAnual);
     private:
         float costoAnual;
+        enumSuscripcion tipo = An;
 };
 
 #endif

@@ -10,9 +10,11 @@ class Mensual : public Suscripcion
         Mensual(float);
         ~Mensual();
         float getCostoMensual();
+        enumSuscripcion getTipo();
         void setCostoMensual(float costoMensual);
     private:
         float costoMensual;
+        enumSuscripcion tipo = Men;
 
 
 };

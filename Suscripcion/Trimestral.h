@@ -10,10 +10,12 @@ class Trimestral : public Suscripcion
         Trimestral(float);
         ~Trimestral();
         float getCostoTrimestral();
+        enumSuscripcion getTipo();
         void setCostoTrimestral(float costoTrimestral);
 
     private:
         float costoTrimestral;
+        enumSuscripcion tipo = Trim;
 
 
 };

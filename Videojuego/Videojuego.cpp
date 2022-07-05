@@ -19,15 +19,15 @@ Videojuego::Videojuego(const char* nombre, string descripcion, Desarrollador* de
     estadisticas->add(statsPuntaje->getNombre(),statsPuntaje);
 }
 
-dtSuscripcion* Videojuego::getCostosVj(){
+// dtSuscripcion* Videojuego::getCostosVj(){
 
-    dtSuscripcion* datosSus;
-    datosSus = new dtSuscripcion(suscripcionMensual->getCostoMensual(),
-    suscripcionTrimestral->getCostoTrimestral(), suscripcionAnual->getCostoAnual(),
-    suscripcionVitalicia->getCostoVitalicia());
+//     dtSuscripcion* datosSus;
+//     datosSus = new dtSuscripcion(suscripcionMensual->getCostoMensual(),
+//     suscripcionTrimestral->getCostoTrimestral(), suscripcionAnual->getCostoAnual(),
+//     suscripcionVitalicia->getCostoVitalicia(), );
 
-    return datosSus;
-}
+//     return datosSus;
+// }
 
 
 Videojuego::~Videojuego()
@@ -123,13 +123,22 @@ void Videojuego::addDtJuego(dtVideoJuego** datosJuego){
         }
         i++;
     }
+    
     dtVideoJuego* data = NULL;
-    data = new dtVideoJuego(string(this->nombreJuego->getValue()),
-	string(this->desarrollador->getNombreEmpresa()->getValue()),
-	this->descripcionJuego, this->getCostosVj(), false, 0,0);
+    string nombreVJ = this->getNombreJuego()->getValue();
+    string nombreEmp = this->getDesarrollador()->getNombreEmpresa()->getValue();
+    string desc = getDescripcionJuego();
+    
+    dtSuscripcion* dataCostos = new dtSuscripcion(this->getSuscripcionMensual()->getCostoMensual(),
+    this->getSuscripcionTrimestral()->getCostoTrimestral(),
+    this->getSuscripcionAnual()->getCostoAnual(),
+    this->getSuscripcionVitalicia()->getCostoVitalicia(),NULL); //costos de cada una y tipo de suscripcion contratada
+
+    data = new dtVideoJuego(nombreVJ, nombreEmp, desc, dataCostos, false, 0, 0);
     
     datosJuego[i] = data;//añado a lista
     datosJuego[i+1] = NULL; // inicializo siguiente en null.
+
 };
 
 dtEstadistica* Videojuego::getEstadisticas(const char* nStat)

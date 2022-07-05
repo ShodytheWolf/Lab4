@@ -10,8 +10,8 @@
 #include "../Suscripcion/Suscripcion.h"
 #include "../Suscripcion/Anual.h"//agregar al make
 #include "../Suscripcion/Mensual.h"//agregar al make
-#include "../Suscripcion/Trimestral.h"//agregar al make
-#include "../Suscripcion/Vitalicia.h"//agregar al make
+#include "../Suscripcion/Trimestral.h"
+#include "../Suscripcion/Vitalicia.h"
 #include "../Datatypes/dtSuscripcion.h"
 #include "../Datatypes/dtVideoJuego.h"
 #include "../Estadistica/Estadistica.h"

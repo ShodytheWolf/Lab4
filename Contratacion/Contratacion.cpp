@@ -43,3 +43,11 @@ time_t Contratacion::getFechaDeSuscripcion() {
 void Contratacion::setFechaDeSuscripcion(time_t fechaDeSuscripcion) {
 	this->fechaDeSuscripcion = fechaDeSuscripcion;
 }
+
+enumSuscripcion* Contratacion::getTipoSuscripto(){
+	enumSuscripcion tipo = this->suscripcion->getTipo();
+	cout << &tipo << endl;
+	getchar();
+	getchar();
+	return &tipo;
+}

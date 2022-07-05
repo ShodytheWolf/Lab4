@@ -10,10 +10,12 @@ class Vitalicia : public Suscripcion
         Vitalicia(float);
         ~Vitalicia();
         float getCostoVitalicia();
+        enumSuscripcion getTipo();
         void setCostoVitalicia(float costoVitalicia); 
 
     private:
         float costoVitalicia;
+        enumSuscripcion tipo = Vit;
 
 };
 

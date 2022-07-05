@@ -13,6 +13,17 @@ Jugador::~Jugador()
 {
 
 }
+////////////////////////
+bool Jugador::verificoJuego(Videojuego* vj){
+
+    IIterator* it;
+    for(it = registros->getIterator();it->hasCurrent();it->next()){
+        Registro* r = (Registro*)it->getCurrent();
+        if(r->confirmarJuego(vj)){
+            return r->estaSuscrito();
+        }
+    }
+}
 
 
 //Operaciones del padre:
@@ -46,7 +57,6 @@ string Jugador::getDescripcionJugador() {
 void Jugador::setDescripcionJugador(string descripcionJugador) {
     this->descripcionJugador = descripcionJugador;
 }
-
 
 
 void Jugador::pasoJuego(String nombreVideojuego){

@@ -12,6 +12,10 @@ Trimestral::~Trimestral()
 
 }
 
+enumSuscripcion Trimestral::getTipo(){
+	return this->tipo;
+}
+
  float Trimestral::getCostoTrimestral() {
  	return this->costoTrimestral;
  }

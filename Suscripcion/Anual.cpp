@@ -12,6 +12,10 @@ Anual::~Anual()
 
 }
 
+enumSuscripcion Anual::getTipo(){
+	return this->tipo;
+}
+
 float Anual::getCostoAnual() {
 	return this->costoAnual;
 }
