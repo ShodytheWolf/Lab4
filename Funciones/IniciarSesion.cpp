@@ -38,6 +38,7 @@ void iniciarSesion(char &tU){
                     }
                     break;
                 case '4': 
+                    tU = char(NULL);
                     return;
                 default:
                     cout << "Opción incorrecta por favor intente de nuevo" <<endl;

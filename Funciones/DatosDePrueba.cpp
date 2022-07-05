@@ -2,7 +2,7 @@
 #include <vector>
 #include "../Fabrica/Fabrica.h"
 #include "../IControlador/IControlador.h"
-//#include "../breakpoint.cpp"
+#include "../breakpoint.cpp"
 
 //Constantes:
 #define DESARROLLADORES 4
@@ -233,7 +233,7 @@ void cargarSuscripciones(Fabrica f){
     IControlador* sistema = f.getInterface();
     tm fecha;
     string mailJdrs[SUSCRIPCIONES] = {"gamer@mail.com", "gamer@mail.com", "ari@mail.com", "ari@mail.com", "ibai@mail.com", "ibai@mail.com"};
-    string juegos[SUSCRIPCIONES] = {"KingdomRush", "Fortnite", "Fortnite","Minecraft" "Fortnite", "Minecraft"};
+    string juegos[SUSCRIPCIONES] = {   "KingdomRush",     "Fortnite",       "Fortnite",      "Minecraft",   "Fortnite",       "Minecraft"};
     enumSuscripcion tipoSus[SUSCRIPCIONES] = {Trim, Trim, Men, An, Men, Vit};
     int anios[SUSCRIPCIONES] = {2021, 2021, 2021, 2021, 2021, 2020};
     int meses[SUSCRIPCIONES] = {06, 06, 06, 06, 06, 05};

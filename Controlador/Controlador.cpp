@@ -405,6 +405,7 @@ string** Controlador::listarTodosVJ()
         listVj[i] = new string(v->getNombreJuego()->getValue());
         i++;
     }
+    listVj[i] = NULL;
     return listVj;
 }
 

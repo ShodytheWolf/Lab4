@@ -1,5 +1,6 @@
 #include "Jugador.h"
 #include "string.h"
+//#include "../breakpoint.cpp"
 
 Jugador::Jugador(string correo, string contrasenia, const char* nick, string descripcionJugador)
 {
@@ -325,7 +326,7 @@ dtPartida** Jugador::getDtPartidasActivas(){
 void Jugador::nuevoPuntaje(Videojuego* vj, int p){
     for(IIterator* it = registros->getIterator(); it->hasCurrent(); it->next()){
         Registro* r = (Registro*) it->getCurrent();
-        if(r->confirmarJuego(vj)){
+        if(r->confirmarJuego(vj)){   
             r->puntuar(p);
             break;
         }

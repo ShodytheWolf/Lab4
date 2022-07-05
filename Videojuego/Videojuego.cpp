@@ -109,6 +109,7 @@ string** Videojuego::getNombreCategorias(){
 
 void Videojuego::nuevoPuntaje(int p){
     this->puntajeTotal += p;
+    this->cantPuntajes++;
     Estadistica* e = (Estadistica*) estadisticas->find(new String("Puntaje"));
     e->calcularPromedio(this->puntajeTotal, this->cantPuntajes);
 }

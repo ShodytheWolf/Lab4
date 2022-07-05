@@ -43,7 +43,7 @@ dtEstadistica * Estadistica::getDtEstadistica(){
 }
 
 void Estadistica::calcularPromedio(int p, int cant){
-    this->dato = p/cant;
+    this->dato = float(p)/float(cant);
 }
 
 
