@@ -3,7 +3,7 @@
 #include "../IControlador/IControlador.h"
 #include "../Fabrica/Fabrica.h"
 #include "../Enumeration/enumSuscripcion.h"
-#include "../breakpoint.cpp"
+//#include "../breakpoint.cpp"
 
 using namespace std;
 

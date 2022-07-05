@@ -2,6 +2,7 @@
 #include <vector>
 #include "../Fabrica/Fabrica.h"
 #include "../IControlador/IControlador.h"
+//#include "../breakpoint.cpp"
 
 //Constantes:
 #define DESARROLLADORES 4
@@ -14,6 +15,7 @@
 #define SUSCRIPCIONES 6
 #define PUNTAJES 4
 #define INDIVIDUALES 3
+#define MULTIJUGADOR 3
 
 using namespace std;
 
@@ -269,28 +271,66 @@ void cargarPuntajes(Fabrica f){
     system("clear");
 }
 
-// void cargarIndividuales(Fabrica f){
-//     IControlador* sistema = f.getInterface();
-//     string emailJdrs[INDIVIDUALES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
-//     string juegos[INDIVIDUALES] = { "KingdomRush", "KingdomRush", "Minecraft"};
-//     bool continuacion[INDIVIDUALES] = {false, true, false}; 
-//     int dias[INDIVIDUALES] = { 02, 03, 12};
-//     int horas[INDIVIDUALES] = {9, 15, 16};
+void cargarIndividuales(Fabrica f){
+    IControlador* sistema = f.getInterface();
+    dtPartidaIndividual* datosPI;
+    tm fecha;
+    string emailJdrs[INDIVIDUALES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
+    string juegos[INDIVIDUALES] = { "KingdomRush", "KingdomRush", "Minecraft"};
+    bool continuacion[INDIVIDUALES] = {false, true, false}; 
+    int dias[INDIVIDUALES] = { 02, 03, 12};
+    int horasIn[INDIVIDUALES] = {9, 15, 16}; //horas de inicio
+    int horasFin[INDIVIDUALES-1] = {10, 16};
+    for(int i = 0; i<INDIVIDUALES; i++){
+        sistema->ingresoData(emailJdrs[i], "123", false);
+        sistema->confirmarSesion();
+        fecha.tm_yday = 2021;
+        fecha.tm_mon = 06; 
+        fecha.tm_mday = dias[i];
+        fecha.tm_hour = horasIn[i];
+        sistema->setFechaSistema(fecha);
+        datosPI = new dtPartidaIndividual(0, juegos[i], continuacion[i], 1, 0);
+        sistema->confirmarIndividual(datosPI);
+        if(i < INDIVIDUALES-1){
+            fecha.tm_hour = horasFin[i];
+            sistema->setFechaSistema(fecha);
+            sistema->seleccionarPartida(i+1);
+        }
+    }
+}
 
-    
-// }
-
-/**
-J1 gamer gamer@mail.com 123
-J2 ari ari@mail.com 123
-J3 ibai ibai@mail.com 123
-J4 camila camila@mail.com 123
-*/
-
-/**
-V1 D1 KingdomRush $1 | $2 | $7 | $14 C1, C2, C6, C8
-V2 D2 Fortnite $3 | $8 | $30 | $60 C1, C2, C3, C5, C7
-V3 D3 Minecraft $2 | $5 | $20 | $40 C1, C5, C8
-V4 D4 FIFA 21 $3 | $8 | $28 | $50 C1, C2, C3, C4, C8
- * 
- */
+void cargarMultijugador(Fabrica f){
+    IControlador* sistema = f.getInterface();
+    dtPartidaMultijugador* datosPM;
+    tm fecha;
+    string emailJdrs[MULTIJUGADOR] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
+    string juegos[MULTIJUGADOR] = { "Fortnite", "Fortnite", "Minecraft"};
+    string** unidosAB; string** unidosC;
+    unidosAB[0] = new string("ari");
+    unidosAB[1] = new string("ibai");
+    unidosC[0] = new string("ibai");
+    bool enVivo[MULTIJUGADOR] = {true, true, false};
+    int dias[MULTIJUGADOR] = { 05, 06, 12};
+    int horasIn[MULTIJUGADOR] = {5, 5, 8}; //horas de inicio
+    int id = 3;
+    for(int i = 0; i<MULTIJUGADOR; i++){
+        sistema->ingresoData(emailJdrs[i], "123", false);
+        sistema->confirmarSesion();
+        fecha.tm_yday = 2021;
+        fecha.tm_mon = 06; 
+        fecha.tm_mday = dias[i];
+        fecha.tm_hour = horasIn[i];
+        sistema->setFechaSistema(fecha);
+        if(i < MULTIJUGADOR-1)
+            datosPM = new dtPartidaMultijugador(0, 0, juegos[i], enVivo[i], "", unidosAB);
+        else 
+            datosPM = new dtPartidaMultijugador(0, 0, juegos[i], enVivo[i], "", unidosC);   
+        sistema->confirmarMultijugador(datosPM);
+        if(i < MULTIJUGADOR-1){
+            fecha.tm_hour = 7;
+            sistema->setFechaSistema(fecha);
+            sistema->seleccionarPartida(id);
+            id++;
+        }
+    }
+}
