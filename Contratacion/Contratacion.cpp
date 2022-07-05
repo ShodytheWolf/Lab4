@@ -44,8 +44,7 @@ void Contratacion::setFechaDeSuscripcion(time_t fechaDeSuscripcion) {
 	this->fechaDeSuscripcion = fechaDeSuscripcion;
 }
 
-enumSuscripcion* Contratacion::getTipoSuscripto(){
+enumSuscripcion Contratacion::getTipoSuscripto(){ //tic
 	enumSuscripcion tipo = this->suscripcion->getTipo();
-	enumSuscripcion* ptrTipo = &tipo;
-	return ptrTipo;
+	return tipo;
 }

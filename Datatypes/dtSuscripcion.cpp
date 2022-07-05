@@ -1,11 +1,14 @@
 #include "dtSuscripcion.h"
+#include <iostream>
+
+using namespace std;
 
 dtSuscripcion::dtSuscripcion()
 {
 
 }
 
-dtSuscripcion::dtSuscripcion(float costoMen, float costoTri, float costoAn, float costoVit, enumSuscripcion* tipoSus){
+dtSuscripcion::dtSuscripcion(float costoMen, float costoTri, float costoAn, float costoVit, enumSuscripcion tipoSus){
 
     this->costoAnual = costoAn;
     this->costoMensual = costoMen;
@@ -19,7 +22,7 @@ dtSuscripcion::~dtSuscripcion()
 
 }
 
-enumSuscripcion* dtSuscripcion::getTipo() {
+enumSuscripcion dtSuscripcion::getTipo() {
 	return this->tipo;
 }
 
