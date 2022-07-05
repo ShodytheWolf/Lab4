@@ -33,6 +33,11 @@ public:
     string getDescripcionJuego();
     void setDescripcionJuego(string descripcionJuego);
 
+    int getCantPuntajes();
+    void setCantPuntajes(int cantPuntajes);
+
+    void setPuntajeTotal(int puntajeTotal);
+
     Desarrollador* getDesarrollador();
     void setDesarrollador(Desarrollador* desarrollador);
 
@@ -41,6 +46,7 @@ public:
     Trimestral* getSuscripcionTrimestral();
     Vitalicia* getSuscripcionVitalicia();
 
+    void nuevoPuntaje(int);
     void aniadirCategoria(Categoria* cat);
     void addDtJuego(dtVideoJuego** datosJuego); //armar datos
     dtEstadistica* getEstadisticas(const char*);
@@ -56,6 +62,10 @@ protected:
     Trimestral* suscripcionTrimestral;
     Vitalicia* suscripcionVitalicia;
     IDictionary* estadisticas = new OrderedDictionary();
+    int puntajeTotal = 0;
+    int cantPuntajes = 0;
+
+
 };
 
 #endif

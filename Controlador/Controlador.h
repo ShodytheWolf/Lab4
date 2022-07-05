@@ -65,6 +65,12 @@ class Controlador: public IControlador{
         //Agregar Categoria:
         void nuevaCategoria(const char*, string, enumCategoria);
 
+        //Asignar Puntaje
+        void asignarPuntaje(const char*, int);
+
+        //Cambiar fecha del sistema
+        time_t* getFechaSistema();
+        void setFechaSistema(tm);
 
 
     private:

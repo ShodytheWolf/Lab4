@@ -21,6 +21,7 @@ public:
     void cancelSuscripcion();
     bool estaSuscrito();
     bool confirmarJuego(Videojuego*);
+    void puntuar(int);
 
 
     float getCantHoras();

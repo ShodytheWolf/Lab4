@@ -451,11 +451,9 @@ void Controlador::confirmoEliminacion(const char *nombreVideojuego)
             Jugador *j = (Jugador *)u;
             j->eliminarContRegisJuego(vj);
         }
-    }    
-    String k = String(vj->getNombreJuego()->getValue());
-    String* pointerK = &k;
+    }
+    this->videojuegos->remove(vj->getNombreJuego());
     delete vj;
-    this->videojuegos->remove(pointerK);
 }
 
 /**
@@ -469,4 +467,20 @@ void Controlador::nuevaCategoria(const char *nom, string desc, enumCategoria tip
 {
     Categoria *c = new Categoria(nom, desc, tipo);
     categorias->add(new String(nom), c);
+}
+
+
+//Asignar Puntaje
+void Controlador::asignarPuntaje(const char* juego, int puntaje){
+    Jugador* j = (Jugador*) loggedUser;
+    Videojuego* vj = (Videojuego*) videojuegos->find(new String(juego));
+    j->nuevoPuntaje(vj, puntaje);
+}
+
+void Controlador::setFechaSistema(tm fecha){
+    this->horaActual = mktime(&fecha);
+}
+
+time_t* Controlador::getFechaSistema(){
+    return &this->horaActual;
 }

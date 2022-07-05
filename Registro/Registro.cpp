@@ -73,3 +73,8 @@ bool Registro::confirmarJuego(Videojuego* vj){
 Videojuego* Registro::getVideojuego(){
 	return this->juego;
 }
+
+void Registro::puntuar(int p){
+	this->puntajeJuego = p;
+	juego->nuevoPuntaje(p);
+}
