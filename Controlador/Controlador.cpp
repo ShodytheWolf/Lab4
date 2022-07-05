@@ -282,6 +282,7 @@ string **Controlador::listarVideojuegosSuscripto()
         Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
         string **lista = jug->listarJuegosSuscripto();
+        //cout<<"en el controlador, despues de conseguir la lista"<<endl;
         return lista;
     }
     else

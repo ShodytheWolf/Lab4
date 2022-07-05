@@ -44,3 +44,7 @@ dtPartida* Individual::getDtPartida(){
     }
     
 }
+
+dtPartida* Individual::getDtPartida(string papaOso){
+    
+}

@@ -42,12 +42,12 @@ void iniciarPartida(){
 										//CUIDADO, VER TRY AND CATCH
 											//CUIDADO, VER TRY AND CATCH
 
-
-			if(!juegosSuscriptos[0]){
+			//cout<<"antes del if del frontend"<<endl;
+			if(!juegosSuscriptos){
 				cout<<"jugador no tiene juegos suscriptos (pobre)"<<endl;
 				return;
 			}
-
+			//cout<<"despues del if del frontend"<<endl;
 
 			i = 0;
 			while (juegosSuscriptos[i] != NULL)//HOW

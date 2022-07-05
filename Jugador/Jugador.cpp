@@ -99,10 +99,18 @@ void Jugador::aniadirSuscripcion(Videojuego* obj, enumSuscripcion tipoSuscipcion
 string** Jugador::listarJuegosSuscripto(){
     IIterator* it = registros->getIterator();
     
-    string** listaADevolver = new string*[this->registros->getSize()];
+    string** listaADevolver = new string*[this->registros->getSize()+1];
+
+    cout<<"antes del while, despues de hacer la lista"<<endl;
+    if(!it->hasCurrent()){
+        //cout<<"El jugador no tiene ningun juego suscripto :c"<<endl;
+        return NULL;
+    }
+
     int i = 0;
     while(it->hasCurrent()){
         Registro* reg = dynamic_cast<Registro*>(it->getCurrent());
+
         listaADevolver[i] = new string(reg->getVideojuego()->getNombreJuego()->getValue());
         it->next();
     }
