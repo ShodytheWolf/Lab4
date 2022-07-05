@@ -12,6 +12,10 @@ Vitalicia::~Vitalicia()
 
 }
 
+enumSuscripcion Vitalicia::getTipo(){
+	return this->tipo;
+}
+
 float Vitalicia::getCostoVitalicia() {
 	return this->costoVitalicia;
 }

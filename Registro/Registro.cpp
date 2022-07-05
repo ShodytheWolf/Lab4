@@ -33,12 +33,20 @@ Registro::~Registro(){
 
 dtVideoJuego* Registro::getDtJuego(){
 	dtVideoJuego* data = NULL; 
+	
 
 	if (contratacionActiva){
-		data = new dtVideoJuego(string(this->juego->getNombreJuego()->getValue()),
-		string(this->juego->getDesarrollador()->getNombreEmpresa()->getValue()),
-		juego->getDescripcionJuego(),juego->getCostosVj(),
-		true, 0,0); //dato vj contratacion activa.
+		string nombreVJ = this->juego->getNombreJuego()->getValue();
+		string nombreEmp = this->juego->getDesarrollador()->getNombreEmpresa()->getValue();
+		string desc = juego->getDescripcionJuego();
+		
+		dtSuscripcion* dataCostos = new dtSuscripcion(this->juego->getSuscripcionMensual()->getCostoMensual(),
+		this->juego->getSuscripcionTrimestral()->getCostoTrimestral(),
+		this->juego->getSuscripcionAnual()->getCostoAnual(),
+		this->juego->getSuscripcionVitalicia()->getCostoVitalicia(),
+		this->contratacionActiva->getTipoSuscripto()); //costos de cada una y tipo de suscripcion contratada
+
+		data = new dtVideoJuego(nombreVJ, nombreEmp, desc, dataCostos, true, 0, 0);
 	}
 	return data;
 }
@@ -54,10 +62,10 @@ void Registro::cancelSuscripcion(){
 }
 
 bool Registro::estaSuscrito(){
-    if(this->contratacionActiva = NULL){
-		return true;
-	}else{
+    if(this->contratacionActiva == NULL){
 		return false;
+	}else{
+		return true;
 	}
 }
 

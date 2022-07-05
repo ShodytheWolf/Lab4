@@ -32,8 +32,10 @@ void iniciarSesion(char &tU){
                     existeUsuario = sistema->ingresoData(email, contrasenia, true);
                     if(!existeUsuario)
                         cout << "Email o contraseña incorrectos" <<endl;
-                    else
+                    else{
                         tU = sistema->confirmarSesion();
+                        system("clear");
+                    }
                     break;
                 case '4': 
                     return;

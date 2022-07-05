@@ -3,6 +3,7 @@
 #include "../IControlador/IControlador.h"
 #include "../Fabrica/Fabrica.h"
 #include "../Enumeration/enumSuscripcion.h"
+#include "../breakpoint.cpp"
 
 using namespace std;
 
@@ -27,38 +28,55 @@ try{
     cout << "|===========================|" << endl;
 
 
-    cout << "Lista de videojuegos suscriptos: \n" << endl;
+    cout << "Lista de videojuegos suscriptos: " << endl;
     while (listJuegosDiff[i]){
         if(listJuegosDiff[i]->getEstaSuscripto()){
-            cout << "Nº:" << i+1 << " Juego:" <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual:" <<
+            cout << "\nNº:" << i+1 << " Juego:" <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual:" <<
             listJuegosDiff[i]->getCostos()->getCostoAnual()<< "\nCosto Trimestral:" << 
             listJuegosDiff[i]->getCostos()->getCostoTrimestral() <<
             "\nCosto Mensual:"<< listJuegosDiff[i]->getCostos()->getCostoMensual() << "\nCosto Vitalicia:" << 
-            listJuegosDiff[i]->getCostos()->getCostoVitalicia() << endl; 
+            listJuegosDiff[i]->getCostos()->getCostoVitalicia() << endl;
         }
         i++;
     }
+
+    cout << "\nPresione ENTER para continuar.... " << endl;
+    getchar();
+    getchar();
 
     cout << "Lista de videojuegos no suscriptos" << endl;
     i = 0;
     while (listJuegosDiff[i]){
         if(!listJuegosDiff[i]->getEstaSuscripto()){
-            cout << "Nº:" << i+1 << " Juego:" <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual:" <<
+            cout << "\nNº:" << i+1 << " Juego:" <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual:" <<
             listJuegosDiff[i]->getCostos()->getCostoAnual() << "\nCosto Trimestral:" << 
             listJuegosDiff[i]->getCostos()->getCostoTrimestral() <<
             "\nCosto Mensual: "<< listJuegosDiff[i]->getCostos()->getCostoMensual() << "\nCosto Vitalicia:" << 
-            listJuegosDiff[i]->getCostos()->getCostoVitalicia() << endl; 
+            listJuegosDiff[i]->getCostos()->getCostoVitalicia() << endl;
         }
         i++;
     }
+
+    cout << "\nPresione ENTER para continuar.... " << endl;
+    getchar();
 
 
     cout << "Ingrese nombre del videojuego a suscribirse:" << endl;
     cin >> nombreVideojuego;
     controlador->ingresarVideojuego(nombreVideojuego.data());
     system ("clear");
+    
+    i = 0;
+    dtVideoJuego* jogo;
+    while(listJuegosDiff[i]){
+        if(listJuegosDiff[i]->getNombreVideojuego() == nombreVideojuego){
+            jogo = listJuegosDiff[i];
+            break;
+        }
+        i++;
+    }
 
-    bool suscripto = controlador->estaSuscripto(nombreVideojuego.data());
+    bool suscripto = jogo->getEstaSuscripto();
 
         if (!suscripto){ //si no tiene una suscripcion 
             
@@ -104,6 +122,7 @@ try{
             }
             system ("clear");
 
+
             cout << "¿Desea confirmar?" << endl;
             cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
             cin >> confirmar;
@@ -122,9 +141,10 @@ try{
                 return;
             } 
         }
-        else { //tiene una suscripcion temporal 
-            if(suscripto && tipoSus != Vit){
-
+        else { //tiene una suscripcion temporal
+            enumSuscripcion* tipoSuscripto = jogo->getCostos()->getTipo();
+            cout << jogo->getCostos()<< endl;
+            if(*tipoSuscripto != Vit){
                 cout << "¿Desea dar de baja la suscripcion activa y crear una nueva?" << endl;
                 cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar" << endl;
                 cin >> confirmar;
@@ -187,8 +207,13 @@ try{
                     return;
                 }
             }
+            else{
+                cout << "No puedes suscribirte a este juego." << endl;
+                cout << "Tienes una suscripcion vitalicia..." << endl;
+            }
         }
     }catch(invalid_argument &error){
         cout << error.what() << endl;
     }
 }
+

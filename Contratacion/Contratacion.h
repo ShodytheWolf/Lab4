@@ -17,6 +17,8 @@ class Contratacion : public ICollectible
         void setMetodoDePago(enumPago metodoDePago);
         time_t getFechaDeSuscripcion();
         void setFechaDeSuscripcion(time_t fechaDeSuscripcion);
+        enumSuscripcion* getTipoSuscripto();
+
     private:
         Suscripcion* suscripcion;
         enumPago metodoDePago;

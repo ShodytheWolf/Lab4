@@ -1,7 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <stdlib.h>
-#include "../breakpoint.cpp"
+//#include "../breakpoint.cpp"
 
 Controlador *Controlador::instance = nullptr;
 
@@ -228,7 +228,6 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
         }
     }
     videojuegos->add(vj->getNombreJuego(), vj); // añado juego
-    cout << vj->getNombreJuego() << endl;
 
 }
 
@@ -256,7 +255,11 @@ void Controlador::ingresarVideojuego(const char* nombreVj){
 }
 
 bool Controlador::estaSuscripto(const char *nombreVideojuego){ //meti const aca
-}
+    
+    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
+    Videojuego* vj = (Videojuego*)videojuegos->find(new String(nombreVideojuego));
+    return j->verificoJuego(vj);
+}   
 
 void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion)
 {
@@ -412,7 +415,9 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
     string descVj = v->getDescripcionJuego();
     dtSuscripcion* costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
     v->getSuscripcionTrimestral()->getCostoTrimestral(),v->getSuscripcionAnual()->getCostoAnual(),
-    v->getSuscripcionVitalicia()->getCostoVitalicia());
+    v->getSuscripcionVitalicia()->getCostoVitalicia(), NULL);
+
+
     string** categoriasVj = v->getNombreCategorias();
     dtEstadistica* puntajeVj = v->getEstadisticas("Puntaje");
     if(dynamic_cast<Desarrollador*>(loggedUser)){

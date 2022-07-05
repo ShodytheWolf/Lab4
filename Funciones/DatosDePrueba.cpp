@@ -46,6 +46,8 @@ void cargarDatos(){
         << "0.Cancelar"
         <<endl;
         cin >> op;
+        
+
         switch(op){
             case '1':
                 cargarDesarrolladores(f);
@@ -73,6 +75,7 @@ void cargarDatos(){
             case '8':
                 break;
             case '0':
+                system("clear");
                 return;
             default:
                 cout << "Opcion incorrecta" <<endl;
@@ -90,6 +93,12 @@ void cargarDesarrolladores(Fabrica f){
         sistema->ingresarEmpresa(empresas[i].data());
         sistema->confirmarNuevoDesarrollador();
     }
+
+    cout  << "Cargaste datos de desarrolladores" << endl;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
 }
 
 void cargarJugadores(Fabrica f){
@@ -101,6 +110,12 @@ void cargarJugadores(Fabrica f){
         sistema->ingresarNickname(nicknames[i].data());
         sistema->confirmarNuevoJugador();
     }
+
+    cout  << "Cargaste datos de jugadores." << endl;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
 }
 
 void cargarGeneros(Fabrica f){
@@ -131,15 +146,20 @@ void cargarOtros(Fabrica f){
     for(int i = 0; i<OTRAS; i++){
         sistema->nuevaCategoria(otros[i].data(), descripciones[i], Otro);
     }
+    cout  << "Cargaste datos de categorias" << endl;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
 }
 
 void cargarVideojuegos(Fabrica f){ 
     IControlador* sistema = f.getInterface();
-    //"KingdomRush", "Fortnite", "Minecraft", "FIFA"
-    dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14);
-    dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60);
-    dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40);
-    dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50);
+    //"Kingdom Rush", "Fortnite", "Minecraft", "FIFA"
+    dtSuscripcion* costosKR = new dtSuscripcion(1,2,7,14, NULL);
+    dtSuscripcion* costosFortnite = new dtSuscripcion(3,8,30,60, NULL);
+    dtSuscripcion* costosMinecraft = new dtSuscripcion(2,5,20,40, NULL);
+    dtSuscripcion* costosFIFA = new dtSuscripcion(3,8,28,50, NULL);
     dtCategoria* c1 = new dtCategoria("PC", "", Plataforma);
     dtCategoria* c2 = new dtCategoria("PS4", "", Plataforma);
     dtCategoria* c3 = new dtCategoria("Xbox One", "", Plataforma);
@@ -197,6 +217,14 @@ void cargarVideojuegos(Fabrica f){
     sistema->confirmarSesion();
     dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
     sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
+
+
+    cout << "Cargaste datos de videojuegos" << endl;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
+
 }  
 
 void cargarSuscripciones(Fabrica f){
@@ -233,6 +261,12 @@ void cargarPuntajes(Fabrica f){
         sistema->confirmarSesion();
         sistema->asignarPuntaje(juegos[i].data(), puntajes[i]);
     }
+
+    cout  << "Cargaste datos de puntajes de videojuegos." << endl;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
 }
 
 // void cargarIndividuales(Fabrica f){
