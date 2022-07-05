@@ -21,7 +21,16 @@ Registro::~Registro(){
 	}
 }
 
-dtVideoJuego** Registro::getDtJuego(){
+dtVideoJuego* Registro::getDtJuego(){
+	dtVideoJuego* dato;
+	if(contratacionActiva){
+		dato = new dtVideoJuego(string(this->juego->getNombreJuego()->getValue()),
+		string(juego->getDesarrollador()->getNombreEmpresa()->getValue()),
+		juego->getDescripcionJuego(), NULL, true, 0, 0); 
+		return dato;
+	}
+	return NULL;
+
 }
 void Registro::activarSuscripcion(enumSuscripcion tipoSuscripcion,enumPago metodoDePago){
 
@@ -53,11 +62,16 @@ void Registro::setPuntajeJuego(int puntajeJuego) {
 	this->puntajeJuego = puntajeJuego;
 }
 
-bool Registro::confrmarJuego(Videojuego* vj){
+bool Registro::confirmarJuego(Videojuego* vj){
 	if(this->juego == vj){return true;}
 	return false;
 }
 
 Videojuego* Registro::getVideojuego(){
 	return this->juego;
+}
+
+void Registro::puntuar(int p){
+	this->puntajeJuego = p;
+	juego->nuevoPuntaje(p);
 }
