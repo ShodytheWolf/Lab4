@@ -28,6 +28,12 @@ cout << "Lista de videojuegos suscriptos y no suscriptos." << endl;
 
 int i = 0;
 while (listJuegosDiff[i]){
+    if(listJuegosDiff[i]->getEstaSuscripto())
+        cout << "Juegos suscripto: " << listJuegosDiff[i]->getNombreVideojuego() <<endl;
+        //costos 
+        //bla bla
+    else
+
     cout << "Nº:" <<i+1 << listJuegosDiff[i] <<endl;
 }
 
