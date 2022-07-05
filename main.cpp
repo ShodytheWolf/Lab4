@@ -59,7 +59,6 @@ int main(){
     return 0;
 }
 
-
 void menuDesarrollador(){
     char op = ' ';
     bool exit = false;
@@ -89,8 +88,7 @@ void menuDesarrollador(){
                 verInformacionVideojuego();
                 break;
             case '4':
-                cout << "Esta funcion se ha deshabilitado en esta version\nPresione <enter> para continuar"<<endl;
-                getchar();
+                cambiarFecha();
                 break;
             case '5':
                 cout << "Volvera al menu principal y debera iniciar sesion nuevamente. Seguro que desea hacerlo ? S/N" << endl;
@@ -138,7 +136,7 @@ void menuJugador(){
                 verInformacionVideojuego();
                 break;
             case '5':
-                cout << "Esta funcion se ha deshabilitado en esta version\nPresione <enter> para continuar"<<endl;
+                cambiarFecha();
                 break;
             case '6':
                 cout << "Volvera al menu principal y debera iniciar seion nuevamente.\nSeguro que desea continuar? S/N" << endl;
