@@ -27,30 +27,29 @@ try{
     cout << "|===========================|" << endl;
 
 
-
-    cout << "Lista de videojuegos suscriptos" << endl;
+    cout << "Lista de videojuegos suscriptos: \n" << endl;
     while (listJuegosDiff[i]){
         if(listJuegosDiff[i]->getEstaSuscripto()){
-            cout << "Nº:" << i+1 << "Juego: " <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual: " <<
+            cout << "Nº:" << i+1 << " Juego:" <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual:" <<
             listJuegosDiff[i]->getCostos()->getCostoAnual()<< "\nCosto Trimestral:" << 
             listJuegosDiff[i]->getCostos()->getCostoTrimestral() <<
-            "\nCosto Mensual: "<< listJuegosDiff[i]->getCostos()->getCostoMensual() << "\nCosto Vitalicia:" << 
+            "\nCosto Mensual:"<< listJuegosDiff[i]->getCostos()->getCostoMensual() << "\nCosto Vitalicia:" << 
             listJuegosDiff[i]->getCostos()->getCostoVitalicia() << endl; 
-            i++;
         }
+        i++;
     }
 
     cout << "Lista de videojuegos no suscriptos" << endl;
     i = 0;
     while (listJuegosDiff[i]){
         if(!listJuegosDiff[i]->getEstaSuscripto()){
-            cout << "Nº:" << i+1 << "Juego: " <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual: " <<
-            listJuegosDiff[i]->getCostos()->getCostoAnual()<< "\nCosto Trimestral:" << 
+            cout << "Nº:" << i+1 << " Juego:" <<  listJuegosDiff[i]->getNombreVideojuego() << "\nCosto Anual:" <<
+            listJuegosDiff[i]->getCostos()->getCostoAnual() << "\nCosto Trimestral:" << 
             listJuegosDiff[i]->getCostos()->getCostoTrimestral() <<
             "\nCosto Mensual: "<< listJuegosDiff[i]->getCostos()->getCostoMensual() << "\nCosto Vitalicia:" << 
             listJuegosDiff[i]->getCostos()->getCostoVitalicia() << endl; 
-            i++;
         }
+        i++;
     }
 
 
@@ -111,7 +110,7 @@ try{
             if (confirmar == 's' || confirmar == 'S'){
             cout << "Compra realizada con éxito" << endl;
             controlador->nuevaSuscripcion(pago, tipoSus);
-            delete nombreVideojuego.data(), listJuegosDiff;
+            //delete nombreVideojuego.data(), listJuegosDiff;
             return;
             }
             else { //cancelar
@@ -119,7 +118,7 @@ try{
                 cout << "Pulsa ENTER para continuar..." << endl;
                 getchar();
                 getchar();
-                delete nombreVideojuego.data(), listJuegosDiff;
+                //delete nombreVideojuego.data(), listJuegosDiff;
                 return;
             } 
         }
@@ -175,7 +174,7 @@ try{
                     if (confirmar == 's' || confirmar == 'S'){
                     cout << "Compra realizada con éxito" << endl;                          
                     controlador->nuevaSuscripcion(pago, tipoSus);
-                    delete nombreVideojuego.data(), listJuegosDiff;
+                    //delete nombreVideojuego.data(), listJuegosDiff;
                     return;
                     }
                 }
@@ -184,7 +183,7 @@ try{
                     cout << "Pulsa ENTER para continuar..." << endl;
                     getchar();
                     getchar();
-                    delete nombreVideojuego.data(), listJuegosDiff;
+                    //delete nombreVideojuego.data(), listJuegosDiff;
                     return;
                 }
             }

@@ -38,6 +38,7 @@ public:
 
     void setPuntajeTotal(int puntajeTotal);
 
+    dtSuscripcion* getCostosVj();
     Desarrollador* getDesarrollador();
     void setDesarrollador(Desarrollador* desarrollador);
 

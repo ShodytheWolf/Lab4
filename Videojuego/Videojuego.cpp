@@ -19,6 +19,17 @@ Videojuego::Videojuego(const char* nombre, string descripcion, Desarrollador* de
     estadisticas->add(statsPuntaje->getNombre(),statsPuntaje);
 }
 
+dtSuscripcion* Videojuego::getCostosVj(){
+
+    dtSuscripcion* datosSus;
+    datosSus = new dtSuscripcion(suscripcionMensual->getCostoMensual(),
+    suscripcionTrimestral->getCostoTrimestral(), suscripcionAnual->getCostoAnual(),
+    suscripcionVitalicia->getCostoVitalicia());
+
+    return datosSus;
+}
+
+
 Videojuego::~Videojuego()
 {
     IIterator* it;
@@ -115,7 +126,7 @@ void Videojuego::addDtJuego(dtVideoJuego** datosJuego){
     dtVideoJuego* data = NULL;
     data = new dtVideoJuego(string(this->nombreJuego->getValue()),
 	string(this->desarrollador->getNombreEmpresa()->getValue()),
-	this->descripcionJuego, NULL, false, 0,0);
+	this->descripcionJuego, this->getCostosVj(), false, 0,0);
     
     datosJuego[i] = data;//añado a lista
     datosJuego[i+1] = NULL; // inicializo siguiente en null.

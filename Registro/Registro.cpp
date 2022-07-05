@@ -28,7 +28,8 @@ dtVideoJuego* Registro::getDtJuego(){
 	if (contratacionActiva){
 		data = new dtVideoJuego(string(this->juego->getNombreJuego()->getValue()),
 		string(this->juego->getDesarrollador()->getNombreEmpresa()->getValue()),
-		juego->getDescripcionJuego(), NULL, true, 0,0); //dato vj contratacion activa.
+		juego->getDescripcionJuego(),juego->getCostosVj(),
+		true, 0,0); //dato vj contratacion activa.
 	}
 	return data;
 }

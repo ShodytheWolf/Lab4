@@ -238,10 +238,10 @@ dtVideoJuego **Controlador::listarVideojuegosDiferenciada(){
     if(videojuegos->isEmpty()){
         throw invalid_argument("Error: no existen videojuegos en el sistema.");
     }
+
     dtVideoJuego** listJ;
-    
     Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
-    listJ = j->getDatosVj(); //
+    listJ = j->getDatosVj(); 
     //depois itero en jogos
     for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){ //itero en juegos.
         Videojuego* vj = dynamic_cast<Videojuego *>(it->getCurrent()); //videojuego en el q toy parao
