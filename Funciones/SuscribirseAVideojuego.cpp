@@ -64,7 +64,7 @@ try{
     cout << "Ingrese nombre del videojuego a suscribirse:" << endl;
     cin >> nombreVideojuego;
     controlador->ingresarVideojuego(nombreVideojuego.data());
-    system ("clear");
+    //system ("clear");
     
     i = 0;
     dtVideoJuego* jogo;
@@ -95,7 +95,7 @@ try{
                     cout << "Metodo de pago invalido. " << endl;
                     break;
             }
-            system ("clear");
+            //system ("clear");
 
             cout << "Ingrese un tipo de suscripción Anual(a/A), Mensual(m/M), Trimestral(t/T), Vitalicia(v/V)." << endl;
             cin >> selecTipoSus;
@@ -120,7 +120,7 @@ try{
                     cout << "Tipo invalido." << endl;
                     break;
             }
-            system ("clear");
+            //system ("clear");
 
 
             cout << "¿Desea confirmar?" << endl;

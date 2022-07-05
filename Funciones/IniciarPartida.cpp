@@ -53,6 +53,7 @@ void iniciarPartida(){
 			while (juegosSuscriptos[i] != NULL)//HOW
 			{
 				cout<<*juegosSuscriptos[i]<<endl;
+				i++;
 			};
 
 			//me fijo que esta bien escrito lo que me pasa el usuario.
