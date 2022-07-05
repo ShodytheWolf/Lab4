@@ -19,6 +19,8 @@ public:
     float getDato();
     void setDato(float dato);
     dtEstadistica * getDtEstadistica();
+    void calcularPromedio(int, int);
+
 private:
     String* nombre;
     string descripcion;
