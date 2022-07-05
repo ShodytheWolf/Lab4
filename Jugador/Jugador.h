@@ -35,21 +35,24 @@ public:
 
 
     void pasoJuego(String nombreVideojuego);
+    dtPartida** getDtPartidasActivas();
     dtVideoJuego** getDatosVj(); 
     void aniadirSuscripcion(Videojuego* objeto, enumSuscripcion tipoSuscipcion, enumPago metodoDePago, time_t fechaSus);
     string** listarJuegosSuscripto(); 
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
     String* getNick(string nombreJuego);
-    Multijugador* iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj, int idUltimaPartida,time_t horaActual);
+    Multijugador* iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj, int idUltimaPartida,time_t horaActual,string** jugadoresUnidos);
     void iniciarIndividual(dtPartidaIndividual* datosPartida, Videojuego* vj,int idUltimaPartida,time_t horaActual);
     dtPartidaIndividual** listarPartidasIndividuales();
     dtPartidaMultijugador** partidaAFinalizar();
-    void partidaAFinalizar(int idPartida);
+    void partidaAFinalizar(int idPartida,time_t horaActual);
     string** comprobarPartidas(string** nombreJuegos, int t);
     void eliminarContRegisJuego(Videojuego* vj);
     void unirseAPartida(Multijugador* multi);
     void nuevoPuntaje(Videojuego*, int);
+    void abandonarPartidaMultijugador(int idPartida,time_t horaActual);
+
 
 private:
     String* nickname;
@@ -57,7 +60,7 @@ private:
     time_t fecha;
     IDictionary* partidasInactivas = new OrderedDictionary();
     IDictionary* partidasActivas = new OrderedDictionary();
-    ICollection* partidasUnido = new List(); 
+    IDictionary* partidasUnido = new OrderedDictionary(); 
     ICollection* registros = new List();
 
 };

@@ -102,13 +102,13 @@ Suscripcion.o: Suscripcion/Suscripcion.cpp ICollectible.o #11
 Estadistica.o: Estadistica/Estadistica.cpp ICollectible.o dtEstadistica.o String.o #12
 	@$(GXX) -c $^
 
-Individual.o: Individual/Individual.cpp Partida.o #13
+Individual.o: Individual/Individual.cpp Partida.o dtPartidaIndividual.o #13
 	@$(GXX) -c $^
 
 EnVivo.o: EnVivo/EnVivo.cpp Multijugador.o ICollection.o List.o Comentario.o #14
 	@$(GXX) -c $^
 
-Multijugador.o: Multijugador/Multijugador.cpp Partida.o #15
+Multijugador.o: Multijugador/Multijugador.cpp Partida.o dtPartidaMultijugador.o #15
 	@$(GXX) -c $^
 
 Comentario.o: Comentario/Comentario.cpp ICollectible.o ICollection.o List.o #17

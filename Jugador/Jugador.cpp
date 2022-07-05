@@ -153,11 +153,12 @@ String* Jugador::getNick(string nombreJuego){
     return NULL;
 }
 
-Multijugador* Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj, int idPartida,time_t horaActual){
+Multijugador* Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,Videojuego* vj, int idPartida,time_t horaActual, string** jugadoresUnidos){
 
     if(datosPartida->getEnVivo()){
 
-        EnVivo* partiAAnadiar = new EnVivo(idPartida,horaActual,0,vj);
+        EnVivo* partiAAnadiar = new EnVivo(idPartida,horaActual,0,vj,datosPartida->getjugadoresUnidos());
+
 
         Integer* k = new Integer(idPartida);
         partidasActivas->add(k,partiAAnadiar);
@@ -166,7 +167,7 @@ Multijugador* Jugador::iniciarMultijugador(dtPartidaMultijugador* datosPartida,V
 
     }else{
 
-        Multijugador* partiAAnadiar = new Multijugador(idPartida,horaActual,0,vj);
+        Multijugador* partiAAnadiar = new Multijugador(idPartida,horaActual,0,vj,datosPartida->getjugadoresUnidos());
 
         Integer* k = new Integer(idPartida);
         partidasActivas->add(k,partiAAnadiar);
@@ -202,7 +203,18 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
 }
 dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}
 dtPartidaMultijugador** Jugador::partidaAFinalizar(){}
-void Jugador::partidaAFinalizar(int idPartida){}
+
+void Jugador::partidaAFinalizar(int idPartida, time_t horaActual){
+
+    Integer* k = new Integer(idPartida);
+    Partida* parti = dynamic_cast<Partida*>(this->partidasActivas->find(k));
+
+    time_t horaDiferida = difftime(parti->getFechaInicio(),horaActual);
+    parti->setDuracion(horaDiferida);
+
+    this->partidasInactivas->add(parti->getId(),parti);
+    this->partidasActivas->remove(parti->getId());
+}
 
 /**
  * @brief Operacion que comprueba si tiene partidas activas para Videojuegos 
@@ -256,7 +268,40 @@ void Jugador::eliminarContRegisJuego(Videojuego* vj){
 }
 
 void Jugador::unirseAPartida(Multijugador* multi){
-    this->partidasUnido->add(multi);
+
+    this->partidasUnido->add(multi->getId(),multi);
+}
+
+
+dtPartida** Jugador::getDtPartidasActivas(){
+    IIterator* it = this->partidasActivas->getIterator();
+    dtPartida** listaADevolver = new dtPartida*[this->partidasActivas->getSize()+1];
+
+    int c = 0;
+    while(it->hasCurrent()){
+        Partida* Parti = dynamic_cast<Partida*>(it->getCurrent());
+
+        if(dynamic_cast<Individual*>(it->getCurrent())){
+
+            Parti = dynamic_cast<Individual*>(it->getCurrent());
+            listaADevolver[c] = Parti->getDtPartida();
+            c++;
+        }else{
+            if(dynamic_cast<EnVivo*>(it->getCurrent())){
+
+                Parti = dynamic_cast<EnVivo*>(it->getCurrent());
+                listaADevolver[c] = Parti->getDtPartida(string(this->nickname->getValue()));
+                c++;
+            }else{
+
+                Parti = dynamic_cast<Multijugador*>(it->getCurrent());
+                listaADevolver[c] = Parti->getDtPartida(string(this->nickname->getValue()));
+                c++;
+            }
+        }
+        it->next(); 
+    }
+    return listaADevolver;
 }
 
 void Jugador::nuevoPuntaje(Videojuego* vj, int p){
@@ -265,6 +310,33 @@ void Jugador::nuevoPuntaje(Videojuego* vj, int p){
         if(r->confirmarJuego(vj)){
             r->puntuar(p);
             break;
+        }
+    }
+}
+
+void Jugador::abandonarPartidaMultijugador(int idpartida, time_t horaActual){
+
+    Integer* k = new Integer(idpartida);
+
+    Partida* parti = dynamic_cast<Partida*>(this->partidasUnido->find(k));
+
+    if(!parti){
+        return;
+
+    }else{
+        if(dynamic_cast<EnVivo*>(parti)){
+            EnVivo* partiEnVivo = dynamic_cast<EnVivo*>(parti);
+            partiEnVivo->registrarHoraRetiro(horaActual);//ACA PASO LA HORA DEL SISTEMA
+
+            this->partidasUnido->remove(partiEnVivo->getId());
+
+            return;
+        }else{
+            Multijugador* partiMulti = dynamic_cast<Multijugador*>(parti);
+            partiMulti->registrarHoraRetiro(horaActual);
+
+            this->partidasUnido->remove(partiMulti->getId());
+            return;
         }
     }
 }
