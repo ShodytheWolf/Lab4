@@ -184,31 +184,37 @@ dtCategoria **Controlador::listarOtro()
 void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **generos, dtCategoria **plataformas, dtCategoria **otros)
 {
 
-    Desarrollador *dev = (Desarrollador *)loggedUser; //traigo al desarrollador
+    Desarrollador *dev = (Desarrollador *)loggedUser; // traigo al desarrollador
     int i = 0;
     String *str;
     // constructor del vj
-    Videojuego *vj = new Videojuego(datosJuegos->getNombreVideojuego().data(), datosJuegos->getDescripcionJuego(), dev, datosJuegos->getCostos());//creo el jueguito
-    IIterator *it;//creo iterador
-    for (it = categorias->getIterator(); it->hasCurrent(); it->next()){ //itero en categorias
-        Categoria *cat = (Categoria *)it->getCurrent();//obtengo la categoria
-        //string* str = new string(cat->getNombreCategoria()->getValue());
-        switch (cat->getTipoCategoria()){ //para cada tipo de categoria un caso
+    Videojuego *vj = new Videojuego(datosJuegos->getNombreVideojuego().data(), datosJuegos->getDescripcionJuego(), dev, datosJuegos->getCostos()); // creo el jueguito
+    IIterator *it;                                                                                                                                 // creo iterador
+    for (it = categorias->getIterator(); it->hasCurrent(); it->next())
+    {                                                   // itero en categorias
+        Categoria *cat = (Categoria *)it->getCurrent(); // obtengo la categoria
+        // string* str = new string(cat->getNombreCategoria()->getValue());
+        switch (cat->getTipoCategoria())
+        { // para cada tipo de categoria un caso
         case Genero:
             i = 0;
-            while (generos[i]){
-                str = new String(generos[i]->getNombre().data());//cambiazo de tipo
-                if (cat->getNombreCategoria()->compare(str) == EQUAL){
-                    vj->aniadirCategoria(cat); //agrego cat al vj
+            while (generos[i])
+            {
+                str = new String(generos[i]->getNombre().data()); // cambiazo de tipo
+                if (cat->getNombreCategoria()->compare(str) == EQUAL)
+                {
+                    vj->aniadirCategoria(cat); // agrego cat al vj
                 }
                 i++;
             }
             break;
         case Plataforma:
             i = 0;
-            while (plataformas[i]){     
-                str = new String(plataformas[i]->getNombre().data());//cambiazo de tipo
-                if (cat->getNombreCategoria()->compare(str) == EQUAL){
+            while (plataformas[i])
+            {
+                str = new String(plataformas[i]->getNombre().data()); // cambiazo de tipo
+                if (cat->getNombreCategoria()->compare(str) == EQUAL)
+                {
                     vj->aniadirCategoria(cat);
                 }
                 i++;
@@ -216,10 +222,12 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
             break;
         case Otro:
             i = 0;
-            while (otros[i]){          
-                str = new String(otros[i]->getNombre().data());//cambiazo de tipo
-                if (cat->getNombreCategoria()->compare(str) == EQUAL){
-                
+            while (otros[i])
+            {
+                str = new String(otros[i]->getNombre().data()); // cambiazo de tipo
+                if (cat->getNombreCategoria()->compare(str) == EQUAL)
+                {
+
                     vj->aniadirCategoria(cat);
                 }
                 i++;
@@ -228,54 +236,58 @@ void Controlador::publicarVideojuego(dtVideoJuego *datosJuegos, dtCategoria **ge
         }
     }
     videojuegos->add(vj->getNombreJuego(), vj); // añado juego
-
 }
 
-//suscribirse a videojuego
-dtVideoJuego **Controlador::listarVideojuegosDiferenciada(){
+// suscribirse a videojuego
+dtVideoJuego **Controlador::listarVideojuegosDiferenciada()
+{
 
-    if(videojuegos->isEmpty()){
+    if (videojuegos->isEmpty())
+    {
         throw invalid_argument("Error: no existen videojuegos en el sistema.");
     }
 
-    dtVideoJuego** listJ;
-    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
-    listJ = j->getDatosVj(); 
-    //depois itero en jogos
-    for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){ //itero en juegos.
-        Videojuego* vj = dynamic_cast<Videojuego *>(it->getCurrent()); //videojuego en el q toy parao
-        vj->addDtJuego(listJ);//añado vj.
+    dtVideoJuego **listJ;
+    Jugador *j = dynamic_cast<Jugador *>(loggedUser); // jugador logeau
+    listJ = j->getDatosVj();
+    // depois itero en jogos
+    for (IIterator *it = videojuegos->getIterator(); it->hasCurrent(); it->next())
+    {                                                                  // itero en juegos.
+        Videojuego *vj = dynamic_cast<Videojuego *>(it->getCurrent()); // videojuego en el q toy parao
+        vj->addDtJuego(listJ);                                         // añado vj.
     }
     return listJ;
 }
 
-void Controlador::ingresarVideojuego(const char* nombreVj){
+void Controlador::ingresarVideojuego(const char *nombreVj)
+{
 
     this->nombreVideojuego = nombreVj;
 }
 
-bool Controlador::estaSuscripto(const char *nombreVideojuego){ //meti const aca
-    
-    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
-    Videojuego* vj = (Videojuego*)videojuegos->find(new String(nombreVideojuego));
+bool Controlador::estaSuscripto(const char *nombreVideojuego)
+{ // meti const aca
+
+    Jugador *j = dynamic_cast<Jugador *>(loggedUser); // jugador logeau
+    Videojuego *vj = (Videojuego *)videojuegos->find(new String(nombreVideojuego));
     return j->verificoJuego(vj);
-}   
+}
 
 void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSuscripcion)
 {
-    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
+    Jugador *j = dynamic_cast<Jugador *>(loggedUser); // jugador logeau
 
-    String* clave = new String(nombreVideojuego);//creo key
-    Videojuego* vj = (Videojuego*)videojuegos->find(clave); //casteo.
-    j->aniadirSuscripcion(vj, tipoSuscripcion, metodoDePago,this->horaActual);
+    String *clave = new String(nombreVideojuego);            // creo key
+    Videojuego *vj = (Videojuego *)videojuegos->find(clave); // casteo.
+    j->aniadirSuscripcion(vj, tipoSuscripcion, metodoDePago, this->horaActual);
 }
 
 void Controlador::darDeBajaSuscripcion()
 {
-    Jugador* j = dynamic_cast<Jugador *>(loggedUser);//jugador logeau
+    Jugador *j = dynamic_cast<Jugador *>(loggedUser); // jugador logeau
     j->pasoJuego(nombreVideojuego);
 }
-   
+
 /******************************************************************************************************/
 string **Controlador::listarVideojuegosSuscripto()
 {
@@ -284,9 +296,9 @@ string **Controlador::listarVideojuegosSuscripto()
     {
         Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-        string** lista;
+        string **lista;
         lista = jug->listarJuegosSuscripto();
-        //cout<<"en el controlador, despues de conseguir la lista"<<endl;
+        // cout<<"en el controlador, despues de conseguir la lista"<<endl;
         return lista;
     }
     else
@@ -299,7 +311,7 @@ dtPartidaIndividual **Controlador::listoPartidasInactivas()
 
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    dtPartidaIndividual** listaPartidas = jug->listarPartidasFinalizadas();
+    dtPartidaIndividual **listaPartidas = jug->listarPartidasFinalizadas();
     return listaPartidas;
 }
 void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
@@ -309,8 +321,8 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
 
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    String* k = new String(datosPartida->getNombreVideojuego().data());
-    Videojuego* juego = dynamic_cast<Videojuego*>(videojuegos->find(k));
+    String *k = new String(datosPartida->getNombreVideojuego().data());
+    Videojuego *juego = dynamic_cast<Videojuego *>(videojuegos->find(k));
 
     this->ultimaIdPartida++;
     jug->iniciarIndividual(datosPartida, juego, this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
@@ -320,12 +332,12 @@ string **Controlador::listarNicks(string nombreVideojuego)
 {
 
     IIterator *it = usuarios->getIterator();
-    string **listaADevolver = new string *[usuarios->getSize()+1];
-    Videojuego* vj = (Videojuego*) videojuegos->find( new String(nombreVideojuego.data()));
+    string **listaADevolver = new string *[usuarios->getSize() + 1];
+    Videojuego *vj = (Videojuego *)videojuegos->find(new String(nombreVideojuego.data()));
     int c = 0;
     while (it->hasCurrent())
     {
-        Usuario* u = (Usuario*) it->getCurrent();
+        Usuario *u = (Usuario *)it->getCurrent();
 
         if (dynamic_cast<Jugador *>(it->getCurrent()) && u != loggedUser)
         {
@@ -352,60 +364,65 @@ void Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
     OrderedKey *k = new String(datosPartida->getNombreVideojuego().data());
 
     this->ultimaIdPartida = +1;
-    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual,datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
+    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual, datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
 
     int i = 0;
     while (datosPartida->getjugadoresUnidos()[i] != NULL)
     {
-        String* str = new String(datosPartida->getjugadoresUnidos()[i]->data());
+        String *str = new String(datosPartida->getjugadoresUnidos()[i]->data());
 
-        Jugador* user = dynamic_cast<Jugador*>(this->usuarios->find(str));
+        Jugador *user = dynamic_cast<Jugador *>(this->usuarios->find(str));
         user->unirseAPartida(multi);
         i++;
     }
 }
 
-dtPartida **Controlador::listoPartidasActivas(){
-    if(dynamic_cast<Jugador*>(this->loggedUser)){
+dtPartida **Controlador::listoPartidasActivas()
+{
+    if (dynamic_cast<Jugador *>(this->loggedUser))
+    {
 
-        Jugador* jug = dynamic_cast<Jugador *>(this->loggedUser);
+        Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-        dtPartida** listaADevolver = jug->getDtPartidasActivas();//DESDE ACA LLEGA MAL LA INFO PUTA DE M;IERDA
+        dtPartida **listaADevolver = jug->getDtPartidasActivas(); // DESDE ACA LLEGA MAL LA INFO PUTA DE M;IERDA
         return listaADevolver;
-
-    }else{
-       throw invalid_argument("El usuario loggeado no es un jugador");
+    }
+    else
+    {
+        throw invalid_argument("El usuario loggeado no es un jugador");
     }
 }
 
-void Controlador::seleccionarPartida(int idPartida){
+void Controlador::seleccionarPartida(int idPartida)
+{
 
-    IIterator* it = usuarios->getIterator();
+    IIterator *it = usuarios->getIterator();
 
-    while(it->hasCurrent()){
+    while (it->hasCurrent())
+    {
 
-        if(dynamic_cast<Jugador*>(it->getCurrent())){
+        if (dynamic_cast<Jugador *>(it->getCurrent()))
+        {
 
-            Jugador* jug = dynamic_cast<Jugador*>(it->getCurrent());
-            jug->abandonarPartidaMultijugador(idPartida,this->horaActual);
+            Jugador *jug = dynamic_cast<Jugador *>(it->getCurrent());
+            jug->abandonarPartidaMultijugador(idPartida, this->horaActual);
         }
         it->next();
     }
-    
-    Jugador* registrado = dynamic_cast<Jugador*>(this->loggedUser);
-    registrado->partidaAFinalizar(idPartida,horaActual);
+
+    Jugador *registrado = dynamic_cast<Jugador *>(this->loggedUser);
+    registrado->partidaAFinalizar(idPartida, horaActual);
 
     return;
-
-    
 }
 
-string** Controlador::listarTodosVJ()
+string **Controlador::listarTodosVJ()
 {
-    string** listVj = new string*[videojuegos->getSize() + 1];
+    string **listVj = new string *[videojuegos->getSize() + 1];
     int i = 0;
-    for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){
-        Videojuego* v = (Videojuego*) it->getCurrent();
+    for (IIterator *it = videojuegos->getIterator(); it->hasCurrent(); it->next())
+    {
+        Videojuego *v = (Videojuego *)it->getCurrent();
         listVj[i] = new string(v->getNombreJuego()->getValue());
         i++;
     }
@@ -415,28 +432,28 @@ string** Controlador::listarTodosVJ()
 
 dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
 {
-    Videojuego* v = (Videojuego*) videojuegos->find(new String(nombreVideojuego));
+    Videojuego *v = (Videojuego *)videojuegos->find(new String(nombreVideojuego));
     string nombreVj = string(v->getNombreJuego()->getValue());
     string descVj = v->getDescripcionJuego();
-    dtSuscripcion* costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
-    v->getSuscripcionTrimestral()->getCostoTrimestral(),v->getSuscripcionAnual()->getCostoAnual(),
-    v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
+    dtSuscripcion *costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
+                                                v->getSuscripcionTrimestral()->getCostoTrimestral(), v->getSuscripcionAnual()->getCostoAnual(),
+                                                v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
 
-
-    string** categoriasVj = v->getNombreCategorias();
-    dtEstadistica* puntajeVj = v->getEstadisticas("Puntaje");
-    if(dynamic_cast<Desarrollador*>(loggedUser)){
-        dtEstadistica* horasVj = v->getEstadisticas("Horas");
-        Desarrollador* d = (Desarrollador*) loggedUser;
-        dtVideoJuego* datosVj = new dtVideoJuego(nombreVj,
-        string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
-        descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
+    string **categoriasVj = v->getNombreCategorias();
+    dtEstadistica *puntajeVj = v->getEstadisticas("Puntaje");
+    if (dynamic_cast<Desarrollador *>(loggedUser))
+    {
+        dtEstadistica *horasVj = v->getEstadisticas("Horas");
+        Desarrollador *d = (Desarrollador *)loggedUser;
+        dtVideoJuego *datosVj = new dtVideoJuego(nombreVj,
+                                                 string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+                                                 descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
         return datosVj;
     }
-    Jugador* j = (Jugador*) loggedUser;
-    dtVideoJuego* datosVj = new dtVideoJuego(nombreVj,
-    string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
-    descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
+    Jugador *j = (Jugador *)loggedUser;
+    dtVideoJuego *datosVj = new dtVideoJuego(nombreVj,
+                                             string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+                                             descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
     return datosVj;
 }
 
@@ -480,7 +497,7 @@ string **Controlador::listarVideojuegosPublicados()
 
 void Controlador::confirmoEliminacion(const char *nombreVideojuego)
 {
-    Videojuego *vj = (Videojuego *) videojuegos->find(new String(nombreVideojuego));
+    Videojuego *vj = (Videojuego *)videojuegos->find(new String(nombreVideojuego));
     for (IIterator *it = this->usuarios->getIterator(); it->hasCurrent(); it->next())
     {
         Usuario *u = (Usuario *)it->getCurrent();
@@ -507,18 +524,20 @@ void Controlador::nuevaCategoria(const char *nom, string desc, enumCategoria tip
     categorias->add(new String(nom), c);
 }
 
-
-//Asignar Puntaje
-void Controlador::asignarPuntaje(const char* juego, int puntaje){
-    Jugador* j = (Jugador*) loggedUser;
-    Videojuego* vj = (Videojuego*) videojuegos->find(new String(juego));
+// Asignar Puntaje
+void Controlador::asignarPuntaje(const char *juego, int puntaje)
+{
+    Jugador *j = (Jugador *)loggedUser;
+    Videojuego *vj = (Videojuego *)videojuegos->find(new String(juego));
     j->nuevoPuntaje(vj, puntaje);
 }
 
-void Controlador::setFechaSistema(tm fecha){
+void Controlador::setFechaSistema(tm fecha)
+{
     this->horaActual = mktime(&fecha);
 }
 
-time_t* Controlador::getFechaSistema(){
+time_t *Controlador::getFechaSistema()
+{
     return &this->horaActual;
 }
