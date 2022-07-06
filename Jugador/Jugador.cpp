@@ -1,6 +1,6 @@
 #include "Jugador.h"
 #include "string.h"
-//#include "../breakpoint.cpp"
+// #include "../breakpoint.cpp"
 
 Jugador::Jugador(string correo, string contrasenia, const char* nick, string descripcionJugador)
 {
@@ -355,8 +355,7 @@ void Jugador::abandonarPartidaMultijugador(int idpartida, time_t horaActual){
     Integer* k = new Integer(idpartida);
 
     Partida* parti = dynamic_cast<Partida*>(this->partidasUnido->find(k));
-
-    if(!parti){
+    if(parti == NULL){
         return;
 
     }else{

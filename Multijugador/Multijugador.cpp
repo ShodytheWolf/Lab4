@@ -1,4 +1,5 @@
 #include "Multijugador.h"
+// #include "../breakpoint.cpp"
 
 Multijugador::Multijugador()
 {
@@ -21,11 +22,10 @@ Multijugador::~Multijugador()
 }
 
 void Multijugador::registrarHoraRetiro(time_t horaFinalizada){
-    int c;
+    int c = 0;
     while(this->jugadoresUnidos[c] != NULL){
         c++;
     }
-
     time_t** listaADevolver = new time_t*[c];
 
     for (int i = 0; i <= c; i++)

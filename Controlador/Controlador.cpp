@@ -1,7 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <stdlib.h>
-//#include "../breakpoint.cpp"
+#include "../breakpoint.cpp"
 
 Controlador *Controlador::instance = nullptr;
 
@@ -363,15 +363,13 @@ void Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
 
     OrderedKey *k = new String(datosPartida->getNombreVideojuego().data());
 
-    this->ultimaIdPartida = +1;
-    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual, datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
-
+    this->ultimaIdPartida++;
+    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual,datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
     int i = 0;
     while (datosPartida->getjugadoresUnidos()[i] != NULL)
     {
-        String *str = new String(datosPartida->getjugadoresUnidos()[i]->data());
-
-        Jugador *user = dynamic_cast<Jugador *>(this->usuarios->find(str));
+        String* str = new String(datosPartida->getjugadoresUnidos()[i]->data());
+        Jugador* user = dynamic_cast<Jugador*>(this->usuarios->find(str));
         user->unirseAPartida(multi);
         i++;
     }
@@ -409,6 +407,8 @@ void Controlador::seleccionarPartida(int idPartida)
         }
         it->next();
     }
+    Jugador* registrado = dynamic_cast<Jugador*>(this->loggedUser);
+    registrado->partidaAFinalizar(idPartida,horaActual);
 
     Jugador *registrado = dynamic_cast<Jugador *>(this->loggedUser);
     registrado->partidaAFinalizar(idPartida, horaActual);
