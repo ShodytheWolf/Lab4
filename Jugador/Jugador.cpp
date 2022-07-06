@@ -127,6 +127,7 @@ string** Jugador::listarJuegosSuscripto(){
         i++;
         it->next();
     }
+    listaADevolver[i] = NULL;
     delete it;
     return listaADevolver;
 } 
@@ -159,21 +160,19 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
 
 void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 
-String* Jugador::getNick(string nombreJuego){
+String* Jugador::getNick(Videojuego* vj){
 
     bool taSuscritoSi = false;
-    String* s1 = new String(nombreJuego.data());
 
     IIterator* it = registros->getIterator();
 
     while(it->hasCurrent()){
         Registro* reg = dynamic_cast<Registro*>(it->getCurrent());
-        String* s2 = reg->getVideojuego()->getNombreJuego();
 
-        if(s1 == s2){
+        if(reg->confirmarJuego(vj)){
             taSuscritoSi = reg->estaSuscrito();
             if(taSuscritoSi){
-                return s2;
+                return this->nickname;
             }
         }
         it->next();
@@ -313,15 +312,10 @@ dtPartida** Jugador::getDtPartidasActivas(){
     int c = 0;
     while(it->hasCurrent()){
         Partida* Parti = dynamic_cast<Partida*>(it->getCurrent());
+        if(dynamic_cast<Individual*>(Parti)){
 
-        if(dynamic_cast<Individual*>(it->getCurrent())){
-
-            Parti = dynamic_cast<Individual*>(it->getCurrent());
+            Individual* pI = dynamic_cast<Individual*>(Parti);
             listaADevolver[c] = Parti->getDtPartida();
-            cout<<Parti->getDtPartida()->getNombreVideojuego()<<endl;
-            
-            getchar();
-            getchar();
             c++;
         }else{
             if(dynamic_cast<EnVivo*>(it->getCurrent())){

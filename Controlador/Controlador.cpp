@@ -284,7 +284,8 @@ string **Controlador::listarVideojuegosSuscripto()
     {
         Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-        string **lista = jug->listarJuegosSuscripto();
+        string** lista;
+        lista = jug->listarJuegosSuscripto();
         //cout<<"en el controlador, despues de conseguir la lista"<<endl;
         return lista;
     }
@@ -308,10 +309,10 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
 
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    String* k = new String(datosPartida->getNombreVideojuego());
+    String* k = new String(datosPartida->getNombreVideojuego().data());
     Videojuego* juego = dynamic_cast<Videojuego*>(videojuegos->find(k));
 
-    this->ultimaIdPartida = +1;
+    this->ultimaIdPartida++;
     jug->iniciarIndividual(datosPartida, juego, this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
 }
 
@@ -320,25 +321,27 @@ string **Controlador::listarNicks(string nombreVideojuego)
 
     IIterator *it = usuarios->getIterator();
     string **listaADevolver = new string *[usuarios->getSize()+1];
-
+    Videojuego* vj = (Videojuego*) videojuegos->find( new String(nombreVideojuego.data()));
     int c = 0;
     while (it->hasCurrent())
     {
+        Usuario* u = (Usuario*) it->getCurrent();
 
-        if (dynamic_cast<Jugador *>(it->getCurrent()))
+        if (dynamic_cast<Jugador *>(it->getCurrent()) && u != loggedUser)
         {
 
             Jugador *jug = dynamic_cast<Jugador *>(it->getCurrent());
-            String *str = jug->getNick(nombreVideojuego);
+            String *str = jug->getNick(vj);
 
             if (str)
             {
-                listaADevolver[c] = new string(str->getValue()); // robadísimo del braian xDDDD
+                listaADevolver[c] = new string(str->getValue()); // robadísimo del braian xDDDD y te termine el codigo
                 c++;
             }
         }
         it->next();
     }
+    listaADevolver[c] = NULL;
     return listaADevolver;
 }
 
@@ -346,7 +349,7 @@ void Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
 {
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    OrderedKey *k = new String(datosPartida->getNombreVideojuego());
+    OrderedKey *k = new String(datosPartida->getNombreVideojuego().data());
 
     this->ultimaIdPartida = +1;
     Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual,datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa

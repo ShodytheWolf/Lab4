@@ -72,9 +72,10 @@ void cargarDatos(){
                 cargarPuntajes(f);
                 break;
             case '7':
-                
+                cargarIndividuales(f);
                 break;
             case '8':
+                cargarMultijugador(f);
                 break;
             case '0':
                 system("clear");
@@ -305,14 +306,14 @@ void cargarMultijugador(Fabrica f){
     tm fecha;
     string emailJdrs[MULTIJUGADOR] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
     string juegos[MULTIJUGADOR] = { "Fortnite", "Fortnite", "Minecraft"};
-    string** unidosAB; string** unidosC;
+    string** unidosAB = new string*[3]; 
+    string** unidosC = new string*[2];
     unidosAB[0] = new string("ari");
     unidosAB[1] = new string("ibai");
     unidosC[0] = new string("ibai");
     bool enVivo[MULTIJUGADOR] = {true, true, false};
     int dias[MULTIJUGADOR] = { 05, 06, 12};
     int horasIn[MULTIJUGADOR] = {5, 5, 8}; //horas de inicio
-    int id = 3;
     for(int i = 0; i<MULTIJUGADOR; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
@@ -329,8 +330,7 @@ void cargarMultijugador(Fabrica f){
         if(i < MULTIJUGADOR-1){
             fecha.tm_hour = 7;
             sistema->setFechaSistema(fecha);
-            sistema->seleccionarPartida(id);
-            id++;
+            sistema->seleccionarPartida(i+1);
         }
     }
 }

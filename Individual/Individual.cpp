@@ -35,7 +35,8 @@ void Individual::setPartidaContinuada(Individual* partidaContinuada) {
 dtPartida* Individual::getDtPartida(){
     
     if(this->partidaContinuada == NULL){
-        dtPartidaIndividual* parti = new dtPartidaIndividual(this->id->getValue(),string(this->vj->getNombreJuego()->getValue()),false,0,this->getFechaInicio());
+        string nVj = string(this->vj->getNombreJuego()->getValue());
+        dtPartidaIndividual* parti = new dtPartidaIndividual(this->id->getValue(),nVj,false,0,this->getFechaInicio());
         return parti;
 
     }else{

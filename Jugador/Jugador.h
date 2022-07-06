@@ -42,7 +42,7 @@ public:
     bool verificoJuego(Videojuego* vj); 
     dtPartidaIndividual** listarPartidasFinalizadas();
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
-    String* getNick(string nombreJuego);
+    String* getNick(Videojuego*);
     Multijugador* iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj, int idUltimaPartida,time_t horaActual,string** jugadoresUnidos);
     void iniciarIndividual(dtPartidaIndividual* datosPartida, Videojuego* vj,int idUltimaPartida,time_t horaActual);
     dtPartidaIndividual** listarPartidasIndividuales();
