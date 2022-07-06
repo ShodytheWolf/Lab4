@@ -35,8 +35,10 @@ void finalizarPartida(){
             };
 
             while(partidasActivas[i] != NULL){
+                const time_t horaAMostrar = partidasActivas[i]->getFecha();
                 cout<<"ID: "<<partidasActivas[i]->getIdPartida()<<endl
-                <<"Fecha de Inicio: "<<partidasActivas[i]->getFecha()<<endl
+                
+                <<"Fecha de Inicio: "<<ctime(&horaAMostrar)<<endl
                 <<"Nombre do videojogo: "<<partidasActivas[i]->getNombreVideojuego()<<endl;
 
                 if (dynamic_cast<dtPartidaIndividual*>(partidasActivas[i]))

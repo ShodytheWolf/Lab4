@@ -154,6 +154,10 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
         };
         it->next();
     }
+
+    if(i == 0){
+        listaADevolver[0] = NULL;
+    }
     delete it;
     return listaADevolver;
 }
@@ -213,7 +217,7 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
 
         Individual* partiContinuada = (Individual*)partidasInactivas->find(kAnt);//conseguimos la partida ya inactiva a continuar
 
-        double horadiferida = difftime(datosPartida->getFecha(),horaActual);
+        double horadiferida = difftime(partiContinuada->getFechaInicio(),horaActual);
         Integer* k = new Integer(idPartida);
        
         Individual* partiAAnadiar = new Individual(idPartida,horaActual,horadiferida,vj,partiContinuada);
@@ -222,10 +226,6 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
      }else{
 
         Individual* partiAAnadiar = new Individual(idPartida,horaActual,0,vj,NULL);
-
-        cout<<"el nombre del jogo aniadido es: "<<partiAAnadiar->getVideojuego()->getNombreJuego()->getValue()<<endl;
-        getchar();
-        getchar();
         Integer* k2 = new Integer(idPartida);
 
         this->partidasActivas->add(k2,partiAAnadiar);
@@ -333,6 +333,10 @@ dtPartida** Jugador::getDtPartidasActivas(){
         it->next(); 
     }
     delete it;
+    if(c == 0){
+        listaADevolver[0] = NULL;
+    }
+
     return listaADevolver;
 }
 
