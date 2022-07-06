@@ -47,5 +47,5 @@ dtPartida* Multijugador::getDtPartida(string papaOso){
 }
 
 dtPartida* Multijugador::getDtPartida(){
-    
+    return NULL;
 }

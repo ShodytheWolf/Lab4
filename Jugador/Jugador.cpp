@@ -87,7 +87,7 @@ dtVideoJuego** Jugador::getDatosVj(){
         }
         c++;
     }
-
+    listajuegos[c] = NULL;
     return listajuegos;
 }
 
@@ -158,7 +158,7 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
     return listaADevolver;
 }
 
-void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
+//void Jugador::partidaAContinuar(dtPartidaIndividual* datosPartida){}
 
 String* Jugador::getNick(Videojuego* vj){
 
@@ -232,8 +232,8 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
      }
      return;
 }
-dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}
-dtPartidaMultijugador** Jugador::partidaAFinalizar(){}
+// dtPartidaIndividual** Jugador::listarPartidasIndividuales(){}
+// dtPartidaMultijugador** Jugador::partidaAFinalizar(){}
 
 void Jugador::partidaAFinalizar(int idPartida, time_t horaActual){
 

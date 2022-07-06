@@ -112,7 +112,7 @@ void publicarVideojuego(){
             }
             dtCategoria* addCatPlataforma = new dtCategoria(inGplataforma, "", Plataforma); //paso cat al dt esta cat pasa por el control.
             listPlataformas[i] = addCatPlataforma;
-            cout << "¿Desea ingresar otra plataforma (S/N)" << endl;
+            cout << "¿Desea ingresar otra plataforma (S/N) (respete caps)" << endl;
             cin >> confirmar;
             i++;
         }while(confirmar == 'S');
@@ -161,12 +161,7 @@ void publicarVideojuego(){
         cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar." << endl;
         cin >> confirmar;
         if (confirmar == 's' || confirmar == 'S'){
-            cout << listGeneros[0]->getNombre() << " | " << listPlataformas[0]->getNombre() <<endl;
-            getchar();
-            getchar();
             dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego,"", descripcion, costos,"",0,0);
-
-
             controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros); //aca esta el drama
             cout << "Publicaste un videojuego." << endl;
         } 

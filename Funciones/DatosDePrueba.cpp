@@ -29,6 +29,7 @@ void cargarSuscripciones(Fabrica); //5
 void cargarPuntajes(Fabrica); //6
 void cargarIndividuales(Fabrica); //7
 void cargarMultijugador(Fabrica); //8
+void finDeFuncion();
 
 void cargarDatos(){
     Fabrica f;
@@ -114,11 +115,7 @@ void cargarJugadores(Fabrica f){
         sistema->confirmarNuevoJugador();
     }
 
-    cout  << "Cargaste datos de jugadores." << endl;
-    cout << "Presione ENTER para continuar..." << endl;
-    getchar();
-    getchar();
-    system("clear");
+    finDeFuncion();
 }
 
 void cargarGeneros(Fabrica f){
@@ -149,11 +146,7 @@ void cargarOtros(Fabrica f){
     for(int i = 0; i<OTRAS; i++){
         sistema->nuevaCategoria(otros[i].data(), descripciones[i], Otro);
     }
-    cout  << "Cargaste datos de categorias" << endl;
-    cout << "Presione ENTER para continuar..." << endl;
-    getchar();
-    getchar();
-    system("clear");
+    finDeFuncion(); 
 }
 
 void cargarVideojuegos(Fabrica f){ 
@@ -222,11 +215,7 @@ void cargarVideojuegos(Fabrica f){
     sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
 
 
-    cout << "Cargaste datos de videojuegos" << endl;
-    cout << "Presione ENTER para continuar..." << endl;
-    getchar();
-    getchar();
-    system("clear");
+    finDeFuncion();
 
 }  
 
@@ -251,7 +240,9 @@ void cargarSuscripciones(Fabrica f){
         sistema->setFechaSistema(fecha);
         sistema->ingresarVideojuego(juegos[i].data());
         sistema->nuevaSuscripcion(tipoPagos[i], tipoSus[i]);
+
     }
+    finDeFuncion();
 }
 
 void cargarPuntajes(Fabrica f){
@@ -264,12 +255,7 @@ void cargarPuntajes(Fabrica f){
         sistema->confirmarSesion();
         sistema->asignarPuntaje(juegos[i].data(), puntajes[i]);
     }
-
-    cout  << "Cargaste datos de puntajes de videojuegos." << endl;
-    cout << "Presione ENTER para continuar..." << endl;
-    getchar();
-    getchar();
-    system("clear");
+    finDeFuncion();
 }
 
 void cargarIndividuales(Fabrica f){
@@ -285,7 +271,7 @@ void cargarIndividuales(Fabrica f){
     for(int i = 0; i<INDIVIDUALES; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
-        fecha.tm_yday = 2021;
+        fecha.tm_year = 2021-1900;
         fecha.tm_mon = 06; 
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
@@ -298,6 +284,7 @@ void cargarIndividuales(Fabrica f){
             sistema->seleccionarPartida(i+1);
         }
     }
+    finDeFuncion();
 }
 
 void cargarMultijugador(Fabrica f){
@@ -319,7 +306,7 @@ void cargarMultijugador(Fabrica f){
     for(int i = 0; i<MULTIJUGADOR; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
-        fecha.tm_yday = 2021;
+        fecha.tm_year = 2021-1900;
         fecha.tm_mon = 06; 
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
@@ -336,4 +323,13 @@ void cargarMultijugador(Fabrica f){
             sistema->seleccionarPartida(i+1);
         }
     }
+    finDeFuncion();
+}
+
+void finDeFuncion(){
+    cout  << "Cargaste datos correctamente." << endl;
+    cout << "Presione ENTER para continuar..." << endl;
+    getchar();
+    getchar();
+    system("clear");
 }
