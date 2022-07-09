@@ -1,7 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <stdlib.h>
-#include "../breakpoint.cpp"
+
 
 Controlador *Controlador::instance = nullptr;
 
@@ -410,9 +410,6 @@ void Controlador::seleccionarPartida(int idPartida)
     Jugador* registrado = dynamic_cast<Jugador*>(this->loggedUser);
     registrado->partidaAFinalizar(idPartida,horaActual);
 
-    Jugador *registrado = dynamic_cast<Jugador *>(this->loggedUser);
-    registrado->partidaAFinalizar(idPartida, horaActual);
-
     return;
 }
 
@@ -436,8 +433,8 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
     string nombreVj = string(v->getNombreJuego()->getValue());
     string descVj = v->getDescripcionJuego();
     dtSuscripcion *costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
-                                                v->getSuscripcionTrimestral()->getCostoTrimestral(), v->getSuscripcionAnual()->getCostoAnual(),
-                                                v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
+    v->getSuscripcionTrimestral()->getCostoTrimestral(), v->getSuscripcionAnual()->getCostoAnual(),
+    v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
 
     string **categoriasVj = v->getNombreCategorias();
     dtEstadistica *puntajeVj = v->getEstadisticas("Puntaje");
@@ -446,14 +443,14 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
         dtEstadistica *horasVj = v->getEstadisticas("Horas");
         Desarrollador *d = (Desarrollador *)loggedUser;
         dtVideoJuego *datosVj = new dtVideoJuego(nombreVj,
-                                                 string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
-                                                 descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
+        string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+        descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
         return datosVj;
     }
     Jugador *j = (Jugador *)loggedUser;
     dtVideoJuego *datosVj = new dtVideoJuego(nombreVj,
-                                             string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
-                                             descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
+    string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+    descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
     return datosVj;
 }
 

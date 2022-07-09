@@ -52,7 +52,7 @@ int main(){
             break;
         
         default:
-            cout << "op icorrecta por favor intente de nuevo" <<endl;
+            cout << "op incorrecta por favor intente de nuevo" <<endl;
             break;
         }
     }while(op != '4');
