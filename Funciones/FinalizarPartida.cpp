@@ -36,7 +36,7 @@ void finalizarPartida(){
 
             while(partidasActivas[i] != NULL){
                 const time_t horaAMostrar = partidasActivas[i]->getFecha();
-                cout<<"ID: "<<partidasActivas[i]->getIdPartida()<<endl
+                cout<<"\nID: "<<partidasActivas[i]->getIdPartida()<<endl
                 
                 <<"Fecha de Inicio: "<<ctime(&horaAMostrar)<<endl
                 <<"Nombre do videojogo: "<<partidasActivas[i]->getNombreVideojuego()<<endl;
@@ -52,7 +52,7 @@ void finalizarPartida(){
                     cout<<"Jugadores unidos:";
                     j = 0;
                     while(partiMulta->getjugadoresUnidos()[j] != NULL){
-                        cout<<*partiMulta->getjugadoresUnidos()[j]<<", ";
+                        cout<<*partiMulta->getjugadoresUnidos()[j]<<", "<<endl;
                         j++;
                     }
                 };

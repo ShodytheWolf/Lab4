@@ -1,7 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <stdlib.h>
-
+#include "../bp.cpp"
 
 Controlador *Controlador::instance = nullptr;
 
@@ -314,11 +314,10 @@ dtPartidaIndividual **Controlador::listoPartidasInactivas()
     dtPartidaIndividual **listaPartidas = jug->listarPartidasFinalizadas();
     return listaPartidas;
 }
-void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
+int Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
 {
 
     // PREGUNTAR AL BRAIAN ESO DE PASAR DE string A char*
-
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
     String *k = new String(datosPartida->getNombreVideojuego().data());
@@ -326,6 +325,9 @@ void Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
 
     this->ultimaIdPartida++;
     jug->iniciarIndividual(datosPartida, juego, this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
+
+
+    return this->ultimaIdPartida;
 }
 
 string **Controlador::listarNicks(string nombreVideojuego)
@@ -357,7 +359,7 @@ string **Controlador::listarNicks(string nombreVideojuego)
     return listaADevolver;
 }
 
-void Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
+int Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
 {
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
@@ -373,6 +375,8 @@ void Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
         user->unirseAPartida(multi);
         i++;
     }
+
+    return this->ultimaIdPartida;
 }
 
 dtPartida **Controlador::listoPartidasActivas()

@@ -260,6 +260,7 @@ void cargarPuntajes(Fabrica f){
 
 void cargarIndividuales(Fabrica f){
     IControlador* sistema = f.getInterface();
+    int id;
     dtPartidaIndividual* datosPI;
     tm fecha;
     string emailJdrs[INDIVIDUALES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
@@ -277,11 +278,11 @@ void cargarIndividuales(Fabrica f){
         fecha.tm_hour = horasIn[i];
         sistema->setFechaSistema(fecha);
         datosPI = new dtPartidaIndividual(0, juegos[i], continuacion[i], 1, 0);
-        sistema->confirmarIndividual(datosPI);
+        id = sistema->confirmarIndividual(datosPI);
         if(i < INDIVIDUALES-1){
             fecha.tm_hour = horasFin[i];
             sistema->setFechaSistema(fecha);
-            sistema->seleccionarPartida(i+1);
+            sistema->seleccionarPartida(id);
         }
     }
     finDeFuncion();
@@ -291,6 +292,7 @@ void cargarMultijugador(Fabrica f){
     IControlador* sistema = f.getInterface();
     dtPartidaMultijugador* datosPM;
     tm fecha;
+    int id;
     string emailJdrs[MULTIJUGADOR] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
     string juegos[MULTIJUGADOR] = { "Fortnite", "Fortnite", "Minecraft"};
     string** unidosAB = new string*[3]; 
@@ -316,11 +318,11 @@ void cargarMultijugador(Fabrica f){
         else 
             datosPM = new dtPartidaMultijugador(0, 0, juegos[i], enVivo[i], "", unidosC);  
 
-        sistema->confirmarMultijugador(datosPM);
+        id  = sistema->confirmarMultijugador(datosPM);
         if(i < MULTIJUGADOR-1){
             fecha.tm_hour = 7;
             sistema->setFechaSistema(fecha);
-            sistema->seleccionarPartida(i+1);
+            sistema->seleccionarPartida(id);
         }
     }
     finDeFuncion();
