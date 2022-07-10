@@ -1,4 +1,6 @@
 #include "Registro.h"
+//#include "../bp.cpp"
+
 
 Registro::Registro(){}
 
@@ -44,8 +46,6 @@ dtVideoJuego* Registro::getDtJuego(){
 		this->juego->getSuscripcionAnual()->getCostoAnual(),
 		this->juego->getSuscripcionVitalicia()->getCostoVitalicia(),
 		this->contratacionActiva->getTipoSuscripto()); //costos de cada una y tipo de suscripcion contratada
-		cout << dataCostos->getTipo() <<endl;
-		getchar(); getchar();
 		data = new dtVideoJuego(nombreVJ, nombreEmp, desc, dataCostos, true, 0, 0);
 	}
 	return data;
