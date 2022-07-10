@@ -24,7 +24,7 @@ void publicarVideojuego(){
     dtCategoria** listOtros;
     string** listaJuegos;
 
-    listaJuegos = controlador->listarTodosVJ();
+    
 
     string inGgenero = "";
     string inGplataforma = "";
@@ -41,13 +41,26 @@ void publicarVideojuego(){
     cout << " Publicar un videojuego." << endl;
     cout << "|=======================|" << endl;
 
-    cout << "Ingrese nombre del videojuego: " << endl;
     getchar();
+    cout << "Ingrese nombre del videojuego: " << endl;
     getline(cin,nombreVideojuego,'\n');
 
-    //control de existencia del juego.
-    while(verificarJuego(listaJuegos,nombreVideojuego)){
-        cout << "El nombre del videojuego ya existe. Intente nuevamente." << endl;
+    try {
+        listaJuegos = controlador->listarTodosVJ();
+        //control de existencia del juego.
+        while(verificarJuego(listaJuegos,nombreVideojuego)){
+           if(nombreVideojuego == ""){//si me ingresa vacio.
+            cout << "Ingrese un nombre. Intente nuevamente." << endl;
+            getline(cin,nombreVideojuego,'\n');
+            }
+            cout << "El nombre del videojuego ya existe. Intente nuevamente." << endl;
+            getline(cin,nombreVideojuego,'\n');
+        }
+    }catch(invalid_argument &error){
+    }
+
+    if(nombreVideojuego == ""){//si me ingresa vacio.
+        cout << "Ingrese un nombre. Intente nuevamente." << endl;
         getline(cin,nombreVideojuego,'\n');
     }
 
@@ -85,8 +98,6 @@ void publicarVideojuego(){
             getline(cin,inGgenero,'\n');
             system("clear");
                 while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero | tengo un problema aca
-                    cout << "ingreso2: " << inGgenero << endl;
-                    cout << listGeneros[i] << endl;
                     cout << "El género ingresado no existe. Intente nuevamente." << endl;
                     muestroList(listGeneros);
                     cout << "Seleccione un género, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
@@ -143,7 +154,7 @@ void publicarVideojuego(){
             cout << "¿Desea seleccionar otros?" << endl;
             cout << "Presione (s/S) para confirmar o (n/N) para cancelar" << endl;
             cin >> confirmar; 
-            if (confirmar == 's' || confirmar == 'S' && confirmar != 'n' && confirmar != 'N'){
+            if (confirmar == 's' || confirmar == 'S'){
                 cout << "Seleccione una categoría otros (sensible a mayúsculas y minúsculas)" << endl;
                 getline(cin,inGotros,'\n');
                 system("clear");
