@@ -44,7 +44,7 @@ try{
         i++;
     }
 
-    cout << "\nPresione ENTER para continuar.... " << endl;
+    cout << "\nPresione ENTER para continuar al listado de videojuegos no suscriptos..." << endl;
     getchar();
     getchar();
 
@@ -61,15 +61,15 @@ try{
         i++;
     }
 
-    cout << "\nPresione ENTER para continuar.... " << endl;
+    cout << "\nPresione ENTER para continuar al formulario..." << endl;
     getchar();
 
     cout << "Ingrese nombre del videojuego a suscribirse, respetando el formato:" << endl;
-    cin >> nombreVideojuego;
+    getline(cin,nombreVideojuego,'\n');
 
     while(!verificarEnLista(listJuegosDiff, nombreVideojuego)){ //mientras que el juego no este en la lista porque el usuario es una verga
         cout << "El nombre ingresado no existe intente nuevamente." << endl;
-        cin >> nombreVideojuego;
+        getline(cin,nombreVideojuego,'\n');
     }
 
     controlador->ingresarVideojuego(nombreVideojuego.data()); //ingreso nombre que recuerda el sistema.
@@ -89,8 +89,6 @@ try{
 
         if (!suscripto){ //si no tiene una suscripcion 
                         
-           
-
             do{ 
             cout << "Ingrese un metodo de Pago Paypal(p/P), Tarjeta(t/T). " << endl;
             cin >> selecPago; 
@@ -237,10 +235,12 @@ try{
                     system("clear");
 
                     cout << "¿Desea confirmar?" << endl;
+                    cout << "Presione (s/S) o cualquier tecla para cancelar" << endl;
                     cin >> confirmar;
                     if (confirmar == 's' || confirmar == 'S'){
                     cout << "Compra realizada con éxito" << endl;                          
                     controlador->nuevaSuscripcion(pago, tipoSus); //creo suscirpcion
+                    system ("clear");
                     return;
                     }
                     else{
