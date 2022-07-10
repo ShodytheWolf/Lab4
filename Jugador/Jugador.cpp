@@ -1,6 +1,6 @@
 #include "Jugador.h"
 #include "string.h"
-// #include "../breakpoint.cpp"
+#include "../bp.cpp"
 
 Jugador::Jugador(string correo, string contrasenia, const char* nick, string descripcionJugador)
 {
@@ -80,6 +80,8 @@ dtVideoJuego** Jugador::getDatosVj(){
     int c = 0;
 
     for (it = registros->getIterator(); it->hasCurrent(); it->next()){ //itero en registros.
+    //     cout << c <<endl;
+    //     bp();
         Registro* reg = (Registro*)it->getCurrent(); //obtengo registro
         datoVj = reg->getDtJuego(); //->getNombreVideojuego();llamo al get en registro
         if(datoVj != NULL){
@@ -132,12 +134,12 @@ string** Jugador::listarJuegosSuscripto(){
     return listaADevolver;
 } 
 
-dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
+dtPartidaIndividual** Jugador::listarPartidasFinalizadas(string juegoAIniciar){
     IIterator* it = partidasInactivas->getIterator();
     dtPartidaIndividual** listaADevolver = new dtPartidaIndividual*[this->partidasInactivas->getSize()+1];//la lista devuelta es mas grande de lo que necesita tho
 
     int cont = this->partidasInactivas->getSize();
-    cout<<"La cantidad de partidas inactivas es "<<cont<<endl;
+    //cout<<"La cantidad de partidas inactivas es "<<cont<<endl;
     int i = 0;
     while(it->hasCurrent()){
 
@@ -145,12 +147,15 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
             
             Individual* partidaIndi = dynamic_cast<Individual*>(it->getCurrent());//casteo
 
-            dtPartidaIndividual* dtPartidaIndi = dynamic_cast<dtPartidaIndividual*>(partidaIndi->getDtPartida());
-            //dtPartidaIndividual* partida;
-            //partida = dynamic_cast<dtPartidaIndividual*>(partidaIndi->getDtPartida());
+            //aca controlar que siempre se guarden partidas de un juego X
+            if(string(partidaIndi->getVideojuego()->getNombreJuego()->getValue()) == juegoAIniciar){
 
-            listaADevolver[i] = dtPartidaIndi;//la guardo
-            i++;
+                dtPartidaIndividual* dtPartidaIndi = dynamic_cast<dtPartidaIndividual*>(partidaIndi->getDtPartida());
+
+                listaADevolver[i] = dtPartidaIndi;//la guardo
+                i++;
+            }
+
         };
         it->next();
     }
@@ -255,6 +260,9 @@ void Jugador::partidaAFinalizar(int idPartida, time_t horaActual){
  * @return string** Lista con la misma cantidad o menos de la que recibio 
  */
 string** Jugador::comprobarPartidas(string** nombreJuegos, int t){
+    
+    // if(partidasActivas->isEmpty())
+    //     return nombreJuegos;
     int i = 0;
     while(nombreJuegos[i]){
         for(IIterator* it = this->partidasActivas->getIterator(); it->hasCurrent(); it->next()){
@@ -274,11 +282,13 @@ string** Jugador::comprobarPartidas(string** nombreJuegos, int t){
             c++;
         }
     }
+    juegosComp[c] = NULL;
     return juegosComp;
 }
 
 
 void Jugador::eliminarContRegisJuego(Videojuego* vj){
+    int contador = 0;
     IIterator* it;
     for(it = this->registros->getIterator(); it->hasCurrent(); it->next()){
         Registro* r = (Registro*) it->getCurrent();
@@ -293,9 +303,12 @@ void Jugador::eliminarContRegisJuego(Videojuego* vj){
                 }
             }
         }
-        delete it;
-        return;
     }
+    for(IIterator* i = registros->getIterator(); i->hasCurrent(); i->next()){ 
+        Registro* r = (Registro*) i->getCurrent();
+    }
+    delete it;
+    return;
 }
 
 void Jugador::unirseAPartida(Multijugador* multi){

@@ -3,7 +3,7 @@
 #include "../IControlador/IControlador.h"
 #include "../Fabrica/Fabrica.h"
 #include "../Enumeration/enumSuscripcion.h"
-//#include "../breakpoint.cpp"
+//#include "../bp.cpp"
 
 using namespace std;
 
@@ -23,10 +23,9 @@ enumSuscripcion tipoSus;
 enumPago pago;
 char selecPago;
 char selecTipoSus;
-dtVideoJuego** listJuegosDiff = controlador->listarVideojuegosDiferenciada();
 bool control = true;
-
 try{
+    dtVideoJuego** listJuegosDiff = controlador->listarVideojuegosDiferenciada();
     cout << "|===========================|" << endl;
     cout << " Suscribirse a un videojuego." << endl;
     cout << "|===========================|" << endl;

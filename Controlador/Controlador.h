@@ -45,7 +45,7 @@ class Controlador: public IControlador{
 
         //Iniciar Partida:
         string** listarVideojuegosSuscripto();                                            //20
-        dtPartidaIndividual** listoPartidasInactivas();                                   //21
+        dtPartidaIndividual** listoPartidasInactivas(string juegoAInicar);                                   //21
         int confirmarIndividual(dtPartidaIndividual *datosPartida);                       //22
         string** listarNicks(string nombreVideojuego);                                     //23
         int confirmarMultijugador (dtPartidaMultijugador *datosPartida);                  //24

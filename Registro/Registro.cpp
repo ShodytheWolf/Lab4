@@ -1,4 +1,6 @@
 #include "Registro.h"
+//#include "../bp.cpp"
+
 
 Registro::Registro(){}
 

@@ -165,6 +165,17 @@ void cargarVideojuegos(Fabrica f){
     dtCategoria* c7 = new dtCategoria("Teen","",Otro);
     dtCategoria* c8 = new dtCategoria("E","",Otro);
 
+    //Incersion del Minecraft
+    dtCategoria** plataformasMinecraft = new dtCategoria*[2];
+    plataformasMinecraft[0] = c1; 
+    dtCategoria** generosMinecraft = new dtCategoria*[2];
+    generosMinecraft[0] = c5;
+    dtCategoria** otrosMinecraft = new dtCategoria*[2];
+    otrosMinecraft[0] = c8;
+    sistema->ingresoData("mojang@mail.com", "123", false);
+    sistema->confirmarSesion();
+    dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
+    sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
 
     //Incersion del FIFA
     dtCategoria** plataformasFIFA = new dtCategoria*[4];
@@ -177,6 +188,7 @@ void cargarVideojuegos(Fabrica f){
     sistema->confirmarSesion();
     dtVideoJuego* datosFIFA = new dtVideoJuego("FIFA", "", "", costosFIFA, false, 0, 0);
     sistema->publicarVideojuego(datosFIFA, generosFIFA, plataformasFIFA, otrosFIFA);
+
 
     //Incersion del KingdomRush
     dtCategoria** plataformasKR = new dtCategoria*[3];
@@ -202,17 +214,6 @@ void cargarVideojuegos(Fabrica f){
     sistema->confirmarSesion();
     sistema->publicarVideojuego(datosFortnite, generosFortnite, plataformasFortnite, otrosFortnite);
 
-    //Incersion del Minecraft
-    dtCategoria** plataformasMinecraft = new dtCategoria*[2];
-    plataformasMinecraft[0] = c1; 
-    dtCategoria** generosMinecraft = new dtCategoria*[2];
-    generosMinecraft[0] = c5;
-    dtCategoria** otrosMinecraft = new dtCategoria*[2];
-    otrosMinecraft[0] = c8;
-    sistema->ingresoData("mojang@mail.com", "123", false);
-    sistema->confirmarSesion();
-    dtVideoJuego* datosMinecraft = new dtVideoJuego("Minecraft", "", "", costosMinecraft, false, 0, 0);
-    sistema->publicarVideojuego(datosMinecraft, generosMinecraft, plataformasMinecraft, otrosMinecraft);
 
 
     finDeFuncion();
