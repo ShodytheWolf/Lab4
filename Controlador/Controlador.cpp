@@ -548,9 +548,10 @@ void Controlador::asignarPuntaje(const char *juego, int puntaje)
     j->nuevoPuntaje(vj, puntaje);
 }
 
-void Controlador::setFechaSistema(tm fecha)
+void Controlador::setFechaSistema(tm* fecha)
 {
-    this->horaActual = mktime(&fecha);
+    this->horaActual = time(NULL);
+    this->horaActual = mktime(fecha);
 }
 
 time_t *Controlador::getFechaSistema()

@@ -70,7 +70,7 @@ class Controlador: public IControlador{
 
         //Cambiar fecha del sistema
         time_t* getFechaSistema();
-        void setFechaSistema(tm);
+        void setFechaSistema(tm*);
 
 
     private:

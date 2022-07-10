@@ -18,7 +18,6 @@ void iniciarSesion(char &tU){
             getline(cin,email,'\n');
             cout<<"Ingrese su contraseña:"<<endl; 
             getline(cin,contrasenia, '\n');
-            cout << "Mail ingresado: " << email << "Pass ingresado: " << contrasenia <<endl;
             existeUsuario = sistema->ingresoData(email, contrasenia, true);
             if(!existeUsuario){
                 cout << "Email o contraseña incorrectos. Desea volver a intentar? S/N" <<endl;

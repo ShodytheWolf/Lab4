@@ -222,23 +222,24 @@ void cargarVideojuegos(Fabrica f){
 
 void cargarSuscripciones(Fabrica f){
     IControlador* sistema = f.getInterface();
-    tm fecha;
     string mailJdrs[SUSCRIPCIONES] = {"gamer@mail.com", "gamer@mail.com", "ari@mail.com", "ari@mail.com", "ibai@mail.com", "ibai@mail.com"};
     string juegos[SUSCRIPCIONES] = {   "KingdomRush",     "Fortnite",       "Fortnite",      "Minecraft",   "Fortnite",       "Minecraft"};
     enumSuscripcion tipoSus[SUSCRIPCIONES] = {Trim, Trim, Men, An, Men, Vit};
     int anios[SUSCRIPCIONES] = {2021, 2021, 2021, 2021, 2021, 2020};
     int meses[SUSCRIPCIONES] = {06, 06, 06, 06, 06, 05};
     int dias[SUSCRIPCIONES] = {01, 02, 04, 11, 03, 21};
-    int horas[SUSCRIPCIONES] = {9, 11, 9, 9, 7, 15};
+    int horas[SUSCRIPCIONES] = {9, 11, 9, 9, 07, 15};
     enumPago tipoPagos[SUSCRIPCIONES] = {Paypal, Tarjeta, Paypal, Tarjeta, Tarjeta, Tarjeta};
     for(int i = 0; i < SUSCRIPCIONES; i++){
         sistema->ingresoData(mailJdrs[i], "123", false);
         sistema->confirmarSesion();
-        fecha.tm_yday = anios[i];
+        tm fecha;
+        fecha.tm_year = anios[i];
+        fecha.tm_year -= 1900;
         fecha.tm_mon = meses[i];
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horas[i];
-        sistema->setFechaSistema(fecha);
+        sistema->setFechaSistema(&fecha);
         sistema->ingresarVideojuego(juegos[i].data());
         sistema->nuevaSuscripcion(tipoPagos[i], tipoSus[i]);
 
@@ -262,27 +263,41 @@ void cargarPuntajes(Fabrica f){
 void cargarIndividuales(Fabrica f){
     IControlador* sistema = f.getInterface();
     int id;
-    dtPartidaIndividual* datosPI;
     tm fecha;
+    fecha.tm_year = 2019;
+    fecha.tm_mon = 8; 
+    fecha.tm_mday = 5;
+    fecha.tm_hour = 13;
+    sistema->setFechaSistema(&fecha);
+    dtPartidaIndividual* datosPI;
     string emailJdrs[INDIVIDUALES] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
     string juegos[INDIVIDUALES] = { "KingdomRush", "KingdomRush", "Minecraft"};
     bool continuacion[INDIVIDUALES] = {false, true, false}; 
-    int dias[INDIVIDUALES] = { 02, 03, 12};
+    int anios[INDIVIDUALES] = {2021, 2021 , 2021};
+    int meses[INDIVIDUALES] = {5,5,5};
+    int dias[INDIVIDUALES] = { 2, 3, 12};
     int horasIn[INDIVIDUALES] = {9, 15, 16}; //horas de inicio
     int horasFin[INDIVIDUALES-1] = {10, 16};
-    fecha.tm_year = 2021-1900;
-    fecha.tm_mon = 06; 
     for(int i = 0; i<INDIVIDUALES; i++){
+        cout << i <<endl;
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
+        fecha.tm_year = anios[i];
+        fecha.tm_year -= 1900;
+        fecha.tm_mon = 05; 
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
-        sistema->setFechaSistema(fecha);
+        sistema->setFechaSistema(&fecha);
         datosPI = new dtPartidaIndividual(0, juegos[i], continuacion[i], 1, 0);
         id = sistema->confirmarIndividual(datosPI);
         if(i < INDIVIDUALES-1){
+            cout << "Fin" <<endl;
+            fecha.tm_year = 2021;
+            fecha.tm_year -= 1900;
+            fecha.tm_mon = 05; 
+            fecha.tm_mday = dias[i];
             fecha.tm_hour = horasFin[i];
-            sistema->setFechaSistema(fecha);
+            sistema->setFechaSistema(&fecha);
             sistema->seleccionarPartida(id);
         }
     }
@@ -292,8 +307,14 @@ void cargarIndividuales(Fabrica f){
 void cargarMultijugador(Fabrica f){
     IControlador* sistema = f.getInterface();
     dtPartidaMultijugador* datosPM;
-    tm fecha;
     int id;
+    tm fecha;
+    fecha.tm_year = 2019;
+    fecha.tm_mon = 8; 
+    fecha.tm_mday = 5;
+    fecha.tm_hour = 13;
+    sistema->setFechaSistema(&fecha);
+
     string emailJdrs[MULTIJUGADOR] = {"gamer@mail.com","gamer@mail.com","ari@mail.com"};
     string juegos[MULTIJUGADOR] = { "Fortnite", "Fortnite", "Minecraft"};
     string** unidosAB = new string*[3]; 
@@ -306,14 +327,15 @@ void cargarMultijugador(Fabrica f){
     bool enVivo[MULTIJUGADOR] = {true, true, false};
     int dias[MULTIJUGADOR] = { 05, 06, 12};
     int horasIn[MULTIJUGADOR] = {5, 5, 8}; //horas de inicio
-    fecha.tm_year = 2021-1900;
-    fecha.tm_mon = 06; 
     for(int i = 0; i<MULTIJUGADOR; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
+        fecha.tm_year = 2021;
+        fecha.tm_year -= 1900;
+        fecha.tm_mon = 05; 
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
-        sistema->setFechaSistema(fecha);
+        sistema->setFechaSistema(&fecha);
         if(i < MULTIJUGADOR-1)
             datosPM = new dtPartidaMultijugador(0, 0, juegos[i], enVivo[i], "", unidosAB);
         else 
@@ -321,8 +343,12 @@ void cargarMultijugador(Fabrica f){
 
         id  = sistema->confirmarMultijugador(datosPM);
         if(i < MULTIJUGADOR-1){
+            fecha.tm_year = 2021;
+            fecha.tm_year -= 1900;
+            fecha.tm_mon = 05; 
+            fecha.tm_mday = dias[i];
             fecha.tm_hour = 7;
-            sistema->setFechaSistema(fecha);
+            sistema->setFechaSistema(&fecha);
             sistema->seleccionarPartida(id);
         }
     }

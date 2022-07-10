@@ -72,7 +72,7 @@ class IControlador{
         virtual void asignarPuntaje(const char*, int) = 0;
 
         //Cambiar fecha del sistema
-        virtual void setFechaSistema(tm) = 0;
+        virtual void setFechaSistema(tm*) = 0;
         virtual time_t* getFechaSistema() = 0; 
 
 };

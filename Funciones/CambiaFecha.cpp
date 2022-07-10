@@ -31,7 +31,7 @@ void cambiarFecha(){
                 cout << "Mes: "; cin >> fechaHora.tm_mon;
                 cout << "Dia: "; cin >> fechaHora.tm_mday;
                 cout << "Hora "; cin >> fechaHora.tm_hour;
-                sistema->setFechaSistema(fechaHora);
+                sistema->setFechaSistema(&fechaHora);
                 break;
 
             case '3':
