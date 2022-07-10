@@ -30,7 +30,6 @@ try{
     cout << " Suscribirse a un videojuego." << endl;
     cout << "|===========================|" << endl;
 
-
     cout << "Lista de videojuegos suscriptos: " << endl;
     while (listJuegosDiff[i]){//mientras tenga jogos
         if(listJuegosDiff[i]->getEstaSuscripto()){//si esta suscrito
