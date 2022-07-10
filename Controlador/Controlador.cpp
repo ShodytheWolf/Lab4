@@ -3,6 +3,7 @@
 #include <stdlib.h>
 //#include "../bp.cpp"
 
+
 Controlador *Controlador::instance = nullptr;
 
 Controlador::~Controlador()
@@ -328,6 +329,8 @@ int Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
     Videojuego *juego = dynamic_cast<Videojuego *>(videojuegos->find(k));
 
     this->ultimaIdPartida++;
+    //cout<<ctime(&horaActual)<<endl;
+    //cout<<ctime(this->getFechaSistema())<<endl;
     jug->iniciarIndividual(datosPartida, juego, this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
 
     return this->ultimaIdPartida;
@@ -389,7 +392,7 @@ dtPartida **Controlador::listoPartidasActivas()
 
         Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-        dtPartida **listaADevolver = jug->getDtPartidasActivas(); // DESDE ACA LLEGA MAL LA INFO PUTA DE M;IERDA
+        dtPartida **listaADevolver = jug->getDtPartidasActivas(); // DESDE ACA LLEGA todo bien C:
         return listaADevolver;
     }
     else

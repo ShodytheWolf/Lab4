@@ -9,6 +9,7 @@ Individual::Individual(int idNormal, time_t fechaIniciada,double dura, Videojueg
     Integer* k = new Integer(idNormal);
     this->id = k;
     this->fechaInicio = fechaIniciada;
+    //cout<<ctime(&this->fechaInicio)<<endl;
     this->duracion = dura;
     this->vj = video;
     this->partidaContinuada = partidaAContinuar;

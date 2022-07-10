@@ -35,7 +35,7 @@ void finalizarPartida(){
             };
 
             while(partidasActivas[i] != NULL){
-                const time_t horaAMostrar = partidasActivas[i]->getFecha();
+                time_t horaAMostrar = partidasActivas[i]->getFecha();
                 cout<<"\nID: "<<partidasActivas[i]->getIdPartida()<<endl
                 
                 <<"Fecha de Inicio: "<<ctime(&horaAMostrar)<<endl

@@ -153,6 +153,10 @@ void iniciarPartida(){
 					
 					nicksJugadoresUnidos = sistema->listarNicks(juegoAIniciar);//consigo todos los jugadores que estan suscriptos al juego en cuestion.
 
+					if(!nicksJugadoresUnidos[0]){
+						cout<<"No hay ningun jugador con este juego (aparte de vos)"<<endl;
+						return;
+					}
 					i = 0;
 					//itero para mostrar los nicks de los ñerys que también tienen el juego comprao
 					while (nicksJugadoresUnidos[i] != NULL)
@@ -173,10 +177,14 @@ void iniciarPartida(){
 						getline(cin,nombreAIngresar,'\n');
 
 						if(verificarEnLista(nicksJugadoresUnidos,nombreAIngresar)){
-							
-							nicksUnidos[i] = new string(nombreAIngresar);
-							i++;
-							cout<<"se ingreso el nick del jugador"<<endl;
+
+							if(verificarEnLista(nicksUnidos,nombreAIngresar)){
+								cout<<"El jugador a ingresar ya fue ingresado con anterioridad"<<endl;
+							}else{
+								nicksUnidos[i] = new string(nombreAIngresar);
+								i++;
+								cout<<"se ingreso el nick del jugador"<<endl;
+							}
 						}else{
 							cout<<"NO se ingreso el nick del jugador"<<endl;
 						}
