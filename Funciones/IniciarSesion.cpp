@@ -12,37 +12,37 @@ void iniciarSesion(char &tU){
     bool existeUsuario = false;
     try{
         do{
-            cout << "Ingrese una opción numerica\n" 
-            << "1-Ingresar email\n" 
-            <<"2-Ingresar contraseña\n"
-            <<"3-Confirmar\n"
-            <<"4-Cancelar"
-            <<endl;
-            cin.ignore() >> op;
-            switch(op){
-                case '1':
-                    cout << "Ingrese su email: " <<endl;
-                    cin >> email;
-                    break;
-                case '2':
-                    cout << "Ingrese su contraseña: " <<endl;
-                    cin >> contrasenia; 
-                    break;
-                case '3':
-                    existeUsuario = sistema->ingresoData(email, contrasenia, true);
-                    if(!existeUsuario)
-                        cout << "Email o contraseña incorrectos" <<endl;
-                    else{
-                        tU = sistema->confirmarSesion();
-                        system("clear");
+            cout << "Iniciar Sesion\n"<<endl;
+            getchar();
+            cout<< "Ingrese su email:" <<endl; 
+            getline(cin,email,'\n');
+            cout<<"Ingrese su contraseña:"<<endl; 
+            getline(cin,contrasenia, '\n');
+            cout << "Mail ingresado: " << email << "Pass ingresado: " << contrasenia <<endl;
+            existeUsuario = sistema->ingresoData(email, contrasenia, true);
+            if(!existeUsuario){
+                cout << "Email o contraseña incorrectos. Desea volver a intentar? S/N" <<endl;
+                do{
+                    cin >> op;
+                    switch(op){
+                        case 's':
+                        case 'S':
+                            op = '#';
+                            break;
+                        case 'n':
+                        case 'N':
+                            cout << "Volviendo al menu principal..." <<endl;
+                            return;
+                            break;
+                        default:
+                            cout << "Opcion incorrecta." <<endl;
+                            break;
                     }
-                    break;
-                case '4': 
-                    tU = char(NULL);
-                    return;
-                default:
-                    cout << "Opción incorrecta por favor intente de nuevo" <<endl;
-                    break;
+                }while(op != '#');
+            }
+            else{
+                tU = sistema->confirmarSesion();
+                system("clear");
             }
         }while(!existeUsuario);
     }catch(invalid_argument &e){

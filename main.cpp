@@ -120,7 +120,7 @@ void menuJugador(){
         cout << "4- Ver información de videojuego." << endl;
         cout << "5- Modificar fecha del sistema." << endl;
         cout << "6- Salir." << endl;
-        cin.ignore() >> op;
+        cin >> op;
         system("clear");
         switch(op){
             case '1':

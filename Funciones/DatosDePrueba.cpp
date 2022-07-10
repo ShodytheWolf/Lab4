@@ -270,11 +270,11 @@ void cargarIndividuales(Fabrica f){
     int dias[INDIVIDUALES] = { 02, 03, 12};
     int horasIn[INDIVIDUALES] = {9, 15, 16}; //horas de inicio
     int horasFin[INDIVIDUALES-1] = {10, 16};
+    fecha.tm_year = 2021-1900;
+    fecha.tm_mon = 06; 
     for(int i = 0; i<INDIVIDUALES; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
-        fecha.tm_year = 2021-1900;
-        fecha.tm_mon = 06; 
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
         sistema->setFechaSistema(fecha);
@@ -306,11 +306,11 @@ void cargarMultijugador(Fabrica f){
     bool enVivo[MULTIJUGADOR] = {true, true, false};
     int dias[MULTIJUGADOR] = { 05, 06, 12};
     int horasIn[MULTIJUGADOR] = {5, 5, 8}; //horas de inicio
+    fecha.tm_year = 2021-1900;
+    fecha.tm_mon = 06; 
     for(int i = 0; i<MULTIJUGADOR; i++){
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
-        fecha.tm_year = 2021-1900;
-        fecha.tm_mon = 06; 
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
         sistema->setFechaSistema(fecha);
