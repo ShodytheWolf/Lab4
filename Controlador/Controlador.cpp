@@ -306,12 +306,12 @@ string **Controlador::listarVideojuegosSuscripto()
         throw invalid_argument("Usuario loggeado no es jugador!");
     }
 }
-dtPartidaIndividual **Controlador::listoPartidasInactivas()
+dtPartidaIndividual **Controlador::listoPartidasInactivas(string juegoAIniciar)
 {
 
     Jugador *jug = dynamic_cast<Jugador *>(this->loggedUser);
 
-    dtPartidaIndividual **listaPartidas = jug->listarPartidasFinalizadas();
+    dtPartidaIndividual **listaPartidas = jug->listarPartidasFinalizadas(juegoAIniciar);
     return listaPartidas;
 }
 int Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
@@ -325,7 +325,6 @@ int Controlador::confirmarIndividual(dtPartidaIndividual *datosPartida)
 
     this->ultimaIdPartida++;
     jug->iniciarIndividual(datosPartida, juego, this->ultimaIdPartida, this->horaActual); // casteo paaaaaaaaaaaaa
-
 
     return this->ultimaIdPartida;
 }
@@ -366,12 +365,12 @@ int Controlador::confirmarMultijugador(dtPartidaMultijugador *datosPartida)
     OrderedKey *k = new String(datosPartida->getNombreVideojuego().data());
 
     this->ultimaIdPartida++;
-    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual,datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
+    Multijugador *multi = jug->iniciarMultijugador(datosPartida, (Videojuego *)videojuegos->find(k), this->ultimaIdPartida, this->horaActual, datosPartida->getjugadoresUnidos()); // casteo paaaaaaaaaaaaa
     int i = 0;
     while (datosPartida->getjugadoresUnidos()[i] != NULL)
     {
-        String* str = new String(datosPartida->getjugadoresUnidos()[i]->data());
-        Jugador* user = dynamic_cast<Jugador*>(this->usuarios->find(str));
+        String *str = new String(datosPartida->getjugadoresUnidos()[i]->data());
+        Jugador *user = dynamic_cast<Jugador *>(this->usuarios->find(str));
         user->unirseAPartida(multi);
         i++;
     }
@@ -411,8 +410,8 @@ void Controlador::seleccionarPartida(int idPartida)
         }
         it->next();
     }
-    Jugador* registrado = dynamic_cast<Jugador*>(this->loggedUser);
-    registrado->partidaAFinalizar(idPartida,horaActual);
+    Jugador *registrado = dynamic_cast<Jugador *>(this->loggedUser);
+    registrado->partidaAFinalizar(idPartida, horaActual);
 
     return;
 }
@@ -437,8 +436,8 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
     string nombreVj = string(v->getNombreJuego()->getValue());
     string descVj = v->getDescripcionJuego();
     dtSuscripcion *costosVj = new dtSuscripcion(v->getSuscripcionMensual()->getCostoMensual(),
-    v->getSuscripcionTrimestral()->getCostoTrimestral(), v->getSuscripcionAnual()->getCostoAnual(),
-    v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
+                                                v->getSuscripcionTrimestral()->getCostoTrimestral(), v->getSuscripcionAnual()->getCostoAnual(),
+                                                v->getSuscripcionVitalicia()->getCostoVitalicia(), enumSuscripcion(NULL));
 
     string **categoriasVj = v->getNombreCategorias();
     dtEstadistica *puntajeVj = v->getEstadisticas("Puntaje");
@@ -447,14 +446,14 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
         dtEstadistica *horasVj = v->getEstadisticas("Horas");
         Desarrollador *d = (Desarrollador *)loggedUser;
         dtVideoJuego *datosVj = new dtVideoJuego(nombreVj,
-        string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
-        descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
+                                                 string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+                                                 descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), horasVj->getDato());
         return datosVj;
     }
     Jugador *j = (Jugador *)loggedUser;
     dtVideoJuego *datosVj = new dtVideoJuego(nombreVj,
-    string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
-    descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
+                                             string(v->getDesarrollador()->getNombreEmpresa()->getValue()),
+                                             descVj, costosVj, false, categoriasVj, puntajeVj->getDato(), -1);
     return datosVj;
 }
 
