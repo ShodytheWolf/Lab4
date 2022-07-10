@@ -48,6 +48,7 @@ public:
     dtPartidaIndividual** listarPartidasIndividuales();
     dtPartidaMultijugador** partidaAFinalizar();
     void partidaAFinalizar(int idPartida,time_t horaActual);
+    //aca
     string** comprobarPartidas(string** nombreJuegos, int t);
     void eliminarContRegisJuego(Videojuego* vj);
     void unirseAPartida(Multijugador* multi);

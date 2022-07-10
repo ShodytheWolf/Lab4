@@ -1,7 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <stdlib.h>
-#include "../bp.cpp"
+//#include "../bp.cpp"
 
 Controlador *Controlador::instance = nullptr;
 
@@ -255,6 +255,7 @@ dtVideoJuego **Controlador::listarVideojuegosDiferenciada()
     {                                                                  // itero en juegos.
         Videojuego *vj = dynamic_cast<Videojuego *>(it->getCurrent()); // videojuego en el q toy parao
         vj->addDtJuego(listJ);                                         // añado vj.
+
     }
     return listJ;
 }
@@ -277,9 +278,12 @@ void Controlador::nuevaSuscripcion(enumPago metodoDePago, enumSuscripcion tipoSu
 {
     Jugador *j = dynamic_cast<Jugador *>(loggedUser); // jugador logeau
 
-    String *clave = new String(nombreVideojuego);            // creo key
-    Videojuego *vj = (Videojuego *)videojuegos->find(clave); // casteo.
+    //String *clave = new String(nombreVideojuego);            // creo key
+    Videojuego *vj = (Videojuego *)videojuegos->find(new String(this->nombreVideojuego)); // casteo.
     j->aniadirSuscripcion(vj, tipoSuscripcion, metodoDePago, this->horaActual);
+    for(IIterator* it = videojuegos->getIterator(); it->hasCurrent(); it->next()){
+        vj = (Videojuego* ) it->getCurrent();
+    }
 }
 
 void Controlador::darDeBajaSuscripcion()
@@ -419,11 +423,14 @@ void Controlador::seleccionarPartida(int idPartida)
 
 string **Controlador::listarTodosVJ()
 {
+    if(videojuegos->isEmpty())
+        throw invalid_argument("Error: No hay videojuegos en el sistema");
     string **listVj = new string *[videojuegos->getSize() + 1];
     int i = 0;
     for (IIterator *it = videojuegos->getIterator(); it->hasCurrent(); it->next())
     {
         Videojuego *v = (Videojuego *)it->getCurrent();
+        if(videojuegos->member(v->getNombreJuego())){}
         listVj[i] = new string(v->getNombreJuego()->getValue());
         i++;
     }
@@ -458,6 +465,11 @@ dtVideoJuego *Controlador::seleccionarVideojuego(const char *nombreVideojuego)
     return datosVj;
 }
 
+/**
+ * @brief Lista los videojuego publicados por el desarrollador en sesion que no tengan partidas activas
+ * 
+ * @return string** 
+ */
 string **Controlador::listarVideojuegosPublicados()
 {
     if (this->videojuegos->isEmpty())
@@ -475,10 +487,15 @@ string **Controlador::listarVideojuegosPublicados()
         // if(vj->getDesarrollador()->getNombreEmpresa().compare(d->getNombreEmpresa()) ESTO SIN KEY PUNTERO TAMBIEN ESTRA MAL
         if (vj->getDesarrollador()->getNombreEmpresa()->compare(d->getNombreEmpresa()) == EQUAL)
         { // ESTA ES LA MANERA :D nombreEmpresa es un String*
+            //if(videojuegos->member(vj->getNombreJuego())){}
             listVJ[i] = new string(vj->getNombreJuego()->getValue());
             i++;
         }
     }
+    for(int c = i; c < tam+1; c++ ){
+        listVJ[c] = NULL;
+    }
+
     if (listVJ[0] == NULL)
         throw invalid_argument("Error: No hay ningun juego publicado por el Desarrollador");
     for (it = usuarios->getIterator(); it->hasCurrent(); it->next())
@@ -492,7 +509,6 @@ string **Controlador::listarVideojuegosPublicados()
         if (listVJ[0] == NULL)
             throw invalid_argument("Error: Todos sus VJ tienen, por lo menos, una partida activa");
     }
-    delete it;
     return listVJ;
 }
 
