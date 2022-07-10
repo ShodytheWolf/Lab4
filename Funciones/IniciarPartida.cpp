@@ -19,6 +19,7 @@ void iniciarPartida(){
 		string** juegosSuscriptos;
 		int IdPartidaAContinuar = 0;
 		string** nicksUnidos = new string*[100];//Como determino el tamanio de este array???
+		bool idCorrecto = false;
 
 
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
@@ -47,7 +48,7 @@ void iniciarPartida(){
 
 			//cout<<"antes del if del frontend"<<endl;
 			if(!juegosSuscriptos){
-				cout<<"jugador no tiene juegos suscriptos (pobre)"<<endl;
+				cout<<"Jugador no tiene juegos suscriptos"<<endl;
 				return;
 			}
 			//cout<<"despues del if del frontend"<<endl;
@@ -70,22 +71,22 @@ void iniciarPartida(){
 			
 
 
- 			cout<<"Epicardo, sera una multijugador o individual my brudda?"<<endl;
+ 			cout<<"Sera una multijugador o individual?"<<endl;
  			cout<<"1)Individual"<<endl;
- 			cout<<"2)Multijogador"<<endl;
+ 			cout<<"2)Multijugador"<<endl;
  			cin>>multiOIndividual;
 
  			switch (multiOIndividual)
  			{
 				case 1:     //INDIVIDUAL
-					cout<<"Epicardo, sera una continuacion de una anterior?"<<endl;
+					cout<<"Sera una continuacion de una anterior?"<<endl;
 					cout<<"1)NO Continuacion"<<endl;
 					cout<<"2)Continuacion"<<endl;
 					cin>>eleccion;
 
 					if(eleccion == '2'){//SI LA PARTIDA ES CONTINUADA
 						esContinuacion = true;
-						dtPartidaIndividual** partidasSeleccionadas = sistema->listoPartidasInactivas(); //siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
+						dtPartidaIndividual** partidasSeleccionadas = sistema->listoPartidasInactivas(juegoAIniciar); //siendo partidasSeleccionadas una lista en orden cronologico de dtPartidaIndividual de las partidas inactivas del usuario.
 						
 						//Controlo que las partidas que consegui no sean vacias.
 						if(!partidasSeleccionadas[0]){//asi accedo a espacios de memOwOria directamente.
@@ -102,8 +103,27 @@ void iniciarPartida(){
 							};
 							i++;
 						};
-						cout<<"Seleccione porfa el ID de la partida a continuar"<<endl;
-						cin>>IdPartidaAContinuar;
+						
+						while(true){
+							cout<<"Seleccione porfa el ID de la partida a continuar"<<endl;
+							cin>>IdPartidaAContinuar;
+
+							i = 0;
+							while(partidasSeleccionadas[i] != NULL){
+
+								if(IdPartidaAContinuar == partidasSeleccionadas[i]->getIdPartida()){
+									idCorrecto = true;
+								}
+								i++;
+							}
+
+							if(idCorrecto){
+								break;
+							}else{
+								cout<<"El Id insertado no es correcto!"<<endl;
+							}
+						}
+						
 					};
 					
 					cout<<"Desea confirmar la partida?"<<endl;
@@ -140,7 +160,7 @@ void iniciarPartida(){
 						cout<<*nicksJugadoresUnidos[i]<<endl;
 						i++;
 					};
-					//no lo tenemos en consideracion en caso de que no haya jugadores
+					//no lo tenemos en consideracion en caso de que no haya jugadores MENTIRAAAAAAAAA
 
 
 					//iteramos cuantas veces se quiera para conseguir un array con los nombres de los jugadores que se van a unir,cuidando que esten suscriptos claro.
@@ -189,18 +209,18 @@ void iniciarPartida(){
 					cout<<"Nadie deberia ser capaz de caer en esta parte del Switch c:"<<endl;
 					break;
 				default:
-					cout<<"opciOwOn invalida"<<endl;
+					cout<<"opcion invalida"<<endl;
 					return;
  			}
  		break;
 		
  		case 2:
-			cout<<"byeee~ :3"<<endl;
+			cout<<"bye"<<endl;
  			return;
  		break;
 		
  		default:
- 		cout<<"opciOwOn invalida"<<endl;
+ 		cout<<"opcion invalida"<<endl;
  			break;
  		}
     }while(optInicarPartida != 2);

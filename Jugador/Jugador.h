@@ -40,7 +40,7 @@ public:
     void aniadirSuscripcion(Videojuego* objeto, enumSuscripcion tipoSuscipcion, enumPago metodoDePago, time_t fechaSus);
     string** listarJuegosSuscripto();
     bool verificoJuego(Videojuego* vj); 
-    dtPartidaIndividual** listarPartidasFinalizadas();
+    dtPartidaIndividual** listarPartidasFinalizadas(string juegoAIniciar);
     void partidaAContinuar(dtPartidaIndividual* datosPartida);
     String* getNick(Videojuego*);
     Multijugador* iniciarMultijugador(dtPartidaMultijugador* datosPartida, Videojuego* vj, int idUltimaPartida,time_t horaActual,string** jugadoresUnidos);

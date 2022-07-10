@@ -30,7 +30,7 @@ void finalizarPartida(){
             //entiendo que iteramos ese SET de dtsPartidas para mostrar IDs, Fecha de Comienzo y el nick del juego, y si es Individual, también se muestra
            
             if(!partidasActivas[0]){
-                cout<<"No tenes ninguna partida activa BRRRROTHEEEER"<<endl;
+                cout<<"No tenes ninguna partida activa"<<endl;
                 return;
             };
 
@@ -39,7 +39,7 @@ void finalizarPartida(){
                 cout<<"\nID: "<<partidasActivas[i]->getIdPartida()<<endl
                 
                 <<"Fecha de Inicio: "<<ctime(&horaAMostrar)<<endl
-                <<"Nombre do videojogo: "<<partidasActivas[i]->getNombreVideojuego()<<endl;
+                <<"Nombre del videojuego: "<<partidasActivas[i]->getNombreVideojuego()<<endl;
 
                 if (dynamic_cast<dtPartidaIndividual*>(partidasActivas[i]))
                 {
@@ -61,7 +61,7 @@ void finalizarPartida(){
 
 
             while(true){
-                cout<<"Seleccione la partida que desea finalizar :3"<<endl;
+                cout<<"Seleccione la partida que desea finalizar"<<endl;
                 cin>>idPartidaAFinalizar;
 
                 i = 0;
@@ -77,7 +77,7 @@ void finalizarPartida(){
                 {
                     break;
                 }
-                cout<<"El ID insertado no fue encontrado :C"<<endl;
+                cout<<"El ID insertado no fue encontrado"<<endl;
             }
 
 
@@ -85,7 +85,7 @@ void finalizarPartida(){
             //segun la letra, aca tenemos que dar por finalizada la partida, que conlleva calcular la duracion de la misma en relacion a la fecha del sistema
             //y si es multi, cada jugador se retira a la misma hora c:
 
-            cout<<"Partida finalizada! :D"<<endl;
+            cout<<"Partida finalizada!"<<endl;
             return;
         break;
 
@@ -95,7 +95,7 @@ void finalizarPartida(){
         break;
         
         default:
-            cout<<"OpciOwOn Invalida"<<endl;
+            cout<<"Opcion Invalida"<<endl;
             break;
         }
 

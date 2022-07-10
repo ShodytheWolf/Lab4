@@ -134,12 +134,12 @@ string** Jugador::listarJuegosSuscripto(){
     return listaADevolver;
 } 
 
-dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
+dtPartidaIndividual** Jugador::listarPartidasFinalizadas(string juegoAIniciar){
     IIterator* it = partidasInactivas->getIterator();
     dtPartidaIndividual** listaADevolver = new dtPartidaIndividual*[this->partidasInactivas->getSize()+1];//la lista devuelta es mas grande de lo que necesita tho
 
     int cont = this->partidasInactivas->getSize();
-    cout<<"La cantidad de partidas inactivas es "<<cont<<endl;
+    //cout<<"La cantidad de partidas inactivas es "<<cont<<endl;
     int i = 0;
     while(it->hasCurrent()){
 
@@ -147,12 +147,15 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(){
             
             Individual* partidaIndi = dynamic_cast<Individual*>(it->getCurrent());//casteo
 
-            dtPartidaIndividual* dtPartidaIndi = dynamic_cast<dtPartidaIndividual*>(partidaIndi->getDtPartida());
-            //dtPartidaIndividual* partida;
-            //partida = dynamic_cast<dtPartidaIndividual*>(partidaIndi->getDtPartida());
+            //aca controlar que siempre se guarden partidas de un juego X
+            if(string(partidaIndi->getVideojuego()->getNombreJuego()->getValue()) == juegoAIniciar){
 
-            listaADevolver[i] = dtPartidaIndi;//la guardo
-            i++;
+                dtPartidaIndividual* dtPartidaIndi = dynamic_cast<dtPartidaIndividual*>(partidaIndi->getDtPartida());
+
+                listaADevolver[i] = dtPartidaIndi;//la guardo
+                i++;
+            }
+
         };
         it->next();
     }
