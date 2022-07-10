@@ -1,6 +1,7 @@
 #include "Menus.h"
  #include "../IControlador/IControlador.h"
  #include "../Fabrica/Fabrica.h"
+ #include "../bp.cpp"
 
  Fabrica* fabrica = new Fabrica();
  IControlador* sistema = fabrica->getInterface();
@@ -57,8 +58,8 @@ void finalizarPartida(){
                     }
                 };
                 i++;
-            };
 
+            };
 
             while(true){
                 cout<<"Seleccione la partida que desea finalizar"<<endl;
