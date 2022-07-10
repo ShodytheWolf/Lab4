@@ -155,6 +155,7 @@ void publicarVideojuego(){
             cout << "Presione (s/S) para confirmar o (n/N) para cancelar" << endl;
             cin >> confirmar; 
             if (confirmar == 's' || confirmar == 'S'){
+                getchar();
                 cout << "Seleccione una categoría otros (sensible a mayúsculas y minúsculas)" << endl;
                 getline(cin,inGotros,'\n');
                 system("clear");
@@ -172,7 +173,7 @@ void publicarVideojuego(){
                 i++;
                 cout << "¿Desea ingresar otra categoría (S/N)" << endl;
                 cin >> confirmar;
-                getchar();//absorbo lo que esta en inGgenero
+                //getchar();//absorbo lo que esta en inGgenero
                 if (confirmar == 'N'|| confirmar == 'n')
                     break;   
             } 
@@ -187,6 +188,7 @@ void publicarVideojuego(){
         cout << "Confirme si desea publicar un videojuego:" << endl;
         cout << "Presione (s/S) para confirmar o cualquier tecla para cancelar." << endl;
         cin >> confirmar;
+        getchar();
         if (confirmar == 's' || confirmar == 'S'){
             dtVideoJuego* datosJuegos = new dtVideoJuego(nombreVideojuego,"", descripcion, costos,"",0,0);
             controlador->publicarVideojuego(datosJuegos, listGeneros, listPlataformas, listOtros); //aca esta el drama
