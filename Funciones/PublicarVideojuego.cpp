@@ -9,6 +9,7 @@ using namespace std;
 bool verificarCat(string** , string);
 bool verificarEnLista(string** , string);
 bool verificarCat(dtCategoria** listCat, string categoria);
+bool verificarJuego(string** listJuegos, string nombreVideojuego);
 void pausa();
 void muestroList(dtCategoria** list);
 
@@ -21,7 +22,10 @@ void publicarVideojuego(){
     dtCategoria** listGeneros;
     dtCategoria** listPlataformas;
     dtCategoria** listOtros;
-    
+    string** listaJuegos;
+
+    listaJuegos = controlador->listarTodosVJ();
+
     string inGgenero = "";
     string inGplataforma = "";
     string inGotros = "";
@@ -40,7 +44,13 @@ void publicarVideojuego(){
     cout << "Ingrese nombre del videojuego: " << endl;
     getchar();
     getline(cin,nombreVideojuego,'\n');
-   
+
+    //control de existencia del juego.
+    while(verificarJuego(listaJuegos,nombreVideojuego)){
+        cout << "El nombre del videojuego ya existe. Intente nuevamente." << endl;
+        getline(cin,nombreVideojuego,'\n');
+    }
+
     cout << "Ingrese descripción del videojuego: " << endl;
     getline(cin,descripcion,'\n');
 
@@ -69,12 +79,14 @@ void publicarVideojuego(){
         do{
             cout << "Listado de generos:" << endl;
             listGeneros = controlador->listarGenero();
+            if (listGeneros[0] !=NULL){  // si la lista no esta vacia, si tiene algo en la pos 0  
             muestroList(listGeneros); //muestro  
             cout << "Seleccione  un género (sensible a mayúsculas y minúsculas): " << endl;
             getline(cin,inGgenero,'\n');
             system("clear");
-            if (listGeneros[0] !=NULL){   
-                while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero
+                while(!verificarCat(listGeneros, inGgenero)){ //si no existe genero | tengo un problema aca
+                    cout << "ingreso2: " << inGgenero << endl;
+                    cout << listGeneros[i] << endl;
                     cout << "El género ingresado no existe. Intente nuevamente." << endl;
                     muestroList(listGeneros);
                     cout << "Seleccione un género, recuerde sensibilidad a las mayúsculas y minúsculas: " << endl;
@@ -82,13 +94,15 @@ void publicarVideojuego(){
                     system("clear");
                 }
             }
-            
+            //si esta vacia tira throw el backend de listarGenero
+
             dtCategoria* addCatGenero = new dtCategoria(inGgenero, "", Genero); //paso cat al dt
             listGeneros[i] = addCatGenero;
             cout << "¿Desea ingresar otro género? (S/N)" << endl;
             cin >> confirmar;
+            getchar();//absorbo lo que esta en inGgenero
             i++;
-        }while(confirmar == 'S'); 
+        }while(confirmar == 'S' || confirmar == 's'); 
         listGeneros[i] = NULL;
         pausa();
 
@@ -112,10 +126,11 @@ void publicarVideojuego(){
             }
             dtCategoria* addCatPlataforma = new dtCategoria(inGplataforma, "", Plataforma); //paso cat al dt esta cat pasa por el control.
             listPlataformas[i] = addCatPlataforma;
-            cout << "¿Desea ingresar otra plataforma (S/N) (respete caps)" << endl;
+            cout << "¿Desea ingresar otra plataforma (S/N) (sensible a mayúsculas y minúsculas)" << endl;
             cin >> confirmar;
+            getchar();//absorbo lo que esta en inGgenero
             i++;
-        }while(confirmar == 'S');
+        }while(confirmar == 'S'|| confirmar == 's');
         listPlataformas[i] = NULL;
         pausa();
 
@@ -129,7 +144,7 @@ void publicarVideojuego(){
             cout << "Presione (s/S) para confirmar o (n/N) para cancelar" << endl;
             cin >> confirmar; 
             if (confirmar == 's' || confirmar == 'S' && confirmar != 'n' && confirmar != 'N'){
-                cout << "Seleccione una categoría otros" << endl;
+                cout << "Seleccione una categoría otros (sensible a mayúsculas y minúsculas)" << endl;
                 getline(cin,inGotros,'\n');
                 system("clear");
                 if (listOtros[0] != NULL){
@@ -146,7 +161,8 @@ void publicarVideojuego(){
                 i++;
                 cout << "¿Desea ingresar otra categoría (S/N)" << endl;
                 cin >> confirmar;
-                if (confirmar == 'N')
+                getchar();//absorbo lo que esta en inGgenero
+                if (confirmar == 'N'|| confirmar == 'n')
                     break;   
             } 
             else {
@@ -183,6 +199,16 @@ bool verificarCat(dtCategoria** listCat, string categoria){
     return false;
 }
 
+bool verificarJuego(string** listJuegos, string nombreVideojuego){
+    int i = 0;
+    while(listJuegos[i]){
+        if(listJuegos[i]->data() == nombreVideojuego)
+            return true;
+        i++;
+    }
+    return false;
+}
+
 void muestroList(dtCategoria** list){
     int i = 0;
     while (list[i]){
@@ -193,7 +219,6 @@ void muestroList(dtCategoria** list){
 
 void pausa(){
     cout << "Presione ENTER para continuar.... " << endl;
-    getchar();
     getchar();
     system("clear");
 }
