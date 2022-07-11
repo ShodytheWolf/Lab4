@@ -9,7 +9,6 @@ Individual::Individual(int idNormal, time_t fechaIniciada,double dura, Videojueg
     Integer* k = new Integer(idNormal);
     this->id = k;
     this->fechaInicio = fechaIniciada;
-    //cout<<ctime(&this->fechaInicio)<<endl;
     this->duracion = dura;
     this->vj = video;
     this->partidaContinuada = partidaAContinuar;
@@ -37,11 +36,11 @@ dtPartida* Individual::getDtPartida(){
     
     if(this->partidaContinuada == NULL){
         string nVj = string(this->vj->getNombreJuego()->getValue());
-        dtPartidaIndividual* parti = new dtPartidaIndividual(this->id->getValue(),nVj,false,0,this->getFechaInicio());
+        dtPartidaIndividual* parti = new dtPartidaIndividual(this->id->getValue(),nVj,false,0,duracion,fechaInicio);
         return parti;
 
     }else{
-        dtPartidaIndividual* parti2 = new dtPartidaIndividual(this->id->getValue(),string(this->vj->getNombreJuego()->getValue()),true,this->partidaContinuada->id->getValue(),this->getFechaInicio());
+        dtPartidaIndividual* parti2 = new dtPartidaIndividual(this->id->getValue(),string(this->vj->getNombreJuego()->getValue()),true,this->partidaContinuada->id->getValue(),duracion,this->getFechaInicio());
         return parti2;
     }
     

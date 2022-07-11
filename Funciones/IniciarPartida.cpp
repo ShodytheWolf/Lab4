@@ -20,6 +20,7 @@ void iniciarPartida(){
 		int IdPartidaAContinuar = 0;
 		string** nicksUnidos = new string*[100];//Como determino el tamanio de este array???
 		bool idCorrecto = false;
+		time_t fechaAMostrar;
 
 
   		cout<<"Bienvenido a Iniciar Partida!"<<endl;
@@ -99,7 +100,9 @@ void iniciarPartida(){
 						while(partidasSeleccionadas[i] != NULL){//HOW
 						
 							if(string(partidasSeleccionadas[i]->getNombreVideojuego()) == juegoAIniciar){//HOW
-								cout<<"ID: "<<partidasSeleccionadas[i]->getIdPartida()<<"-Duracion: "<<partidasSeleccionadas[i]->getDuracion()<<"-Fecha: "<<partidasSeleccionadas[i]->getFecha()<<endl;
+								fechaAMostrar = partidasSeleccionadas[i]->getFecha();
+								cout<<"ID: "<<partidasSeleccionadas[i]->getIdPartida()<<"-Duracion: "<<partidasSeleccionadas[i]->getDuracion()<<"-Fecha: "<<ctime(&fechaAMostrar)<<endl;
+								
 							};
 							i++;
 						};
@@ -134,7 +137,7 @@ void iniciarPartida(){
 						return;
 					};
 
-					datosPartida = new dtPartidaIndividual(0,juegoAIniciar,esContinuacion,IdPartidaAContinuar,float(0));
+					datosPartida = new dtPartidaIndividual(0,juegoAIniciar,esContinuacion,IdPartidaAContinuar,float(0),NULL);
 					sistema->confirmarIndividual(datosPartida);
 					cout<<"Partida Inicializada con exito!"<<endl;
 					return;
@@ -142,7 +145,7 @@ void iniciarPartida(){
 
 				
 				case 2://Multijugador
-					cout<<"Epicardo, sera una partida transmitida en vivo?"<<endl;
+					cout<<"Sera una partida transmitida en vivo?"<<endl;
 					cout<<"1)en vivo"<<endl;
 					cout<<"2)NO en vivo"<<endl;
 					cin>>eleccion;

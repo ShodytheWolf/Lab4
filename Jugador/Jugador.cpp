@@ -1,6 +1,6 @@
 #include "Jugador.h"
 #include "string.h"
-#include "../bp.cpp"
+//#include "../bp.cpp"
 
 Jugador::Jugador(string correo, string contrasenia, const char* nick, string descripcionJugador)
 {
@@ -160,9 +160,11 @@ dtPartidaIndividual** Jugador::listarPartidasFinalizadas(string juegoAIniciar){
         it->next();
     }
 
-    if(i == 0){
-        listaADevolver[0] = NULL;
-    }
+    // if(i == 0){
+    //     listaADevolver[0] = NULL;
+    // }
+
+    listaADevolver[i] = NULL;
     delete it;
     return listaADevolver;
 }
@@ -346,9 +348,12 @@ dtPartida** Jugador::getDtPartidasActivas(){
         it->next(); 
     }
     delete it;
-    if(c == 0){
-        listaADevolver[0] = NULL;
-    }
+
+    //if(c == 0){
+       // listaADevolver[0] = NULL;
+  //  }
+
+    listaADevolver[c] = NULL;
 
     return listaADevolver;
 }

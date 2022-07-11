@@ -288,7 +288,7 @@ void cargarIndividuales(Fabrica f){
         fecha.tm_mday = dias[i];
         fecha.tm_hour = horasIn[i];
         sistema->setFechaSistema(&fecha);
-        datosPI = new dtPartidaIndividual(0, juegos[i], continuacion[i], 1, 0);
+        datosPI = new dtPartidaIndividual(0, juegos[i], continuacion[i], 1, 0,NULL);
         id = sistema->confirmarIndividual(datosPI);
         if(i < INDIVIDUALES-1){
             cout << "Fin" <<endl;
