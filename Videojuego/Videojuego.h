@@ -47,6 +47,7 @@ public:
     Trimestral* getSuscripcionTrimestral();
     Vitalicia* getSuscripcionVitalicia();
 
+    void registrarHoras(double);
     void nuevoPuntaje(int);
     void aniadirCategoria(Categoria* cat);
     void addDtJuego(dtVideoJuego** datosJuego); //armar datos

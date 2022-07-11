@@ -157,5 +157,3 @@ void esperarEnter(){
     cin.ignore();
     system("clear");
 }
-
-

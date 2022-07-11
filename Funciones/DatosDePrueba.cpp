@@ -29,62 +29,22 @@ void cargarSuscripciones(Fabrica); //5
 void cargarPuntajes(Fabrica); //6
 void cargarIndividuales(Fabrica); //7
 void cargarMultijugador(Fabrica); //8
-void finDeFuncion();
 
 void cargarDatos(){
     Fabrica f;
-    char op = ' ';
-    do{
-        cout
-        << "Este modulo carga datos ficticios al sistema para hacer testeos del mismo\n"
-        << "Ingrese los datos que quiere cargar:\n"
-        << "1.Desarrolladores\n"
-        << "2.Jugadores\n"
-        << "3.Categorias\n"
-        << "4.Videojuegos\n"
-        << "5.Suscripciones\n"
-        << "6.Puntajes de videojuegos\n"
-        << "7.Partidas Individuales\n"
-        << "8.Partidas multijugador\n"
-        << "0.Cancelar"
-        <<endl;
-        cin >> op;
-        
-
-        switch(op){
-            case '1':
-                cargarDesarrolladores(f);
-                break;
-            case '2':
-                cargarJugadores(f);
-                break;
-            case '3':
-                cargarGeneros(f);
-                cargarPltaformas(f);
-                cargarOtros(f);
-                break;
-            case '4':
-                cargarVideojuegos(f);
-                break;
-            case '5':
-                cargarSuscripciones(f);
-                break;
-            case '6':
-                cargarPuntajes(f);
-                break;
-            case '7':
-                cargarIndividuales(f);
-                break;
-            case '8':
-                cargarMultijugador(f);
-                break;
-            case '0':
-                system("clear");
-                return;
-            default:
-                cout << "Opcion incorrecta" <<endl;
-        }
-    }while (true);    
+    cargarDesarrolladores(f);
+    cargarJugadores(f);
+    cargarGeneros(f);
+    cargarPltaformas(f);
+    cargarOtros(f);
+    cargarVideojuegos(f);
+    cargarSuscripciones(f);
+    cargarPuntajes(f);
+    cargarIndividuales(f);
+    cargarMultijugador(f);
+    cout << "Datos de prueba cargados.\nPresione <enter> para continuar"<<endl;
+    getchar(); getchar();
+    system("clear");
 }
 
 void cargarDesarrolladores(Fabrica f){
@@ -97,12 +57,6 @@ void cargarDesarrolladores(Fabrica f){
         sistema->ingresarEmpresa(empresas[i].data());
         sistema->confirmarNuevoDesarrollador();
     }
-
-    cout  << "Cargaste datos de desarrolladores" << endl;
-    cout << "Presione ENTER para continuar..." << endl;
-    getchar();
-    getchar();
-    system("clear");
 }
 
 void cargarJugadores(Fabrica f){
@@ -114,8 +68,6 @@ void cargarJugadores(Fabrica f){
         sistema->ingresarNickname(nicknames[i].data());
         sistema->confirmarNuevoJugador();
     }
-
-    finDeFuncion();
 }
 
 void cargarGeneros(Fabrica f){
@@ -146,7 +98,7 @@ void cargarOtros(Fabrica f){
     for(int i = 0; i<OTRAS; i++){
         sistema->nuevaCategoria(otros[i].data(), descripciones[i], Otro);
     }
-    finDeFuncion(); 
+     
 }
 
 void cargarVideojuegos(Fabrica f){ 
@@ -216,7 +168,7 @@ void cargarVideojuegos(Fabrica f){
 
 
 
-    finDeFuncion();
+    
 
 }  
 
@@ -244,7 +196,7 @@ void cargarSuscripciones(Fabrica f){
         sistema->nuevaSuscripcion(tipoPagos[i], tipoSus[i]);
 
     }
-    finDeFuncion();
+    
 }
 
 void cargarPuntajes(Fabrica f){
@@ -257,7 +209,7 @@ void cargarPuntajes(Fabrica f){
         sistema->confirmarSesion();
         sistema->asignarPuntaje(juegos[i].data(), puntajes[i]);
     }
-    finDeFuncion();
+    
 }
 
 void cargarIndividuales(Fabrica f){
@@ -299,7 +251,7 @@ void cargarIndividuales(Fabrica f){
             sistema->seleccionarPartida(id);
         }
     }
-    finDeFuncion();
+    
 }
 
 void cargarMultijugador(Fabrica f){
@@ -350,13 +302,5 @@ void cargarMultijugador(Fabrica f){
             sistema->seleccionarPartida(id);
         }
     }
-    finDeFuncion();
-}
-
-void finDeFuncion(){
-    cout  << "Cargaste datos correctamente." << endl;
-    cout << "Presione ENTER para continuar..." << endl;
-    getchar();
-    getchar();
-    system("clear");
+    
 }

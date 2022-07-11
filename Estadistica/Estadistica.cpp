@@ -18,6 +18,11 @@ Estadistica::~Estadistica()
 float Estadistica::getDato() {
     return this->dato;
 }
+
+void Estadistica::sumaHoras(float h){
+    this->dato += h;
+}
+
 void Estadistica::setDato(float dato) {
     this->dato = dato;
 }

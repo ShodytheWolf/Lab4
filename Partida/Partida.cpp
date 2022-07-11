@@ -45,7 +45,7 @@ void Partida::setDuracion(double duracion) {
 
 void Partida::calcularDuracion(time_t horaActual){
 
-    time_t horaDiferida = difftime(this->getFechaInicio(),horaActual);
+    time_t horaDiferida = difftime(horaActual, this->getFechaInicio());
     this->duracion += horaDiferida;
 
     this->vj->registrarHoras(horaDiferida);

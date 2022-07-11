@@ -18,6 +18,7 @@ public:
     void setDescripcion(string nuevaDesc);
     float getDato();
     void setDato(float dato);
+    void sumaHoras(float);
     dtEstadistica * getDtEstadistica();
     void calcularPromedio(int, int);
 

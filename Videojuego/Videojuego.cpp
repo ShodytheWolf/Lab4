@@ -152,3 +152,14 @@ dtEstadistica* Videojuego::getEstadisticas(const char* nStat)
 void Videojuego::setPuntajeTotal(int puntaje) {
     this->puntajeTotal += puntaje;
 }
+
+/**
+ * @brief suma la duracion que recibe a las estadisticas
+ * 
+ * @param d duracion de la partida
+ */
+void Videojuego::registrarHoras(double d){
+    Estadistica* e = (Estadistica*)estadisticas->find(new String("Horas"));
+    float hora = d/3600;
+    e->sumaHoras(hora);
+}
