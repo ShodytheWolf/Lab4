@@ -101,7 +101,7 @@ void iniciarPartida(){
 						
 							if(string(partidasSeleccionadas[i]->getNombreVideojuego()) == juegoAIniciar){//HOW
 								fechaAMostrar = partidasSeleccionadas[i]->getFecha();
-								cout<<"ID: "<<partidasSeleccionadas[i]->getIdPartida()<<"-Duracion: "<<partidasSeleccionadas[i]->getDuracion()<<"-Fecha: "<<ctime(&fechaAMostrar)<<endl;
+								cout<<"ID: "<<partidasSeleccionadas[i]->getIdPartida()<<"-Duracion: "<<partidasSeleccionadas[i]->getDuracion()<<" segundos "<<"-Fecha: "<<ctime(&fechaAMostrar)<<endl;
 								
 							};
 							i++;
