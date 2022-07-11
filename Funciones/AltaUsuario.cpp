@@ -56,7 +56,9 @@ void altaUsuario(){
         case 'j':
         case 'J':
             cout << "Para registrar un jugador ingrese su nickname: ";
-            cin >> Usrnickname;
+            getchar();
+            getline(cin,Usrnickname,'\n');
+            //cin >> Usrnickname;
             //LOOP
             //mientras que la lista no este vacia
             if (listJugadores[0]){
@@ -66,7 +68,9 @@ void altaUsuario(){
                     switch(reintento){
                         case 'S':
                         case 's':
-                            cin >> Usrnickname;
+                            cout << "Ingrese un nickname para registrar un jugador." << endl;
+                            getline(cin,Usrnickname,'\n');
+                            //cin >> Usrnickname;
                             break; //breaksito
                         case 'N':
                         case 'n':
@@ -78,13 +82,18 @@ void altaUsuario(){
             }
             controlador->ingresarNickname(Usrnickname.data());
             cout << "Ingrese una descripción: ";
-            cin >> desc;
-            getchar();
+            getline(cin,desc,'\n');
+            //getchar();
             controlador->ingresarDescripcion(desc);
             //OPT
             cout << "¿Desea confirmar?" << endl; //confirmar
             cout << "Presione (s/S) para confirmar." << endl;
             cin >> confirmacion;
+            cout << "Ha registrado un jugador." << endl;
+            cout << "Presione ENTER para continuar..."<<endl;
+            getchar();
+            getchar();
+            system("clear");
             if (confirmacion == 's' || confirmacion == 'S'){
                 controlador->confirmarNuevoJugador();
             }
