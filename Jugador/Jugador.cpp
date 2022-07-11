@@ -222,12 +222,15 @@ void Jugador::iniciarIndividual(dtPartidaIndividual* datosPartida,Videojuego* vj
          //hay que hacer
         Integer* kAnt = new Integer(datosPartida->getIdPartidaAnterior());//conseguimos la key
 
-        Individual* partiContinuada = (Individual*)partidasInactivas->find(kAnt);//conseguimos la partida ya inactiva a continuar
+        Individual* partiAnterior = (Individual*)partidasInactivas->find(kAnt);//conseguimos la partida ya inactiva a continuar
 
-        double horadiferida = difftime(partiContinuada->getFechaInicio(),horaActual);
+
+
+        //double horadiferida = difftime(partiContinuada->getFechaInicio(),horaActual);
         Integer* k = new Integer(idPartida);
+        
        
-        Individual* partiAAnadiar = new Individual(idPartida,horaActual,horadiferida,vj,partiContinuada);
+        Individual* partiAAnadiar = new Individual(idPartida,horaActual,partiAnterior->getDuracion(),vj,partiAnterior);
          
         this->partidasActivas->add(k,partiAAnadiar);
      }else{
@@ -247,8 +250,9 @@ void Jugador::partidaAFinalizar(int idPartida, time_t horaActual){
     Integer* k = new Integer(idPartida);
     Partida* parti = dynamic_cast<Partida*>(this->partidasActivas->find(k));
 
-    time_t horaDiferida = difftime(horaActual, parti->getFechaInicio());
-    parti->setDuracion(horaDiferida);
+    //time_t horaDiferida = difftime(horaActual, parti->getFechaInicio());
+    parti->calcularDuracion(horaActual);
+    //parti->setDuracion(horaDiferida);
 
 
     this->partidasInactivas->add(parti->getId(),parti);

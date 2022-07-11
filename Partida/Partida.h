@@ -24,7 +24,7 @@ public:
     virtual void setDuracion(double duracion);
     virtual dtPartida* getDtPartida() = 0;
     virtual dtPartida* getDtPartida(string papaOso) = 0;
-    void calcularDuracion();
+    void calcularDuracion(time_t horaActual);
     Videojuego* getVideojuego();
 
     bool comprobarJuego(Videojuego*);

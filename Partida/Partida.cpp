@@ -43,7 +43,13 @@ void Partida::setDuracion(double duracion) {
 //dtPartida* Partida::getDtPartida(){
 //}
 
-void Partida::calcularDuracion(){}
+void Partida::calcularDuracion(time_t horaActual){
+
+    time_t horaDiferida = difftime(this->getFechaInicio(),horaActual);
+    this->duracion += horaDiferida;
+
+    this->vj->registrarHoras(horaDiferida);
+}
 
 /**
  * @brief Comprueba si la partida es del videojuego que recibe,
