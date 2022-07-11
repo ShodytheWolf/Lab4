@@ -247,8 +247,9 @@ void Jugador::partidaAFinalizar(int idPartida, time_t horaActual){
     Integer* k = new Integer(idPartida);
     Partida* parti = dynamic_cast<Partida*>(this->partidasActivas->find(k));
 
-    time_t horaDiferida = difftime(parti->getFechaInicio(),horaActual);
+    time_t horaDiferida = difftime(horaActual, parti->getFechaInicio());
     parti->setDuracion(horaDiferida);
+
 
     this->partidasInactivas->add(parti->getId(),parti);
     this->partidasActivas->remove(parti->getId());

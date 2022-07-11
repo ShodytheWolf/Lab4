@@ -16,9 +16,6 @@ Mensual::~Mensual()
 }
 
 enumSuscripcion Mensual::getTipo(){
-	cout << this->tipo << endl;
-	getchar();
-	getchar();
 	return this->tipo;
 }
 

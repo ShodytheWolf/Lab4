@@ -279,7 +279,6 @@ void cargarIndividuales(Fabrica f){
     int horasIn[INDIVIDUALES] = {9, 15, 16}; //horas de inicio
     int horasFin[INDIVIDUALES-1] = {10, 16};
     for(int i = 0; i<INDIVIDUALES; i++){
-        cout << i <<endl;
         sistema->ingresoData(emailJdrs[i], "123", false);
         sistema->confirmarSesion();
         fecha.tm_year = anios[i];
@@ -291,7 +290,6 @@ void cargarIndividuales(Fabrica f){
         datosPI = new dtPartidaIndividual(0, juegos[i], continuacion[i], 1, 0,NULL);
         id = sistema->confirmarIndividual(datosPI);
         if(i < INDIVIDUALES-1){
-            cout << "Fin" <<endl;
             fecha.tm_year = 2021;
             fecha.tm_year -= 1900;
             fecha.tm_mon = 05; 

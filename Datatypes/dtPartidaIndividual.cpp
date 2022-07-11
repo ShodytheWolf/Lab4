@@ -5,7 +5,7 @@ dtPartidaIndividual::dtPartidaIndividual()
 
 }
 
-dtPartidaIndividual::dtPartidaIndividual(int idPart, string nombrejuego, bool conti, int IdPartidaAnt, float dura,time_t fechaIni){
+dtPartidaIndividual::dtPartidaIndividual(int idPart, string nombrejuego, bool conti, int IdPartidaAnt, double dura,time_t fechaIni){
     this->idPartida = idPart;
     this->fechaInicio = fechaIni;
     // const char* i = nombrejuego.data();
@@ -29,6 +29,6 @@ int dtPartidaIndividual::getIdPartidaAnterior(){
     return this->idPartidaAnterior;
 };
 
-float dtPartidaIndividual::getDuracion(){
+double dtPartidaIndividual::getDuracion(){
     return this->duracion;
 };

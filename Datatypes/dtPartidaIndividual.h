@@ -9,18 +9,18 @@ class dtPartidaIndividual : public dtPartida
 public:
     dtPartidaIndividual();
     //dtPartidaIndividual(int IdPartidaAContinuar, char* nombrejuego, bool esContinuada);
-    dtPartidaIndividual(int idPart, string nombrejuego, bool conti, int IdPartidaAnt, float dura,time_t fechaIni);
+    dtPartidaIndividual(int idPart, string nombrejuego, bool conti, int IdPartidaAnt, double dura,time_t fechaIni);
     //dtPartidaIndividual(char* nombrejuego, bool noEsContinuadaxD);
     ~dtPartidaIndividual();
 
     bool getContinuacion();
     int getIdPartidaAnterior();
-    float getDuracion();
+    double getDuracion();
     
 private:
     bool continuacion;
     int idPartidaAnterior;
-    float duracion;
+    double duracion;
 };
 
 #endif
